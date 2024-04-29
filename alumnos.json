@@ -7,19 +7,17 @@
     "nombre": "Auad, Gerónimo",
     "inicial": "GAU",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./01 - 57605 - Auad, Gerónimo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-02",
     "comision": "C3",
     "orden": 2,
     "legajo": 59204,
-    "nombre": "Aybar, Anibal Cesar Danie",
+    "nombre": "Aybar, Anibal Cesar Daniel",
     "inicial": "ACDA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./02 - 59204 - Aybar, Anibal Cesar Danie/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-03",
@@ -29,8 +27,7 @@
     "nombre": "Cabrera, Lucas Nahuel",
     "inicial": "LNC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./03 - 58931 - Cabrera, Lucas Nahuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-04",
@@ -40,8 +37,7 @@
     "nombre": "Calvo Maderuelo, Carlos M",
     "inicial": "CMCM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./04 - 58771 - Calvo Maderuelo, Carlos M/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-05",
@@ -51,8 +47,7 @@
     "nombre": "Camafio Terán, Nicolás",
     "inicial": "NCT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./05 - 59022 - Camafio Terán, Nicolás/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-06",
@@ -62,8 +57,7 @@
     "nombre": "Capó, Mauricio Nicolás",
     "inicial": "MNC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./06 - 58889 - Capó, Mauricio Nicolás/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-07",
@@ -73,8 +67,7 @@
     "nombre": "Carabajal, Ariadna Micael",
     "inicial": "AMC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./07 - 58770 - Carabajal, Ariadna Micael/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-08",
@@ -84,19 +77,17 @@
     "nombre": "Carrizo, Angel Nahuel",
     "inicial": "ANC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./08 - 59046 - Carrizo, Angel Nahuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-09",
     "comision": "C3",
     "orden": 9,
     "legajo": 55839,
-    "nombre": "Castillo, Ignacio Agustin",
+    "nombre": "Castillo, Ignacio Agustín",
     "inicial": "IAC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./09 - 55839 - Castillo, Ignacio Agustin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-10",
@@ -106,19 +97,17 @@
     "nombre": "Castillo, Martina",
     "inicial": "MCA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./10 - 58925 - Castillo, Martina/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-11",
     "comision": "C3",
     "orden": 11,
     "legajo": 59181,
-    "nombre": "Castro, Maria Belen",
+    "nombre": "Castro, Maria Belén",
     "inicial": "MBC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./11 - 59181 - Castro, Maria Belen/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-12",
@@ -128,8 +117,7 @@
     "nombre": "Catania, Franco Mauricio",
     "inicial": "FMC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./12 - 59016 - Catania, Franco Mauricio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-13",
@@ -139,8 +127,7 @@
     "nombre": "Cervera, Diego Octavio",
     "inicial": "DOC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./13 - 58813 - Cervera, Diego Octavio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-14",
@@ -150,19 +137,17 @@
     "nombre": "Charkiewicz, Carolina Est",
     "inicial": "CEC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./14 - 59379 - Charkiewicz, Carolina Est/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-15",
     "comision": "C3",
     "orden": 15,
     "legajo": 59027,
-    "nombre": "Chaves, Gonzalo Martin",
+    "nombre": "Chaves, Gonzalo Martín",
     "inicial": "GMC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./15 - 59027 - Chaves, Gonzalo Martin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-16",
@@ -172,8 +157,7 @@
     "nombre": "Chein, Amir Elias",
     "inicial": "AEC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./16 - 59347 - Chein, Amir Elias/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-17",
@@ -183,8 +167,7 @@
     "nombre": "Chein, Santiago",
     "inicial": "SCH",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./17 - 59315 - Chein, Santiago/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-18",
@@ -194,8 +177,7 @@
     "nombre": "Cordoba, Ignacio Leandro",
     "inicial": "ILC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./18 - 58768 - Cordoba, Ignacio Leandro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-19",
@@ -205,8 +187,7 @@
     "nombre": "Coronel, Juan Carlos",
     "inicial": "JCC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./19 - 58780 - Coronel, Juan Carlos/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-20",
@@ -216,8 +197,7 @@
     "nombre": "Coronel, Lucas Francisco",
     "inicial": "LFC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./20 - 58937 - Coronel, Lucas Francisco/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-21",
@@ -227,8 +207,7 @@
     "nombre": "Corral Garcia, Mario Maxi",
     "inicial": "MMCG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./21 - 59019 - Corral Garcia, Mario Maxi/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-22",
@@ -238,19 +217,17 @@
     "nombre": "Cruz, Francisco Sebastian",
     "inicial": "FSC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./22 - 58939 - Cruz, Francisco Sebastian/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-23",
     "comision": "C3",
     "orden": 23,
     "legajo": 59083,
-    "nombre": "Cuellar, Jose Omar",
+    "nombre": "Cuellar, José Omar",
     "inicial": "JOC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./23 - 59083 - Cuellar, Jose Omar/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-24",
@@ -260,8 +237,7 @@
     "nombre": "Cuevas, Matias Sebastián",
     "inicial": "MSC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./24 - 59063 - Cuevas, Matias Sebastián/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-25",
@@ -271,8 +247,7 @@
     "nombre": "Delani, Luca",
     "inicial": "LDE",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./25 - 57534 - Delani, Luca/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-26",
@@ -282,8 +257,7 @@
     "nombre": "Delgado, Fabricio Tobias",
     "inicial": "FTD",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./26 - 59075 - Delgado, Fabricio Tobias/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-27",
@@ -293,8 +267,7 @@
     "nombre": "Diaz Ghiggia, Guillermo",
     "inicial": "GDG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./27 - 59185 - Diaz Ghiggia, Guillermo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-28",
@@ -304,8 +277,7 @@
     "nombre": "Diaz Gómez, Andrés Dario",
     "inicial": "ADDG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./28 - 58888 - Diaz Gómez, Andrés Dario/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-29",
@@ -315,8 +287,7 @@
     "nombre": "Diaz Gonzalez, Nahuel Ale",
     "inicial": "NADG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./29 - 58844 - Diaz Gonzalez, Nahuel Ale/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-30",
@@ -326,8 +297,7 @@
     "nombre": "Diaz, Viviana Lorena",
     "inicial": "VLD",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./30 - 58956 - Diaz, Viviana Lorena/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-31",
@@ -337,8 +307,7 @@
     "nombre": "Diez Del Valle, Lucciano",
     "inicial": "LDDV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./31 - 58747 - Diez Del Valle, Lucciano/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-32",
@@ -348,8 +317,7 @@
     "nombre": "Donelli, Luciano",
     "inicial": "LDO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./32 - 58763 - Donelli, Luciano/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-33",
@@ -359,8 +327,7 @@
     "nombre": "Elizondo Carreras, Lautar",
     "inicial": "LEC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./33 - 55847 - Elizondo Carreras, Lautar/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-34",
@@ -370,8 +337,7 @@
     "nombre": "Fernandez, Gonzalo Tomas",
     "inicial": "GTF",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./34 - 55249 - Fernandez, Gonzalo Tomas/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-35",
@@ -381,8 +347,7 @@
     "nombre": "Fernandez, Ignacio",
     "inicial": "IFE",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./35 - 59183 - Fernandez, Ignacio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-36",
@@ -392,8 +357,7 @@
     "nombre": "Heredia, Fabricio Nicolás",
     "inicial": "FNH",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./36 - 57565 - Heredia, Fabricio Nicolás/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-37",
@@ -403,8 +367,7 @@
     "nombre": "Jeréz, Francisco David",
     "inicial": "FDJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./37 - 55751 - Jeréz, Francisco David/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-38",
@@ -414,8 +377,7 @@
     "nombre": "Lucena, Matias Leandro",
     "inicial": "MLL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./38 - 59184 - Lucena, Matias Leandro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-39",
@@ -425,8 +387,7 @@
     "nombre": "Martin, Leonardo Javier",
     "inicial": "LJM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./39 - 59438 - Martin, Leonardo Javier/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-40",
@@ -436,8 +397,7 @@
     "nombre": "Martinez, Maira",
     "inicial": "MMA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./40 - 59060 - Martinez, Maira/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-41",
@@ -447,8 +407,7 @@
     "nombre": "Osores Medina, Selena Pau",
     "inicial": "SPOM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./41 - 59550 - Osores Medina, Selena Pau/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-42",
@@ -458,8 +417,7 @@
     "nombre": "Pedraza, Leonardo Miguel",
     "inicial": "LMP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./42 - 55883 - Pedraza, Leonardo Miguel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-43",
@@ -469,8 +427,7 @@
     "nombre": "Peralta, Antonio Nicolás",
     "inicial": "ANP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./43 - 59197 - Peralta, Antonio Nicolás/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-44",
@@ -480,8 +437,7 @@
     "nombre": "Perez, Luciano Damian",
     "inicial": "LDP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./44 - 59092 - Perez, Luciano Damian/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-45",
@@ -491,8 +447,7 @@
     "nombre": "Robles, Ezequiel",
     "inicial": "ERO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./45 - 58951 - Robles, Ezequiel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-46",
@@ -502,8 +457,7 @@
     "nombre": "Rodriguez, Antonella Fern",
     "inicial": "AFR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./46 - 59037 - Rodriguez, Antonella Fern/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-47",
@@ -513,8 +467,7 @@
     "nombre": "Salazar, Agustina Ximena",
     "inicial": "AXS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./47 - 58884 - Salazar, Agustina Ximena/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-48",
@@ -524,8 +477,7 @@
     "nombre": "Sosa Juarez, Malena Lujan",
     "inicial": "MLSJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./48 - 58881 - Sosa Juarez, Malena Lujan/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-49",
@@ -535,8 +487,7 @@
     "nombre": "Sueldo, Leandro Antonio D",
     "inicial": "LADS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./49 - 58905 - Sueldo, Leandro Antonio D/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C3-50",
@@ -546,8 +497,7 @@
     "nombre": "Tula Nelegatti, Agustin E",
     "inicial": "AETN",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./50 - 50792 - Tula Nelegatti, Agustin E/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-01",
@@ -557,8 +507,7 @@
     "nombre": "Acosta, Facundo",
     "inicial": "FAC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./01 - 59263 - Acosta, Facundo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-02",
@@ -568,8 +517,7 @@
     "nombre": "Chazarreta Robles, María",
     "inicial": "MCR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./02 - 55505 - Chazarreta Robles, María/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-03",
@@ -579,8 +527,7 @@
     "nombre": "Ferrari, Stefano",
     "inicial": "SFE",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./03 - 50694 - Ferrari, Stefano/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-04",
@@ -590,8 +537,7 @@
     "nombre": "Juarez, Pablo Agustin",
     "inicial": "PAJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./04 - 50704 - Juarez, Pablo Agustin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-05",
@@ -601,8 +547,7 @@
     "nombre": "Lacroix, Cristian Josué",
     "inicial": "CJL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./05 - 55896 - Lacroix, Cristian Josué/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-06",
@@ -612,8 +557,7 @@
     "nombre": "Ledesma, Facundo Osvaldo",
     "inicial": "FOL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./06 - 59093 - Ledesma, Facundo Osvaldo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-07",
@@ -623,8 +567,7 @@
     "nombre": "López, Tiago Gabriel",
     "inicial": "TGL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./07 - 59200 - López, Tiago Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-08",
@@ -634,8 +577,7 @@
     "nombre": "Martin Ibarra, Patricio E",
     "inicial": "PEMI",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./08 - 59097 - Martin Ibarra, Patricio E/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-09",
@@ -645,8 +587,7 @@
     "nombre": "Medina, Álvaro Ignacio",
     "inicial": "ÁIM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./09 - 55466 - Medina, Álvaro Ignacio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-10",
@@ -656,8 +597,7 @@
     "nombre": "Paz, Octavio Emanuel",
     "inicial": "OEP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./10 - 55986 - Paz, Octavio Emanuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-11",
@@ -667,8 +607,7 @@
     "nombre": "Rmírez, Giselle Evelyn",
     "inicial": "GER",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./11 - 50657 - Rmírez, Giselle Evelyn/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-12",
@@ -678,8 +617,7 @@
     "nombre": "Rios, Yanina Gisele",
     "inicial": "YGR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./12 - 59690 - Rios, Yanina Gisele/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-13",
@@ -689,8 +627,7 @@
     "nombre": "Salazar, Santiago",
     "inicial": "SSA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./13 - 58798 - Salazar, Santiago/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-14",
@@ -700,8 +637,7 @@
     "nombre": "Valdez, Miguel Angel",
     "inicial": "MAV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./14 - 58800 - Valdez, Miguel Angel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C4-15",
@@ -711,8 +647,7 @@
     "nombre": "Villafañe Assef, Oscar Be",
     "inicial": "OBVA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./15 - 50753 - Villafañe Assef, Oscar Be/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-01",
@@ -722,8 +657,7 @@
     "nombre": "Bustos, Mauricio Benjamin",
     "inicial": "MBB",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./01 - 55680 - Bustos, Mauricio Benjamin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-02",
@@ -733,8 +667,7 @@
     "nombre": "Carranza, Javier",
     "inicial": "JCA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./02 - 55457 - Carranza, Javier/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-03",
@@ -744,8 +677,7 @@
     "nombre": "Elli Salazar, Gerónimo",
     "inicial": "GES",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./03 - 58773 - Elli Salazar, Gerónimo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-04",
@@ -755,8 +687,7 @@
     "nombre": "Fernandez Dumit, Patricio",
     "inicial": "PFD",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./04 - 55578 - Fernandez Dumit, Patricio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-05",
@@ -766,8 +697,7 @@
     "nombre": "Fernandez Gomez, Manuel A",
     "inicial": "MAFG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./05 - 58735 - Fernandez Gomez, Manuel A/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-06",
@@ -777,8 +707,7 @@
     "nombre": "Figueroa, Santiago Isaac",
     "inicial": "SIF",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./06 - 58723 - Figueroa, Santiago Isaac/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-07",
@@ -788,8 +717,7 @@
     "nombre": "Flores Gonzalez, Tomas Ag",
     "inicial": "TAFG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./07 - 58895 - Flores Gonzalez, Tomas Ag/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-08",
@@ -799,8 +727,7 @@
     "nombre": "Frias Armengol, Facundo J",
     "inicial": "FJFA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./08 - 58781 - Frias Armengol, Facundo J/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-09",
@@ -810,8 +737,7 @@
     "nombre": "Galvan, Victor Mateo",
     "inicial": "VMG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./09 - 58734 - Galvan, Victor Mateo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-10",
@@ -821,8 +747,7 @@
     "nombre": "Garcia, Máximo",
     "inicial": "MGA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./10 - 59154 - Garcia, Máximo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-11",
@@ -832,8 +757,7 @@
     "nombre": "Garcia, Sergio Martin",
     "inicial": "SMGA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./11 - 58740 - Garcia, Sergio Martin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-12",
@@ -843,8 +767,7 @@
     "nombre": "Gomez Martinez, Matias Le",
     "inicial": "MLGM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./12 - 59076 - Gomez Martinez, Matias Le/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-13",
@@ -854,8 +777,7 @@
     "nombre": "Gomez, Facundo Matias",
     "inicial": "FMG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./13 - 59135 - Gomez, Facundo Matias/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-14",
@@ -865,8 +787,7 @@
     "nombre": "Gonzalez Nacusse, Flavia",
     "inicial": "FGN",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./14 - 58894 - Gonzalez Nacusse, Flavia/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-15",
@@ -876,8 +797,7 @@
     "nombre": "Gonzalez, Mariano Emanuel",
     "inicial": "MEG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./15 - 59488 - Gonzalez, Mariano Emanuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-16",
@@ -887,8 +807,7 @@
     "nombre": "Gonzalez, Martin Natanael",
     "inicial": "MNG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./16 - 58720 - Gonzalez, Martin Natanael/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-17",
@@ -898,8 +817,7 @@
     "nombre": "Gonzalez, Silvina Mariela",
     "inicial": "SMGO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./17 - 59068 - Gonzalez, Silvina Mariela/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-18",
@@ -909,8 +827,7 @@
     "nombre": "Gutierrez, Augusto Pedro",
     "inicial": "APG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./18 - 58786 - Gutierrez, Augusto Pedro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-19",
@@ -920,8 +837,7 @@
     "nombre": "Gutierrez, Cecilia Ana Lu",
     "inicial": "CALG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./19 - 58880 - Gutierrez, Cecilia Ana Lu/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-20",
@@ -931,8 +847,7 @@
     "nombre": "Jadur, Sofia Nahir",
     "inicial": "SNJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./20 - 58687 - Jadur, Sofia Nahir/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-21",
@@ -942,8 +857,7 @@
     "nombre": "Juarez Hindi, Lucas David",
     "inicial": "LDJH",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./21 - 58736 - Juarez Hindi, Lucas David/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-22",
@@ -953,8 +867,7 @@
     "nombre": "Juarez, Lautaro Andres En",
     "inicial": "LAEJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./22 - 58761 - Juarez, Lautaro Andres En/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-23",
@@ -964,8 +877,7 @@
     "nombre": "Juarez, Milagro Macarena",
     "inicial": "MMJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./23 - 58758 - Juarez, Milagro Macarena/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-24",
@@ -975,8 +887,7 @@
     "nombre": "Juncos, Gonzalo Sebastian",
     "inicial": "GSJ",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./24 - 58721 - Juncos, Gonzalo Sebastian/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-25",
@@ -986,8 +897,7 @@
     "nombre": "Ladina, Maia Agostina",
     "inicial": "MAL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./25 - 59070 - Ladina, Maia Agostina/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-26",
@@ -997,8 +907,7 @@
     "nombre": "Lasagna, Manuel",
     "inicial": "MLA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./26 - 58737 - Lasagna, Manuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-27",
@@ -1008,8 +917,7 @@
     "nombre": "Lazarte, Agustina Milagro",
     "inicial": "AML",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./27 - 58756 - Lazarte, Agustina Milagro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-28",
@@ -1019,8 +927,7 @@
     "nombre": "Lazarte, Lucas",
     "inicial": "LLA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./28 - 58727 - Lazarte, Lucas/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-29",
@@ -1030,8 +937,7 @@
     "nombre": "Lopez Chipoloni, Agustin",
     "inicial": "ALC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./29 - 59152 - Lopez Chipoloni, Agustin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-30",
@@ -1041,8 +947,7 @@
     "nombre": "Lopez Garcia, Marcos Juli",
     "inicial": "MJLG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./30 - 58724 - Lopez Garcia, Marcos Juli/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-31",
@@ -1052,8 +957,7 @@
     "nombre": "Lopez, Fausto Agustin",
     "inicial": "FAL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./31 - 58726 - Lopez, Fausto Agustin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-32",
@@ -1063,8 +967,7 @@
     "nombre": "Lovey, Mathias Exequiel",
     "inicial": "MEL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./32 - 58729 - Lovey, Mathias Exequiel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-33",
@@ -1074,8 +977,7 @@
     "nombre": "Medina, Daiana Micaela",
     "inicial": "DMM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./33 - 59071 - Medina, Daiana Micaela/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-34",
@@ -1085,8 +987,7 @@
     "nombre": "Moyano Berrondo, Tahiel L",
     "inicial": "TLMB",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./34 - 59099 - Moyano Berrondo, Tahiel L/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-35",
@@ -1096,8 +997,7 @@
     "nombre": "Prieto, Matias Hernan",
     "inicial": "MHP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./35 - 58805 - Prieto, Matias Hernan/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-36",
@@ -1107,8 +1007,7 @@
     "nombre": "Rahman Rintoul, Ramiro",
     "inicial": "RRR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./36 - 59054 - Rahman Rintoul, Ramiro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-37",
@@ -1118,8 +1017,7 @@
     "nombre": "Reinoso, Lisandro Gabriel",
     "inicial": "LGR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./37 - 58766 - Reinoso, Lisandro Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-38",
@@ -1129,8 +1027,7 @@
     "nombre": "Rivadeneira, Lautaro",
     "inicial": "LRI",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./38 - 58753 - Rivadeneira, Lautaro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-39",
@@ -1140,8 +1037,7 @@
     "nombre": "Rodriguez, Gustavo",
     "inicial": "GRO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./39 - 58686 - Rodriguez, Gustavo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-40",
@@ -1151,8 +1047,7 @@
     "nombre": "Rojas, Carlos Augusto",
     "inicial": "CAR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./40 - 58806 - Rojas, Carlos Augusto/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-41",
@@ -1162,8 +1057,7 @@
     "nombre": "Rosello Salas, Maia Josef",
     "inicial": "MJRS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./41 - 58692 - Rosello Salas, Maia Josef/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-42",
@@ -1173,8 +1067,7 @@
     "nombre": "Salazar, Enzo Gabriel",
     "inicial": "EGS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./42 - 58873 - Salazar, Enzo Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-43",
@@ -1184,8 +1077,7 @@
     "nombre": "Stenberger, Emiliano",
     "inicial": "EST",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./43 - 55870 - Stenberger, Emiliano/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-44",
@@ -1195,8 +1087,7 @@
     "nombre": "Terrera, Augusto Dante",
     "inicial": "ADT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./44 - 58845 - Terrera, Augusto Dante/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-45",
@@ -1206,8 +1097,7 @@
     "nombre": "Teseira, Lucas Benjamin",
     "inicial": "LBT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./45 - 59052 - Teseira, Lucas Benjamin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-46",
@@ -1217,8 +1107,7 @@
     "nombre": "Touceda, Federico",
     "inicial": "FTO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./46 - 57543 - Touceda, Federico/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-47",
@@ -1228,8 +1117,7 @@
     "nombre": "Urbani, Juan Pablo",
     "inicial": "JPU",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./47 - 59064 - Urbani, Juan Pablo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-48",
@@ -1239,8 +1127,7 @@
     "nombre": "Vaca, Andres Emanuel",
     "inicial": "AEV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./48 - 59188 - Vaca, Andres Emanuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C5-49",
@@ -1250,8 +1137,7 @@
     "nombre": "Villagra, Juan Gabriel",
     "inicial": "JGV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./49 - 58899 - Villagra, Juan Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-01",
@@ -1261,8 +1147,7 @@
     "nombre": "Bulan Georgieff, Alexander",
     "inicial": "ABG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./01 - 59336 - Bulan Georgieff, Alexander/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-02",
@@ -1272,8 +1157,7 @@
     "nombre": "Caldez, María Valentina",
     "inicial": "MVC",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./02 - 59429 - Caldez, María Valentina/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-03",
@@ -1283,8 +1167,7 @@
     "nombre": "Diaz, Facundo Gabriel",
     "inicial": "FGD",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./03 - 58690 - Diaz, Facundo Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-04",
@@ -1294,8 +1177,7 @@
     "nombre": "Diaz, Manuel Lautaro",
     "inicial": "MLD",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./04 - 58876 - Diaz, Manuel Lautaro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-05",
@@ -1305,8 +1187,7 @@
     "nombre": "Fernandez Licciardi, Maur",
     "inicial": "MFL",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./05 - 58842 - Fernandez Licciardi, Maur/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-06",
@@ -1316,8 +1197,7 @@
     "nombre": "Guzmán, Esteban Leonel",
     "inicial": "ELG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./06 - 59053 - Guzmán, Esteban Leonel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-07",
@@ -1327,8 +1207,7 @@
     "nombre": "Juárez Alvarado, Agostina",
     "inicial": "AJA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./07 - 58689 - Juárez Alvarado, Agostina/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-08",
@@ -1338,8 +1217,7 @@
     "nombre": "Monaco Torrente, Matias",
     "inicial": "MMT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./08 - 59058 - Monaco Torrente, Matias/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-09",
@@ -1349,8 +1227,7 @@
     "nombre": "Morhell, Amín Gabriel",
     "inicial": "AGM",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./09 - 55773 - Morhell, Amín Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-10",
@@ -1360,8 +1237,7 @@
     "nombre": "Paz Berrondo, Nahuel Agus",
     "inicial": "NAPB",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./10 - 59310 - Paz Berrondo, Nahuel Agus/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-11",
@@ -1371,8 +1247,7 @@
     "nombre": "Peralta, Axel Rubens",
     "inicial": "ARP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./11 - 59001 - Peralta, Axel Rubens/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-12",
@@ -1382,8 +1257,7 @@
     "nombre": "Pereyra, Franco Sebastián",
     "inicial": "FSP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./12 - 58679 - Pereyra, Franco Sebastián/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-13",
@@ -1393,8 +1267,7 @@
     "nombre": "Perez, Enzo Matias",
     "inicial": "EMP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./13 - 58869 - Perez, Enzo Matias/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-14",
@@ -1404,8 +1277,7 @@
     "nombre": "Pisentte, Juan Pablo",
     "inicial": "JPP",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./14 - 59313 - Pisentte, Juan Pablo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-15",
@@ -1415,8 +1287,7 @@
     "nombre": "Reyes Gordillo, Rodrigo M",
     "inicial": "RMRG",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./15 - 52142 - Reyes Gordillo, Rodrigo M/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-16",
@@ -1426,8 +1297,7 @@
     "nombre": "Rigazio, Malena Soledad",
     "inicial": "MSR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./16 - 58874 - Rigazio, Malena Soledad/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-17",
@@ -1437,8 +1307,7 @@
     "nombre": "Rivas, Carlos Agustin",
     "inicial": "CAR",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./17 - 59389 - Rivas, Carlos Agustin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-18",
@@ -1448,8 +1317,7 @@
     "nombre": "Rivero, Lucas Gabriel",
     "inicial": "LGRI",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./18 - 58222 - Rivero, Lucas Gabriel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-19",
@@ -1459,8 +1327,7 @@
     "nombre": "Rocha, Lourdes Gabriela",
     "inicial": "LGRO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./19 - 59057 - Rocha, Lourdes Gabriela/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-20",
@@ -1470,8 +1337,7 @@
     "nombre": "Ruiu, Andrés",
     "inicial": "ARU",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./20 - 58879 - Ruiu, Andrés/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-21",
@@ -1480,9 +1346,8 @@
     "legajo": 59073,
     "nombre": "Ruiz, Tomas Federico",
     "inicial": "TFR",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./21 - 59073 - Ruiz, Tomas Federico/TP1/index.html"
+    "TP1": false,
+    "cambio": false
   },
   {
     "id": "C9-22",
@@ -1492,8 +1357,7 @@
     "nombre": "Sanchez, Tomas Emanuel",
     "inicial": "TES",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./22 - 58847 - Sanchez, Tomas Emanuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-23",
@@ -1503,8 +1367,7 @@
     "nombre": "Santin, Lautaro",
     "inicial": "LSA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./23 - 59082 - Santin, Lautaro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-24",
@@ -1514,8 +1377,7 @@
     "nombre": "Saravia, Franco Nicolas",
     "inicial": "FNS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./24 - 59055 - Saravia, Franco Nicolas/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-25",
@@ -1525,8 +1387,7 @@
     "nombre": "Saucedo, Lucas Nahuel",
     "inicial": "LNS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./25 - 59933 - Saucedo, Lucas Nahuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-26",
@@ -1536,8 +1397,7 @@
     "nombre": "Sbrocco, Micaela",
     "inicial": "MSB",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./26 - 59320 - Sbrocco, Micaela/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-27",
@@ -1547,8 +1407,7 @@
     "nombre": "Serrano, Lorenzo",
     "inicial": "LSE",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./27 - 59568 - Serrano, Lorenzo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-28",
@@ -1558,8 +1417,7 @@
     "nombre": "Soraire, Elias Nicolás",
     "inicial": "ENS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./28 - 59059 - Soraire, Elias Nicolás/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-29",
@@ -1569,8 +1427,7 @@
     "nombre": "Soria, Joaquin",
     "inicial": "JSO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./29 - 59110 - Soria, Joaquin/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-30",
@@ -1580,8 +1437,7 @@
     "nombre": "Soria, Nicole",
     "inicial": "NSO",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./30 - 59309 - Soria, Nicole/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-31",
@@ -1591,8 +1447,7 @@
     "nombre": "Sosa, Franco Maximiliano",
     "inicial": "FMS",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./31 - 58846 - Sosa, Franco Maximiliano/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-32",
@@ -1602,8 +1457,7 @@
     "nombre": "Taboada, Jose Manuel",
     "inicial": "JMT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./32 - 59084 - Taboada, Jose Manuel/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-33",
@@ -1613,8 +1467,7 @@
     "nombre": "Teseyra, Juan Ignacio",
     "inicial": "JIT",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./33 - 59074 - Teseyra, Juan Ignacio/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-34",
@@ -1624,8 +1477,7 @@
     "nombre": "Velazquez, Tobias Alejo",
     "inicial": "TAV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./34 - 58866 - Velazquez, Tobias Alejo/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-35",
@@ -1635,8 +1487,7 @@
     "nombre": "Villafañe, Lucas Gastón",
     "inicial": "LGV",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./35 - 59056 - Villafañe, Lucas Gastón/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-36",
@@ -1646,8 +1497,7 @@
     "nombre": "Yepura, Rambo Alejandro",
     "inicial": "RAY",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./36 - 59314 - Yepura, Rambo Alejandro/TP1/index.html"
+    "cambio": false
   },
   {
     "id": "C9-37",
@@ -1656,9 +1506,8 @@
     "legajo": 58730,
     "nombre": "Yñigo Lopez, Lourdes Sofi",
     "inicial": "LSYL",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./37 - 58730 - Yñigo Lopez, Lourdes Sofi/TP1/index.html"
+    "TP1": false,
+    "cambio": false
   },
   {
     "id": "C9-38",
@@ -1668,7 +1517,6 @@
     "nombre": "Zarlenga, Tobias",
     "inicial": "TZA",
     "TP1": false,
-    "cambio": false,
-    "ubicacion": "./38 - 59169 - Zarlenga, Tobias/TP1/index.html"
+    "cambio": false
   }
 ]
