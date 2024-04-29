@@ -6,8 +6,8 @@
     "legajo": 57605,
     "nombre": "Auad, Gerónimo",
     "inicial": "GAU",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./01 - 57605 - Auad, Gerónimo/TP1/index.html"
   },
   {
@@ -413,8 +413,8 @@
     "legajo": 59184,
     "nombre": "Lucena, Matias Leandro",
     "inicial": "MLL",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./38 - 59184 - Lucena, Matias Leandro/TP1/index.html"
   },
   {
@@ -1480,8 +1480,8 @@
     "legajo": 59073,
     "nombre": "Ruiz, Tomas Federico",
     "inicial": "TFR",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./21 - 59073 - Ruiz, Tomas Federico/TP1/index.html"
   },
   {
@@ -1656,8 +1656,8 @@
     "legajo": 58730,
     "nombre": "Yñigo Lopez, Lourdes Sofi",
     "inicial": "LSYL",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./37 - 58730 - Yñigo Lopez, Lourdes Sofi/TP1/index.html"
   },
   {
