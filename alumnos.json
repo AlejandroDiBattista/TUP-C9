@@ -484,7 +484,7 @@
     "comision": "C3",
     "orden": 49,
     "legajo": 58905,
-    "nombre": "Sueldo, Leandro Antonio D",
+    "nombre": "Sueldo, Leandro Antonio",
     "inicial": "LADS",
     "TP1": false,
     "cambio": false
@@ -494,7 +494,7 @@
     "comision": "C3",
     "orden": 50,
     "legajo": 50792,
-    "nombre": "Tula Nelegatti, Agustin E",
+    "nombre": "Tula Nelegatti, Agustin",
     "inicial": "AETN",
     "TP1": false,
     "cambio": false
@@ -534,7 +534,7 @@
     "comision": "C4",
     "orden": 4,
     "legajo": 50704,
-    "nombre": "Juarez, Pablo Agustin",
+    "nombre": "Juarez, Pablo Agustín",
     "inicial": "PAJ",
     "TP1": false,
     "cambio": false
@@ -574,7 +574,7 @@
     "comision": "C4",
     "orden": 8,
     "legajo": 59097,
-    "nombre": "Martin Ibarra, Patricio E",
+    "nombre": "Martin Ibarra, Patricio",
     "inicial": "PEMI",
     "TP1": false,
     "cambio": false
@@ -644,8 +644,8 @@
     "comision": "C4",
     "orden": 15,
     "legajo": 50753,
-    "nombre": "Villafañe Assef, Oscar Be",
-    "inicial": "OBVA",
+    "nombre": "Villafañe Assef, Oscar",
+    "inicial": "OVA",
     "TP1": false,
     "cambio": false
   },
@@ -694,8 +694,8 @@
     "comision": "C5",
     "orden": 5,
     "legajo": 58735,
-    "nombre": "Fernandez Gomez, Manuel A",
-    "inicial": "MAFG",
+    "nombre": "Fernandez Gomez, Manuel",
+    "inicial": "MFG",
     "TP1": false,
     "cambio": false
   },
@@ -714,8 +714,8 @@
     "comision": "C5",
     "orden": 7,
     "legajo": 58895,
-    "nombre": "Flores Gonzalez, Tomas Ag",
-    "inicial": "TAFG",
+    "nombre": "Flores Gonzalez, Tomas",
+    "inicial": "TFG",
     "TP1": false,
     "cambio": false
   },
@@ -724,8 +724,8 @@
     "comision": "C5",
     "orden": 8,
     "legajo": 58781,
-    "nombre": "Frias Armengol, Facundo J",
-    "inicial": "FJFA",
+    "nombre": "Frias Armengol, Facundo",
+    "inicial": "FFA",
     "TP1": false,
     "cambio": false
   },
@@ -754,7 +754,7 @@
     "comision": "C5",
     "orden": 11,
     "legajo": 58740,
-    "nombre": "Garcia, Sergio Martin",
+    "nombre": "Garcia, Sergio Martín",
     "inicial": "SMGA",
     "TP1": false,
     "cambio": false
@@ -764,8 +764,8 @@
     "comision": "C5",
     "orden": 12,
     "legajo": 59076,
-    "nombre": "Gomez Martinez, Matias Le",
-    "inicial": "MLGM",
+    "nombre": "Gomez Martinez, Matias",
+    "inicial": "MGM",
     "TP1": false,
     "cambio": false
   },
@@ -804,7 +804,7 @@
     "comision": "C5",
     "orden": 16,
     "legajo": 58720,
-    "nombre": "Gonzalez, Martin Natanael",
+    "nombre": "Gonzalez, Martín Natanael",
     "inicial": "MNG",
     "TP1": false,
     "cambio": false
@@ -864,8 +864,8 @@
     "comision": "C5",
     "orden": 22,
     "legajo": 58761,
-    "nombre": "Juarez, Lautaro Andres En",
-    "inicial": "LAEJ",
+    "nombre": "Juarez, Lautaro Andres",
+    "inicial": "LAJ",
     "TP1": false,
     "cambio": false
   },
