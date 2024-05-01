@@ -8,15 +8,20 @@ body {
 }
 
 .contactos {
-    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+    max-width: 2000px; 
+    margin: auto;
 }
 
 .contactos h2 {
-    color: #000;
+    color: #333;
     margin: 0;
 }
 
@@ -28,4 +33,7 @@ body {
 .miClase {
     background-color: #000;
     color: #fff;
+}
+h1{
+    text-align: center;
 }
