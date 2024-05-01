@@ -5,3 +5,46 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.contacto{
+    height: 200px;
+    width: 30%;
+    background-color: darkseagreen;
+    color:black ;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+.contactos{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: coral;
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.Yo {
+    height: 200px;
+    width: 30%;
+    background-color: darkred;
+    color: black;
+    border:10px double black;
+    text-align: center;
+}
+
+.clase{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
