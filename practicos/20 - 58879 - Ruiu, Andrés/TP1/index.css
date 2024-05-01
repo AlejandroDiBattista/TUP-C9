@@ -1,7 +1,88 @@
 body {
-    background-color: #f0f0f0;
+    background: url('./img/patron-papel.jpg');
+    background-repeat: repeat;
+    background-size: 150px 150px;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     box-sizing: border-box;
+    transition: filter 0.3s ease-in-out;
+}
+
+body h2, h1{
+    text-align: center;
+}
+
+body ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px;
+    list-style-type: none;
+    background-color: rgba(228, 215, 188, 0.418);
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 5%;
+}
+
+body ul li{
+    border: 1px solid rgba(165, 42, 42, 0.767);
+    border-radius: 3px 20px 3px 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+body ul li:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    z-index: 1;
+}
+
+body ul li span{
+    font-weight: bolder;
+}
+
+body #datos-personales{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+body #datos-personales #datos{
+    border: 1px solid rgba(165, 42, 42, 0.767);
+    border-radius: 3px 30px 3px 30px;
+    padding: 10px 20px 10px 20px;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    transition: transform 0.3s ease-in-out;
+}
+
+body #datos-personales #datos:hover{
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+body #datos-personales #datos #nombre-apellido{
+    font-size: 20px;
+    color: rgba(165, 42, 42, 0.767);
+}
+
+div #identidad-contacto{
+    font-size: 20px;
+    color: rgba(165, 42, 42, 0.767);
+    display: flex;
+    justify-content: space-between;
+}
+
+div #identidad-contacto span{
+    padding-top: 10px;
+}
+
+div #identidad-contacto img{
+    width: 20%;
+    border-radius: 50%;
 }
