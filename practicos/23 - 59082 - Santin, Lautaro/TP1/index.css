@@ -5,3 +5,14 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.contactos{
+    background-color: gray;
+    border: 2px solid black;
+    margin: 10px;
+    padding-left: 10px;
+}
+
+#titulo{
+    padding-left: 610px;
+}
