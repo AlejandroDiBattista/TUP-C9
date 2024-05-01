@@ -1,7 +1,29 @@
-body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+.App {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .contact-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .contact-card p {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  }
+
+  
