@@ -1,7 +1,44 @@
 body {
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo pastel */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+  }
+  
+  .agenda {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas según el ancho mínimo y fracciones iguales */
+    gap: 30px; /* Espacio entre las tarjetas */
+    padding: 20px;
+  }
+  
+  
+  .tarjeta {
+    background-color: #f9f9f9; /* Color de fondo para cada tarjeta */
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 1s ease;
+  }
+ 
+
+.tarjeta:hover {
+    transform: rotate(500deg);/* Movimiento hacia arriba y hacia la izquierda al pasar el mouse */
 }
+  
+  .tarjeta h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333; /* Color de texto */
+  }
+  
+  .tarjeta p {
+    margin: 0;
+    color: #666; /* Color de texto secundario */
+  }
+  
+
+  
