@@ -10,8 +10,8 @@ h1 {
     background-color: #d4af37;
     padding: 10px;
     border: 1px solid;
-    margin: 2% auto; /* Centro el título vertical y horizontalmente con un margen del 2% */
-    width: fit-content; /* Ajusta el ancho del título al contenido */
+    margin: 2% auto;
+    width: fit-content;
 }
 
 h2 {
