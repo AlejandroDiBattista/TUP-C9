@@ -1,7 +1,42 @@
+
 body {
-    background-color: #f0f0f0;
+    background-color: #f5f5f0; 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #6d4c00; 
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; 
+    width: 80%; 
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 15px; 
+    border: 2px solid #d2b48c;  
+    border-radius: 8px; 
+    background-color: #fff;
+}
+
+p {
+    margin: 0;
+}
+
+p:nth-child(odd) {
+    font-weight: bold;
 }
