@@ -1,7 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
 body {
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: "PT Serif", serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f2e8cf ;
 }
+
+#A1{
+    font-size: 50px;
+    font-style: italic;
+    color: #bc4749 ;
+    background-color: #f2e8cf ;
+}
+.agenda-container {
+    text-align: center; 
+    margin-top: 50px; 
+  }
+  
+  .agenda {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tarjeta {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 60px;
+    margin: 50px auto; 
+    width: 1000px;
+    text-align: center;
+    color: #386641;
+    background-color: #a7c9573a;
+  }
+  
+  .nombre {
+    font-weight: bold;
+    font-size: 40px;
+  }
+  
+  .telefono {
+    font-size: 23px;
+    margin-top: 5px;
+  }
+  
