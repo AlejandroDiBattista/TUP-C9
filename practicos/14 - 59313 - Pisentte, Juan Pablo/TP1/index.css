@@ -1,7 +1,32 @@
-body {
-    background-color: #f0f0f0;
+
+.agenda {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  
+  .contacto {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    
+  }
+  
+  .contacto h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .contacto p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #666;
+  }
+  
