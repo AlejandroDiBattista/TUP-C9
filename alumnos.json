@@ -943,8 +943,8 @@
     "legajo": 58786,
     "nombre": "Gutierrez, Augusto Pedro",
     "inicial": "APG",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./18 - 58786 - Gutierrez, Augusto Pedro/TP1/index.html"
   },
   {
@@ -987,8 +987,8 @@
     "legajo": 58761,
     "nombre": "Juarez, Lautaro Andres",
     "inicial": "LAJ",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./22 - 58761 - Juarez, Lautaro Andres/TP1/index.html"
   },
   {
@@ -1185,8 +1185,8 @@
     "legajo": 58806,
     "nombre": "Rojas, Carlos Augusto",
     "inicial": "CAR",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./40 - 58806 - Rojas, Carlos Augusto/TP1/index.html"
   },
   {
@@ -1284,8 +1284,8 @@
     "legajo": 58899,
     "nombre": "Villagra, Juan Gabriel",
     "inicial": "JGV",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./49 - 58899 - Villagra, Juan Gabriel/TP1/index.html"
   },
   {
