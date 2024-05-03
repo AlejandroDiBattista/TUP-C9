@@ -1,7 +1,40 @@
 body {
-    background-color: #f0f0f0;
+    background-color: #f58cab;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 15;
+    padding: 15;
+    box-sizing: Padding-Box;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.contacto{
+    height: 150px;
+    width: 50%;
+    background-color: rgb(187, 93, 144);
+    color:rgb(0, 0, 0) ;
+    margin-bottom: 25px;
+    border: 6px solid black;
+}
+.contactos{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #f58cab;
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+.clase{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
 }
