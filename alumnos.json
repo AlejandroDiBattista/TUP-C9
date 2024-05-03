@@ -149,8 +149,8 @@
     "legajo": 59379,
     "nombre": "Charkiewicz, Carolina Est",
     "inicial": "CEC",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./14 - 59379 - Charkiewicz, Carolina Est/TP1/index.html"
   },
   {
