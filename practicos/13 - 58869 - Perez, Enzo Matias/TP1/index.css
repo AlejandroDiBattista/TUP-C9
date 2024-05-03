@@ -1,7 +1,46 @@
+
 body {
-    background-color: #f0f0f0;
+    background-color: #feaf77;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+h1 {
+    color: rgb(59, 20, 235);
+    font-family:  'Arial Narrow Bold', sans-serif;
+    padding: 12px;
+    border: 10px solid;
+    border-color: rgb(255, 252, 152);
+    text-align: left; 
+    translate: 10%;
+    border-radius: 30px; 
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    font-style: oblique;
+  }
+
+  .contactos
+  {
+    margin: 50px;
+    font-family: Tahoma;
+    padding: 12px;
+    border: 5px solid;
+    border-color: rgb(252, 252, 131);
+    line-height: 150%;
+    display: inline-block;
+    border-radius: 30px; 
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-style:oblique;
+    
+  }
+
+  h2{
+    color:rgb(11, 159, 204)
+  }
+
+  p{
+    color: rgb(27, 42, 240);
+  }
