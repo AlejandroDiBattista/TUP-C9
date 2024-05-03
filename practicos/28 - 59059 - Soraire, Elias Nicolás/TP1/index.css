@@ -1,7 +1,46 @@
 body {
-    background-color: #f0f0f0;
+    background-color: #383838;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: monospace;
+}
+h1 {
+    background-color: #d4af37;
+    padding: 10px;
+    border: 1px solid;
+    margin: 2% auto;
+    width: fit-content;
+}
+
+h2 {
+    background-color: #d4af37;
+    padding: 10px;
+    border: 1px solid;
+    margin: 2% auto;
+    width: fit-content;
+}
+.persona {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #383838;
+    transition: transform 0.2s ease-in-out;
+}
+
+.persona:hover {
+    transform: scale(1.05);
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    max-width: 100%;
+}
+li{
+    font-size: 20px;
+    color: #ccc;
 }
