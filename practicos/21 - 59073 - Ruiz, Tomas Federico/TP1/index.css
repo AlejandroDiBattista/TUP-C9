@@ -4,4 +4,36 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #333;
+}
+
+.contactos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 1500px; 
+    margin: 10px auto;
+}
+
+.contactos h2 {
+    color: #333;
+    margin: 0;
+}
+
+.contactos p {
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+.fondo {
+    background-color: #000;
+    color: #fff;
+}
+h1{
+    text-align: center;
 }
