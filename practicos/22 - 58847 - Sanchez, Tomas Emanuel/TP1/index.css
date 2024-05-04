@@ -25,7 +25,7 @@ body {
  
 
 .tarjeta:hover {
-    transform: rotate(500deg);/* Movimiento hacia arriba y hacia la izquierda al pasar el mouse */
+    transform: rotate(360deg);/* Movimiento hacia arriba y hacia la izquierda al pasar el mouse */
 }
   
   .tarjeta h2 {

@@ -24,7 +24,7 @@ const ListaContactos = ({ contactos }) => {
             <div>
               <div id="identidad-contacto">
                 <span >{contacto.nombre} {contacto.apellido} </span>
-                <img src={imagenes[index]} alt="Foto de perfil"/>
+                <img src={imagenes[index]} alt="Foto de perfil" />
               </div>
               <b>Email</b>: {contacto.email} <br />
             </div>

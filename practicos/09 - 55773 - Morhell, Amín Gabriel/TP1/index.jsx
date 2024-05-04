@@ -1,11 +1,10 @@
 
-const Contacto = ({nombre, apellido, telefono}) => (
-    <div>
-      <h3>{nombre} <b>{apellido}</b></h3>
-      <p>Telefono: {telefono}</p>
-
-    </div>
-  );
+const Contacto = ({ nombre, apellido, telefono }) => (
+  <div>
+    <h3>{nombre} <b>{apellido}</b></h3>
+    <p>Telefono: {telefono}</p>
+  </div>
+);
 
 const contactos = [
   { id: 1, nombre: 'Pedro', apellido: 'Sanchez', telefono: '123456789' },
@@ -15,15 +14,15 @@ const contactos = [
 
 const Agenda = () => (
   <div id='main'>
-      <h1>Agenda</h1>
-     {contactos.map(contacto => (
-      
-     <Contacto 
+    <h1>Agenda</h1>
+    {contactos.map(contacto => (
+
+      <Contacto
         key={contacto.id}
-        nombre= {contacto.nombre}
+        nombre={contacto.nombre}
         apellido={contacto.apellido}
-        telefono={contacto.telefono}/>
-     ))}
+        telefono={contacto.telefono} />
+    ))}
   </div>
 );
 

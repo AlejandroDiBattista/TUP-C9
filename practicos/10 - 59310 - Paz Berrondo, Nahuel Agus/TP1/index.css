@@ -1,33 +1,30 @@
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
-h1{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: white;
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
 }
+
 .contacto {
+  background-color: rgb(34, 34, 34);
+  border-radius: 30px;
+  padding: 1px;
+  margin-bottom: 10px;
+}
 
-    background-color: rgb(34, 34, 34);
-    border-radius: 30px;
-    padding: 1px;
-    margin-bottom: 10px;
-    
-  }
-  
-  .contacto h3 {
-    margin-top: 1%;
-    margin-left: 1%;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+.contacto h3 {
+  margin-top: 1%;
+  margin-left: 1%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
 
-  }
-  
-  .contacto p {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 1%;
-    color: white;
-    margin-bottom: 1%;
-    
-  }
-
+.contacto p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 1%;
+  color: white;
+  margin-bottom: 1%;
+}
