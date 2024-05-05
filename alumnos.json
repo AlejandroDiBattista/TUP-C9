@@ -1165,7 +1165,10 @@
     "inicial": "LRI",
     "TP1": true,
     "cambio": true,
-    "ubicacion": "./38 - 58753 - Rivadeneira, Lautaro/TP1/index.html"
+    "ubicacion": "./38 - 58753 - Rivadeneira, Lautaro/TP1/index.html",
+    "copia": [
+      "TP1|C5-42"
+    ]
   },
   {
     "id": "C5-39",
@@ -1209,7 +1212,10 @@
     "inicial": "EGS",
     "TP1": true,
     "cambio": true,
-    "ubicacion": "./42 - 58873 - Salazar, Enzo Gabriel/TP1/index.html"
+    "ubicacion": "./42 - 58873 - Salazar, Enzo Gabriel/TP1/index.html",
+    "copia": [
+      "TP1|C5-38"
+    ]
   },
   {
     "id": "C5-43",
@@ -1582,8 +1588,8 @@
     "legajo": 59320,
     "nombre": "Sbrocco, Micaela",
     "inicial": "MSB",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./26 - 59320 - Sbrocco, Micaela/TP1/index.html"
   },
   {
