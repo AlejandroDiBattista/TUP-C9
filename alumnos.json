@@ -921,8 +921,8 @@
     "legajo": 58720,
     "nombre": "Gonzalez, Martín Natanael",
     "inicial": "MNG",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./16 - 58720 - Gonzalez, Martín Natanael/TP1/index.html"
   },
   {
@@ -1064,8 +1064,8 @@
     "legajo": 59152,
     "nombre": "Lopez Chipoloni, Agustin",
     "inicial": "ALC",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./29 - 59152 - Lopez Chipoloni, Agustin/TP1/index.html"
   },
   {
@@ -1108,8 +1108,8 @@
     "legajo": 59071,
     "nombre": "Medina, Daiana Micaela",
     "inicial": "DMM",
-    "TP1": false,
-    "cambio": false,
+    "TP1": true,
+    "cambio": true,
     "ubicacion": "./33 - 59071 - Medina, Daiana Micaela/TP1/index.html"
   },
   {
