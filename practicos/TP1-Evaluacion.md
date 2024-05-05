@@ -47,6 +47,10 @@
 ## 25
 * ok
 
+## 26
+* ok
+* usa una clase "cursiva" en lugar de <i></i>
+
 ## 28
 * ok
 * muestra campos innecesarios
