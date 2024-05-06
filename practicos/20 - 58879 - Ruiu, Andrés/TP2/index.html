@@ -38,11 +38,15 @@
 
         .agenda {
             margin-top: 16px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: start;
 
-            >div {
+            >.contactos{
+                margin-top: 16px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: start;
+                
+                
+                >div {
                 text-align: center;
                 width: 240px;
                 height: 96px;
@@ -63,6 +67,11 @@
                     text-align: right;
                     font-size: 14px;
                 }
+
+                i{
+                    cursor: pointer;
+                }
+            }
             }
         }
 
@@ -134,25 +143,65 @@
     <script type="text/babel">
         const { createRoot } = ReactDOM
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+        const Contacto = ({ contacto, actualizarContacto }) => {
+            const { id, nombre, apellido, telefono, favorito } = contacto;
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+            const favoritoClick = () => {
+                actualizarContacto({
+                    ...contacto,
+                    favorito: !favorito
+                });
+            };
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+            return (
+                <div className="card">
+                    <span onClick={favoritoClick} style={{ color: favorito ? 'gold' : 'gray' }}>
+                        {favorito ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}
+                    </span>
+                    <div>{nombre} <b>{apellido}</b></div>
+                    <div>{telefono}</div>
+                </div>
+            );
+        }
 
-        const root = createRoot(document.getElementById('root'))
+        const Agenda = ({ datos, actualizarContacto }) => {
+            const contactosOrdenados = datos.sort((a, b) => `${a.apellido} ${a.nombre}`.localeCompare(`${b.apellido} ${b.nombre}`))
+
+            const favoritos = contactosOrdenados.filter(contacto => contacto.favorito)
+            const noFavoritos = contactosOrdenados.filter(contacto => !contacto.favorito)
+
+            return (
+                <div className="agenda">
+                    <h2>Favoritos</h2>
+                    <div className="contactos">
+                        {favoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}    
+                    </div>
+                    <div className="contactos">
+                        {noFavoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}    
+                    </div>
+                </div>
+            )
+        }
+
+        const App = () => {
+            const [contactos, setContactos] = React.useState(datos);
+
+            const actualizarContacto = (contactoActualizado) => {
+                setContactos(contactos.map(contacto => contacto.id === contactoActualizado.id ? contactoActualizado : contacto));
+            }
+
+            return (
+                <div>
+                    <h1>Agenda</h1>
+                    <Agenda datos={contactos} actualizarContacto={actualizarContacto} />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(<App />);
+
+
     </script>
 </body>
 
