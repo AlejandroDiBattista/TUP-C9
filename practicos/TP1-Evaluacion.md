@@ -68,3 +68,7 @@
 ## 34
 * ok
 * errores de ortografía "TelÃ©fono"
+
+## 35
+* No funciona. 
+* En lugar de mostrar una agenda Agrega y Borra contactos
