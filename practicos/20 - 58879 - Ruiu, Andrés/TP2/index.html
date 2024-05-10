@@ -39,39 +39,39 @@
         .agenda {
             margin-top: 16px;
 
-            >.contactos{
+            >.contactos {
                 margin-top: 16px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: start;
-                
-                
+
+
                 >div {
-                text-align: center;
-                width: 240px;
-                height: 96px;
-                position: relative;
+                    text-align: center;
+                    width: 240px;
+                    height: 96px;
+                    position: relative;
 
-                span {
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                }
+                    span {
+                        position: absolute;
+                        top: 8px;
+                        right: 8px;
+                    }
 
-                div {
-                    margin-top: 25px;
-                    font-size: 20px;
-                }
+                    div {
+                        margin-top: 25px;
+                        font-size: 20px;
+                    }
 
-                div:last-child {
-                    text-align: right;
-                    font-size: 14px;
-                }
+                    div:last-child {
+                        text-align: right;
+                        font-size: 14px;
+                    }
 
-                i{
-                    cursor: pointer;
+                    i {
+                        cursor: pointer;
+                    }
                 }
-            }
             }
         }
 
@@ -80,6 +80,7 @@
             padding: 16px;
             margin: 8px;
             border-radius: 8px;
+            border: 1px solid black;
 
             label {
                 display: block;
@@ -107,6 +108,7 @@
                     border-radius: 4px;
                     font-size: 14px;
                     cursor: pointer;
+                    border: 1px solid black;
                 }
             }
         }
@@ -146,16 +148,9 @@
         const Contacto = ({ contacto, actualizarContacto }) => {
             const { id, nombre, apellido, telefono, favorito } = contacto;
 
-            const favoritoClick = () => {
-                actualizarContacto({
-                    ...contacto,
-                    favorito: !favorito
-                });
-            };
-
             return (
                 <div className="card">
-                    <span onClick={favoritoClick} style={{ color: favorito ? 'gold' : 'gray' }}>
+                    <span onClick={() => actualizarContacto({ ...contacto, favorito: !favorito })} style={{ color: favorito ? 'gold' : 'gray' }}>
                         {favorito ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}
                     </span>
                     <div>{nombre} <b>{apellido}</b></div>
@@ -174,10 +169,10 @@
                 <div className="agenda">
                     <h2>Favoritos</h2>
                     <div className="contactos">
-                        {favoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}    
+                        {favoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}
                     </div>
                     <div className="contactos">
-                        {noFavoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}    
+                        {noFavoritos.map(contacto => <Contacto key={contacto.id} contacto={contacto} actualizarContacto={actualizarContacto} />)}
                     </div>
                 </div>
             )
@@ -186,22 +181,16 @@
         const App = () => {
             const [contactos, setContactos] = React.useState(datos);
 
-            const actualizarContacto = (contactoActualizado) => {
-                setContactos(contactos.map(contacto => contacto.id === contactoActualizado.id ? contactoActualizado : contacto));
-            }
-
             return (
                 <div>
                     <h1>Agenda</h1>
-                    <Agenda datos={contactos} actualizarContacto={actualizarContacto} />
+                    <Agenda datos={contactos} actualizarContacto={(contactoActualizado) => setContactos(contactos.map(contacto => contacto.id === contactoActualizado.id ? contactoActualizado : contacto))} />
                 </div>
             );
         }
 
         const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(<App />);
-
-
     </script>
 </body>
 
