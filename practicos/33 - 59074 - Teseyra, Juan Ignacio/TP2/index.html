@@ -7,10 +7,10 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Iconos FontAwesome -->
+    <script src="https://fontawesome.com/icons"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <title>Demo 1</title>
+    <title>59074</title>
     <style>
         /* reset */
         body {
@@ -101,6 +101,14 @@
                 }
             }
         }
+        .fav-indicator{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: gold;
+        }
+        
+                
     </style>
 </head>
 
@@ -131,29 +139,49 @@
         ]
     </script>
 
-    <script type="text/babel">
-        const { createRoot } = ReactDOM
+<script type="text/babel">
+    const { createRoot } = ReactDOM
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+const Contacto = ({ nombre, apellido, telefono, favorito, onToggleFavorito }) =>
+    <div className="card">
+        <div>{nombre} <b>{apellido}</b></div>
+        <div>{telefono}</div>
+        {favorito && <span className="fav-indicator"><i className="fas fa-star"></i></span>}
+        <button onClick={onToggleFavorito}>{favorito ? 'Desmarcar' : 'Marcar'} como favorito</button>
+    </div>
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+const Agenda = ({ datos }) => {
+    datos.sort((a, b) => {
+        if(a.favorito !== b.favorito){
+            return a.favorito ? -1 : 1;
+        }
+        return(a.apellido + a.nombre).localeCompare(b.apellido + b.apellido);
+    });
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+    return(
+        <div className="agenda">
+            {datos.map(contacto => (
+            <Contacto
+            key={contacto.id}
+            {...contacto}
+            onToggleFavorito={() =>{
+                    contacto.favorito = !contacto.favorito;
+                    root.render(<App />);
+                    }}
+                />
+            ))}
+        </div>
+        );
+    };
+const App = () =>
+    <div>
+        <h1>Agenda</h1>
+        <Agenda datos={datos} />
+    </div>
 
-        const root = createRoot(document.getElementById('root'))
-        root.render(<App />);
-    </script>
+const root = createRoot(document.getElementById('root'))
+root.render(<App />);
+</script>
 </body>
 
 </html>
