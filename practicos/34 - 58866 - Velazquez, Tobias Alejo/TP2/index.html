@@ -108,7 +108,7 @@
     <div id="root"></div>
     <script>
         const datos = [
-            { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
+        { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
             { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
             { id: 3, nombre: 'Pedro', apellido: 'Gonzalez', telefono: '(381) 123-4567', favorito: true },
             { id: 4, nombre: 'Ana', apellido: 'Fernandez', telefono: '(381) 123-4567', favorito: false },
@@ -138,6 +138,8 @@
             <div className="card">
                 <div>{nombre} <b>{apellido}</b></div>
                 <div>{telefono}</div>
+                {favorito && <span className="fav-indicator"><i className="fas fa-star"></i></span>}
+                <button onClick="{onToggleFavorito}>{favorito ? 'Desmarcar' : 'Marcar'} como favorito"></button>
             </div>
 
         const Agenda = ({ datos }) =>
