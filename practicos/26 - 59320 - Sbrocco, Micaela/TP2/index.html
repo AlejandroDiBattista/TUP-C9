@@ -106,7 +106,9 @@
 
 <body>
     <div id="root"></div>
-    <script>
+    <script type = "text/babel">
+        const { useState } = React;
+
         const datos = [
             { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
             { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
@@ -129,30 +131,76 @@
             { id: 19, nombre: 'Cecilia', apellido: 'Carrizo', telefono: '(381) 123-4567', favorito: true },
             { id: 20, nombre: 'Facundo', apellido: 'Paez', telefono: '(381) 123-4567', favorito: false }
         ]
-    </script>
+        const Contacto = ({ id, nombre, apellido, telefono, favorito, marcarFavorito }) => {
+            const hacerClick = () => {
+                marcarFavorito(id);
+            };
 
-    <script type="text/babel">
-        const { createRoot } = ReactDOM
+            return (
+                <div className="card">
+                    <div>{nombre} <b>{apellido}</b></div>
+                    <div>{telefono}</div>
+                    <span className="favorito-indicador" onClick={hacerClick}>
+                        {favorito ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}
+                    </span>
+                </div>
+            );
+        };
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+    const Agenda = ({ datos, marcarFavorito }) => 
+    {
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+    const favoritos = datos.filter(contacto => contacto.favorito).sort((a, b) => {
+        const compararApellido = a.apellido.localeCompare(b.apellido);
+        if (compararApellido !== 0) {
+            return compararApellido;
+        }
+        return a.nombre.localeCompare(b.nombre);
+    });
+    
+    const noFavoritos = datos.filter(contacto => !contacto.favorito).sort((a, b) => {
+        const compararApellido = a.apellido.localeCompare(b.apellido);
+        if (compararApellido !== 0) {
+            return compararApellido;
+        }
+        return a.nombre.localeCompare(b.nombre);
+    });
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+    const contactosOrdenados = [...favoritos, ...noFavoritos];
 
-        const root = createRoot(document.getElementById('root'))
-        root.render(<App />);
+    return (
+        <div className="agenda">
+            {contactosOrdenados.map(contacto => (
+                <Contacto key={contacto.id} {...contacto} marcarFavorito={marcarFavorito} />
+            ))}
+        </div>
+    );
+    };
+        const App = () => {
+            const [contactos, setContactos] = useState(datos);
+
+            const toggleFavorito = id => {
+                setContactos(prevContactos => {
+                    return prevContactos.map(contacto => {
+                        if (contacto.id === id) {
+                            return { ...contacto, favorito: !contacto.favorito };
+                        }
+                        return contacto;
+                    });
+                });
+            };
+
+            return (
+                <div>
+                    <h1>Agenda</h1>
+                    <Agenda datos={contactos} marcarFavorito={toggleFavorito} />
+                </div>
+            );
+        };
+
+        const root = document.getElementById('root');
+        ReactDOM.render(<App />, root);
+
     </script>
 </body>
 
