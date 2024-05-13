@@ -10,14 +10,15 @@
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <title>Demo 1</title>
+    <title>52142</title>
     <style>
         /* reset */
         body {
+            
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #35251e;
         }
 
         #root {
@@ -32,7 +33,7 @@
             padding: 16px;
             margin: 4px;
             border-radius: 8px;
-            background-color: #ffffff;
+            background-color: #d37f20;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -106,10 +107,12 @@
 
 <body>
     <div id="root"></div>
+
+
     <script>
         const datos = [
             { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
-            { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
+            { id: 2, nombre: 'Fausto', apellido: 'Perez', telefono: '(381) 123-4567', favorito: false },
             { id: 3, nombre: 'Pedro', apellido: 'Gonzalez', telefono: '(381) 123-4567', favorito: true },
             { id: 4, nombre: 'Ana', apellido: 'Fernandez', telefono: '(381) 123-4567', favorito: false },
             { id: 5, nombre: 'Lucas', apellido: 'Rodriguez', telefono: '(381) 123-4567', favorito: true },
@@ -132,28 +135,87 @@
     </script>
 
     <script type="text/babel">
+
+        
+        const comparacion = (a,b) => {
+            
+            if (a.apellido < b.apellido) return -1
+            if (a.apellido > b.apellido) return 1
+            
+            if (a.nombre < b.nombre) return -1
+            if (a.nombre > b.nombre) return 1
+            return 0
+        }
+
+        
+        const Fav = ({estrella, like}) =>
+        
+        <span onClick={like}> {estrella ?
+            <i className="fa-solid fa-star" style={{ color: 'yellow' }}></i>:
+            <i className="fa-regular fa-star"></i>
+        }
+        </span>
+        
         const { createRoot } = ReactDOM
+        
+        
+        const Mostrar =(e) => alert('Hola' + e.target.tagName)
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+        const Contacto = ({ id, nombre, apellido, telefono,favorito, toggleFavorito }) =>{
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+            const darLike = () => toggleFavorito(id);
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+            return (
+
+                <div className="card">
+                    <Fav estrella={favorito} like={darLike} />
+                    <div>{nombre} <b>{apellido}</b></div>
+                    <div>{telefono}</div>
+                </div>
+
+            )
+        }
+
+
+
+        const Agenda = ({ datos, toggleFavorito }) => {
+            const favoritos = datos.filter((contacto) => contacto.favorito).sort(comparacion);
+            const resto = datos.filter((contacto) => !contacto.favorito).sort(comparacion);
+
+            return <div>
+                <div className="agenda">
+                    {favoritos.map(contacto => <Contacto key={contacto.id} {...contacto} toggleFavorito={toggleFavorito}/>)}
+                </div>
+                <div className="agenda">
+                    {resto.map(contacto => <Contacto key={contacto.id} {...contacto} toggleFavorito={toggleFavorito} />)}
+                </div>
+                </div>
+        }
+        const App = () => {
+        const [contactos, setContactos] = React.useState(datos);
+
+        const toggleFavorito = (id) => {
+        setContactos((prevContactos) =>
+            prevContactos.map((contacto) =>
+                contacto.id === id ? { ...contacto, favorito: !contacto.favorito } : contacto
+            )
+        );
+    };  
+            
+            return (<div>
+                            <h1>Agenda</h1>
+                            <Agenda datos={contactos} toggleFavorito={toggleFavorito}/>
+
+                    </div>
+                )
+        }
 
         const root = createRoot(document.getElementById('root'))
         root.render(<App />);
     </script>
 </body>
 
+
 </html>
+
+
