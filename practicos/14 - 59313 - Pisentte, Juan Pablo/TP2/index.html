@@ -65,7 +65,9 @@
                 }
             }
         }
-
+        .fa-solid{
+            color: rgb(86, 14, 119);
+        }
         form {
             width: 240px;
             padding: 16px;
@@ -131,29 +133,72 @@
         ]
     </script>
 
-    <script type="text/babel">
-        const { createRoot } = ReactDOM
+<script type="text/babel"> 
+    const { createRoot } = ReactDOM;
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+const Contacto = ({ contacto, actualizar }) => {
+const { id, nombre, apellido, telefono, favorito } = contacto;
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+const estrella = () => {
+   actualizar({
+       ...contacto,
+       favorito: !favorito
+   });
+};
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+return (
+   <div className="card">
+       <span onClick={estrella}>
+           {favorito ? <i className="fa-solid fa-star"></i> : <i className="fa-regular fa-star"></i>}
+       </span>
+       <div>{nombre} <b>{apellido}</b></div>
+       <div>{telefono}</div>
+   </div>
+);
+};
 
-        const root = createRoot(document.getElementById('root'))
-        root.render(<App />);
-    </script>
+const Agenda = ({ datos, actualizar }) => {
+const ordenar = datos.sort((a, b) => {
+   if (a.apellido < b.apellido) return -1;
+   if (a.apellido > b.apellido) return 1;
+   if (a.nombre < b.nombre) return -1;
+   if (a.nombre > b.nombre) return 1;
+   return 0;
+})
+const fav = ordenar.filter(contacto => contacto.favorito)
+const noFav = ordenar.filter(contacto => !contacto.favorito)
+return (
+   <div className="agenda">
+       {fav.map(contacto => (
+           <Contacto key={contacto.id} contacto={contacto} actualizar={actualizar} />
+       ))}
+       {noFav.map(contacto => (
+           <Contacto key={contacto.id} contacto={contacto} actualizar={actualizar} />
+       ))}
+   </div>
+);
+}
+
+const App = () => {
+const [contactos, setContactos] = React.useState(datos);
+const actualizarContacto = (contactoActualizado) => {
+           setContactos(
+               contactos.map(contacto => (contacto.id === contactoActualizado.id ? contactoActualizado : contacto))
+           );
+       };
+
+       return (
+           <div>
+               <h1>Lista de Contactos</h1>
+               <Agenda datos={contactos} actualizar={actualizarContacto} />
+           </div>
+       );
+   };
+
+   const root = createRoot(document.getElementById('root'));
+   root.render(<App />);
+</script>
+</script>
 </body>
 
 </html>
