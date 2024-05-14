@@ -179,7 +179,7 @@
         const App = () => {
             const [contactos, setContactos] = useState(datos);
 
-            const toggleFavorito = id => {
+            const marcarFavorito = id => {
                 setContactos(prevContactos => {
                     return prevContactos.map(contacto => {
                         if (contacto.id === id) {
@@ -193,7 +193,7 @@
             return (
                 <div>
                     <h1>Agenda</h1>
-                    <Agenda datos={contactos} marcarFavorito={toggleFavorito} />
+                    <Agenda datos={contactos} marcarFavorito={marcarFavorito} />
                 </div>
             );
         };
