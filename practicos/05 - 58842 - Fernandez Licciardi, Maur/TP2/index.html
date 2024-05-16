@@ -10,14 +10,16 @@
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <title>Demo 1</title>
+    <title>Lab. de Comp. III</title>
+
     <style>
-        /* reset */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            background-image: url(https://i.pinimg.com/474x/2e/21/da/2e21dab9380a5241b449c9259193c499.jpg);
+            background-size: cover;
         }
 
         #root {
@@ -25,15 +27,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 20px;
+            margin: 0 43px;
         }
 
         .card {
             padding: 16px;
-            margin: 4px;
+            margin: 13px;
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .favorite {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: gold;
         }
 
         .agenda {
@@ -91,69 +101,153 @@
                 display: flex;
                 justify-content: space-between;
                 margin-top: 16px;
-
-                button {
-                    padding: 8px 16px;
-                    border: none;
-                    border-radius: 4px;
-                    font-size: 14px;
-                    cursor: pointer;
-                }
             }
         }
+    
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #a19900; 
+            color: white; 
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #cbd03c;
+        }
+    
+        .principio {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .principio p {
+            margin: 10px;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        nav{
+            background-color: #000000;
+            color:#ffffff;
+            text-align: center;
+            padding: 1px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px;
+        }
+    
     </style>
 </head>
 
 <body>
+    <header class="principio">
+        <img class="logo" src="https://www.logotypes101.com/logos/283/501E380BD95F595995F17CF495BCA882/LogoUTN_nvgsb.png">
+        <p>Mauricio Fernández Licciardi / Legajo: 58.842</p>
+    </header>
+    <nav>
+        <h1>Agenda</h1>
+    </nav>
     <div id="root"></div>
     <script>
         const datos = [
-            { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
-            { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
-            { id: 3, nombre: 'Pedro', apellido: 'Gonzalez', telefono: '(381) 123-4567', favorito: true },
-            { id: 4, nombre: 'Ana', apellido: 'Fernandez', telefono: '(381) 123-4567', favorito: false },
-            { id: 5, nombre: 'Lucas', apellido: 'Rodriguez', telefono: '(381) 123-4567', favorito: true },
-            { id: 6, nombre: 'Carla', apellido: 'Lopez', telefono: '(381) 123-4567', favorito: false },
-            { id: 7, nombre: 'Jorge', apellido: 'Diaz', telefono: '(381) 123-4567', favorito: true },
-            { id: 8, nombre: 'Luis', apellido: 'Martinez', telefono: '(381) 123-4567', favorito: false },
-            { id: 9, nombre: 'Florencia', apellido: 'Paz', telefono: '(381) 123-4567', favorito: true },
-            { id: 10, nombre: 'Miguel', apellido: 'Rojas', telefono: '(381) 123-4567', favorito: false },
-            { id: 11, nombre: 'Sofia', apellido: 'Acosta', telefono: '(381) 123-4567', favorito: true },
-            { id: 12, nombre: 'Carlos', apellido: 'Vera', telefono: '(381) 123-4567', favorito: false },
-            { id: 13, nombre: 'Valeria', apellido: 'Gimenez', telefono: '(381) 123-4567', favorito: true },
-            { id: 14, nombre: 'Pablo', apellido: 'Sosa', telefono: '(381) 123-4567', favorito: false },
-            { id: 15, nombre: 'Romina', apellido: 'Rios', telefono: '(381) 123-4567', favorito: true },
-            { id: 16, nombre: 'Ezequiel', apellido: 'Molina', telefono: '(381) 123-4567', favorito: false },
-            { id: 17, nombre: 'Agustina', apellido: 'Ortiz', telefono: '(381) 123-4567', favorito: true },
-            { id: 18, nombre: 'Matias', apellido: 'Luna', telefono: '(381) 123-4567', favorito: false },
-            { id: 19, nombre: 'Cecilia', apellido: 'Carrizo', telefono: '(381) 123-4567', favorito: true },
-            { id: 20, nombre: 'Facundo', apellido: 'Paez', telefono: '(381) 123-4567', favorito: false }
+            { id: 1, nombre: 'Mauricio', apellido: 'Fernández Licciardi', telefono: '(381) 123-4567', favorito: true },
+            { id: 2, nombre: 'Karen', apellido: 'Fernández', telefono: '(381) 123-4567', favorito: false },
+            { id: 3, nombre: 'Lali', apellido: 'Espósito', telefono: '(381) 123-4567', favorito: true },
+            { id: 4, nombre: 'Lionel', apellido: 'Messi', telefono: '(381) 123-4567', favorito: false },
+            { id: 5, nombre: 'Lourdes', apellido: 'Rocha', telefono: '(381) 123-4567', favorito: true },
+            { id: 6, nombre: 'Taylor', apellido: 'Swift', telefono: '(381) 123-4567', favorito: false },
+            { id: 7, nombre: 'Silvia', apellido: 'Licciardi', telefono: '(381) 123-4567', favorito: true },
+            { id: 8, nombre: 'Javier', apellido: 'Andrade', telefono: '(381) 123-4567', favorito: false },
+            { id: 9, nombre: 'Nona', apellido: 'Mary', telefono: '(381) 123-4567', favorito: true },
+            { id: 10, nombre: 'Nono', apellido: 'Lito', telefono: '(381) 123-4567', favorito: false },
+            { id: 11, nombre: 'Gladys', apellido: 'Licciardi', telefono: '(381) 123-4567', favorito: true },
+            { id: 12, nombre: 'Franco', apellido: 'Sosa', telefono: '(381) 123-4567', favorito: false },
+            { id: 13, nombre: 'Nicole', apellido: 'Soria', telefono: '(381) 123-4567', favorito: true },
+            { id: 14, nombre: 'Máximo', apellido: 'Villafañe', telefono: '(381) 123-4567', favorito: false },
+            { id: 15, nombre: 'Alejandro', apellido: 'Battista', telefono: '(381) 123-4567', favorito: true },
+            { id: 16, nombre: 'Enzo', apellido: 'Perez', telefono: '(381) 123-4567', favorito: false },
+            { id: 17, nombre: 'Furia', apellido: 'GH', telefono: '(381) 123-4567', favorito: true },
+            { id: 18, nombre: 'Martin', apellido: 'GH', telefono: '(381) 123-4567', favorito: false },
+            { id: 19, nombre: 'Bautista', apellido: 'GH', telefono: '(381) 123-4567', favorito: true },
+            { id: 20, nombre: 'Catalina', apellido: 'GH', telefono: '(381) 123-4567', favorito: false }
         ]
     </script>
 
     <script type="text/babel">
         const { createRoot } = ReactDOM
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+        const Contacto = ({ id, nombre, apellido, telefono, favorito, toggleFavorito}) => {
+            const toggle = () => toggleFavorito(id);
+            return (
+                <div className="card">
+                    <div>
+                        {nombre} <b>{apellido}</b> 
+                        {favorito && <span className="favorite"><i className="fas fa-star"></i></span>}
+                    </div>
+                    <div>{telefono}</div>
+                    <button onClick={toggle}>{favorito ? 'Desmarcar' : 'Marcar'} como favorito</button>
+                </div>
+            );
+        }
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+        const Agenda = ({ datos, toggleFavorito }) => {
+            const sortedContacts = datos.sort((a, b) => {
+                if (a.favorito !== b.favorito) {
+                    return a.favorito ? -1 : 1;
+                } else {
+                    return a.apellido.localeCompare(b.apellido) || a.nombre.localeCompare(b.nombre);
+                }
+            });
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+            return (
+                <div className="agenda">
+                    {sortedContacts.map(contacto => <Contacto key={contacto.id} {...contacto} toggleFavorito={toggleFavorito} />)}
+                </div>
+            );
+        }
+
+        const App = () => {
+            const [data, setData] = React.useState(datos);
+
+            const toggleFavorito = (id) => {
+                setData(data.map(contacto => {
+                    if (contacto.id === id) {
+                        return { ...contacto, favorito: !contacto.favorito};
+                    }
+                    return contacto;
+                }));
+            }
+
+            return (
+                <div id="root">
+                    <Agenda datos={data} toggleFavorito={toggleFavorito} />
+                </div>
+            );
+        }
 
         const root = createRoot(document.getElementById('root'))
         root.render(<App />);
     </script>
+    <footer>
+        <p>&copy; 2024 Mauricio Fer Licc</p>
+    </footer>
 </body>
-
 </html>
