@@ -1,11 +1,3 @@
-const Contacto = ({ nombre, apellido, telefono }) => (
-  <div class="contacto">
-    <h2>
-      {nombre} {apellido}
-    </h2>
-    <p>Teléfono: {telefono}</p>
-  </div>
-);
 
 const contactos = [
   { id: 1, nombre: "Mauricio", apellido: "Fer Licc", telefono: "123456789" },
@@ -30,6 +22,15 @@ const contactos = [
   { id: 20, nombre: "Javier", apellido: "Milei", telefono: "123456789" }
 
 ];
+
+const Contacto = ({ nombre, apellido, telefono }) => (
+  <div class="contacto">
+    <h2>
+      {nombre} {apellido}
+    </h2>
+    <p>Teléfono: {telefono}</p>
+  </div>
+);
 
 const Agenda = () => (
   <div class="main">
