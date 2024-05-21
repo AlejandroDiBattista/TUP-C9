@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"  charset="UTF-8" content="width=device-width, initial-scale=1" >
+    <title>Control de Depósito</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .add-product-icon {   
+            font-size: 2em;
+            cursor: pointer;
+            color:#000;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-left: 355px;
+            margin-top: -55px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-quantity {
+            font-size: 3em;
+            color: #007BFF;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .product-details {
+            flex-grow: 1;
+        }
+
+        .product-details h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #000;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #000;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-actions button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .product-actions button:hover {
+            color: #007BFF;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: white;
+            color: #000;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: gainsboro;
+            border-color: transparent;
+        }
+
+        .product-card form {
+            width: 100%;
+        }
+
+        .product-card form button {
+            width: 45%;
+        }
+
+        .product-card form .form-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const ProductForm = ({ product, handleChange, handleSubmit, isEditing, handleCancel }) => {
+            return (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="name"
+                        value={product.name}
+                        onChange={handleChange}
+                        placeholder="Nombre del Producto"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="code"
+                        value={product.code}
+                        onChange={handleChange}
+                        placeholder="Código del Producto"
+                        required
+                        disabled={isEditing}
+                    />
+                    <input
+                     type="number"
+                     name="quantity"
+                     value={product.quantity}
+                     onChange={handleChange} 
+                     placeholder="Cantidad"
+                     required
+                   />
+                <div className="form-actions">
+                    <button type="submit">{isEditing ? 'Actualizar' : 'Agregar'}</button>
+                    {isEditing && <button type="button" onClick={handleCancel}>Cancelar</button>}
+                </div>
+            </form>
+        );
+    };
+
+    const Product = ({ product, updateProduct, deleteProduct }) => {
+        const [isEditing, setIsEditing] = useState(false);
+        const [currentProduct, setCurrentProduct] = useState(product);
+
+        useEffect(() => {
+            setCurrentProduct(product);
+        }, [product]);
+
+        const handleChange = (e) => {
+            const { name, value } = e.target;
+            setCurrentProduct({ ...currentProduct, [name]: value });
+        };
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            updateProduct(currentProduct);
+            setIsEditing(false);
+        };
+
+        const handleCancel = () => {
+            setIsEditing(false);
+        };
+
+        return (
+            <div className="product-card">
+                {isEditing ? (
+                    <ProductForm
+                        product={currentProduct}
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                        isEditing={isEditing}
+                        handleCancel={handleCancel}
+                    />
+                ) : (
+                    <>
+                        <div className="product-quantity">
+                            {product.quantity}
+                        </div>
+                        <div className="product-details">
+                            <h2>{product.name}</h2>
+                            <p>{product.code}</p>
+                        </div>
+                        <div className="product-actions">
+                            <button onClick={() => setIsEditing(true)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button onClick={() => deleteProduct(product.code)}>
+                                <i className="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
+        );
+    };
+
+    const ProductList = () => {
+        const [products, setProducts] = useState([]);
+        const [newProduct, setNewProduct] = useState({ name: '', code: '', quantity: 0 });
+        const [showForm, setShowForm] = useState(false);
+
+        useEffect(() => {
+            const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+            setProducts(storedProducts);
+        }, []);
+
+        useEffect(() => {
+            localStorage.setItem('products', JSON.stringify(products));
+        }, [products]);
+
+        const handleNewProductChange = (e) => {
+            const { name, value } = e.target;
+            setNewProduct({ ...newProduct, [name]: value });
+        };
+
+        const handleNewProductSubmit = (e) => {
+            e.preventDefault();
+            setProducts([...products, newProduct]);
+            setNewProduct({ name: '', code: '', quantity: 0 });
+            setShowForm(false);
+        };
+
+        const updateProduct = (updatedProduct) => {
+            setProducts(products.map(product =>
+                product.code === updatedProduct.code ? updatedProduct : product
+            ));
+        };
+
+        const deleteProduct = (code) => {
+            setProducts(products.filter(product => product.code !== code));
+        };
+
+        return (
+            <div>
+                <h1>Control de Depósito</h1>
+                {showForm ? (
+                    <ProductForm
+                        product={newProduct}
+                        handleChange={handleNewProductChange}
+                        handleSubmit={handleNewProductSubmit}
+                        isEditing={false}
+                    />
+                ) : (
+                    <div className="add-product-icon" onClick={() => setShowForm(true)}>
+                        <i className="fas fa-plus-circle"></i>
+                    </div>
+                )}
+                <div className="product-container">
+                    {products.map(product => (
+                        <Product
+                            key={product.code}
+                            product={product}
+                            updateProduct={updateProduct}
+                            deleteProduct={deleteProduct}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ProductList />);
+</script>
+</body>
+</html>
+
