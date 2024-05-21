@@ -1,58 +1,53 @@
 const { useState } = React
 
 const ProductosIniciales = [
-    { id: 1, nombre: "7UP", cantidad: 7, codigo: "7700000000000" },
-    { id: 2, nombre: "Coca Cola", cantidad: 92, codigo: "7700000000001" },
-    { id: 3, nombre: "Fanta", cantidad: 5, codigo: "7700000000002" },
+    { id: 1, nombre: "Fanta", cantidad: 5, codigo: "7700000000002" },
+    { id: 2, nombre: "7UP", cantidad: 7, codigo: "7700000000000" },
+    { id: 3, nombre: "Coca Cola", cantidad: 92, codigo: "7700000000001" },
     { id: 4, nombre: "Manaos", cantidad: 1, codigo: "7700000000003" },
     { id: 5, nombre: "Mirinda", cantidad: 6, codigo: "7700000000004" },
     { id: 6, nombre: "Pepsi Cola", cantidad: 3, codigo: "7700000000005" },
     { id: 7, nombre: "Sprite", cantidad: 4, codigo: "7700000000006" },
+    { id: 8, nombre: "Monster", cantidad: 10, codigo: "7700000000007" },
+    { id: 9, nombre: "Levite", cantidad: 5, codigo: "7700000000008" },
+    { id: 10, nombre: "Crush", cantidad: 8, codigo: "7700000000009" },
 ];
 
 function Producto({ producto, alGuardar, alBorrar }) {
     const [editando, setEditando] = useState(false);
-    const [nombre, setNombre] = useState(producto.nombre);
-    const [cantidad, setCantidad] = useState(producto.cantidad);
-    const [codigo, setCodigo] = useState(producto.codigo);
 
-    const guardar = () => {
-        alGuardar({ ...producto, nombre, cantidad, codigo });
+    const iniciarEdicion = () => {
+        setEditando(true);
+    };
+
+    const manejarGuardar = (productoEditado) => {
+        alGuardar({ ...producto, ...productoEditado });
         setEditando(false);
     };
 
-    const cancelar = () => {
+    const manejarCancelar = () => {
         setEditando(false);
-        setNombre(producto.nombre);
-        setCantidad(producto.cantidad);
-        setCodigo(producto.codigo);
     };
 
     return (
         <div className="card">
             {editando ? (
-                <form className="editar">
-                    <div className="inputs">
-                        <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
-                        <input type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
-                        <input type="number" value={cantidad} onChange={e => setCantidad(parseInt(e.target.value, 10))} />
-                    </div>
-                    <div className="botones">
-                        <button type="button" onClick={guardar}>Guardar</button>
-                        <button type="button" onClick={cancelar}>Cancelar</button>
-                    </div>
-                </form>
+                <Editar
+                    producto={producto}
+                    alGuardar={manejarGuardar}
+                    alCancelar={manejarCancelar}
+                />
             ) : (
                 <>
                     <div className="cantidad">
-                        <span>{cantidad}</span>
+                        <span>{producto.cantidad}</span>
                     </div>
                     <div className="datos">
-                        <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>{nombre}</span>
-                        <span>{codigo}</span>
+                        <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>{producto.nombre}</span>
+                        <span>{producto.codigo}</span>
                     </div>
                     <div className="iconos">
-                        <i onClick={() => setEditando(true)} class="fa-regular fa-pen-to-square"></i>
+                        <i onClick={iniciarEdicion} class="fa-regular fa-pen-to-square"></i>
                         <i onClick={() => alBorrar(producto.id)} class="fa-solid fa-trash"></i>
                     </div>
                 </>
@@ -74,10 +69,9 @@ function Editar({ alGuardar, alCancelar, producto }) {
     return (
         <form className="crear">
             <div className="inputs">
-                <label>Crear Producto:</label>
-                <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
-                <input type="number" value={cantidad} onChange={e => setCantidad(parseInt(e.target.value, 10))} />
-                <input type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
+                <input type="text" value={nombre} placeholder="Nombre del producto" onChange={e => setNombre(e.target.value)} />
+                <input type="number" value={cantidad} placeholder="Cantidad del producto" onChange={e => setCantidad(parseInt(e.target.value, 10))} />
+                <input type="number" value={codigo} onChange={e => setCodigo(e.target.value)} />
             </div>
             <div className="botones">
                 <button onClick={guardar}>Guardar</button>
@@ -109,9 +103,8 @@ function App() {
     };
 
     const agregar = () => {
-        const ultimoCodigo = productos[productos.length - 1].codigo;
-        const siguienteCodigo = (parseInt(ultimoCodigo, 10) + 1).toString().padStart(13, '0');
-        setProducto({ nombre: '', cantidad: 0, codigo: siguienteCodigo });
+        const siguienteCodigo = () => Math.floor(Math.random() * 10000000000000);
+        setProducto({ nombre: '', cantidad: 0, codigo: siguienteCodigo() });
         setEditando(true);
     };
 
@@ -119,6 +112,8 @@ function App() {
         let copia = productos.filter(producto => producto.id !== id);
         setProductos(copia);
     };
+
+    const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
 
     return (
         <div className="container">
@@ -135,14 +130,16 @@ function App() {
                 }
             </header>
             {
-                productos.map(producto => (
-                    <Producto
-                        key={producto.id}
-                        producto={producto}
-                        alGuardar={guardar}
-                        alBorrar={borrar}
-                    />
-                ))
+                productosOrdenados.length > 0 ?
+                    productosOrdenados.map(producto => (
+                        <Producto
+                            key={producto.id}
+                            producto={producto}
+                            alGuardar={guardar}
+                            alBorrar={borrar}
+                        />
+                    ))
+                    : <h2>No hay productos en este momento</h2>
             }
         </div>
     );
