@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.container h1 {
+  color: #0950eb;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 400px;
+}
+
+
+
+
+.product-actions {
+  display: flex;
+  align-items: center;
+}
+
+.product-actions button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-actions button:hover {
+  background-color: #0056b3;
+}
+
+.product-actions input[type='text'],
+.product-actions input[type='number'] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-actions input[type='text']:hover,
+.product-actions input[type='number']:hover {
+  background-color: #f5f5f5;
+}
+
+.product-actions input[type='text']:focus,
+.product-actions input[type='number']:focus {
+  outline: none;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.add-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+}
+
+.add-product h2 {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.add-product input[type='text'],
+.add-product input[type='number'] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-product input[type='text']:hover,
+.add-product input[type='number']:hover {
+  background-color: #f5f5f5;
+}
+
+.add-product input[type='text']:focus,
+.add-product input[type='number']:focus {
+  outline: none;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product button:hover {
+  background-color: #0056b3;
+}
+
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 400px;
+  transition: box-shadow 0.3s ease; 
+}
+
+.product-item:hover {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
+}
+
+
+.product-input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-input:hover {
+  background-color: #f5f5f5;
+}
+
+.product-input:focus {
+  outline: none;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.product-details {
+  display: flex;
+  align-items: center;
+}
+
+.product-quantity {
+  font-size: 30px; 
+  color: #007bff; 
+  font-weight: bold;
+}
+
+.product-name {
+  font-weight: bold; 
+  font-size: 18px; 
+}
+
+.product-code {
+  font-size: 14px; 
+  color: #333; 
+}
+
+
+
+.product-quantity {
+  background-color: #064bea; 
+  padding: 6px 12px; 
+  margin-right: -8px; 
+  border-radius: 5px; 
+  font-weight: bold;
+  color: #f7f4f4; 
+  font-size: 50px;
+}
+
+.product-name {
+  font-weight: bold; 
+  margin-left: 8px; 
+  font-size: 30px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+
+
+.product-ean {
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  color: #777; /* Color de texto más claro */
+}
