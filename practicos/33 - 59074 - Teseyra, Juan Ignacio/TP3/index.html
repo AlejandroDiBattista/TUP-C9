@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 10px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #root {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .panel {
+            background-color: #e2c431;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: rgb(122, 0, 0);
+            font-size: 0.875em;
+            margin-top: 5px;
+        }
+</style>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const ProductosIniciales = [
+        {id:1, nombre: 'Agua', ean: 123456, stock: 0,},
+        {id:2, nombre: 'Coca Cola', ean: 1123,stock: 12,},
+        {id:3, nombre: 'Fideos', ean: 7562356, stock: 1,},
+        {id:4, nombre: 'Arroz', ean: 5232356, stock: 25,},
+        {id:6, nombre: 'Fideos', ean: 1332356, stock: 99,},
+        {id:7, nombre: 'Harina', ean: 96232356, stock: 18,},
+        {id:8, nombre: 'Polenta', ean: 432356, stock: 27,},
+        {id:9, nombre: 'Pasta de maní', ean: 1232326, stock: 36,},
+
+        ]
+        
+        function Editar({producto, alGuardar, alCancelar}){
+            //Mantenemos los estados
+            let [nombre, setNombre] = useState(producto.nombre)
+            let [ean, setEan] = useState(parseInt(producto.ean))
+            let [stock, setStock] = useState(parseInt(producto.stock))
+            let [error, setError] = useState(false)
+
+            //Manejadores de eventos
+            const cambiarNombre = e => {
+                setNombre(e.target.value)
+                setError(false)
+            }
+            const cambiarEan = e => {
+                setEan(parseInt(e.target.value))
+                setError(false)
+            }
+            const cambiarStock = e=> {
+                setStock(parseInt(e.target.value))
+                setError(false)
+            }
+
+            const guardar = e => {
+                e.preventDefault()
+                if (nombre.trim() === '' || ean.toString().trim() === '' || stock.toString().trim() === ''){
+                    setError(true)
+                    return
+                }
+                alGuardar({...producto, nombre, ean,stock})
+                
+            }
+            const cancelar = e =>{
+                e.preventDefault()
+                alCancelar()
+            }
+
+            return(
+                <form className="panel">
+                    <label>Nombre producto:</label>
+                    <input type="text" value={nombre} onChange={cambiarNombre}/>
+                    
+                    <label>EAN:</label>
+                    <input type="number" value={ean} onChange={cambiarEan}/>
+                    
+                    <label>stock:</label>
+                    <input type="number" value={stock} onChange={cambiarStock}/>
+                    {error && <p className="error">Debe completar todos los campos</p>}
+                    <div className="acciones">
+                        <button onClick={guardar}>Guardar</button>
+                        <button onClick={cancelar}>Cancelar</button>
+                    </div>
+                </form>
+            )
+        }
+        function Mostrar({producto, alEditar, alBorrar, incrementarStock}){
+            //const editar = (e) => alEditar()
+            const borrar = (e) => alBorrar()
+            const [editando, setEditando] =useState(false);
+            const [productoEditado, setProductoEditado] = useState({...producto})
+            
+            const editar = () => {
+                setEditando(true);
+            };
+
+            const guardar = () => {
+                alEditar(productoEditado);
+                setEditando(false);
+            };
+
+            const cambiarValor = (campo, valor) => {
+                setEditedProducto({...productoEditado,[campo]: valor});
+            };
+            const clickAumentar = (e) =>{
+                if(!e.target.classList.contains('boton-borrar')){
+                    incrementarStock(producto.id)
+                }
+                
+            }
+
+            return(
+                <div className="panel" onClick={clickAumentar}>
+                   <p>Nombre: {producto.nombre}</p> 
+                   <p>EAN: {producto.ean}</p> 
+                   <p>Stock: {producto.stock}</p>
+                   <div className="acciones">
+                        <button className="boton-borrar" onClick={editar}>Editar</button>
+                        <button className="boton-borrar" onClick={borrar}>Borrar</button>
+                    </div>
+                    {editando && (
+                    <form className='boton-borrar'>
+                        <label>Nombre producto:</label>
+                        <input className='boton-borrar' type="text" value={productoEditado.nombre} onChange={(e) => cambiarValor('nombre', e.target.value)} />
+
+                        <label>EAN:</label>
+                        <input className='boton-borrar' type="number" value={productoEditado.ean} onChange={(e) => cambiarValor('ean', parseInt(e.target.value))} />
+
+                        <label>stock:</label>
+                        <input  className='boton-borrar' type="number" value={productoEditado.stock} onChange={(e) => cambiarValor('stock', parseInt(e.target.value))} />
+                        <div className="acciones">
+                        <button  onClick={guardar}>Guardar</button>
+                    </div>
+                </form>
+            )}
+                </div>
+            )
+        }
+
+        function ListaProductos({productos,alAgregar, alEditar, alBorrar, incrementarStock}){
+            if (productos.length === 0)
+                return (
+                    <div>
+                        <h1>Sin productos</h1>
+                        <button onClick={()=>alAgregar()}>Agregar productos</button>
+                    </div>
+                    
+                )
+            return(
+                <div>
+                    <h1>Lista de productos</h1>
+                    <button onClick={()=>alAgregar()}>Agregar productos</button>
+                    {productos.map(producto => 
+                        <Mostrar key={producto.id} 
+                                 producto ={producto}
+                                 alEditar={()=>alEditar(producto.id)}
+                                 alBorrar={()=>alBorrar(producto.id)}
+                                 incrementarStock={incrementarStock}/>                        
+                                )}
+                </div> 
+            )   
+            
+        }
+        
+        function App(){
+            let [producto, setProducto] = useState({})
+            let [editando, setEditando] = useState(false)
+            let [productos, setProductos] = useState(ProductosIniciales)
+
+            
+            const guardar = (producto) =>{
+                if(producto.id){
+                    //Modificacion
+                    let copia = productos.map (p => p.id === producto.id ? producto : p)
+                    setProductos(copia)
+                    
+                } else {
+                    //ALTA
+                    let id = Math.max(...productos.map(p => p.id)) + 1;
+                    producto.id = id
+                    let copia = [...productos, producto]
+                    setProductos(copia)
+                }
+                setEditando(false)
+            }
+
+            const incrementarStock = (id) => {
+                setProductos(productos.map(p => {
+                    if (p.id === id) {
+                        const nuevoStock = p.stock + 1;
+                        if (nuevoStock >100)
+                        {
+                            alert ('El stock no puede superar a 100')
+                            return p
+                        }             
+                        return { ...p, stock: nuevoStock };
+                    } else {
+                        return p;
+                    }
+        }));
+    }
+            
+            
+            const cancelar = () => {
+                setProducto({})
+                console.log("Cancelar")
+                setEditando(false)
+            }
+            const agregar = () => {
+                setProducto({})
+                setEditando(true)
+            }
+            const editar = (id) => {
+                let producto = productos.find(p => p.id === id)
+                setProducto(producto)
+                setEditando(true)
+            }
+
+            const borrar = (id) => {
+                let copia = productos.filter(p => p.id!==id)
+                setProductos(copia)
+            }
+            productos.sort((a, b) => a.nombre.localeCompare(b.nombre))
+            return(
+            editando
+                ? <Editar producto={producto} alGuardar={guardar} alCancelar={cancelar}/>
+                : <ListaProductos productos={productos} alEditar={editar} 
+                                                        alBorrar={borrar}
+                                                        alAgregar={agregar}
+                                                        incrementarStock={incrementarStock}/>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
