@@ -8,12 +8,9 @@ const ProductosIniciales = [
     { id: 5, nombre: "Mirinda", cantidad: 6, codigo: "7700000000004" },
     { id: 6, nombre: "Pepsi Cola", cantidad: 3, codigo: "7700000000005" },
     { id: 7, nombre: "Sprite", cantidad: 4, codigo: "7700000000006" },
-    { id: 8, nombre: "Monster", cantidad: 10, codigo: "7700000000007" },
-    { id: 9, nombre: "Levite", cantidad: 5, codigo: "7700000000008" },
-    { id: 10, nombre: "Crush", cantidad: 8, codigo: "7700000000009" },
 ];
 
-function Producto({ producto, alGuardar, alBorrar }) {
+function Producto({ producto, alGuardar, alBorrar, incrementarCantidad }) {
     const [editando, setEditando] = useState(false);
 
     const iniciarEdicion = () => {
@@ -40,7 +37,9 @@ function Producto({ producto, alGuardar, alBorrar }) {
             ) : (
                 <>
                     <div className="cantidad">
-                        <span>{producto.cantidad}</span>
+                        <div className="cantidad">
+                            <span onClick={() => incrementarCantidad(producto.id)}>{producto.cantidad}</span>
+                        </div>
                     </div>
                     <div className="datos">
                         <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>{producto.nombre}</span>
@@ -83,18 +82,23 @@ function Editar({ alGuardar, alCancelar, producto }) {
 
 function App() {
     let [editando, setEditando] = useState(false);
-    let [productos, setProductos] = useState(ProductosIniciales);
+    let [productos, setProductos] = useState(() => {
+        const productosGuardados = localStorage.getItem('productos');
+        return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales;
+    });
     let [producto, setProducto] = useState({ nombre: '', cantidad: 0, codigo: '' });
 
     const guardar = (productoEditado) => {
+        let nuevosProductos;
         if (productoEditado.id) {
-            const copia = productos.map(p => p.id === productoEditado.id ? productoEditado : p);
-            setProductos(copia);
+            nuevosProductos = productos.map(p => p.id === productoEditado.id ? productoEditado : p);
         } else {
             const id = productos.length + 1;
             const nuevoProducto = { ...productoEditado, id };
-            setProductos([...productos, nuevoProducto]);
+            nuevosProductos = [...productos, nuevoProducto];
         }
+        setProductos(nuevosProductos);
+        localStorage.setItem('productos', JSON.stringify(nuevosProductos));
         setEditando(false);
     };
 
@@ -109,8 +113,20 @@ function App() {
     };
 
     const borrar = (id) => {
-        let copia = productos.filter(producto => producto.id !== id);
-        setProductos(copia);
+        const nuevosProductos = productos.filter(producto => producto.id !== id);
+        setProductos(nuevosProductos);
+        localStorage.setItem('productos', JSON.stringify(nuevosProductos));
+    };
+
+    const incrementarCantidad = (id) => {
+        const nuevosProductos = productos.map(producto => {
+            if (producto.id === id) {
+                return { ...producto, cantidad: producto.cantidad + 1 };
+            }
+            return producto;
+        });
+        setProductos(nuevosProductos);
+        localStorage.setItem('productos', JSON.stringify(nuevosProductos));
     };
 
     const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
@@ -137,6 +153,7 @@ function App() {
                             producto={producto}
                             alGuardar={guardar}
                             alBorrar={borrar}
+                            incrementarCantidad={incrementarCantidad}
                         />
                     ))
                     : <h2>No hay productos en este momento</h2>
