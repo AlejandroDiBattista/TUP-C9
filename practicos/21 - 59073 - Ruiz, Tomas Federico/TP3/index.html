@@ -16,10 +16,10 @@
         .panel {
             background-color: #f8f9fa;
             border-radius: 5px;
-            padding: 10px 20px;
-            margin: 10px;
-            width: 314px;
-            height: 100px;
+            padding: 20px 40px;
+            margin: 20px;
+            width: 600px;
+            height: 150px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
             display: flex;
             align-items: center;
@@ -27,7 +27,7 @@
         }
 
         .cantidad {
-            font-size: 36px;
+            font-size: 50px;
             font-weight: bold;
             color: blue;
         }
@@ -38,13 +38,13 @@
         }
 
         .nombre {
-            font-size: 30px;
+            font-size: 50px;
             font-weight: bold;
             margin: 0;
         }
 
         .codigoEAN {
-            font-size: 16px;
+            font-size: 25px;
             color: #000;
             margin: 0;
         }
@@ -57,13 +57,13 @@
         }
 
         .botonagregar {
-            height: 50px;
+            height: 60px; 
             border-radius: 5px;
             border: none;
             color: black;
-            font-size: 24px;
+            font-size: 28px; 
             cursor: pointer;
-            padding: 10px 20px;
+            padding: 15px 25px; 
             margin-left: 20px;
         }
 
@@ -72,7 +72,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 30px;
             color: black;
         }
 
@@ -114,29 +114,33 @@
         }
 
         .form-editar input {
-            padding: 8px;
+            padding: 12px; 
             border: 1px solid #ced4da;
             border-radius: 5px;
             width: 100%;
+            font-size: 18px; 
         }
 
-        .boton-editar{
-            padding: 5px 10px;
+        .boton-editar {
+            padding: 10px 15px; 
             border: 1px solid #ced4da;
             border-radius: 5px;
             background-color: white;
             cursor: pointer;
-            width: 70px;
+            width: 100px; 
             text-align: center;
+            font-size: 18px; 
         }
+
         .botonaceptar,
         .botoncancelar {
-            padding: 5px 10px;
+            padding: 10px 15px; 
             border-radius: 5px;
             background-color: white;
             cursor: pointer;
-            width: 70px;
+            width: 100px; 
             text-align: center;
+            font-size: 18px; 
         }
 
         .boton-editar:hover,
@@ -153,7 +157,7 @@
 
         .error {
             color: red;
-            font-size: 12px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -197,7 +201,6 @@
             { id: 29, nombre: "Fideos", codigoEAN: "10030", cantidad: 1 },
             { id: 30, nombre: "Salsa", codigoEAN: "10031", cantidad: 1 },
         ];
-
 
         function Mostrar({ deposito, alGuardar, alBorrar, alIncrementar }) {
             const [editando, setEditando] = useState(deposito.nombre === '');
@@ -288,7 +291,7 @@
                 </>
             );
         }
-
+        
         function App() {
             const [depositos, setDepositos] = useState(() => {
                 const datosGuardados = localStorage.getItem('depositos');
