@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Enlaces a React, ReactDOM y Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Iconos FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <title>Control Depósito</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      #root {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 50px;
+      }
+
+      .header button {
+        margin-left: 20px;
+      }
+
+      .tarjetas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px;
+        margin: 10px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+
+      .icono-boton {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+
+      .icono-boton:hover {
+        color: rgb(6, 44, 100);
+      }
+
+      .items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nombre-id {
+        flex-grow: 1; 
+        margin-right: 120px;
+        margin-left: 50px;
+      }
+
+      .nombre{
+        font-size: 40px;
+        color: blue;
+      }
+
+      .id{
+        font-size: 30px;
+        font-style: italic;
+      }
+
+      .cantidad {
+        font-size: 50px;
+        align-content:end;
+      }
+
+
+      .formulario-columna {
+        display:grid;
+        flex-direction: column;
+        padding: 30px;
+        margin: 10px;
+        width: 200px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .formulario-columna label {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+        
+        .formulario-columna input {
+            margin-bottom: 16px;
+            font-size: 16px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;}
+
+      .error {
+        color: red;
+        font-size: small;
+      }
+
+      .icono-agregar {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+      }
+
+      .formulario-columna .acciones button {
+         color: #000000;
+         padding: 10px 20px;
+         border-radius: 4px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      const productosIniciales = [
+        { id: "3857182938172", nombre: "Coca cola", cantidad: 67 },
+        { id: "3857182938173", nombre: "Pepsi", cantidad: 81 },
+        { id: "3857182938174", nombre: "Fanta", cantidad: 55 },
+        { id: "3857182938175", nombre: "Sprite", cantidad: 72 },
+        { id: "3857182938176", nombre: "Mirinda", cantidad: 63 },
+        { id: "3857182938177", nombre: "Lipton Ice Tea", cantidad: 90 },
+        { id: "3857182938178", nombre: "Aquarius", cantidad: 58 },
+        { id: "3857182938179", nombre: "Nestea", cantidad: 76 },
+        { id: "3857182938180", nombre: "Schweppes", cantidad: 69 },
+        { id: "3857182938181", nombre: "Arizona", cantidad: 83 },
+        { id: "3857182938182", nombre: "Red Bull", cantidad: 61 },
+        { id: "3857182938183", nombre: "Monster Energy", cantidad: 70 },
+        { id: "3857182938184", nombre: "Gatorade", cantidad: 75 },
+        { id: "3857182938185", nombre: "Powerade", cantidad: 77 },
+        { id: "3857182938186", nombre: "Vitamin Water", cantidad: 88 },
+        { id: "3857182938187", nombre: "San Pellegrino", cantidad: 95 },
+        { id: "3857182938188", nombre: "Perrier", cantidad: 59 },
+        { id: "3857182938189", nombre: "Badoit", cantidad: 64 },
+        { id: "3857182938190", nombre: "Evian", cantidad: 80 },
+        { id: "3857182938191", nombre: "Smartwater", cantidad: 71 },
+    ];
+
+
+    function Editar({ producto, alGuardar, alCancelar }) {
+        const [nombre, setNombre] = useState(producto.nombre || "");
+        const [id, setId] = useState(producto.id || "");
+        const [cantidad, setCantidad] = useState(producto.cantidad || "")
+        const [error, setError] = useState(false);
+        const [errorCantidad, setErrorCantidad] = useState(false);
+
+        const cambiarNombre = (e) => {
+          setNombre(e.target.value);
+          setError(false);
+        }
+
+        const cambiarId = (e) => {
+          setId(e.target.value);
+          setError(false);
+        }
+
+        const cambiarCantidad = (e) => {
+          setCantidad(e.target.value);
+          setError(false);
+        }
+
+        const guardar = (e) => {e.preventDefault();
+
+            const idModificado = producto.id !== id;
+   
+            if (idModificado && (id === "" || isNaN(id) || id.length !== 13)) {
+                setErrorCantidad(true);
+                return;
+            }
+            
+            if (nombre.trim() === "" || cantidad === "") {
+                setError(true);
+                return;
+            }
+            alGuardar({ ...producto, nombre, id: Number(id), cantidad: Number(cantidad) });
+        }
+
+        const cancelar = (e) => {
+          e.preventDefault();
+          alCancelar();
+        }
+
+        return (
+          <form className="tarjetas">
+            <div className="formulario-columna">
+              <label><strong>Producto: </strong></label>
+              <input type="text" value={nombre} onChange={cambiarNombre} />
+
+              <label><strong>ID: </strong></label>
+              <input type="number" value={id} onChange={cambiarId} />
+
+              {errorCantidad && (<p className="error">El codigo EAN debe contener 13 digitos</p>)}
+
+              <label><strong>Cantidad: </strong></label>
+              <input type="number"value={cantidad}onChange={cambiarCantidad}/>
+
+              {error && (<p className="error">Todos los campos son obligatorios</p>)}
+
+              <div className="acciones">
+                <button onClick={guardar}>Guardar</button>
+                <button onClick={cancelar}>Cancelar</button>
+              </div>
+            </div>
+          </form>
+        )
+      }
+
+    function Mostrar({ producto, alEditar, alBorrar }) {
+        const editar = (e) => alEditar();
+        const borrar = (e) => alBorrar();
+
+        return (
+          <div className="tarjetas">
+            <div className="items">
+              <div className="nombre-id">
+                <p className="nombre"><strong>{producto.nombre}</strong></p>
+                <p className="id"><strong>{producto.id}</strong></p>
+              </div>
+              <p className="cantidad"><strong>{producto.cantidad}</strong></p>
+            </div>
+            <div className="acciones">
+              <button onClick={editar} className="icono-boton"><i className="fas fa-pencil-alt"></i></button>
+              <button onClick={borrar} className="icono-boton"><i className="fas fa-trash"></i></button>
+            </div>
+          </div>
+        )
+      }
+
+    function Productos({ productos, alAgregar, alEditar, alBorrar }) {
+        if (productos.length === 0) return <h1>No hay productos</h1>;
+        return (
+          <>
+            <div className="header">
+              <h1>Control Depósito</h1>
+              <button onClick={alAgregar} className="icono-agregar">
+                <i className="fa fa-plus"></i>
+              </button>
+            </div>
+            {productos.map((producto) => (
+              <Mostrar
+                key={producto.id}
+                producto={producto}
+                alEditar={() => alEditar(producto.id)}
+                alBorrar={() => alBorrar(producto.id)}
+              />
+            ))}
+          </>
+        )
+      }
+
+    function ordenarAlfabeticamente(a, b) {
+        return a.nombre.localeCompare(b.nombre);
+      }
+
+    function App() {
+        const [producto, setProducto] = useState({});
+        const [editando, setEditando] = useState(false);
+        const [productos, setProductos] = useState(
+          productosIniciales.sort(ordenarAlfabeticamente)
+        )
+
+        const guardar = (nuevoProducto) => {
+            let productosActualizados;
+            const index = productos.findIndex((p) => p.id === producto.id);
+            
+            if (index !== -1) {
+                productosActualizados = productos.map((p, i) => i === index ? { ...nuevoProducto } : p
+            )
+        
+        } else {
+            productosActualizados = [...productos, nuevoProducto];
+        }
+        
+        setProductos(productosActualizados.sort(ordenarAlfabeticamente));
+        setEditando(false);
+        }
+
+        const agregar = () => {
+          setProducto({ id: "", nombre: "", cantidad: 0 });
+          setEditando(true);
+        }
+
+        const cancelar = () => {
+          setProducto({});
+          setEditando(false);
+        }
+
+        const editar = (id) => {
+          const producto = productos.find((p) => p.id === id);
+          setProducto(producto);
+          setEditando(true);
+        }
+
+        const borrar = (id) => {
+          const productosActualizados = productos.filter((p) => p.id !== id);
+          setProductos(productosActualizados);
+        }
+
+        return (
+          <>
+            {editando ? (
+              <Editar
+                producto={producto}
+                alGuardar={guardar}
+                alCancelar={cancelar}
+              />
+            ) : (
+              <Productos
+                productos={productos}
+                alAgregar={agregar}
+                alEditar={editar}
+                alBorrar={borrar}
+              />
+            )}
+          </>
+        )
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
