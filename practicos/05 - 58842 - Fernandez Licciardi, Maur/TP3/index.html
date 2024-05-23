@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -14,29 +13,33 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #000000;
+
             margin: 10px;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .panel {
+        #root {
+            width: 90%;
+            max-width: 600px;
             background-color: #ffffff;
-            padding: 10px;
-            margin: 15px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 3px #000000;
-            border: none;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .panel2{
-            background-color: #ffffff;
-            width: 500px;
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .panel {
+            background-color: #e2c431;
             padding: 10px;
-            margin: 15px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 3px #000000;
-            border: none;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
         }
         .panel p {
             margin: 10px;
@@ -50,7 +53,7 @@
             margin-left: 10px;
         }
         .acciones i:hover {
-            color: #173797;
+            color: #464646;
         }
         .acciones button {
             margin-left: 5px;
@@ -61,26 +64,16 @@
             margin: 15px;
         }
         .acciones button:first-child {
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid;
-            border-radius: 10px;
+            background-color: #28a745;
+            color: white;
         }
         .acciones button:last-child {
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid;
-            border-radius: 10px;
+            background-color: #dc3545;
+            color: white;
         }
-        .acciones2 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+        .acciones button:hover {
+            opacity: 0.9;
         }
-        .acciones2 i {
-            margin-right: 5px;
-        }
-
         label {
             display: block;
             margin-top: 10px;
@@ -94,9 +87,9 @@
             box-sizing: border-box;
         }
         .error {
-            color: rgb(255, 0, 0);
-            font-size: 25px;
-            margin-top: 10px;
+            color: rgb(122, 0, 0);
+            font-size: 0.875em;
+            margin-top: 5px;
         }
         .header {
             display: flex;
@@ -105,47 +98,45 @@
         }
         .agregar-btn {
             display: flex;
-            margin: 10px;
-            padding: 5px;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        .agregar-btn2 {
-            display: flex;
-            background-color: #173797;
-            color: #ffffff;
-            border-color: #000000;
-            margin: 10px;
-            padding: 5px;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        .nhp {
-            display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center; 
             margin: 10px;
-            padding: 5px;
-            border-radius: 8px;
-            font-size: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            font-size: 1em;
         }
-        .cantidadp{
-            color: #173797;
-            font-size: 35px;
+
+        .agregar-btn i {
+            margin-left: 10px;
         }
-        .orgdatos{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .agregar-btn:hover {
+            background-color: #35771f;
         }
-        .orgdatos i {
-            margin: 8px;
+        .botongc {
+            margin: 10px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .botongc.guardar {
+            background-color: #28a745; /* Verde */
+            color: white;
+        }
+
+        .botongc.cancelar {
+            background-color: #dc3545; /* Rojo */
+            color: white;
         }
     </style>
 </head>
 <body>
     <div id="root"></div>
-
     <script type="text/babel">
         const { useState, useEffect } = React;
 
@@ -153,35 +144,35 @@
             const productosGuardados = localStorage.getItem('productos');
             return productosGuardados ? JSON.parse(productosGuardados) : [
                 { id: 1, nombre: 'Lapiceras', codigo: '987654321', cantidad: '5' },
-                { id: 2, nombre: 'Cuadernos', codigo: '123456789', cantidad: '9' },
-                { id: 3, nombre: 'Lápices', codigo: '234567890', cantidad: '7' },
-                { id: 4, nombre: 'Reglas', codigo: '345678901', cantidad: '9' },
-                { id: 5, nombre: 'Borradores', codigo: '456789012', cantidad: '3' },
-                { id: 6, nombre: 'Tijeras', codigo: '567890123', cantidad: '6' },
-                { id: 7, nombre: 'Estuches', codigo: '678901234', cantidad: '5' },
-                { id: 8, nombre: 'Calculadoras', codigo: '789012345', cantidad: '4' },
-                { id: 9, nombre: 'Mochilas', codigo: '890123456', cantidad: '6' },
-                { id: 10, nombre: 'Marcadores', codigo: '901234567', cantidad: '8' },
-                { id: 11, nombre: 'Pegamento', codigo: '112233445', cantidad: '9' },
-                { id: 12, nombre: 'Gomas de borrar', codigo: '223344556', cantidad: '9' },
-                { id: 13, nombre: 'Sacapuntas', codigo: '334455667', cantidad: '5' },
-                { id: 14, nombre: 'Hojas de papel', codigo: '445566778', cantidad: '7' },
-                { id: 15, nombre: 'Portaminas', codigo: '556677889', cantidad: '5' },
-                { id: 16, nombre: 'Papel de colores', codigo: '667788990', cantidad: '8' },
-                { id: 17, nombre: 'Lápices de colores', codigo: '778899001', cantidad: '9' },
-                { id: 18, nombre: 'Carpeta', codigo: '889900112', cantidad: '3' },
-                { id: 19, nombre: 'Corrector', codigo: '990011223', cantidad: '9' },
-                { id: 20, nombre: 'Rotuladores', codigo: '001122334', cantidad: '7' },
-                { id: 21, nombre: 'Libretas', codigo: '112233445', cantidad: '5' },
-                { id: 22, nombre: 'Grapadoras', codigo: '223344556', cantidad: '6' },
-                { id: 23, nombre: 'Perforadoras', codigo: '334455667', cantidad: '3' },
-                { id: 24, nombre: 'Pizarras', codigo: '445566778', cantidad: '2' },
-                { id: 25, nombre: 'Bolígrafos', codigo: '556677889', cantidad: '9' },
-                { id: 26, nombre: 'Compás', codigo: '667788990', cantidad: '5' },
-                { id: 27, nombre: 'Folios', codigo: '778899001', cantidad: '7' },
-                { id: 28, nombre: 'Cinta adhesiva', codigo: '889900112', cantidad: '8' },
-                { id: 29, nombre: 'Estuches de geometría', codigo: '990011223', cantidad: '6' },
-                { id: 30, nombre: 'Libros de texto', codigo: '001122334', cantidad: '5' }
+                { id: 2, nombre: 'Cuadernos', codigo: '123456789', cantidad: '10' },
+                { id: 3, nombre: 'Lápices', codigo: '234567890', cantidad: '15' },
+                { id: 4, nombre: 'Reglas', codigo: '345678901', cantidad: '20' },
+                { id: 5, nombre: 'Borradores', codigo: '456789012', cantidad: '25' },
+                { id: 6, nombre: 'Tijeras', codigo: '567890123', cantidad: '30' },
+                { id: 7, nombre: 'Estuches', codigo: '678901234', cantidad: '35' },
+                { id: 8, nombre: 'Calculadoras', codigo: '789012345', cantidad: '40' },
+                { id: 9, nombre: 'Mochilas', codigo: '890123456', cantidad: '45' },
+                { id: 10, nombre: 'Marcadores', codigo: '901234567', cantidad: '50' },
+                { id: 11, nombre: 'Pegamento', codigo: '112233445', cantidad: '55' },
+                { id: 12, nombre: 'Gomas de borrar', codigo: '223344556', cantidad: '60' },
+                { id: 13, nombre: 'Sacapuntas', codigo: '334455667', cantidad: '65' },
+                { id: 14, nombre: 'Hojas de papel', codigo: '445566778', cantidad: '70' },
+                { id: 15, nombre: 'Portaminas', codigo: '556677889', cantidad: '75' },
+                { id: 16, nombre: 'Papel de colores', codigo: '667788990', cantidad: '80' },
+                { id: 17, nombre: 'Lápices de colores', codigo: '778899001', cantidad: '85' },
+                { id: 18, nombre: 'Carpeta', codigo: '889900112', cantidad: '90' },
+                { id: 19, nombre: 'Corrector', codigo: '990011223', cantidad: '95' },
+                { id: 20, nombre: 'Rotuladores', codigo: '001122334', cantidad: '100' },
+                { id: 21, nombre: 'Libretas', codigo: '112233445', cantidad: '105' },
+                { id: 22, nombre: 'Grapadoras', codigo: '223344556', cantidad: '110' },
+                { id: 23, nombre: 'Perforadoras', codigo: '334455667', cantidad: '115' },
+                { id: 24, nombre: 'Pizarras', codigo: '445566778', cantidad: '120' },
+                { id: 25, nombre: 'Bolígrafos', codigo: '556677889', cantidad: '125' },
+                { id: 26, nombre: 'Compás', codigo: '667788990', cantidad: '130' },
+                { id: 27, nombre: 'Folios', codigo: '778899001', cantidad: '135' },
+                { id: 28, nombre: 'Cinta adhesiva', codigo: '889900112', cantidad: '140' },
+                { id: 29, nombre: 'Estuches de geometría', codigo: '990011223', cantidad: '145' },
+                { id: 30, nombre: 'Libros de texto', codigo: '001122334', cantidad: '150' }
                 ]
             }
 
@@ -210,63 +201,17 @@
             };
 
             return (
-                <form className="panel2" onSubmit={guardar}>
-                    <label>Producto</label>
-                    <input type="text" value={nombre} onChange={cambiarNombre} />
-
-                    <label>Código EAN</label>
-                    <input type="text" value={codigo} onChange={cambiarCodigo} />
-
-                    <label>Cantidad</label>
-                    <input type="text" value={cantidad} onChange={cambiarCantidad} />
-                    {error && <p className="error">Todos los campos son obligatorios</p>}
-                    <div className="acciones">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onClick={alCancelar}>Cancelar</button>
-                    </div>
-                </form>
-            );
-        }
-
-        function Mostrar({ producto, alEditar, alBorrar }) {
-            const [editando, setEditando] = useState(false);
-            const [nombre, setNombre] = useState(producto.nombre);
-            const [codigo, setCodigo] = useState(producto.codigo);
-            const [cantidad, setCantidad] = useState(producto.cantidad);
-
-            const activarEdicion = () => {
-                setEditando(true);
-            };
-
-            const guardarCambios = () => {
-                alEditar({
-                    ...producto,
-                    nombre: nombre,
-                    codigo: codigo,
-                    cantidad: cantidad
-                });
-                setEditando(false);
-            };
-
-            return (
-                <div className="panel">
-                    {editando ? (
-                        <div>
-                            <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-                            <input type="text" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
-                            <input type="text" value={cantidad} onChange={(e) => setCantidad(e.target.value)} />
-                            <button onClick={guardarCambios()}>Guardar</button>
-                            <button onClick={() => setEditando(false)}>Cancelar</button>
+                <form className="panel" onSubmit={guardar}>
+                            <button onClick={guardarCambios} className="botongc guardar">Guardar</button>
+                            <button onClick={() => setEditando(false)} className="botongc cancelar">Cancelar</button>
 
                         </div>
                     ) : (
-                        <div class="orgdatos">
-                            <p class="cantidadp"><strong>{producto.cantidad}</strong></p>
-                            <div>
-                                <p><strong>{producto.nombre}</strong></p>
-                                <p><strong></strong>{producto.codigo}</p>
-                            </div>
-                            <div className="acciones2">
+                        <div>
+                            <p><strong>Producto:</strong> {producto.nombre}</p>
+                            <p><strong>Código EAN:</strong> {producto.codigo}</p>
+                            <p><strong>Cantidad:</strong> {producto.cantidad}</p>
+                            <div className="acciones">
                                 <i onClick={activarEdicion} className="fas fa-pencil-alt"></i>
                                 <i onClick={() => alBorrar(producto.id)} className="fas fa-trash"></i>
                             </div>
@@ -284,10 +229,11 @@
 
             if (productos.length === 0)
                 return (
-                    <div className="nhp">
+                    <div>
                         <h1>No hay productos</h1>
-                        <button className="agregar-btn2" onClick={alAgregar}>
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        <button className="agregar-btn" onClick={alAgregar}>
+                            <i className="fas fa-plus"></i>
+                            Agregar Producto
                         </button>
                     </div>
                 );
@@ -301,7 +247,8 @@
                     <div className="header">
                         <h1>CONTROL DEPÓSITO</h1>
                         <button className="agregar-btn" onClick={alAgregar}>
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <i className="fas fa-plus"></i>
+                            Agregar Producto
                         </button>
                     </div>
                     {productosOrdenados.map((producto) => (
@@ -348,7 +295,7 @@
                 setProducto({});
                 setEditando(true);
             };
-
+    
             const borrar = id => {
                 const copia = productos.filter(c => c.id !== id);
                 setProductos(copia);
