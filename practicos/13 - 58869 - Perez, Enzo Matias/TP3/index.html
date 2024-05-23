@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distribuidora de Bebidas</title>
+  <script
+    src="https://unpkg.com/react@17/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    crossorigin
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    .panel {
+      background-color: rgb(255, 250, 250);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      width: 300px;
+      cursor: pointer;
+      position: relative;
+    }
+    .cant {
+      font-size: 50px;
+      padding: 10px;
+      color: blue;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: inherit;
+      font-weight: 700;
+      margin-right: 20px;
+    }
+    .detalles {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .producto {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .ean {
+      font-size: 14px;
+      color: gray;
+    }
+    .acciones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .acciones button,
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    .add-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .edit-panel {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+    }
+    .edit-panel input {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: calc(100% - 16px);
+    }
+    .edit-panel label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .acciones {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+    .acciones button {
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: 1px solid #007bff;
+    }
+    .acciones button:nth-child(2) {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+    .error {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const DepositoInicial = [
+        { id: 1, producto: "Agua Mineral", codigoEan: "111111111111", cantidad: '10' },
+        { id: 2, producto: "Té Helado", codigoEan: "222222222222", cantidad: '20' },
+        { id: 3, producto: "Jugo de Naranja", codigoEan: "333333333333", cantidad: '30' },
+        { id: 4, producto: "Limonada", codigoEan: "444444444444", cantidad: '15' },
+        { id: 5, producto: "Café Frío", codigoEan: "555555555555", cantidad: '25' },
+        { id: 6, producto: "Energizante", codigoEan: "666666666666", cantidad: '35' },
+        { id: 7, producto: "Batido de Proteína", codigoEan: "777777777777", cantidad: '18' },
+        { id: 8, producto: "Soda Italiana", codigoEan: "888888888888", cantidad: '22' },
+        { id: 9, producto: "Agua Tónica", codigoEan: "999999999999", cantidad: '28' },
+        { id: 10, producto: "Refresco de Uva", codigoEan: "101010101010", cantidad: '40' },
+        { id: 11, producto: "Agua de Coco", codigoEan: "121212121212", cantidad: '15' },
+        { id: 12, producto: "Limonada Rosa", codigoEan: "232323232323", cantidad: '12' },
+        { id: 13, producto: "Zumo de Piña", codigoEan: "343434343434", cantidad: '18' },
+        { id: 14, producto: "Batido de Mango", codigoEan: "454545454545", cantidad: '20' },
+        { id: 15, producto: "Refresco de Cola", codigoEan: "565656565656", cantidad: '30' },
+        { id: 16, producto: "Té Verde", codigoEan: "676767676767", cantidad: '25' },
+        { id: 17, producto: "Jugo de Arándano", codigoEan: "787878787878", cantidad: '22' },
+        { id: 18, producto: "Té Negro", codigoEan: "898989898989", cantidad: '28' },
+        { id: 19, producto: "Agua con Gas", codigoEan: "909090909090", cantidad: '35' },
+        { id: 20, producto: "Soda de Naranja", codigoEan: "101112131415", cantidad: '40' },
+        { id: 21, producto: "Agua Mineral con Gas", codigoEan: "111213141516", cantidad: '10' },
+        { id: 22, producto: "Batido de Chocolate", codigoEan: "121314151617", cantidad: '25' },
+        { id: 23, producto: "Jugo de Manzana", codigoEan: "131415161718", cantidad: '30' },
+        { id: 24, producto: "Té de Hierbas", codigoEan: "141516171819", cantidad: '15' },
+        { id: 25, producto: "Refresco de Limón", codigoEan: "151617181920", cantidad: '20' },
+        { id: 26, producto: "Batido de Fresa", codigoEan: "161718192021", cantidad: '18' },
+        { id: 27, producto: "Zumo de Melocotón", codigoEan: "171819202122", cantidad: '12' },
+        { id: 28, producto: "Té Chai", codigoEan: "181920212223", cantidad: '22' },
+        { id: 29, producto: "Soda de Limón", codigoEan: "192021222324", cantidad: '28' },
+        { id: 30, producto: "Jugo de Uva", codigoEan: "202122232425", cantidad: '35' }
+    ];
+
+    function Editar({ productos, alGuardar, alCancelar }) {
+      let [producto, setProducto] = useState(productos.producto || '');
+      let [codigoEan, setCodigoEan] = useState(productos.codigoEan || '');
+      let [cantidad, setCantidad] = useState(productos.cantidad || '');
+      let [error, setError] = useState(false);
+
+      const cambiarProducto = (e) => {
+        setProducto(e.target.value);
+        setError(false);
+      };
+      const cambiarCodigoEan = (e) => {
+        setCodigoEan(e.target.value);
+        setError(false);
+      };
+      const cambiarCantidad = (e) => {
+        setCantidad(e.target.value);
+        setError(false);
+      };
+
+      const guardar = (e) => {
+        e.preventDefault();
+        if (
+          producto.trim() === '' ||
+          codigoEan.trim() === '' ||
+          cantidad.trim() === ''
+        ) {
+          setError(true);
+          return;
+        }
+        alGuardar({ ...productos, producto, codigoEan, cantidad });
+      };
+      const cancelar = (e) => {
+        e.preventDefault();
+        alCancelar();
+      };
+
+      return (
+        <form className="panel edit-panel">
+          <label>Producto</label>
+          <input type="text" value={producto} onChange={cambiarProducto} className="producto-input" />
+
+          <label>Codigo EAN</label>
+          <input type="text" value={codigoEan} onChange={cambiarCodigoEan} className="ean-input" />
+
+          <label>Cantidad</label>
+          <input type="text" value={cantidad} onChange={cambiarCantidad} className="cantidad-input" />
+
+          {error && <p className="error">Todos los campos son obligatorios</p>}
+          <div className="acciones">
+            <button onClick={guardar}>Guardar</button>
+            <button onClick={cancelar}>Cancelar</button>
+          </div>
+        </form>
+      );
+    }
+
+    function Mostrar({ deposito, alGuardar, alBorrar }) {
+      const [editando, setEditando] = useState(false);
+      const [nuevoProducto, setNuevoProducto] = useState(deposito.producto);
+      const [nuevoCodigoEan, setNuevoCodigoEan] = useState(deposito.codigoEan);
+      const [nuevaCantidad, setNuevaCantidad] = useState(deposito.cantidad);
+      const [error, setError] = useState(false);
+
+      const guardar = () => {
+        if (
+          nuevoProducto.trim() === '' ||
+          nuevoCodigoEan.trim() === '' ||
+          nuevaCantidad.trim() === ''
+        ) {
+          setError(true);
+          return;
+        }
+        alGuardar({ ...deposito, producto: nuevoProducto, codigoEan: nuevoCodigoEan, cantidad: nuevaCantidad });
+        setEditando(false);
+        setError(false);
+      };
+
+      const cancelar = () => {
+        setNuevoProducto(deposito.producto);
+        setNuevoCodigoEan(deposito.codigoEan);
+        setNuevaCantidad(deposito.cantidad);
+        setEditando(false);
+        setError(false);
+      };
+
+      const incrementarCantidad = () => {
+        const cantidadIncrementada = parseInt(deposito.cantidad) + 1;
+        alGuardar({ ...deposito, cantidad: cantidadIncrementada.toString() });
+      };
+
+      return editando ? (
+        <div className="panel edit-panel">
+          <label>Producto</label>
+          <input className="producto-input" type="text" value={nuevoProducto} onChange={(e) => { setNuevoProducto(e.target.value); setError(false); }} />
+          <label>Código EAN</label>
+          <input className="ean-input" type="text" value={nuevoCodigoEan} onChange={(e) => { setNuevoCodigoEan(e.target.value); setError(false); }} />
+          <label>Cantidad</label>
+          <input className="cantidad-input" type="text" value={nuevaCantidad} onChange={(e) => { setNuevaCantidad(e.target.value); setError(false); }} />
+          {error && <p className="error">Todos los campos son obligatorios</p>}
+          <div className="acciones">
+            <button onClick={guardar}>Guardar</button>
+            <button onClick={cancelar}>Cancelar</button>
+          </div>
+        </div>
+      ) : (
+        <div className="panel" onClick={incrementarCantidad}>
+          <div className="cant">{deposito.cantidad}</div>
+          <div className="detalles">
+            <p className="producto">{deposito.producto}</p>
+            <p className="ean">{deposito.codigoEan}</p>
+          </div>
+          <div className="acciones">
+            <button onClick={(e) => { e.stopPropagation(); setEditando(true); }}>
+              <i className="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); alBorrar(); }}>
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    function Catalogo({ depositos, alAgregar, alEditar, alBorrar }) {
+      const depositosOrdenados = depositos.sort((a, b) => a.producto.localeCompare(b.producto));
+
+      return (
+        <>
+          <h1>Catálogo de productos</h1>
+          <button className="add-button" onClick={alAgregar}>
+            <i className="fa-regular fa-square-plus"></i>
+          </button>
+          {depositosOrdenados.map((deposito) => (
+            <Mostrar
+              key={deposito.id}
+              deposito={deposito}
+              alGuardar={(datosActualizados) => alEditar(deposito.id, datosActualizados)}
+              alBorrar={() => alBorrar(deposito.id)}
+            />
+          ))}
+        </>
+      );
+    }
+   
+    function App() {
+      const [depositos, setDepositos] = useState(() => {
+        const depositosGuardados = localStorage.getItem('depositos');
+        return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
+      });
+      const [agregando, setAgregando] = useState(false);
+
+      useEffect(() => {
+        localStorage.setItem('depositos', JSON.stringify(depositos));
+      }, [depositos]);
+
+      const agregarProducto = (producto) => {
+        setDepositos([...depositos, { ...producto, id: Date.now() }]);
+        setAgregando(false);
+      };
+
+      const editarProducto = (id, productoActualizado) => {
+        setDepositos(
+          depositos.map((deposito) =>
+            deposito.id === id ? productoActualizado : deposito
+          )
+        );
+      };
+
+      const borrarProducto = (id) => {
+        setDepositos(depositos.filter((deposito) => deposito.id !== id));
+      };
+
+      const cancelarAgregado = () => {
+        setAgregando(false);
+      };
+
+      return (
+        <>
+          {agregando ? (
+            <Editar
+              productos={{ id: null, producto: '', codigoEan: '', cantidad: '' }}
+              alGuardar={agregarProducto}
+              alCancelar={cancelarAgregado}
+            />
+          ) : (
+            <Catalogo
+              depositos={depositos}
+              alAgregar={() => setAgregando(true)}
+              alEditar={editarProducto}
+              alBorrar={borrarProducto}
+            />
+          )}
+        </>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
