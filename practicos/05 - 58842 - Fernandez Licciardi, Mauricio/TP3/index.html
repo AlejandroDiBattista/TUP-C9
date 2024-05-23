@@ -201,26 +201,23 @@
             };
 
             return (
-                <form className="panel" onSubmit={guardar}>
-                            <button onClick={guardarCambios} className="botongc guardar">Guardar</button>
-                            <button onClick={() => setEditando(false)} className="botongc cancelar">Cancelar</button>
-
+                <div>
+                    <form className="panel" onSubmit={guardar}>
+                        <button onClick={guardarCambios} className="botongc guardar">Guardar</button>
+                        <button onClick={() => setEditando(false)} className="botongc cancelar">Cancelar</button>
+                    </form>
+                    <div>
+                        <p><strong>Producto:</strong> {producto.nombre}</p>
+                        <p><strong>Código EAN:</strong> {producto.codigo}</p>
+                        <p><strong>Cantidad:</strong> {producto.cantidad}</p>
+                        <div className="acciones">
+                            <i onClick={activarEdicion} className="fas fa-pencil-alt"></i>
+                            <i onClick={() => alBorrar(producto.id)} className="fas fa-trash"></i>
                         </div>
-                    ) : (
-                        <div>
-                            <p><strong>Producto:</strong> {producto.nombre}</p>
-                            <p><strong>Código EAN:</strong> {producto.codigo}</p>
-                            <p><strong>Cantidad:</strong> {producto.cantidad}</p>
-                            <div className="acciones">
-                                <i onClick={activarEdicion} className="fas fa-pencil-alt"></i>
-                                <i onClick={() => alBorrar(producto.id)} className="fas fa-trash"></i>
-                            </div>
-                        </div>
-                    )}
+                    </div>
                 </div>
             );
         }
-
 
         function Lista({ productos, alAgregar, alEditar, alBorrar }) {
             const editarProducto = (producto) => {
