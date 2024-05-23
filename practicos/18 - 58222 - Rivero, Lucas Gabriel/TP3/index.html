@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <title>Control Depósito</title>
+    <style> 
+        body  {
+            font-family: cursive;
+           
+          
+        }
+
+        .panel {
+            background-color: #88919b;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            width: 314px;
+            height: 100px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cantidad {
+            font-size: 29px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        .info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .nombre {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .codigoEAN {
+            font-size: 17px;
+            color: #3d2c2c;
+            margin: 0;
+        }
+
+        .botones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .botonagregar {
+            height: 50px;
+            border-radius: 5px;
+            border: none;
+            color: black;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-left: 20px;
+        }
+
+        .botonbasura,
+        .botoneditar {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: rgb(44, 30, 30);
+        }
+
+        .boton:hover {
+            color: #000;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            margin-right: 20px;
+        }
+
+        .form-editar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .form-editar .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 70%;
+        }
+
+        .form-editar .botones-editar {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+            justify-content: center;
+            width: 30%;
+        }
+
+        .form-editar input {
+            padding: 8px;
+            border: 1px solid #365d85;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .boton-editar{
+            padding: 5px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            width: 70px;
+            text-align: center;
+        }
+        .botonaceptar,
+        .botoncancelar {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            width: 70px;
+            text-align: center;
+        }
+
+        .boton-editar:hover,
+        .botonaceptar:hover,
+        .botoncancelar:hover {
+            background-color: #e9ecef;
+        }
+
+        .boton-editar:focus,
+        .botonaceptar:focus,
+        .botoncancelar:focus {
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const DepositoInicial = [
+            { id: 0, nombre: "LAMINADORA RELIFE", codigoEAN: "12", cantidad: 4 },
+            { id: 1, nombre: "KITS DESTORNI YAXUN", codigoEAN: "13", cantidad: 3},
+            { id: 2, nombre: "PLANCHA RF4 FOCUS ", codigoEAN: "14", cantidad: 1},
+            { id: 3, nombre: "SOLDADOR 2EN1 KEILIWEI", codigoEAN: "15", cantidad: 8 },
+            { id: 4, nombre: "SOLDADOR MECHANIC", codigoEAN: "16", cantidad: 1 },
+            { id: 5, nombre: "ESTACION DE AIRE YIHUA", codigoEAN: "17", cantidad: 2 },
+            { id: 6, nombre: "REMOVEDOR DE OCA- EL REPA", codigoEAN: "18", cantidad: 1 },
+            { id: 7, nombre: "MODULO SAM A30", codigoEAN: "19", cantidad: 13 },
+            { id: 8, nombre: "MODULO SAM A12", codigoEAN: "20", cantidad: 4 },
+            { id: 9, nombre: "MODULO SAM S20", codigoEAN: "21", cantidad: 3 },
+            { id: 10, nombre: "MODULO MOTO G9POWER", codigoEAN: "22", cantidad: 67 },
+            { id: 11, nombre: "MODULO LG40K", codigoEAN: "23", cantidad: 70 },
+            { id: 12, nombre: "MODULO MOTOE40", codigoEAN: "24", cantidad: 9 },
+            { id: 13, nombre: "MODULO SAM A50 ", codigoEAN: "25", cantidad: 9},
+            { id: 14, nombre: "MODULO MOTO E13", codigoEAN: "26", cantidad: 19 },
+            { id: 15, nombre: "PLACA DE CARAGAR A50", codigoEAN: "27", cantidad: 8 },
+
+        ];
+
+
+        function Mostrar({ deposito, alGuardar, alBorrar, alIncrementar }) {
+            const [editando, setEditando] = useState(deposito.nombre === '');
+            const [nombre, setNombre] = useState(deposito.nombre);
+            const [codigoEAN, setCodigoEAN] = useState(deposito.codigoEAN);
+            const [cantidad, setCantidad] = useState(deposito.cantidad);
+            const [error, setError] = useState(false);
+
+            const editar = (e) => {
+                e.stopPropagation();
+                setEditando(true);
+                setCantidad(deposito.cantidad);
+            };
+
+            const cancelar = (e) => {
+                e.stopPropagation();
+                if (deposito.nombre === '') {
+                    alBorrar(deposito.id);
+                } else {
+                    setEditando(false);
+                    setNombre(deposito.nombre);
+                    setCodigoEAN(deposito.codigoEAN);
+                    setCantidad(deposito.cantidad);
+                    setError(false);
+                }
+            };
+
+            const guardar = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (nombre === '' || codigoEAN === '' || cantidad === '') {
+                    setError(true);
+                    return;
+                }
+                alGuardar({ ...deposito, nombre, codigoEAN, cantidad });
+                setEditando(false);
+                setCantidad(deposito.cantidad);
+            };
+
+            const borrar = (e) => {
+                e.stopPropagation();
+                alBorrar(deposito.id);
+            };
+
+            return (
+                <div className="panel" onClick={() => alIncrementar(deposito.id)}>
+                    {editando ? (
+                        <form className="form-editar" onSubmit={guardar}>
+                            <div className="inputs">
+                                <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre del producto" />
+                                <input type="text" value={codigoEAN} onChange={e => setCodigoEAN(e.target.value)} placeholder="Código EAN" />
+                                <input type="text" value={cantidad} onChange={e => setCantidad(e.target.value)} placeholder="Cantidad" />
+                                {error && <p className="error">Todos los campos son obligatorios</p>}
+                            </div>
+                            <div className="botones-editar">
+                                <button className="botonaceptar" type="submit">Aceptar</button>
+                                <button className="botoncancelar" type="button" onClick={cancelar}>Cancelar</button>
+                            </div>
+                        </form>
+                    ) : (
+                        <>
+                            <div className="cantidad">{deposito.cantidad}</div>
+                            <div className="info">
+                                <p className="nombre">{deposito.nombre}</p>
+                                <p className="codigoEAN">{deposito.codigoEAN}</p>
+                            </div>
+                            <div className="botones">
+                                <button className="botoneditar" onClick={editar}><i className="fas fa-edit"></i></button>
+                                <button className="botonbasura" onClick={borrar}><i className="fas fa-trash"></i></button>
+                            </div>
+                        </>
+                    )}
+                </div>
+            );
+        }
+
+        function ListaDeposito({ deposito, alAgregar, alGuardar, alBorrar, alIncrementar }) {
+            const depositoOrdenado = [...deposito].sort((a, b) => a.nombre.localeCompare(b.nombre));
+            return (
+                <>
+                    <div className="header">
+                        <h1>Control Depósito</h1>
+                        <button className="botonagregar" onClick={alAgregar}><i className="fa-regular fa-square-plus"></i></button>
+                    </div>
+                    {depositoOrdenado.map(d => (
+                        <Mostrar key={d.id} deposito={d} alGuardar={alGuardar} alBorrar={alBorrar} alIncrementar={alIncrementar} />
+                    ))}
+                </>
+            );
+        }
+
+        function App() {
+            const [depositos, setDepositos] = useState(() => {
+                const datosGuardados = localStorage.getItem('depositos');
+                return datosGuardados ? JSON.parse(datosGuardados) : DepositoInicial;
+            });
+
+            const guardarEnLocalStorage = (depositosActualizados) => {
+                localStorage.setItem('depositos', JSON.stringify(depositosActualizados));
+            };
+
+            const guardar = (depositoEditado) => {
+                const nuevosDepositos = depositos.map(d => d.id === depositoEditado.id ? depositoEditado : d);
+                setDepositos(nuevosDepositos);
+                guardarEnLocalStorage(nuevosDepositos);
+            };
+
+            const agregar = () => {
+                const id = depositos.length > 0 ? Math.max(...depositos.map(d => d.id)) + 1 : 1;
+                const nuevoDeposito = { id, nombre: '', codigoEAN: '', cantidad: '' };
+                const nuevosDepositos = [nuevoDeposito, ...depositos];
+                setDepositos(nuevosDepositos);
+                guardarEnLocalStorage(nuevosDepositos);
+            };
+
+            const borrar = (id) => {
+                const nuevosDepositos = depositos.filter(d => d.id !== id);
+                setDepositos(nuevosDepositos);
+                guardarEnLocalStorage(nuevosDepositos);
+            };
+
+            const incrementarCantidad = (id) => {
+                const nuevosDepositos = depositos.map(d => {
+                    if (d.id === id) {
+                        return { ...d, cantidad: parseInt(d.cantidad) + 1 };
+                    }
+                    return d;
+                });
+                setDepositos(nuevosDepositos);
+                guardarEnLocalStorage(nuevosDepositos);
+            };
+
+            return (
+                <ListaDeposito
+                    deposito={depositos}
+                    alAgregar={agregar}
+                    alGuardar={guardar}
+                    alBorrar={borrar}
+                    alIncrementar={incrementarCantidad}
+                />
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
