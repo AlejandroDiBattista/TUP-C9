@@ -1,0 +1,67 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+body{
+  background-color: bisque;
+}
+
+
+
+.formulario-agregar-producto {
+  margin-bottom: 20px;
+
+  
+}
+
+.formulario-agregar-producto input {
+  margin-right: 10px;
+  padding: 5px;
+  
+}
+
+.lista-productos {
+  margin-top: 20px;
+}
+
+.item-producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 50px;
+  width: 70%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Cambiar este color según tus preferencias */
+  
+}
+
+.item-producto input {
+  margin-right: 10px;
+  padding: 5px;
+ 
+}
+
+.item-producto button {
+  margin-left: 5px;
+  padding: 5px 10px;
+}
+
+button {
+  padding: 5px 10px;
+}
+.formulario-agregar-producto button{
+  border-radius: 20px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  padding: 6px;
+  box-shadow: 0px 4px 4px rgb(95, 95, 95);
+  cursor: pointer;
+}
+.formulario-agregar-producto button :hover{
+  
+  transform: rotate(3deg);
+}
