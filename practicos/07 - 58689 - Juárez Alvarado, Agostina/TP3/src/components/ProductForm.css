@@ -1,0 +1,13 @@
+.product-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-form input {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  
