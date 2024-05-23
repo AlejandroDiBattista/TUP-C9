@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Productos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #000000;
+
             margin: 10px;
             padding: 0;
             display: flex;
@@ -39,6 +39,7 @@
             margin: 10px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
         }
         .panel p {
             margin: 10px;
@@ -136,7 +137,6 @@
 </head>
 <body>
     <div id="root"></div>
-    
     <script type="text/babel">
         const { useState, useEffect } = React;
 
@@ -202,50 +202,6 @@
 
             return (
                 <form className="panel" onSubmit={guardar}>
-                    <label>Producto</label>
-                    <input type="text" value={nombre} onChange={cambiarNombre} />
-
-                    <label>Código EAN</label>
-                    <input type="text" value={codigo} onChange={cambiarCodigo} />
-
-                    <label>Cantidad</label>
-                    <input type="text" value={cantidad} onChange={cambiarCantidad} />
-                    {error && <p className="error">Todos los campos son obligatorios</p>}
-                    <div className="acciones">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onClick={alCancelar}>Cancelar</button>
-                    </div>
-                </form>
-            );
-        }
-
-        function Mostrar({ producto, alEditar, alBorrar }) {
-            const [editando, setEditando] = useState(false);
-            const [nombre, setNombre] = useState(producto.nombre);
-            const [codigo, setCodigo] = useState(producto.codigo);
-            const [cantidad, setCantidad] = useState(producto.cantidad);
-
-            const activarEdicion = () => {
-                setEditando(true);
-            };
-
-            const guardarCambios = () => {
-                alEditar({
-                    ...producto,
-                    nombre: nombre,
-                    codigo: codigo,
-                    cantidad: cantidad
-                });
-                setEditando(false);
-            };
-
-            return (
-                <div className="panel">
-                    {editando ? (
-                        <div>
-                            <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-                            <input type="text" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
-                            <input type="text" value={cantidad} onChange={(e) => setCantidad(e.target.value)} />
                             <button onClick={guardarCambios} className="botongc guardar">Guardar</button>
                             <button onClick={() => setEditando(false)} className="botongc cancelar">Cancelar</button>
 
