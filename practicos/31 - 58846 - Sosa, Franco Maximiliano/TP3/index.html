@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Deposito qpx</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        body {
+            font-family: "Jost", sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .add-product-icon {
+            font-size: 2em;
+            cursor: pointer;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .product-container {    
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .product-card {
+            border: 1px solid #000000;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-quantity {
+            font-size: 3em;
+            color: #024083;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .product-details {
+            flex-grow: 1;
+        }
+
+        .product-details h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #000;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #000;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-actions button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .product-actions button:hover {
+            color: #024083;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: white;
+            color: #000;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: gainsboro;
+            border-color: transparent;
+        }
+
+        .product-card form {
+            width: 100%;
+        }
+
+        .product-card form button {
+            width: 45%;
+        }
+
+        .product-card form .form-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .icon {
+            font-size: 1.5em;
+            color: #024083;
+        }
+
+        .panel {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 8px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .acciones {
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const ProductosIniciales = [
+            { id: 1, nombre: "7up", codigo_EAM: 7799876543210, cantidad: 7 },
+            { id: 2, nombre: "Cola Cola", codigo_EAM: 7791234567890, cantidad: 92 },
+            { id: 3, nombre: "Fanta", codigo_EAM: 7793219876540, cantidad: 5 },
+            { id: 4, nombre: "Mirinda", codigo_EAM: 7797894561230, cantidad: 6 },
+            { id: 5, nombre: "Sprite", codigo_EAM: 7796543219870, cantidad: 4 },
+        ].sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+        function useProductosIniciales() {
+            const productosGuardados = localStorage.getItem('productos');
+            return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales;
+        }
+
+        function Editar({ producto, productos, alGuardar, alCancelar }) {
+            let [nombre, setNombre] = useState(producto.nombre || "");
+            let [cantidad, setCantidad] = useState(producto.cantidad || "");
+            let [codigo_EAM, setCodigo_EAM] = useState(producto.codigo_EAM || "");
+            let [error, setError] = useState(false);
+            let [alerta, setAlerta] = useState("");
+
+            const cambiarNombre = (e) => {
+                setNombre(e.target.value);
+                setError(false);
+                setAlerta("");
+            };
+
+            const cambiarCodigo_EAM = (e) => {
+                setCodigo_EAM(e.target.value);
+                setError(false);
+                setAlerta("");
+            };
+
+            const cambiarCantidad = (e) => {
+                setCantidad(e.target.value);
+                setError(false);
+                setAlerta("");
+            };
+
+            const guardar = (e) => {
+                e.preventDefault();
+
+                if (nombre === "" || cantidad === "" || codigo_EAM === "") {
+                    setError(true);
+                    return;
+                }
+
+                const nombreExiste = productos.some((prod) => prod.nombre.toLowerCase() === nombre.toLowerCase() && prod.id !== producto.id);
+                const codigoEAMExiste = productos.some((prod) => prod.codigo_EAM == codigo_EAM && prod.id !== producto.id);
+
+                if (nombreExiste || codigoEAMExiste) {
+                    setAlerta("El nombre o el código EAM ya existen.");
+                    return;
+                }
+
+                alGuardar({ ...producto, nombre, codigo_EAM, cantidad });
+            };
+
+            const cancelar = (e) => {
+                e.preventDefault();
+                alCancelar();
+            };
+
+            return (
+                <form className="panel">
+                    <label>Producto</label>
+                    <input type="text" value={nombre} onChange={cambiarNombre} />
+
+                    <label>Codigo EAM</label>
+                    <input type="number" value={codigo_EAM} onChange={cambiarCodigo_EAM} />
+
+                    <label>Cantidad</label>
+                    <input type="number" value={cantidad} onChange={cambiarCantidad} />
+
+                    {error && <p className="error">Todos los campos son obligatorios</p>}
+                    {alerta && <p className="error">{alerta}</p>}
+
+                    <div className="form-actions">
+                        <button onClick={guardar}>Aceptar</button>
+                        <button onClick={cancelar}>Cancelar</button>
+                    </div>
+                </form>
+            );
+        }
+
+        function Mostrar({ producto, productos, alGuardar, alBorrar }) {
+            let [editando, setEditando] = useState(false);
+
+            const editar = () => setEditando(true);
+            const cancelar = () => setEditando(false);
+
+            return (
+                <>
+                    {editando ? (
+                        <Editar
+                            producto={producto}
+                            productos={productos}
+                            alGuardar={(productoEditado) => {
+                                alGuardar(productoEditado);
+                                setEditando(false);
+                            }}
+                            alCancelar={cancelar}
+                        />
+                    ) : (
+                        <div className="product-card">
+                            <div className="product-quantity">{producto.cantidad}</div>
+                            <div className="product-details">
+                                <h2>{producto.nombre}</h2>
+                                <p>{producto.codigo_EAM}</p>
+                            </div>
+                            <div className="product-actions">
+                                <button onClick={editar}><i class="fa-solid fa-pen"></i></button>
+                                <button onClick={() => alBorrar(producto.id)}><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    )}
+                </>
+            );
+        }
+
+        const { createRoot } = ReactDOM;
+
+        function ListadoProductos({ productos, alGuardar, alAgregar, alBorrar }) {
+            if (productos.length === 0) return <h1>No hay productos, renueve STOCK</h1>;
+            return (
+                <>
+                    <h1>Control Depósito</h1>
+                    <div className="add-product-icon" onClick={alAgregar}>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div className="product-container">
+                        {productos.map((producto) => (
+                            <Mostrar
+                                key={producto.id}
+                                producto={producto}
+                                productos={productos}
+                                alGuardar={alGuardar}
+                                alBorrar={alBorrar}
+                            />
+                        ))}
+                    </div>
+                </>
+            );
+        }
+
+        function App() {
+            let [productos, setProductos] = useState(useProductosIniciales);
+            let [agregando, setAgregando] = useState(false);
+
+            useEffect(() => {
+                localStorage.setItem('productos', JSON.stringify(productos));
+            }, [productos]);
+
+            const guardar = (productoEditado) => {
+                if (productoEditado.id) {
+                    let copia = productos.map((p) => (p.id === productoEditado.id ? productoEditado : p));
+                    setProductos(copia.sort((a, b) => a.nombre.localeCompare(b.nombre)));
+                } else {
+                    let id = Math.max(...productos.map((p) => p.id)) + 1;
+                    productoEditado.id = id;
+                    let copia = [...productos, productoEditado];
+                    setProductos(copia.sort((a, b) => a.nombre.localeCompare(b.nombre)));
+                }
+                setAgregando(false);
+            };
+
+            const cancelar = () => {
+                setAgregando(false);
+            };
+
+            const agregar = () => {
+                setAgregando(true);
+            };
+
+            const borrar = (id) => {
+                let copia = productos.filter((producto) => producto.id !== id);
+                setProductos(copia);
+            };
+
+            return (
+                <>
+                    {agregando ? (
+                        <Editar producto={{}} productos={productos} alGuardar={guardar} alCancelar={cancelar} />
+                    ) : (
+                        <ListadoProductos productos={productos} alGuardar={guardar} alAgregar={agregar} alBorrar={borrar} />
+                    )}
+                </>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
