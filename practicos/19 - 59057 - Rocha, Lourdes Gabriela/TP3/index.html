@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Control de Depósito</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .add-product-icon {   
+            font-size: 2em;
+            cursor: pointer;
+            color:#000;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-left: 355px;
+            margin-top: -55px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-quantity {
+            font-size: 3em;
+            color: #007BFF;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .product-details {
+            flex-grow: 1;
+        }
+
+        .product-details h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #000;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #000;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-actions button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #000;
+            margin: 5px 0;
+        }
+
+        .product-actions button:hover {
+            color: #007BFF;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: white;
+            color: #000;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: gainsboro;
+            border-color: transparent;
+        }
+
+        .product-card form {
+            width: 100%;
+        }
+
+        .product-card form button {
+            width: 45%;
+        }
+
+        .product-card form .form-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const FormularioProducto = ({ producto, manejarCambio, manejarEnvio, estaEditando, manejarCancelar }) => {
+            return (
+                <form onSubmit={manejarEnvio}>
+                    <input
+                        type="text"
+                        name="nombre"
+                        value={producto.nombre}
+                        onChange={manejarCambio}
+                        placeholder="Nombre del Producto"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="codigo"
+                        value={producto.codigo}
+                        onChange={manejarCambio}
+                        placeholder="Código del Producto"
+                        required
+                    />
+                    <input
+                     type="number"
+                     name="cantidad"
+                     value={producto.cantidad}
+                     onChange={manejarCambio} 
+                     placeholder="Cantidad"
+                     required
+                   />
+                <div className="form-actions">
+                    <button type="submit">{estaEditando ? 'Actualizar' : 'Agregar'}</button>
+                    {estaEditando && <button type="button" onClick={manejarCancelar}>Cancelar</button>}
+                </div>
+            </form>
+        );
+    };
+
+    const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
+        const [estaEditando, setEstaEditando] = useState(false);
+        const [productoActual, setProductoActual] = useState(producto);
+
+        useEffect(() => {
+            setProductoActual(producto);
+        }, [producto]);
+
+        const manejarCambio = (e) => {
+            const { name, value } = e.target;
+            setProductoActual({ ...productoActual, [name]: value });
+        };
+
+        const manejarEnvio = (e) => {
+            e.preventDefault();
+            actualizarProducto(productoActual);
+            setEstaEditando(false);
+        };
+
+        const manejarCancelar = () => {
+            setEstaEditando(false);
+            setProductoActual(producto); 
+        };
+
+        return (
+            <div className="product-card">
+                {estaEditando ? (
+                    <FormularioProducto
+                        producto={productoActual}
+                        manejarCambio={manejarCambio}
+                        manejarEnvio={manejarEnvio}
+                        estaEditando={estaEditando}
+                        manejarCancelar={manejarCancelar}
+                    />
+                ) : (
+                    <>
+                        <div className="product-quantity">
+                            {producto.cantidad}
+                        </div>
+                        <div className="product-details">
+                            <h2>{producto.nombre}</h2>
+                            <p>{producto.codigo}</p>
+                        </div>
+                        <div className="product-actions">
+                            <button onClick={() => setEstaEditando(true)}>
+                                <i className="fas fa-edit"></i>
+                            </button>
+                            <button onClick={() => eliminarProducto(producto.codigo)}>
+                                <i className="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
+        );
+    };
+
+    const ListaProductos = () => {
+        const [productos, setProductos] = useState([]);
+        const [nuevoProducto, setNuevoProducto] = useState({ nombre: '', codigo: '', cantidad: 0 });
+        const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+        useEffect(() => {
+            const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+            setProductos(productosGuardados);
+        }, []);
+
+        useEffect(() => {
+            localStorage.setItem('productos', JSON.stringify(productos));
+        }, [productos]);
+
+        const manejarCambioNuevoProducto = (e) => {
+            const { name, value } = e.target;
+            setNuevoProducto({ ...nuevoProducto, [name]: value });
+        };
+
+        const manejarEnvioNuevoProducto = (e) => {
+            e.preventDefault();
+            setProductos([...productos, nuevoProducto]);
+            setNuevoProducto({ nombre: '', codigo: '', cantidad: 0 });
+            setMostrarFormulario(false);
+        };
+
+        const actualizarProducto = (productoActualizado) => {
+            setProductos(productos.map(producto =>
+                producto.codigo === productoActualizado.codigo ? productoActualizado : producto
+            ));
+        };
+
+        const eliminarProducto = (codigo) => {
+            setProductos(productos.filter(producto => producto.codigo !== codigo));
+        };
+
+        const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+        return (
+            <div>
+                <h1>Control de Depósito</h1>
+                {mostrarFormulario ? (
+                    <FormularioProducto
+                        producto={nuevoProducto}
+                        manejarCambio={manejarCambioNuevoProducto}
+                        manejarEnvio={manejarEnvioNuevoProducto}
+                        estaEditando={false}
+                    />
+                ) : (
+                    <div className="add-product-icon" onClick={() => setMostrarFormulario(true)}>
+                        <i className="fas fa-plus-circle"></i>
+                    </div>
+                )}
+                <div className="product-container">
+                    {productosOrdenados.map(producto => (
+                        <Producto
+                            key={producto.codigo}
+                            producto={producto}
+                            actualizarProducto={actualizarProducto}
+                            eliminarProducto={eliminarProducto}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<ListaProductos />);
+</script>
+</body>
+</html>
