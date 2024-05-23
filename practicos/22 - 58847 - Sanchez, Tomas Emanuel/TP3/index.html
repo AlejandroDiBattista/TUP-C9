@@ -265,15 +265,18 @@
         };
 
         const handleNewProductSubmit = (e) => {
-            e.preventDefault();
-            if (products.some(p => p.code === newProduct.code)) {
-                alert("El código del producto ya está en uso.");
-                return;
-            }
-            setProducts([...products, newProduct]);
-            setNewProduct({ name: '', code: '', quantity: 0 });
-            setShowForm(false);
-        };
+    e.preventDefault();
+    if (products.some(p => p.code === newProduct.code)) {
+        alert("El código del producto ya está en uso.");
+        return;
+    }
+    const updatedProducts = [...products, newProduct];
+    updatedProducts.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente por el nombre del producto
+    setProducts(updatedProducts);
+    setNewProduct({ name: '', code: '', quantity: 0 });
+    setShowForm(false);
+};
+
 
         const updateProduct = (originalCode, updatedProduct) => {
             setProducts(products.map(product =>
