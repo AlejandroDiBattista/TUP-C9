@@ -10,7 +10,7 @@
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <title>Demo Mami</title>
+    <title>Trabajo Practico 3 </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,12 +34,14 @@
 
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            /* Centra el título */
             align-items: center;
             margin-bottom: 10px;
 
             h1 {
-                font-size: 24px;
+                font-size: 36px;
+                /* Aumenta el tamaño de la fuente */
                 margin-right: 20px;
             }
 
@@ -50,11 +52,12 @@
 
 
         .panel {
-            width: 100%;
+            width: 400px;
+            height: 140px;
             display: flex;
             padding: 4px;
             border: 1px solid #ccc;
-            background-color: #eee;
+            background-color: white;
             border-radius: 10px;
             margin-bottom: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -82,10 +85,10 @@
                 }
             }
 
-            .acciones {
+            .accion {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: space-around;
 
                 i {
                     font-size: 20px;
@@ -98,7 +101,6 @@
             border-radius: 8px;
             display: flex;
 
-
             .titulos {
                 width: 80%;
 
@@ -110,15 +112,11 @@
                     padding: 4px;
                     font-size: 16px;
                 }
-
             }
 
             .acciones {
                 width: 20%;
                 padding: 0px 16px 0 16px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
 
                 button {
                     font-size: 1em;
@@ -128,11 +126,11 @@
                     border: 2px solid black;
                     border-radius: 10px;
                     cursor: pointer;
+                    width: 80px;
+                    height: 30px;
                 }
             }
-
         }
-
         .error {
             color: red;
             font-size: 12px;
@@ -143,192 +141,197 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-const { useState, useEffect } = React
-const { createRoot } = ReactDOM
-const ProductosIniciales = [
-    { id: 1, nombre: 'CocaCola', codigo: '23645718354', cantidad: '5' },
-    { id: 2, nombre: 'Fanta', codigo: '23645718353', cantidad: '10' },
-    { id: 3, nombre: 'Sprite', codigo: '23645718352', cantidad: '8' },
-    { id: 4, nombre: 'Mirinda', codigo: '23645718351', cantidad: '57' },
-    { id: 5, nombre: '7Up', codigo: '23645718350', cantidad: '12' },
-    { id: 6, nombre: 'Torasso', codigo: '23645718349', cantidad: '53' },
-    { id: 7, nombre: 'Pepsi', codigo: '23645718348', cantidad: '43' },
-    { id: 8, nombre: 'Gatorade', codigo: '23645718345', cantidad: '40' },
-    { id: 9, nombre: 'Red Bull', codigo: '23645718344', cantidad: '60' },
-    { id: 10, nombre: 'Monster', codigo: '23645718343', cantidad: '70' },
-    { id: 11, nombre: 'Powerade', codigo: '23645718342', cantidad: '80' }
-]
+        const { useState, useEffect } = React
+        const { createRoot } = ReactDOM
+        const ProductosIniciales = [
+            { id: 1, nombre: 'CocaCola', codigo: '23645718354', cantidad: '5' },
+            { id: 2, nombre: 'Fanta', codigo: '23645718353', cantidad: '10' },
+            { id: 3, nombre: 'Sprite', codigo: '23645718352', cantidad: '8' },
+            { id: 4, nombre: 'Mirinda', codigo: '23645718351', cantidad: '57' },
+            { id: 5, nombre: '7Up', codigo: '23645718350', cantidad: '12' },
+            { id: 6, nombre: 'Torasso', codigo: '23645718349', cantidad: '53' },
+            { id: 7, nombre: 'Pepsi', codigo: '23645718348', cantidad: '43' },
+            { id: 8, nombre: 'Gatorade', codigo: '23645718345', cantidad: '40' },
+            { id: 9, nombre: 'Red Bull', codigo: '23645718344', cantidad: '60' },
+            { id: 10, nombre: 'Monster', codigo: '23645718343', cantidad: '70' },
+            { id: 11, nombre: 'Powerade', codigo: '23645718342', cantidad: '80' }
+        ]
 
-function Producto({ producto, alGuardar, incrementar, alBorrar }) {
-    const [editando, setEditando] = useState(producto.editando)
-    const [nombre, setNombre] = useState(producto.nombre)
-    const [codigo, setcodigo] = useState(producto.codigo)
-    const [cantidad, setcantidad] = useState(producto.cantidad)
-    const [error, setError] = useState(false)
+        function Producto({ producto, alGuardar, incrementar, alBorrar }) {
+            const [editando, setEditando] = useState(producto.editando)
+            const [nombre, setNombre] = useState(producto.nombre)
+            const [codigo, setcodigo] = useState(producto.codigo)
+            const [cantidad, setcantidad] = useState(producto.cantidad)
+            const [error, setError] = useState(false)
 
-    const editar = (e) => {
-        e.stopPropagation()
-        setEditando(true)
-    }
-    const borrar = (e) => {
-        e.stopPropagation()
-        alBorrar()
-    }
-    const guardar = (e) => {
-        e.preventDefault()
-        if (nombre.trim() === '' || codigo.trim() === '' || cantidad.trim() === '') {
-            setError(true)
-            return
-        }
-        alGuardar({ ...producto, nombre, codigo, cantidad, editando: false }) // Actualizamos el producto correctamente
-        setEditando(false)
-    }
-    const cancelar = (e) => {
-        e.preventDefault()
-        setEditando(false)
-    }
+            const editar = (e) => {
+                e.stopPropagation()
+                setEditando(true)
+            }
+            const borrar = (e) => {
+                e.stopPropagation()
+                alBorrar()
+            }
+            const guardar = (e) => {
+                e.preventDefault()
+                if (nombre.trim() === '' || codigo.trim() === '' || cantidad.trim() === '') {
+                    setError(true)
+                    return
+                }
+                alGuardar({ ...producto, nombre, codigo, cantidad, editando: false })
+                setEditando(false)
+            }
+            const cancelar = (e) => {
+                e.preventDefault()
+                if (!producto.id) {
+                    alBorrar()
+                } else {
+                    setNombre(producto.nombre)
+                    setcodigo(producto.codigo)
+                    setcantidad(producto.cantidad)
+                    setEditando(false)
+                }
+            }
 
-    const cambiarNombre = e => {
-        setNombre(e.target.value)
-        setError(false)
-    }
-    const cambiarcodigo = e => {
-        setcodigo(e.target.value)
-        setError(false)
-    }
-    const cambiarcantidad = e => {
-        setcantidad(e.target.value)
-        setError(false)
-    }
+            const cambiarNombre = e => {
+                setNombre(e.target.value)
+                setError(false)
+            }
+            const cambiarcodigo = e => {
+                setcodigo(e.target.value)
+                setError(false)
+            }
+            const cambiarcantidad = e => {
+                setcantidad(e.target.value)
+                setError(false)
+            }
 
-    const incrementarYActualizar = () => {
-        const nuevaCantidad = Number(cantidad) + 1
-        incrementar(producto.id)
-        setcantidad(nuevaCantidad.toString())
-    }
+            const incrementarYActualizar = () => {
+                const nuevaCantidad = Number(cantidad) + 1
+                incrementar(producto.id)
+                setcantidad(nuevaCantidad.toString())
+            }
 
-    return (
-        <div className="panel" onClick={() => !editando && incrementarYActualizar()}>
-            {editando ? (
-                <form>
-                    <div class="titulos">
-                        <label>nombre</label>
-                        <input type="text" value={nombre} onChange={cambiarNombre} />
-                        <label>codigo</label>
-                        <input type="text" value={codigo} onChange={cambiarcodigo} />
-                        <label>cantidad</label>
-                        <input type="text" value={cantidad} onChange={cambiarcantidad} />
-                    </div>
+            return (
+                <div className="panel" onClick={() => !editando && incrementarYActualizar()}>
+                    {editando ? (
+                        <form>
+                            <div class="titulos">
 
-                    {error && <p className="error">Todos los campos son obligatorios</p>}
+                                <input type="text" value={nombre} onChange={cambiarNombre} />
 
-                    <div className="acciones">
-                        <button onClick={guardar} >Guardar</button>
-                        <button onClick={cancelar} >Cancelar</button>
-                    </div>
-                </form>
-            ) : (
-                <>
-                    <div class="cantidad">
-                        <p>{producto.cantidad}</p>
-                    </div>
-                    <div class="identidades-secretas">
-                        <p className="nombre"><strong>{producto.nombre}</strong></p>
-                        <p>{producto.codigo}</p>
-                    </div>
-                    <div className="acciones">
-                        <i className="fas fa-edit" onClick={editar}></i>
-                        <i className="fas fa-trash" onClick={borrar}></i>
-                    </div>
-                </>
-            )}
-        </div>
-    )
-}
+                                <input type="text" value={codigo} onChange={cambiarcodigo} />
 
-function ordenarAlfabeticamente(a, b) {
-    const nombreA = a.nombre.toLowerCase()
-    const nombreB = b.nombre.toLowerCase()
-    if (nombreA < nombreB) return -1
-    if (nombreA > nombreB) return 1
-    return 0
-}
+                                <input type="text" value={cantidad} onChange={cambiarcantidad} />
+                            </div>
 
-function App() {
-    const [productos, setProductos] = useState(() => {
-        const productosGuardados = localStorage.getItem('productos')
-        return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales
-    })
-    const [nuevoProducto, setNuevoProducto] = useState(null)
+                            {error && <p className="error">Todos los campos son obligatorios</p>}
 
-    useEffect(() => {
-        localStorage.setItem('productos', JSON.stringify(productos))
-    }, [productos])
-    const guardarProducto = (producto) => {
-        if (producto.id) {
-            const nuevosProductos = productos.map((p) =>
-                p.id === producto.id ? producto : p
+                            <div className="acciones">
+                                <button onClick={guardar} >Aceptar</button>
+                                <button onClick={cancelar} >Cancelar</button>
+                            </div>
+                        </form>
+                    ) : (
+                        <>
+                            <div class="cantidad">
+                                <p>{producto.cantidad}</p>
+                            </div>
+                            <div class="identidades-secretas">
+                                <p className="nombre"><strong>{producto.nombre}</strong></p>
+                                <p>{producto.codigo}</p>
+                            </div>
+                            <div className="accion">
+                                <i className="fa-regular fa-pen-to-square" onClick={editar}></i>
+                                <i className="fa-regular fa-trash-can" onClick={borrar} ></i>
+                            </div>
+                        </>
+                    )}
+                </div>
             )
-            setProductos(nuevosProductos)
-        } else {
-            producto.id = productos.length + 1
-            setProductos([...productos, producto])
-            setNuevoProducto(null)
         }
-    }
 
-    const eliminarProducto = (id) => {
-        const nuevosProductos = productos.filter((p) => p.id !== id)
-        setProductos(nuevosProductos)
-    }
+        function ordenarAlfabeticamente(a, b) {
+            const nombreA = a.nombre.toLowerCase()
+            const nombreB = b.nombre.toLowerCase()
+            if (nombreA < nombreB) return -1
+            if (nombreA > nombreB) return 1
+            return 0
+        }
 
-    const incrementarCantidad = (id) => {
-        const nuevosProductos = productos.map((producto) =>
-            producto.id === id ? { ...producto, cantidad: Number(producto.cantidad) + 1 } : producto
-        )
-        setProductos(nuevosProductos)
-    }
+        function App() {
+            const [productos, setProductos] = useState(() => {
+                const productosGuardados = localStorage.getItem('productos')
+                return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales
+            })
+            const [nuevoProducto, setNuevoProducto] = useState(null)
 
-    const agregarProducto = () => {
-        setNuevoProducto({ id: null, nombre: '', codigo: '', cantidad: '', editando: true })
-    }
+            useEffect(() => {
+                localStorage.setItem('productos', JSON.stringify(productos))
+            }, [productos])
+            const guardarProducto = (producto) => {
+                if (producto.id) {
+                    const nuevosProductos = productos.map((p) =>
+                        p.id === producto.id ? producto : p
+                    )
+                    setProductos(nuevosProductos)
+                } else {
+                    producto.id = productos.length + 1
+                    setProductos([...productos, producto])
+                    setNuevoProducto(null)
+                }
+            }
 
-    productos.sort(ordenarAlfabeticamente)
+            const eliminarProducto = (id) => {
+                const nuevosProductos = productos.filter((p) => p.id !== id)
+                setProductos(nuevosProductos)
+            }
 
-    return (
-        <div>
-            <header>
-                <h1>Control de Deposito</h1>
-                <i className="fas fa-plus-square" onClick={agregarProducto}></i>
-            </header>
+            const incrementarCantidad = (id) => {
+                const nuevosProductos = productos.map((producto) =>
+                    producto.id === id ? { ...producto, cantidad: Number(producto.cantidad) + 1 } : producto
+                )
+                setProductos(nuevosProductos)
+            }
 
-            {nuevoProducto && (
-                <Producto
-                    key={'nuevo'}
-                    producto={nuevoProducto}
-                    incrementar={() => { }}
-                    alGuardar={guardarProducto}
-                    alBorrar={() => setNuevoProducto(null)}
-                />
-            )}
+            const agregarProducto = () => {
+                setNuevoProducto({ id: null, nombre: '', codigo: '', cantidad: '', editando: true })
+            }
 
-            {productos.map((producto) => (
-                <Producto
-                    key={producto.id}
-                    producto={producto}
-                    incrementar={() => incrementarCantidad(producto.id)}
-                    alGuardar={guardarProducto}
-                    alBorrar={() => eliminarProducto(producto.id)}
-                />
-            ))}
-        </div>
-    )
-}
+            productos.sort(ordenarAlfabeticamente)
 
-const root = createRoot(document.getElementById('root'))
-root.render(<App />)
+            return (
+                <div>
+                    <header>
+                        <h1>Control de Deposito</h1>
+                        <i className="fa-regular fa-square-plus" onClick={agregarProducto}></i>
+                    </header>
 
+                    {nuevoProducto && (
+                        <Producto
+                            key={'nuevo'}
+                            producto={nuevoProducto}
+                            incrementar={() => { }}
+                            alGuardar={guardarProducto}
+                            alBorrar={() => setNuevoProducto(null)}
+                        />
+                    )}
 
+                    {productos.map((producto) => (
+                        <Producto
+                            key={producto.id}
+                            producto={producto}
+                            incrementar={() => incrementarCantidad(producto.id)}
+                            alGuardar={guardarProducto}
+                            alBorrar={() => eliminarProducto(producto.id)}
+                        />
+                    ))}
+                </div>
+            )
+        }
+
+        const root = createRoot(document.getElementById('root'))
+        root.render(<App />)
     </script>
 </body>
 
