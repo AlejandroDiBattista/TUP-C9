@@ -4,16 +4,14 @@
     <meta
       name="viewport"
       charset="UTF-8"
-      content="width=device-width, initial-scale=1"
-    />
+      content="width=device-width, initial-scale=1" />
     <title>Control de Depósito</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="estilo.css" />
   </head>
   <body>
@@ -269,12 +267,9 @@
             <div className="grupo-botones">
               <div className="boton-actualizar">
                 {estaEditando && <button type="submit">Actualizar</button>}
-              </div>
-              <div>
+g              <div>
                 {estaEditando && (
-                  <button type="button" onClick={manejarCancelar}>
-                    Cancelar
-                  </button>
+                  <button onClick={manejarCancelar}>Cancelar</button>
                 )}
               </div>
             </div>
@@ -317,12 +312,16 @@
               />
             ) : (
               <>
-                <div className="cantidad-producto">{producto.cantidad}</div>
-                <div className="detalles-producto">
-                  <h2>{producto.nombre}</h2>
-                  <p>{producto.codigo}</p>
-                </div>
-                <div className="acciones-producto">
+              <div>
+                <span>
+
+                  <div className="cantidad-producto">{producto.cantidad}</div>
+                  <div className="detalles-producto">
+                    <h2>{producto.nombre}</h2>
+                    <p>{producto.codigo}</p>
+                  </div>
+                </span>
+                <span className="acciones-producto">
                   <div className="boton-arriba-derecha">
                     <button onClick={() => setEstaEditando(true)}>
                       <i className="fa-regular fa-pen-to-square"></i>
@@ -333,8 +332,9 @@
                       <i className="fa-regular fa-trash-can"></i>
                     </button>
                   </div>
-                </div>
-              </>
+                </span>
+              </div>
+                </>
             )}
           </div>
         );

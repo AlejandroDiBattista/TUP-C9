@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <title>Control Depósito</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+        <title>Control Depósito</title>
+        <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -149,8 +149,9 @@
             background-color: #e9ecef;
         }
 
+
         .boton-editar:focus,
-        .botonaceptar:focus,
+        .boton-editar-aceptar:focus,
         .botoncancelar:focus {
             outline: none;
         }
@@ -160,12 +161,12 @@
             font-size: 18px;
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <div id="root"></div>
+    <body>
+        <div id="root"></div>
 
-    <script type="text/babel">
+        <script type="text/babel">
         const { useState } = React;
 
         const DepositoInicial = [
@@ -278,7 +279,7 @@
         }
 
         function ListaDeposito({ deposito, alAgregar, alGuardar, alBorrar, alIncrementar }) {
-            const depositoOrdenado = [...deposito].sort((a, b) => a.nombre.localeCompare(b.nombre));
+            const depositoOrdenado = [...deposito] 
             return (
                 <>
                     <div className="header">
@@ -344,8 +345,9 @@
             );
         }
 
-        ReactDOM.render(<App />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App />);
     </script>
-</body>
+    </body>
 
 </html>
