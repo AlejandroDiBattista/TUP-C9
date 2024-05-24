@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Control de Deposito</title>
+    <style>
+     
+
+
+
+        .App {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .formulario-agregar-producto {
+            margin-bottom: 20px;
+        }
+        .formulario-agregar-producto input {
+            margin-right: 30px;
+            padding: 10px;
+            border-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 2px 3px 5px rgb(216, 210, 210);
+        }
+        .formulario-agregar-producto button {
+            padding: 5px 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .formulario-agregar-producto button img {
+            width: 25px;
+            height: 25px;
+        }
+        .formulario-agregar-producto button:hover {
+            transform: translateY(-5px);
+        }
+        .lista-productos {
+            margin-top: 20px;
+        }
+        .item-producto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+            font-size: large;
+            font-family: sans-serif
+        }
+        .item-producto span {
+            margin-right: 10px;
+        }
+        .item-producto input {
+            margin-right: 10px;
+            padding: 5px;
+            
+        }
+        .item-producto button {
+            padding: 5px 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .item-producto button img {
+            width: 25px;
+            height: 25px;
+        }
+        .item-producto button:hover {
+            transform: translateY(-5px);
+        }
+        .item-producto span:nth-child(2) {
+            color: blue;
+            font-size: 40px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="App">
+        <h1>Control De Deposito</h1>
+        <div class="formulario-agregar-producto">
+            <input type="text" id="nuevoNombreProducto" placeholder="Nombre del Producto" />
+            <input type="text" id="nuevoEANProducto" placeholder="Código de Fabricante" />
+            <button onclick="manejarAgregarProducto()">
+                <img src="agregar.ico" alt="Agregar" />
+            </button>
+        </div>
+        <div class="lista-productos" id="listaProductos"></div>
+    </div>
+
+    <script>
+        let productos = [];
+        let nuevoNombreProducto = '';
+        let nuevoEANProducto = '';
+        let contador = 1;
+
+        document.getElementById('nuevoNombreProducto').addEventListener('input', (e) => {
+            nuevoNombreProducto = e.target.value;
+        });
+
+        document.getElementById('nuevoEANProducto').addEventListener('input', (e) => {
+            nuevoEANProducto = e.target.value;
+        });
+
+        function manejarAgregarProducto() {
+            if (nuevoNombreProducto.trim() && nuevoEANProducto.trim()) {
+                const indiceProductoExistente = productos.findIndex(producto => producto.ean === nuevoEANProducto);
+
+                if (indiceProductoExistente >= 0) {
+                    productos[indiceProductoExistente].cantidad += 1;
+                } else {
+                    productos.push({ id: contador, nombre: nuevoNombreProducto, ean: nuevoEANProducto, cantidad: 1 });
+                    contador += 1;
+                }
+
+                nuevoNombreProducto = '';
+                nuevoEANProducto = '';
+                document.getElementById('nuevoNombreProducto').value = '';
+                document.getElementById('nuevoEANProducto').value = '';
+                renderProductos();
+            }
+        }
+
+        function manejarActualizarProducto(id, productoActualizado) {
+            productos = productos.map(producto => producto.id === id ? productoActualizado : producto);
+            renderProductos();
+        }
+
+        function manejarEliminarProducto(id) {
+            productos = productos.filter(producto => producto.id !== id);
+            renderProductos();
+        }
+
+        function renderProductos() {
+            const listaProductos = document.getElementById('listaProductos');
+            listaProductos.innerHTML = '';
+            productos.sort((a, b) => a.nombre.localeCompare(b.nombre)).forEach(producto => {
+                const divProducto = document.createElement('div');
+                divProducto.className = 'item-producto';
+
+                const nombreSpan = document.createElement('span');
+                nombreSpan.textContent = producto.nombre;
+
+                const eanSpan = document.createElement('span');
+                eanSpan.textContent = producto.ean;
+
+                const cantidadSpan = document.createElement('span');
+                cantidadSpan.textContent = producto.cantidad;
+
+                const botonEditar = document.createElement('button');
+                botonEditar.innerHTML = '<img src="editar.ico" alt="Editar" style="width: 25px; height: 25px;">';
+                botonEditar.onclick = () => editarProducto(producto);
+
+                const botonEliminar = document.createElement('button');
+                botonEliminar.innerHTML = '<img src="delete.ico" alt="Eliminar" style="width: 25px; height: 25px;">';
+                botonEliminar.onclick = () => manejarEliminarProducto(producto.id);
+
+                divProducto.appendChild(nombreSpan);
+                divProducto.appendChild(eanSpan);
+                divProducto.appendChild(cantidadSpan);
+                divProducto.appendChild(botonEditar);
+                divProducto.appendChild(botonEliminar);
+
+                listaProductos.appendChild(divProducto);
+            });
+        }
+
+        function editarProducto(producto) {
+            const divProducto = document.createElement('div');
+            divProducto.className = 'item-producto';
+
+            const nombreInput = document.createElement('input');
+            nombreInput.type = 'text';
+            nombreInput.value = producto.nombre;
+            nombreInput.oninput = (e) => producto.nombre = e.target.value;
+
+            const eanInput = document.createElement('input');
+            eanInput.type = 'text';
+            eanInput.value = producto.ean;
+            eanInput.oninput = (e) => producto.ean = e.target.value;
+
+            const cantidadInput = document.createElement('input');
+            cantidadInput.type = 'number';
+            cantidadInput.value = producto.cantidad;
+            cantidadInput.oninput = (e) => producto.cantidad = parseInt(e.target.value);
+
+            const botonGuardar = document.createElement('button');
+            botonGuardar.innerHTML = '<img src="save.ico" alt="Guardar" style="width: 25px; height: 25px;">';
+            botonGuardar.onclick = () => {
+                manejarActualizarProducto(producto.id, producto);
+            };
+
+            divProducto.appendChild(nombreInput);
+            divProducto.appendChild(eanInput);
+            divProducto.appendChild(cantidadInput);
+            divProducto.appendChild(botonGuardar);
+
+            const listaProductos = document.getElementById('listaProductos');
+            listaProductos.innerHTML = '';
+            productos.forEach(p => {
+                if (p.id === producto.id) {
+                    listaProductos.appendChild(divProducto);
+                } else {
+                    const divProductoExistente = document.createElement('div');
+                    divProductoExistente.className = 'item-producto';
+                    divProductoExistente.innerHTML = `
+                        <span>${p.nombre}</span>
+                        <span>${p.ean}</span>
+                        <span>${p.cantidad}</span>
+                        <button onclick="editarProducto(${p.id})"><img src="editar.ico" alt="Editar" style="width: 25px; height: 25px;"></button>
+                        <button onclick="manejarEliminarProducto(${p.id})"><img src="delete.ico" alt="Eliminar" style="width: 25px; height: 25px;"></button>
+                    `;
+                    listaProductos.appendChild(divProductoExistente);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
