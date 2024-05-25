@@ -1,180 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Productos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000000;
-
-            margin: 10px;
-            padding: 0;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
-        #root {
-            width: 90%;
-            max-width: 600px;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .panel {
-            background-color: #e2c431;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-        }
-        .panel p {
-            margin: 10px;
-        }
-        .acciones {
+        .hdatos {
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
+        }
+        .panel, .panel2 {
+            background-color: #ffffff;
+            padding: 10px;
+            width: 350px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 3px #000000;
+            border: none;
+            cursor: pointer;
+        }
+        .panel:hover, .panel2:hover {
+            box-shadow: 0px 0px 5px #000000;
+        }
+        .orgdatos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
         .acciones i {
             cursor: pointer;
             margin-left: 10px;
         }
         .acciones i:hover {
-            color: #464646;
+            color: #173797;
         }
         .acciones button {
-            margin-left: 5px;
+            margin-right: 10px;
             padding: 5px 10px;
             border: none;
             border-radius: 3px;
             cursor: pointer;
-            margin: 15px;
         }
         .acciones button:first-child {
-            background-color: #28a745;
-            color: white;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+        .botones {
+            display: flex;
         }
         .acciones button:last-child {
-            background-color: #dc3545;
-            color: white;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid;
+            border-radius: 10px;
         }
-        .acciones button:hover {
-            opacity: 0.9;
+        .acciones2 {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            margin-bottom: 0px;
+            padding: 3px;
+        }
+        .acciones2 i {
+            margin-bottom: 10px;
+        }
+        .cantidadp {
+            color: #00238e;
+            font-size: 60px;
+            margin-right: 10px;
+            margin: 20px;
         }
         label {
             display: block;
             margin-top: 10px;
         }
         input[type="text"] {
-            width: 100%;
+            width: 350px;
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #000000;
-            border-radius: 3px;
+            border-radius: 8px;
             box-sizing: border-box;
         }
         .error {
-            color: rgb(122, 0, 0);
-            font-size: 0.875em;
-            margin-top: 5px;
+            color:red;
+            font-size: 15px;
+            margin-top: 10px;
         }
         .header {
             display: flex;
-            justify-content:space-around;
+            justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
         }
         .agregar-btn {
+            padding: 5px;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            margin: auto;
+        }
+        .np {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center; 
-            margin: 10px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #28a745;
-            color: rgb(255, 255, 255);
+        }
+        h1 {
+            margin: 0;
+        }
+        .panel2 i {
             cursor: pointer;
-            font-size: 1em;
+            font-size: 20px;
+            margin-top: 22px;
         }
-
-        .agregar-btn i {
-            margin-left: 10px;
+        .panel2 i:hover {
+            color: #173797;
         }
-        .agregar-btn:hover {
-            background-color: #35771f;
+        .acciones {
+            padding: 5px;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            margin-top: 10px;
         }
-        .botongc {
-            margin: 10px;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .botongc.guardar {
-            background-color: #28a745; /* Verde */
-            color: white;
-        }
-
-        .botongc.cancelar {
-            background-color: #dc3545; /* Rojo */
-            color: white;
+        .nombrep{
+            font-size: 23px;
         }
     </style>
+
 </head>
 <body>
     <div id="root"></div>
+
     <script type="text/babel">
         const { useState, useEffect } = React;
 
         function obtenerProductosIniciales() {
             const productosGuardados = localStorage.getItem('productos');
-            return productosGuardados ? JSON.parse(productosGuardados) : [
-                { id: 1, nombre: 'Lapiceras', codigo: '987654321', cantidad: '5' },
-                { id: 2, nombre: 'Cuadernos', codigo: '123456789', cantidad: '10' },
-                { id: 3, nombre: 'Lápices', codigo: '234567890', cantidad: '15' },
-                { id: 4, nombre: 'Reglas', codigo: '345678901', cantidad: '20' },
-                { id: 5, nombre: 'Borradores', codigo: '456789012', cantidad: '25' },
-                { id: 6, nombre: 'Tijeras', codigo: '567890123', cantidad: '30' },
-                { id: 7, nombre: 'Estuches', codigo: '678901234', cantidad: '35' },
-                { id: 8, nombre: 'Calculadoras', codigo: '789012345', cantidad: '40' },
-                { id: 9, nombre: 'Mochilas', codigo: '890123456', cantidad: '45' },
-                { id: 10, nombre: 'Marcadores', codigo: '901234567', cantidad: '50' },
-                { id: 11, nombre: 'Pegamento', codigo: '112233445', cantidad: '55' },
-                { id: 12, nombre: 'Gomas de borrar', codigo: '223344556', cantidad: '60' },
-                { id: 13, nombre: 'Sacapuntas', codigo: '334455667', cantidad: '65' },
-                { id: 14, nombre: 'Hojas de papel', codigo: '445566778', cantidad: '70' },
-                { id: 15, nombre: 'Portaminas', codigo: '556677889', cantidad: '75' },
-                { id: 16, nombre: 'Papel de colores', codigo: '667788990', cantidad: '80' },
-                { id: 17, nombre: 'Lápices de colores', codigo: '778899001', cantidad: '85' },
-                { id: 18, nombre: 'Carpeta', codigo: '889900112', cantidad: '90' },
-                { id: 19, nombre: 'Corrector', codigo: '990011223', cantidad: '95' },
-                { id: 20, nombre: 'Rotuladores', codigo: '001122334', cantidad: '100' },
-                { id: 21, nombre: 'Libretas', codigo: '112233445', cantidad: '105' },
-                { id: 22, nombre: 'Grapadoras', codigo: '223344556', cantidad: '110' },
-                { id: 23, nombre: 'Perforadoras', codigo: '334455667', cantidad: '115' },
-                { id: 24, nombre: 'Pizarras', codigo: '445566778', cantidad: '120' },
-                { id: 25, nombre: 'Bolígrafos', codigo: '556677889', cantidad: '125' },
-                { id: 26, nombre: 'Compás', codigo: '667788990', cantidad: '130' },
-                { id: 27, nombre: 'Folios', codigo: '778899001', cantidad: '135' },
-                { id: 28, nombre: 'Cinta adhesiva', codigo: '889900112', cantidad: '140' },
-                { id: 29, nombre: 'Estuches de geometría', codigo: '990011223', cantidad: '145' },
-                { id: 30, nombre: 'Libros de texto', codigo: '001122334', cantidad: '150' }
-                ]
-            }
+            return productosGuardados ? JSON.parse(productosGuardados) : [    
+                { id: 1, nombre: 'Lapiceras', codigo: '9876543210000', cantidad: '5' },
+                { id: 2, nombre: 'Cuadernos', codigo: '1234567890000', cantidad: '9' },
+                { id: 3, nombre: 'Lápices', codigo: '2345678900000', cantidad: '7' },
+                { id: 4, nombre: 'Reglas', codigo: '3456789010000', cantidad: '9' },
+                { id: 5, nombre: 'Borradores', codigo: '4567890120000', cantidad: '3' },
+                { id: 6, nombre: 'Tijeras', codigo: '5678901230000', cantidad: '6' },
+                { id: 7, nombre: 'Estuches', codigo: '6789012340000', cantidad: '5' },
+                { id: 8, nombre: 'Calculadoras', codigo: '7890123450000', cantidad: '4' },
+                { id: 9, nombre: 'Mochilas', codigo: '8901234560000', cantidad: '6' },
+                { id: 10, nombre: 'Marcadores', codigo: '9012345670000', cantidad: '8' },
+                { id: 11, nombre: 'Pegamento', codigo: '1122334450000', cantidad: '9' },
+                { id: 12, nombre: 'Gomas de borrar', codigo: '2233445560000', cantidad: '9' },
+                { id: 13, nombre: 'Sacapuntas', codigo: '3344556670000', cantidad: '5' },
+                { id: 14, nombre: 'Hojas de papel', codigo: '4455667780000', cantidad: '7' },
+                { id: 15, nombre: 'Portaminas', codigo: '5566778890000', cantidad: '5' },
+                { id: 16, nombre: 'Papel de colores', codigo: '6677889900000', cantidad: '8' },
+                { id: 17, nombre: 'Lápices de colores', codigo: '7788990010000', cantidad: '9' },
+                { id: 18, nombre: 'Carpeta', codigo: '8899001120000', cantidad: '3' },
+                { id: 19, nombre: 'Corrector', codigo: '9900112230000', cantidad: '9' },
+                { id: 20, nombre: 'Rotuladores', codigo: '0011223340000', cantidad: '7' },
+                { id: 21, nombre: 'Libretas', codigo: '1122334450000', cantidad: '5' },
+                { id: 22, nombre: 'Grapadoras', codigo: '2233445560000', cantidad: '6' },
+                { id: 23, nombre: 'Perforadoras', codigo: '3344556670000', cantidad: '3' },
+                { id: 24, nombre: 'Pizarras', codigo: '4455667780000', cantidad: '2' },
+                { id: 25, nombre: 'Bolígrafos', codigo: '5566778890000', cantidad: '9' },
+                { id: 26, nombre: 'Compás', codigo: '6677889900000', cantidad: '5' },
+                { id: 27, nombre: 'Folios', codigo: '7788990010000', cantidad: '7' },
+                { id: 28, nombre: 'Cinta adhesiva', codigo: '8899001120000', cantidad: '8' },
+                { id: 29, nombre: 'Estuches de geometría', codigo: '9900112230000', cantidad: '6' },
+                { id: 30, nombre: 'Libros de texto', codigo: '0011223340000', cantidad: '5' }
+            ];
+        }
 
         function guardarProductosEnLocalStorage(productos) {
             localStorage.setItem('productos', JSON.stringify(productos));
@@ -197,74 +211,153 @@
                     return;
                 }
                 alGuardar({ ...producto, nombre, codigo, cantidad });
-                alCancelar();
             };
 
             return (
-                <div>
-                    <form className="panel" onSubmit={guardar}>
-                        <button onClick={guardarCambios} className="botongc guardar">Guardar</button>
-                        <button onClick={() => setEditando(false)} className="botongc cancelar">Cancelar</button>
-                    </form>
-                    <div>
-                        <p><strong>Producto:</strong> {producto.nombre}</p>
-                        <p><strong>Código EAN:</strong> {producto.codigo}</p>
-                        <p><strong>Cantidad:</strong> {producto.cantidad}</p>
-                        <div className="acciones">
-                            <i onClick={activarEdicion} className="fas fa-pencil-alt"></i>
-                            <i onClick={() => alBorrar(producto.id)} className="fas fa-trash"></i>
+                <form onSubmit={guardar} className="panel">
+                    <input type="text" value={nombre} onChange={cambiarNombre} placeholder="Producto"/>
+                    <input type="text" value={codigo} onChange={cambiarCodigo} placeholder="Código EAN"/>
+                    <input type="text" value={cantidad} onChange={cambiarCantidad} placeholder="Cantidad" />
+                    {error && <p className="error">Todos los campos son obligatorios</p>}
+                    <div className="acciones">
+                        <div className="botones">
+                            <button type="submit">Guardar</button>
+                            <button type="button" onClick={alCancelar}>Cancelar</button>
                         </div>
                     </div>
+                </form>
+            );
+        }
+
+        function Mostrar({ producto, alEditar, alBorrar, alIncrementar }) {
+            const [editando, setEditando] = useState(false);
+
+            const cambiarNombre = e => {
+                producto.nombre = e.target.value;
+            };
+
+            const cambiarCodigo = e => {
+                producto.codigo = e.target.value;
+            };
+
+            const cambiarCantidad = e => {
+                producto.cantidad = e.target.value;
+            };
+
+            const guardarEdicion = () => {
+                alEditar(producto);
+                setEditando(false);
+            };
+
+            return (
+                <div className="panel2" onClick={() => alIncrementar(producto.id)}>
+                    {editando ? (
+                        <div>
+                            <input type="text" defaultValue={producto.nombre} onChange={cambiarNombre} placeholder="Producto"/>
+                            <input type="text" defaultValue={producto.codigo} onChange={cambiarCodigo} placeholder="Código EAN"/>
+                            <input type="text" defaultValue={producto.cantidad} onChange={cambiarCantidad} placeholder="Cantidad"/>
+                            <div className="acciones">
+                                <button onClick={guardarEdicion}>Guardar</button>
+                                <button onClick={() => setEditando(false)}>Cancelar</button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="orgdatos">
+                            <div className="hdatos">
+                                <p className="cantidadp"><strong>{producto.cantidad}</strong></p>
+                                <div className="datos2">
+                                    <p className="nombrep"><strong>{producto.nombre}</strong></p>
+                                    <p>{producto.codigo}</p>
+                                </div>
+                            </div>
+                            <div className="acciones2">
+                                <i className="fas fa-edit" onClick={e => { e.stopPropagation(); setEditando(true); }}></i>
+                                <i className="fas fa-trash" onClick={e => { e.stopPropagation(); alBorrar(producto.id); }}></i>
+                            </div>
+                        </div>
+                    )}
                 </div>
             );
         }
 
-        function Lista({ productos, alAgregar, alEditar, alBorrar }) {
-            const editarProducto = (producto) => {
-                alEditar(producto);
-            };
+        function Lista({ productos, alAgregar, alEditar, alBorrar, alIncrementar }) {
+            const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
-            if (productos.length === 0)
+            const abrirFormulario = () => {
+                if (mostrarFormulario) {
+                    cerrarFormulario();
+                } else {
+                    setMostrarFormulario(true);
+                }
+            };
+            
+            const cerrarFormulario = () => setMostrarFormulario(false);
+
+            if (productos.length === 0) {
                 return (
-                    <div>
+                    <div className="np">
                         <h1>No hay productos</h1>
-                        <button className="agregar-btn" onClick={alAgregar}>
-                            <i className="fas fa-plus"></i>
-                            Agregar Producto
-                        </button>
+                        {productos.length < 100 && (
+                            <button className="agregar-btn" onClick={abrirFormulario}>
+                                <i className="fas fa-plus"></i> 
+                            </button>
+                        )}
+
+                        {mostrarFormulario && (
+                            <Editar
+                                producto={{}}
+                                alGuardar={(nuevoProducto) => {
+                                    alAgregar(nuevoProducto);
+                                    cerrarFormulario();
+                                }}
+                                alCancelar={cerrarFormulario}
+                            />
+                        )}
                     </div>
                 );
+            }
 
-            const productosOrdenados = [...productos].sort((a, b) =>
-                a.nombre.localeCompare(b.nombre)
-            );
+
+            const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
 
             return (
                 <div>
                     <div className="header">
-                        <h1>CONTROL DEPÓSITO</h1>
-                        <button className="agregar-btn" onClick={alAgregar}>
-                            <i className="fas fa-plus"></i>
-                            Agregar Producto
-                        </button>
+                        <h1>Control Depósito</h1>
+                        {productos.length < 100 && (
+                            <button className="agregar-btn" onClick={abrirFormulario}>
+                                <i className="fas fa-plus"></i> 
+                            </button>
+                        )}
                     </div>
-                    {productosOrdenados.map((producto) => (
+                    {mostrarFormulario && (
+                        <Editar
+                            producto={{}}
+                            alGuardar={(nuevoProducto) => {
+                                alAgregar(nuevoProducto);
+                                cerrarFormulario();
+                            }}
+                            alCancelar={cerrarFormulario}
+                        />
+                    )}
+                    {productosOrdenados.map(producto => (
                         <Mostrar
                             key={producto.id}
                             producto={producto}
-                            alEditar={() => editarProducto(producto)}
-                            alBorrar={() => alBorrar(producto.id)}
+                            alEditar={alEditar}
+                            alBorrar={alBorrar}
+                            alIncrementar={alIncrementar}
                         />
                     ))}
                 </div>
             );
         }
 
-
         function App() {
             const [producto, setProducto] = useState({});
             const [editando, setEditando] = useState(false);
             const [productos, setProductos] = useState(obtenerProductosIniciales());
+            const [mostrarAlerta, setMostrarAlerta] = useState(false);
 
             useEffect(() => {
                 guardarProductosEnLocalStorage(productos);
@@ -275,9 +368,11 @@
                     const copia = productos.map(c => c.id === productoGuardado.id ? productoGuardado : c);
                     setProductos(copia);
                 } else {
-                    const id = productos.length ? Math.max(...productos.map(c => c.id)) + 1 : 1;
-                    const copia = [...productos, { ...productoGuardado, id }];
-                    setProductos(copia);
+                    if (productos.length < 100) {
+                        const id = productos.length ? Math.max(...productos.map(c => c.id)) + 1 : 1;
+                        const copia = [...productos, { ...productoGuardado, id }];
+                        setProductos(copia);
+                    }
                 }
                 setEditando(false);
                 setProducto({});
@@ -289,10 +384,14 @@
             };
 
             const agregar = () => {
-                setProducto({});
-                setEditando(true);
+                if (productos.length >= 100) {
+                    setMostrarAlerta(true);
+                } else {
+                    setProducto({});
+                    setEditando(true);
+                }
             };
-    
+
             const borrar = id => {
                 const copia = productos.filter(c => c.id !== id);
                 setProductos(copia);
@@ -303,17 +402,38 @@
                 setProducto(producto);
             };
 
+            const incrementar = id => {
+                const copia = productos.map(producto =>
+                    producto.id === id ? { ...producto, cantidad: (Number(producto.cantidad) + 1).toString() } : producto
+                );
+                setProductos(copia);
+            };
+
+
             return (
                 <div>
-                    {editando
-                        ? <Editar producto={producto} alGuardar={guardar} alCancelar={cancelar} />
-                        : <Lista productos={productos} alAgregar={agregar} alEditar={editar} alBorrar={borrar} />
-                    }
+                    <Lista
+                        productos={productos}
+                        alAgregar={guardar}
+                        alEditar={guardar}
+                        alBorrar={borrar}
+                        alIncrementar={incrementar}
+                    />
+                    {editando && (
+                        <Editar
+                            producto={producto}
+                            alGuardar={guardar}
+                            alCancelar={cancelar}
+                        />
+                    )}
+                    {mostrarAlerta && (
+                        <div className="alerta">No se pueden agregar más de 100 productos</div>
+                    )}
                 </div>
             );
         }
 
-        const root = ReactDOM.createRoot(document.getElementById('root'))
+        const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
 </body>
