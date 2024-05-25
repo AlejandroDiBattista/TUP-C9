@@ -28,6 +28,7 @@
       h1 {
         text-align: center;
         margin-bottom: 20px;
+        margin-left: -50px;
       }
 
       .icono-agregar-producto {
@@ -66,7 +67,7 @@
 
       .detalles-producto {
         flex-grow: 1;
-        margin-left: 10px;
+        margin-left: -105px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -234,7 +235,7 @@
         manejarCancelar,
       }) => {
         return (
-          <form onSubmit={manejarEnvio}>
+          <form onSubmit={manejarEnvio} onClick={(e) => e.stopPropagation()}>
             <div className="grupo-entrada">
               <input
                 type="text"
@@ -251,6 +252,9 @@
                 onChange={manejarCambio}
                 placeholder="Código del Producto"
                 required
+                Min="13"
+                pattern="\d{13}"
+                title="El código debe tener exactamente 13 dígitos"
               />
               <input
                 type="number"
@@ -258,8 +262,8 @@
                 value={producto.cantidad}
                 onChange={manejarCambio}
                 placeholder="Cantidad"
-                max="100"
                 Min="0"
+                Max="100"
                 required
               />
             </div>
@@ -302,11 +306,29 @@
         };
 
         const manejarCancelar = () => {
+          setProductoActual(producto);
           setEstaEditando(false);
         };
 
+        const incrementarCantidad = () => {
+          const nuevaCantidad = parseInt(productoActual.cantidad) + 1;
+          if (nuevaCantidad <= 100) {
+            setProductoActual({ ...productoActual, cantidad: nuevaCantidad });
+            actualizarProducto(producto.codigo, {
+              ...producto,
+              cantidad: nuevaCantidad,
+            });
+          }
+        };
+
         return (
-          <div className="tarjeta-producto">
+          <div
+            className="tarjeta-producto"
+            onClick={(e) => {
+              e.stopPropagation();
+              incrementarCantidad();
+            }}
+          >
             {estaEditando ? (
               <FormularioProducto
                 producto={productoActual}
@@ -324,12 +346,22 @@
                 </div>
                 <div className="acciones-producto">
                   <div className="boton-arriba-derecha">
-                    <button onClick={() => setEstaEditando(true)}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setEstaEditando(true);
+                      }}
+                    >
                       <i className="fa-regular fa-pen-to-square"></i>
                     </button>
                   </div>
                   <div className="boton-abajo-derecha">
-                    <button onClick={() => eliminarProducto(producto.codigo)}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        eliminarProducto(producto.codigo);
+                      }}
+                    >
                       <i className="fa-regular fa-trash-can"></i>
                     </button>
                   </div>
@@ -373,6 +405,11 @@
           setMostrarFormulario(false);
         };
 
+        const manejarCancelarNuevoProducto = () => {
+          setNuevoProducto({ nombre: "", codigo: "", cantidad: "" });
+          setMostrarFormulario(false);
+        };
+
         const actualizarProducto = (codigoViejo, productoActualizado) => {
           const productosActualizados = productos.map((producto) =>
             producto.codigo === codigoViejo ? productoActualizado : producto
@@ -407,12 +444,13 @@
 
         return (
           <div>
-            <h1>Control de Depósito</h1>
+            <h1>Control Depósito</h1>
             {mostrarFormulario ? (
               <FormularioProducto
                 producto={nuevoProducto}
                 manejarCambio={manejarCambioNuevoProducto}
                 manejarEnvio={manejarEnvioNuevoProducto}
+                manejarCancelar={manejarCancelarNuevoProducto}
                 estaEditando={false}
               />
             ) : (
