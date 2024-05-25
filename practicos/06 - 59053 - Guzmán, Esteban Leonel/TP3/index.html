@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Control Depos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 600px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card>div {
+            margin: 5px;
+        }
+
+        .card button {
+            position: absolute;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        .edit-button {
+            top: 5px;
+            right: 5px;
+        }
+
+        .delete-button {
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .exit-button {
+            bottom: 5px;
+            left: 35px;
+        }
+
+        .form-card {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-card input,
+        .form-card button {
+            margin: 5px 0;
+            outline: none;
+            /* Eliminar la sombra azul al seleccionar */
+        }
+
+        .button-container {
+            margin-left: auto;
+            /* Mueve el contenedor al lado derecho */
+            display: flex;
+            margin-top: -90px;
+            flex-direction: column;
+            /* Cambiado de 'row' a 'column' */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="container"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function Producto({ id, descripcion, ean, cantidad, alEditar, alBorrar, alIncrementarCantidad }) {
+            const handleCardClick = () => {
+                alIncrementarCantidad(id);
+            };
+
+            const handleEditClick = (e) => {
+                e.stopPropagation();
+                alEditar(id);
+            };
+
+            const handleDeleteClick = (e) => {
+                e.stopPropagation();
+                alBorrar(id);
+            };
+
+            return (
+                <div className="card" onClick={handleCardClick}>
+                    <button className="edit-button" onClick={handleEditClick}>
+                        <i className="far fa-edit" style={{ fontSize: '20px' }}></i>
+                    </button>
+                    <button className="delete-button" onClick={handleDeleteClick}>
+                        <i class="far fa-trash" style={{ fontSize: '20px' }}></i>
+                    </button>
+                    <div style={{ alignSelf: 'flex-start', fontSize: '70px', fontWeight: 'bold', marginTop: '10px', color: 'blue' }}>{cantidad}</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'center', marginTop: '-70px' }}>
+                        <div style={{ fontSize: '30px', margin: '-20px' }}>{descripcion}</div>
+                        <div style={{ marginTop: '60px', fontSize: '15px' }}>{ean}</div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Editar({ producto, alGuardar, alCancelar }) {
+            const [descripcion, setDescripcion] = useState(producto.descripcion);
+            const [ean, setEan] = useState(producto.ean);
+            const [cantidad, setCantidad] = useState(producto.cantidad);
+
+            const guardar = (e) => {
+                e.preventDefault();
+                if (descripcion.trim() !== '' && ean.trim() !== '' && cantidad !== 0) {
+                    alGuardar({ ...producto, descripcion, ean, cantidad });
+                } else {
+                    alert('Por favor, complete todos los campos antes de guardar.');
+                }
+            };
+
+            const cancelar = () => {
+                alCancelar(producto.id);
+            };
+
+            return (
+                <div className="form-card">
+                    <input type="text" placeholder="Producto" maxLength="30"
+                        value={descripcion}
+                        onChange={e => setDescripcion(e.target.value)}
+                    />
+                    <input type="text" placeholder="EAN" maxLength="15"
+                        value={ean}
+                        onChange={e => setEan(e.target.value)}
+                    />
+                    <input type="int" placeholder="Cantidad"
+                        value={cantidad}
+                        onChange={e => setCantidad(parseInt(e.target.value) || 0)}
+                    />
+                    <div className="button-container">
+                        <button onClick={guardar}>Guardar</button>
+                        <button onClick={cancelar}>Cancelar</button>
+                    </div>
+                </div>
+            );
+        }
+
+        function App() {
+            const [productos, setProductos] = useState([]);
+            const [editandoProductos, setEditandoProductos] = useState({});
+            const [agregandoProducto, setAgregandoProducto] = useState(false);
+
+            useEffect(() => {
+                const productosGuardados = JSON.parse(localStorage.getItem('productos'));
+                if (productosGuardados) {
+                    setProductos(productosGuardados);
+                }
+            }, []);
+
+            const guardarProductosEnLocalStorage = (productos) => {
+                localStorage.setItem('productos', JSON.stringify(productos));
+            };
+
+            const guardar = (producto) => {
+                const copiaProductos = [...productos];
+                const index = copiaProductos.findIndex(p => p.id === producto.id);
+                if (index !== -1) {
+                    copiaProductos[index] = producto;
+                } else {
+                    copiaProductos.push(producto);
+                }
+                const copiaOrdenada = copiaProductos.sort((a, b) => a.descripcion.localeCompare(b.descripcion));
+                setProductos(copiaOrdenada);
+                guardarProductosEnLocalStorage(copiaOrdenada);
+                const newEditandoProductos = { ...editandoProductos };
+                delete newEditandoProductos[producto.id];
+                setEditandoProductos(newEditandoProductos); // Finalizar la edición
+            };
+
+            const cancelar = (id) => {
+                // Eliminamos la clave del producto editando del estado
+                const newEditandoProductos = { ...editandoProductos };
+                delete newEditandoProductos[id];
+                setEditandoProductos(newEditandoProductos);
+            };
+
+            const agregarProducto = () => {
+                setAgregandoProducto(true);
+            };
+
+            const guardarNuevoProducto = (nuevoProducto) => {
+                const newProductos = [nuevoProducto, ...productos];
+                setProductos(newProductos);
+                guardarProductosEnLocalStorage(newProductos);
+                setAgregandoProducto(false);
+            };
+
+            const eliminarNuevoProducto = () => {
+                setAgregandoProducto(false);
+            };
+
+            const agregar = () => {
+                if (Object.keys(editandoProductos).length > 0 || agregandoProducto) {
+                    alert('Por favor, termine de editar el producto actual antes de agregar uno nuevo.');
+                    return;
+                }
+                agregarProducto();
+            };
+
+            const borrar = (id) => {
+                const copia = productos.filter(producto => producto.id !== id);
+                setProductos(copia);
+                guardarProductosEnLocalStorage(copia);
+            };
+
+            const editar = (id) => {
+                const newEditandoProductos = { ...editandoProductos };
+                newEditandoProductos[id] = true; // Comenzar la edición del producto
+                setEditandoProductos(newEditandoProductos);
+            };
+
+            const incrementarCantidad = (id) => {
+                setProductos(prevProductos => {
+                    return prevProductos.map(producto => {
+                        if (producto.id === id) {
+                            return { ...producto, cantidad: producto.cantidad + 1 };
+                        }
+                        return producto;
+                    });
+                });
+            };
+
+            return (
+                
+                <div className="container">
+                    <h1>Control Depósito <button style={{ fontSize: '20px' }} onClick={agregar}>+</button></h1>
+                    {agregandoProducto && (
+                        <Editar
+                            producto={{ id: Date.now(), descripcion: '', ean: '', cantidad: '' }}
+                            alGuardar={guardarNuevoProducto}
+                            alCancelar={eliminarNuevoProducto}
+                        />
+                    )}
+            
+                    {productos.map(producto => (
+                        editandoProductos[producto.id] ? (
+                            <Editar
+                                key={producto.id}
+                                producto={producto}
+                                alGuardar={guardar}
+                                alCancelar={() => cancelar(producto.id)}
+                            />
+                        ) : (
+                            <Producto
+                                key={producto.id}
+                                {...producto}
+                                alEditar={editar}
+                                alBorrar={borrar}
+                                alIncrementarCantidad={incrementarCantidad}
+                            />
+                        )
+                    ))}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
