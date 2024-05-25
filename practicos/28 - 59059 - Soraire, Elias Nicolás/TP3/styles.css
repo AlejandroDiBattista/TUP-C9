@@ -122,6 +122,13 @@ form button:hover {
 .producto-tarjeta form button {
     width: 45%;
 }
+.producto-tarjeta {
+    cursor: default;
+}
+
+.producto-tarjeta * {
+    cursor: default;
+}
 
 .producto-tarjeta form .acciones-form {
     display: flex;

@@ -40,20 +40,14 @@ const FormularioProducto = ({ producto, manejarCambio, manejarEnvio, estaEditand
 
 const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
     const [estaEditando, setEstaEditando] = useState(false);
-    const [productoActual, setProductoActual] = useState(producto);
-
-    useEffect(() => {
-        setProductoActual(producto);
-    }, [producto]);
 
     const manejarCambio = (e) => {
         const { name, value } = e.target;
-        setProductoActual({ ...productoActual, [name]: value });
+        actualizarProducto({ ...producto, [name]: value });
     };
 
     const manejarEnvio = (e) => {
         e.preventDefault();
-        actualizarProducto(productoActual);
         setEstaEditando(false);
     };
 
@@ -62,10 +56,9 @@ const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
     };
 
     const incrementarCantidad = () => {
-        if (productoActual.cantidad < 100) {
-            const nuevoProducto = { ...productoActual, cantidad: productoActual.cantidad + 1 };
-            setProductoActual(nuevoProducto);
-            actualizarProducto(nuevoProducto);
+        const cantidadActual = parseInt(producto.cantidad);
+        if (cantidadActual < 100) {
+            actualizarProducto({ ...producto, cantidad: cantidadActual + 1 });
         }
     };
 
@@ -73,7 +66,7 @@ const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
         <div className="producto-tarjeta">
             {estaEditando ? (
                 <FormularioProducto
-                    producto={productoActual}
+                    producto={producto}
                     manejarCambio={manejarCambio}
                     manejarEnvio={manejarEnvio}
                     estaEditando={estaEditando}
@@ -101,6 +94,7 @@ const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
         </div>
     );
 };
+
 
 const ListaProductos = () => {
     const [productos, setProductos] = useState([]);
@@ -145,6 +139,13 @@ const ListaProductos = () => {
         return productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
     };
 
+    const incrementarCantidad = () => {
+        if (producto.cantidad < 100) {
+            const nuevaCantidad = producto.cantidad + 1;
+            actualizarProducto({ ...producto, cantidad: nuevaCantidad });
+        }
+    };
+
     return (
         <div>
             <h1>Control de Depósito</h1>
@@ -167,6 +168,7 @@ const ListaProductos = () => {
                         producto={producto}
                         actualizarProducto={actualizarProducto}
                         eliminarProducto={eliminarProducto}
+                        alIncrementarCantidad={incrementarCantidad}
                     />
                 ))}
             </div>
