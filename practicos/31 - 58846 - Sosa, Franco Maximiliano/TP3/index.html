@@ -331,42 +331,52 @@
     }
 
     function App() {
-      const [depositos, setDepositos] = useState(() => {
-        const depositosGuardados = localStorage.getItem('depositos');
-        return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
-      });
+  const [depositos, setDepositos] = useState(() => {
+    const depositosGuardados = localStorage.getItem('depositos');
+    return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
+  });
 
-      useEffect(() => {
-        localStorage.setItem('depositos', JSON.stringify(depositos));
-      }, [depositos]);
-
-      const agregarProducto = (producto) => {
-        setDepositos([...depositos, { ...producto, id: Date.now() }]);
-      };
-
-      const editarProducto = (id, productoActualizado) => {
-        setDepositos(
-          depositos.map((deposito) =>
-            deposito.id === id ? productoActualizado : deposito
-          )
-        );
-      };
-
-      const borrarProducto = (id) => {
-        setDepositos(depositos.filter((deposito) => deposito.id !== id));
-      };
-
-      return (
-        <>
-          <Catalogo
-            depositos={depositos}
-            alAgregar={agregarProducto}
-            alEditar={editarProducto}
-            alBorrar={borrarProducto}
-          />
-        </>
+  const agregarProducto = (producto) => {
+    const productoExistente = depositos.find((item) => item.codigoEan === producto.codigoEan);
+    if (productoExistente) {
+      const cantidadActualizada = parseInt(productoExistente.cantidad, 10) + parseInt(producto.cantidad, 10);
+      const depositosActualizados = depositos.map((item) =>
+        item.codigoEan === producto.codigoEan ? { ...item, cantidad: cantidadActualizada.toString() } : item
       );
+      setDepositos(depositosActualizados);
+    } else {
+      setDepositos([...depositos, { ...producto, id: Date.now() }]);
     }
+  };
+
+  const editarProducto = (id, productoActualizado) => {
+    setDepositos(
+      depositos.map((deposito) =>
+        deposito.id === id ? productoActualizado : deposito
+      )
+    );
+  };
+
+  const borrarProducto = (id) => {
+    setDepositos(depositos.filter((deposito) => deposito.id !== id));
+  };
+
+  useEffect(() => {
+    localStorage.setItem('depositos', JSON.stringify(depositos));
+  }, [depositos]);
+
+  return (
+    <>
+      <Catalogo
+        depositos={depositos}
+        alAgregar={agregarProducto}
+        alEditar={editarProducto}
+        alBorrar={borrarProducto}
+      />
+    </>
+  );
+}
+
 
     ReactDOM.render(<App />, document.getElementById('root'));
   </script>
