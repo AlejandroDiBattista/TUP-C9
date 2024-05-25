@@ -1,311 +1,404 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <title>Deposito</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
 
+    #root {
+      max-width: 1280px;
+      margin: 20px auto;
+    }
 
-    <title>Deposito</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
+    .flex {
+      display: flex;
+    }
 
-        .renovar-stock {
-            font-size: 30px;
-            font-weight: bold; 
-        }
+    .flex-col {
+      flex-direction: column;
+    }
 
-        .inputs {
-            border-radius: 7px;
-            width: 70%;
-            font-size: 20px;
+    .flex-row {
+      flex-direction: row;
+    }
 
-        }
+    .flex-center {
+      justify-content: center;
+      align-items: center;
+    }
 
-        .contenedor {
-            display: flex;
-            align-items: center;
-            margin: auto;
-        }
+    .text-ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-        .btn-guardar,
-        .btn-cancelar {
-            font-size: 17px;
-            width: 20%;
-            color: black;
-            height: 30px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 10px;
-            border: 3px solid black;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            margin-left: 10px;
-        }
+    .w-full {
+      width: 100%;
+    }
 
-        .btn-cancelar {
-            top: 50px;
-        }
+    h1 {
+      font-size: 22px;
+      margin-right: 10px;
+    }
 
+    .card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      overflow: hidden;
+    }
 
+    .quantity {
+      font-size: 32px;
+      color: blue;
+      margin: 0px 20px 0px 15px;
+      flex-shrink: 0;
+      max-width: 30%;
+      text-align: center;
+      font-weight: bold;
+    }
 
-        .btn-agregar {
+    .details {
+      flex-grow: 1;
+      min-width: 0;
+    }
 
-            color: black;
-            height: 30px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 10px;
-            border: 3px solid black;
-            margin-left: 10px;
-            margin-bottom: 50px;
-        }
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
 
-        .btn-editar {
-            font-size: 25px;
-            margin-right: 10px;
-            margin-top: 20px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 20px;
-            border: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
+    .code {
+      color: #555;
+    }
 
-        .btn-borrar {
-            font-size: 25px;
-            margin-right: 10px;
-            margin-bottom: 20px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 20px;
-            border: none;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
+    .edit-button,
+    .delete-button,
+    .add-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin: 2px 0;
+    }
 
+    .edit-button i,
+    .delete-button i,
+    .add-button i {
+      font-size: 20px;
+      color: #000;
+      cursor: pointer;
+    }
 
-        .panel {
-            position: relative;
-            height: 120px;
-            width: 25%;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.541);
-            padding: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: 10px 200px 10px 450px;
-        }
+    .confirm-button,
+    .cancel-button {
+      margin-bottom: 8px;
+      background-color: transparent;
+      padding: 4px;
+      border: 1px solid #000;
+      border-radius: 8px;
+      box-sizing: border-box;
+      outline: none;
+      cursor: pointer;
+    }
 
-        .contenido {
-            display: flex;
-            align-items: center;
-        }
+    input {
+      margin-bottom: 5px;
+      padding: 4px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-sizing: border-box;
+      outline: none;
+      width: 90%;
+    }
 
-        .cantidad {
-            font-size: 50px;
-            font-weight: bold;
-            color: red;
-            order: -1;
-            margin-right: 10px;
-        }
+    input:last-child {
+      margin-bottom: 0px;
+    }
 
-        .nombre {
-            color: rgb(226, 24, 24);
-            font-size: 25px;
-            font-weight: bold;
-            margin-right: 10px;
-            margin-left: 10px;
-        }
+    input:focus {
+      border-color: #aaa;
+    }
 
-        .codigo {
-            color: blue;
-            font-size: 20px;
-            margin-left: 10px;
-            margin-right: auto;
-        }
-        .titulo__h1
-        {
-            color: red;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-    </style>
+    .invisible-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 0; 
+    }
+
+    .button-container {
+      position: relative;
+      z-index: 1; 
+    }
+
+    @media screen and (max-width: 768px) {
+      .card {
+        max-width: 80%;
+      }
+    }
+
+  </style>
 </head>
-
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+  <script type="text/babel">
+    const { createRoot } = ReactDOM;
+    const { useState, useEffect } = React;
 
-        const ProductosIniciales = [
-            { id: 1, nombre: "Papas", codigo_EAM: 10485763, cantidad: 50},
-            { id: 2, nombre: "Mani", codigo_EAM: 21987654, cantidad: 30},
-            { id: 3, nombre: "Conitos", codigo_EAM: 31890762, cantidad: 40},
-            { id: 4, nombre: "Soda", codigo_EAM: 42736589, cantidad: 60},
-            { id: 5, nombre: "Agua Mineral", codigo_EAM: 53098674, cantidad: 70},
-            { id: 6, nombre: "Vodka", codigo_EAM: 62984735, cantidad: 80},
-            { id: 7, nombre: "Fernet", codigo_EAM: 71253469, cantidad: 90},
-            { id: 8, nombre: "Coca Cola", codigo_EAM: 81894356, cantidad: 55},
-            { id: 9, nombre: "Chicle", codigo_EAM: 92567843, cantidad: 35},
-            { id: 10, nombre: "Gomitas", codigo_EAM: 10365827, cantidad: 75},
-            { id: 11, nombre: "Chupetin", codigo_EAM: 11472983, cantidad: 85},
-            { id: 12, nombre: "Alfajor", codigo_EAM: 12345678, cantidad: 65},
-            { id: 13, nombre: "Vino", codigo_EAM: 13456789, cantidad: 45},
-        ];
+    const App = () => {
+      return (
+        <main className="flex flex-center w-full">
+          <Storage />
+        </main>
+      );
+    };
 
-        function Producto({ id, nombre, codigo_EAM, cantidad, alEditar, alBorrar }) {
-            return (
-                <div className="panel">
-                    <div className="contenido">
-                        <div>
-                            <p className="nombre">{nombre}</p>
-                            <p className="codigo">{codigo_EAM}</p>
-                        </div>
-                        <p className="cantidad">{cantidad}</p>
-                    </div>
-                    <div className="acciones">
-                        <button className="btn-editar" onClick={() => alEditar(id)}>
-                            <i className="fa-regular fa-pen-to-square"></i>
-                        </button>
-                        <button className="btn-borrar" onClick={() => alBorrar(id)}>
-                            <i className="fa-regular fa-trash-can"></i>
-                        </button>
-                    </div>
-                </div>
-            );
+    const Storage = () => {
+      const [editingProductIdList, setEditingProductIdList] = useState([]);
+      const [productList, setProductList] = useState([]);
+
+      useEffect(() => {
+        const storedProducts = [
+          { id: 1, name: "soda", code: "7799876543210", quantity: "31" },
+          { id: 2, name: "Mani", code: "2198135327654", quantity: "30"},
+          { id: 3, name: "Conitos", code: "3189056718762", quantity: "40"},
+          { id: 4, name: "Soda", code: "4273658654189", quantity: "60"},
+          { id: 5, name: "Agua Mineral", code: "5309453258674", quantity: "70"},
+          { id: 6, name: "Vodka", code: "6298473345625", quantity: "80"},
+          { id: 7, name: "Fernet", code: "7125346932545", quantity: "90"},
+          { id: 8, name: "Coca Cola", code: "818943464656", quantity: "55"},
+          { id: 9, name: "Chicle", code: "9256784426243", quantity: "35"},
+          { id: 10, name: "Gomitas", code: "10365864227", quantity: "75"},
+          { id: 11, name: "Chupetin", code: "11472946583", quantity: "85"},
+          { id: 12, name: "Alfajor", code: "1234564478", quantity: "65"},
+          { id: 13, name: "Vino", code: "13456786349", quantity: "45"},
+        ]
+        if (storedProducts) {
+          setProductList(storedProducts);
+        }
+      }, []);
+
+      useEffect(() => {
+        localStorage.setItem('products', JSON.stringify(productList));
+      }, [productList]);
+      
+      const handleAdd = () => {
+        const id = productList.length > 0
+          ? Math.max(...productList.map((product) => product.id)) + 1
+          : 1;
+
+        const item = {
+          id,
+          name: "",
+          code: "",
+          quantity: "",
+        };
+
+        setProductList([...productList, item]);
+        setEditingProductIdList([...editingProductIdList, id]);
+      };
+
+      const handleEdit = (id) => {
+        setEditingProductIdList([...editingProductIdList, id]);
+      };
+
+      const handleDelete = (id) => {
+        setProductList(productList.filter((product) => product.id !== id));
+      };
+
+      const handleSave = (product) => {
+        const existingProduct = productList.find((p) => p.id === product.id);
+
+        if (existingProduct) {
+          setProductList(productList.map((p) => (p.id === product.id ? product : p)));
+        } else {
+          setProductList([...productList, product]);
         }
 
-        function Editar({ producto, alGuardar, alCancelar }) {
-            let [nombre, setNombre] = useState(producto.nombre);
-            let [codigo_EAM, setCodigo_EAM] = useState(producto.codigo_EAM);
-            let [cantidad, setCantidad] = useState(producto.cantidad);
+        setEditingProductIdList(editingProductIdList.filter((productId) => productId !== product.id));
+      };
 
-            const guardar = (e) => {
-                e.preventDefault();
-
-                if (!nombre.trim() || !codigo_EAM.toString().trim() || !cantidad.toString().trim()) {
-                    alert("Todos los campos son requeridos");
-                    return;
-                }
-
-                alGuardar({ ...producto, nombre, codigo_EAM, cantidad });
-            };
-
-
-            const cancelar = (e) => {
-                e.preventDefault();
-                alCancelar();
-            };
-
-            return (
-                <div className='panel'>
-                    <label>Nombre</label>
-                    <input className="inputs" type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
-                    <label>Código EAM</label>
-                    <input className="inputs" type="number" value={codigo_EAM} onChange={e => setCodigo_EAM(e.target.value)} />
-                    <label>Cantidad</label>
-                    <input className="inputs" type="number" value={cantidad} onChange={e => setCantidad(e.target.value)} />
-                    <button className="btn-guardar" onClick={guardar}>Aceptar</button>
-                    <button className="btn-cancelar" onClick={cancelar}>Cancelar</button>
-                </div>
-            );
-        }
-
-        function obtenerProductosGuardados() {
-            const productosGuardados = localStorage.getItem('productos');
-            return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales;
-        }
-
-        function siguienteID(productos) {
-            return Math.max(...productos.map(producto => producto.id)) + 1;
-        }
+      const handleCancel = (id) => {
         
-        function App() {
-            let [editando, setEditando] = useState(false);
-            let [productos, setProductos] = useState(obtenerProductosGuardados());
-            let [producto, setProducto] = useState({ nombre: '' });
+        const existingProduct = productList.find((product) => product.id === id);
+        
+        if (
+          existingProduct &&
+          existingProduct.name === "" &&
+          existingProduct.code === "" &&
+          existingProduct.quantity === ""
+        ) {
+          setProductList(productList.filter((product) => product.id !== id));
+        }
 
+        setEditingProductIdList(editingProductIdList.filter((productId) => productId !== id));
+      };
 
-            useEffect(() => {
-                localStorage.setItem('productos', JSON.stringify(productos));
-            }, [productos]);
+      const handleIncrement = (id) => {
+        setProductList(productList.map((product) =>
+          product.id === id
+            ? { ...product, quantity: parseInt(product.quantity) + 1 }
+            : product
+        ));
+      };
 
-            const guardar = (producto) => {
-                if (producto.id) {
-                    let copia = productos.map(t => t.id === producto.id ? producto : t);
-                    setProductos(copia);
-                    setEditando(false);
-                    return;
-                } else {
-                    let id = siguienteID(productos);
-                    let copia = [...productos, { ...producto, id }];
-                    setProductos(copia);
-                    setEditando(false);
-                }
-            };
+      productList.sort((a, b) => a.name.localeCompare(b.name));
 
-            const cancelar = () => {
-                setEditando(false);
-            };
-
-            const agregar = () => {
-                setProducto({ nombre: '' });
-                setEditando(true);
-            };
-
-            const borrar = (id) => {
-                let copia = productos.filter(producto => producto.id !== id);
-                setProductos(copia);
-            };
-
-            const editar = (id) => {
-                const producto = productos.find(t => t.id === id);
-                setProducto(producto);
-                setEditando(true);
-            };
-
-            const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-return (
-    <div>
-        <h1 className='titulo__h1' style={{ display: 'inline-block' }}>Deposito</h1>
-        {editando ? (
-            <Editar producto={producto} alGuardar={guardar} alCancelar={cancelar} />
-        ) : (
-            <button className="btn-agregar" onClick={agregar}>
-                <i className="fas fa-plus"></i>
+      return (
+        <section className="flex flex-col flex-center w-full">
+          <div className="flex flex-row flex-center">
+            <h1>Control Depósito</h1>
+            <button className="add-button" onClick={handleAdd}>
+              <i className="fa-regular fa-square-plus" />
             </button>
-        )}
-        {productosOrdenados.length > 0 ? (
-            productosOrdenados.map((producto) => (
-                <Producto
-                    key={producto.id}
-                    {...producto}
-                    alEditar={editar}
-                    alBorrar={borrar}
-                />
-            ))
-        ) : (
-            <p className="renovar-stock">Renovar Productos</p>
-        )}
-    </div>
-);
-}
+          </div>
 
-ReactDOM.render(<App />, document.getElementById('root'));
-</script>
+          {productList.map((product) => (
+            <Card
+              key={product.id}
+              product={product}
+              isEditing={editingProductIdList?.includes(product.id)}
+              handleEdit={() => handleEdit(product.id)}
+              handleDelete={() => handleDelete(product.id)}
+              handleSave={handleSave}
+              handleCancel={() => handleCancel(product.id)}
+              handleIncrement={() => handleIncrement(product.id)}
+            />
+          ))}
+        </section>
+      );
+    };
 
+    const Form = ({ product, handleSave, handleCancel }) => {
+      const [name, setName] = useState(product.name);
+      const [code, setCode] = useState(product.code);
+      const [quantity, setQuantity] = useState(product.quantity);
+      const isSubmitDisabled = name?.trim().length === 0 || code?.trim().length < 13;
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        handleSave({ ...product, name, code, quantity });
+      };
+
+      const handleCodeChange = (e) => {
+        const value = e.target.value.replace(/\D/g, "");
+        setCode(value);
+      };
+
+      return (
+        <form onSubmit={handleSubmit} className="card">
+          <div className="flex flex-col w-full">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              minLength={13}
+              maxLength={13}
+              name="code"
+              placeholder="Código EAM (13 dígitos)"
+              value={code}
+              onChange={handleCodeChange}
+              required
+            />
+            <input
+              type="number"
+              name="quantity"
+              placeholder="Stock"
+              min={0}
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <button
+              className="confirm-button"
+              type="submit"
+            >
+              Aceptar
+            </button>
+            <button className="cancel-button" onClick={handleCancel}>
+              Cancelar
+            </button>
+          </div>
+        </form>
+      );
+    };
+
+    const Card = ({ product, isEditing, handleEdit, handleDelete, handleSave, handleCancel, handleIncrement }) => {
+      const { quantity, name, code } = product;
+
+      const handleCardClick = (e) => {
+        if (e.target.closest('.button-container')) {
+          e.stopPropagation();
+        } else {
+          handleIncrement();
+        }
+      };
+
+      return isEditing ? (
+        <Form
+          product={product}
+          handleSave={handleSave}
+          handleCancel={handleCancel}
+        />
+      ) : (
+        <article className="card" onClick={handleCardClick}>
+          <button className="invisible-button"></button>
+          <div className="quantity text-ellipsis">{quantity}</div>
+          <div className="details">
+            <div className="name text-ellipsis">{name}</div>
+            <div className="code text-ellipsis">{code}</div>
+          </div>
+          <div className="flex flex-col flex-center button-container">
+            <button className="edit-button" onClick={(e) => { e.stopPropagation(); handleEdit(); }}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button className="delete-button" onClick={(e) => { e.stopPropagation(); handleDelete(); }}>
+              <i className="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </article>
+      );
+    };
+
+    const root = createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
 </body>
-
 </html>

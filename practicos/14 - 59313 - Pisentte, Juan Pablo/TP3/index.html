@@ -1,303 +1,394 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Deposito</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
 
-    <title>Control Deposito </title>
-    <style>
-        
-        body {
-            font-family: monospace, 'Courier New', Courier, monospace;
-            background-color: #f0f0f0;
-        }
-        .renovar-stock {
-            font-size: 30px;
-            font-weight: bold; 
-        }
-        .inputs {
-            border-radius: 7px;
-            width: 70%;
-            font-size: 20px;
+    .panel {
+        position: relative;
+        height: 120px;
+        width: 40%;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid black;
+        box-shadow: 0 2px 4px rgba(39, 34, 34, 0.541);
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px 200px 10px 300px;
+        cursor: pointer;
+    }
 
-        }
-        .contenedor {
-            display: flex;
-            align-items: center;
-            margin: auto;
-        }
-        .btn-guardar,
-        .btn-cancelar {
-            font-size: 17px;
-            width: 25%;
-            color: black;
-            height: 30px;
-            background-color: rgb(133, 115, 236);
-            border-radius: 10px;
-            border: 3px solid black;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            margin-left: 10px;
-        }
-        .btn-cancelar {
-            top: 50px;
-        }
-         .btn-agregar {
+    .cantidad {
+      font-size: 50px;
+      font-weight: bold;
+      color: blue;
+      margin-top: 30px;
+      margin-left: 5px;
+    }
 
-            color: rgb(0, 0, 0);
-            height: 30px;
-            background-color: rgb(133, 115, 236);
-            border-radius: 50px;
-            border: 3px solid rgb(0, 0, 0);
-            margin-left: 470px;
-            margin-bottom: 50px;
-        }
-        .btn-editar {
-            font-size: 25px;
-            margin-right: 10px;
-            margin-top: 20px;
-            background-color: rgb(133, 115, 236);
-            border-radius: 5px;
-            border: 3px solid rgb(0, 0, 0);
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        .btn-borrar {
-            font-size: 25px;
-            margin-right: 10px;
-            margin-bottom: 20px;
-            background-color: red;
-            border-radius: 5px;
-            border: 3px solid rgb(0, 0, 0);
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-        .panel {
-            position: relative;
-            height: 120px;
-            width: 30%;
-            background-color: white;
-            border-radius: 10px;
-            border: 2px solid black;
-            box-shadow: 0 2px 4px rgba(39, 34, 34, 0.541);
-            padding: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: 10px 200px 10px 350px;
-        }
-        .contenido {
-            display: flex;
-            align-items: center;
-        }
-        .cantidad {
-            font-size: 50px;
-            font-weight: bold;
-            color: rgb(133, 115, 236);
-            order: -1;
-            margin-right: 10px;
-        }
-        .nombre {
-            color: black;
-            font-size: 25px;
-            font-weight: bold;
-            margin-right: 10px;
-            margin-left: 10px;
-        }
-        .codigo {
-            color: black;
-            font-size: 20px;
-            margin-left: 10px;
-            margin-right: auto;
-        }
-        .titulo
-        {
-            margin: 10px 200px 10px 330px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-    </style>
+    .info {
+      flex-grow: 1;
+      margin-left: 15px;
+    }
+
+    .nombre {
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-left: 70px;
+        margin-top: -70px;
+    }
+
+    .codigoEAN {
+      font-size: 25px;
+      color: #000;
+      margin: 0;
+      margin-right: 10px;
+      margin-left: 70px;
+    }
+
+    .botonagregar {
+        color: black;
+        height: 35px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        border: 3px solid black;
+        margin-left: 15px;
+        margin-bottom: none;
+    }
+
+    .botonbasura{
+        font-size: 25px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 5px;
+        border: 3px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .botoneditar {
+        font-size: 25px;
+        margin-right: 10px;
+        margin-top: 20px;
+        background-color: white;
+        border-radius: 5px;
+        border: 3px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .boton:hover {
+      color: #000;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+        margin: 10px 10px 10px 350px;
+      margin-right: 20px;
+    }
+
+    .form-editar {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;  
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      gap: 10px;
+    }
+
+    .botones-editar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      width: 20%;
+    }
+
+    .form-editar input {
+      padding: 5px;
+      border: 1px solid #ced4da;
+      border-radius: 10px;
+      width: 90%;
+      height: 30%;
+      font-size: 17px;
+    }
+
+    .botonaceptar,
+    .botoncancelar {
+      padding: 5px 5px;
+      margin-left: 1px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: white;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .botonaceptar:hover,
+    .botoncancelar:hover {
+      background-color: #e9ecef;
+    }
+
+    .botonaceptar:focus,
+    .botoncancelar:focus {
+      outline: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+    const DepositoInicial = [
+      { id: 1, producto: "Pepsi", codigoEan: "25453536", cantidad: '50' },
+      { id: 2, producto: "Fanta", codigoEan: "23546567", cantidad: '20' },
+      { id: 3, producto: "7 UP", codigoEan: "45768886", cantidad: '30' },
+      { id: 4, producto: "Sprite", codigoEan: "96756445", cantidad: '5' },
+      { id: 5, producto: "Café", codigoEan: "81521635", cantidad: '5' },
+      { id: 6, producto: "Monster", codigoEan: "56163857", cantidad: '30' },
+      { id: 7, producto: "Speed", codigoEan: "46546118", cantidad: '18' },
+      { id: 8, producto: "Rockstar", codigoEan: "98621324", cantidad: '22' },
+      { id: 9, producto: "Te", codigoEan: "23654657", cantidad: '28' },
+      { id: 10, producto: "Jugo de Uva", codigoEan: "21365465", cantidad: '40' },
+      { id: 11, producto: "Agua Mineral", codigoEan: "34576734", cantidad: '15' },
+      { id: 12, producto: "Limonada ", codigoEan: "34534567", cantidad: '12' },
+      { id: 13, producto: "Jugo de Piña", codigoEan: "34534522", cantidad: '18' },
+      { id: 14, producto: "Jugo de Mango", codigoEan: "23423523", cantidad: '20' },
+      { id: 15, producto: "Coca Cola", codigoEan: "98746377", cantidad: '30' },
+      { id: 16, producto: "Harina 0000", codigoEan: "47245645", cantidad: '25' },
+      { id: 17, producto: "Jugo de Durazno", codigoEan: "25235235", cantidad: '22' },
+      { id: 18, producto: "Harina 000", codigoEan: "23543654", cantidad: '28' },
+      { id: 19, producto: "Soda", codigoEan: "12384654", cantidad: '35' },
+      { id: 20, producto: "Jugo de Naranja", codigoEan: "12638574", cantidad: '40' },
+      { id: 21, producto: "Vodcka", codigoEan: "52646859", cantidad: '10' },
+      { id: 22, producto: "Chocolatada", codigoEan: "41654654", cantidad: '25' },
+      { id: 23, producto: "Sal", codigoEan: "13546156", cantidad: '30' },
+      { id: 24, producto: "Azucar", codigoEan: "54986855", cantidad: '15' },
+      { id: 25, producto: "Cafe en Polvo", codigoEan: "13546541", cantidad: '20' },
+      { id: 26, producto: "Alfajor", codigoEan: "13546515", cantidad: '18' },
+      { id: 27, producto: "Pastaflora", codigoEan: "16354651", cantidad: '12' },
+      { id: 28, producto: "Chicle bubaloo", codigoEan: "89354213", cantidad: '22' },
+      { id: 29, producto: "Chicle de Menta", codigoEan: "87413652", cantidad: '28' },
+      { id: 30, producto: "Alcohol", codigoEan: "13685467", cantidad: '35' }
+    ];
 
-        const ProductosIniciales = [
-            { id: 1, nombre: "Pepsi", codigo_EAM: 76456234, cantidad: 41},
-            { id: 2, nombre: "Fanta", codigo_EAM: 93645176, cantidad: 30},
-            { id: 3, nombre: "Sprite", codigo_EAM: 98263513, cantidad: 40},
-            { id: 4, nombre: "Sal", codigo_EAM: 91256343, cantidad: 60},
-            { id: 5, nombre: "Fideos", codigo_EAM: 87235432, cantidad: 70},
-            { id: 6, nombre: "Azucar", codigo_EAM: 13424563, cantidad: 80},
-            { id: 7, nombre: "Aceite", codigo_EAM: 54676345, cantidad: 90},
-            { id: 8, nombre: "Café", codigo_EAM: 54368763, cantidad: 55},
-            { id: 9, nombre: "Té", codigo_EAM: 92034836, cantidad: 35},
-            { id: 10, nombre: "Galletas", codigo_EAM: 10365827, cantidad: 70},
-            { id: 11, nombre: "Jabón", codigo_EAM: 11472983, cantidad: 80},
-            { id: 12, nombre: "Pasta de Dientes", codigo_EAM: 12345678, cantidad: 60},
-            { id: 13, nombre: "Shampoo", codigo_EAM: 13456789, cantidad: 48},
-            { id: 14, nombre: "Acondicionador", codigo_EAM: 14235678, cantidad: 50},
-            { id: 15, nombre: "Papel Higiénico", codigo_EAM: 15384726, cantidad: 67},
-            { id: 16, nombre: "Papel de cocina", codigo_EAM: 16483927, cantidad: 17},
-            { id: 17, nombre: "Esponja", codigo_EAM: 17293845, cantidad: 77},
-            { id: 18, nombre: "Limpiavidrios", codigo_EAM: 18572934, cantidad: 20},
-            { id: 19, nombre: "Detergente", codigo_EAM: 19738456, cantidad: 60},
-            { id: 20, nombre: "Servilletas", codigo_EAM: 20394857, cantidad: 70},
-        ];
+    function Editar({ productos, alGuardar, alCancelar }) {
+      let [producto, setProducto] = useState(productos.producto || '');
+      let [codigoEan, setCodigoEan] = useState(productos.codigoEan || '');
+      let [cantidad, setCantidad] = useState(productos.cantidad || '');
+      let [error, setError] = useState('');
 
-        function Producto({ id, nombre, codigo_EAM, cantidad, alEditar, alBorrar }) {
-            return (
-                <div className="panel">
-                    <div className="contenido">
-                        <div>
-                            <p className="nombre">{nombre}</p>
-                            <p className="codigo">{codigo_EAM}</p>
-                        </div>
-                        <p className="cantidad">{cantidad}</p>
-                    </div>
-                    <div className="acciones">
-                        <button className="btn-editar" onClick={() => alEditar(id)}>
-                            <i className="fa-solid fa-pencil"></i>
-                        </button>
-                        <button className="btn-borrar" onClick={() => alBorrar(id)}>
-                            <i className="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            );
+      const cambiarProducto = (e) => {
+        setProducto(e.target.value);
+        setError('');
+      };
+      const cambiarCodigoEan = (e) => {
+        setCodigoEan(e.target.value);
+        setError('');
+      };
+      const cambiarCantidad = (e) => {
+        setCantidad(e.target.value);
+        setError('');
+      };
+
+      const guardar = (e) => {
+        e.preventDefault();
+        if (producto.trim() === '' || codigoEan.trim() === '' || cantidad.trim() === '') {
+          alert('Todos los campos son obligatorios');
+          return;
         }
-
-        function Editar({ producto, alGuardar, alCancelar }) {
-            let [nombre, setNombre] = useState(producto.nombre);
-            let [codigo_EAM, setCodigo_EAM] = useState(producto.codigo_EAM);
-            let [cantidad, setCantidad] = useState(producto.cantidad);
-
-            const guardar = (e) => {
-                e.preventDefault();
-
-                if (!nombre.trim() || !codigo_EAM.toString().trim() || !cantidad.toString().trim()) {
-                    alert("Todos los campos son obligatorios");
-                    return;
-                }
-
-                alGuardar({ ...producto, nombre, codigo_EAM, cantidad });
-            };
-
-
-            const cancelar = (e) => {
-                e.preventDefault();
-                alCancelar();
-            };
-
-            return (
-                <div className='panel'>
-                    <label>Nombre</label>
-                    <input className="inputs" type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
-                    <label>Código</label>
-                    <input className="inputs" type="number" value={codigo_EAM} onChange={e => setCodigo_EAM(e.target.value)} />
-                    <label>Cantidad</label>
-                    <input className="inputs" type="number" value={cantidad} onChange={e => setCantidad(e.target.value)} />
-                    <button className="btn-guardar" onClick={guardar}>OK</button>
-                    <button className="btn-cancelar" onClick={cancelar}>Cancelar</button>
-                </div>
-            );
+        if (parseInt(cantidad) < 0) {
+          alert('La cantidad del producto no puede ser negativa');
+          return;
         }
-
-        function obtenerProductosGuardados() {
-            const productosGuardados = localStorage.getItem('productos');
-            return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales;
+        if (parseInt(cantidad) > 100) {
+          alert('No puede superar esta cantidad');
+          return;
         }
+        alGuardar({ ...productos, producto, codigoEan, cantidad });
+      };
+      const cancelar = (e) => {
+        e.preventDefault();
+        alCancelar();
+      };
 
-        function siguienteID(productos) {
-            return Math.max(...productos.map(producto => producto.id)) + 1;
+      return (
+        <form className="panel">
+          <div className="form-editar">
+            <div className="inputs">
+              <input type="text" placeholder="Producto" value={producto} onChange={cambiarProducto} className="producto-input" />
+              <input type="text" placeholder="CodigoEAN" value={codigoEan} onChange={cambiarCodigoEan} className="ean-input" />
+              <input type="text" placeholder="Cantidad" value={cantidad} onChange={cambiarCantidad} className="cantidad-input" />
+              {error && <p className="error">{error}</p>}
+            </div>
+            <div className="botones-editar">
+              <button onClick={guardar} className="botonaceptar">Aceptar</button>
+              <button onClick={cancelar} className="botoncancelar">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      );
+    }
+
+    function Mostrar({ deposito, alGuardar, alBorrar }) {
+      const [editando, setEditando] = useState(false);
+
+      const incrementarCantidad = () => {
+        const cantidadIncrementada = parseInt(deposito.cantidad, 10) + 1;
+        if (cantidadIncrementada > 100) {
+          alert('No puede superar esta cantidad');
+          return;
         }
-        
-        function App() {
-            let [editando, setEditando] = useState(false);
-            let [productos, setProductos] = useState(obtenerProductosGuardados());
-            let [producto, setProducto] = useState({ nombre: '' });
+        alGuardar({ ...deposito, cantidad: cantidadIncrementada.toString() });
+      };
 
+      return editando ? (
+        <Editar
+          productos={deposito}
+          alGuardar={(datosActualizados) => {
+            alGuardar(datosActualizados);
+            setEditando(false);
+          }}
+          alCancelar={() => setEditando(false)}
+        />
+      ) : (
+        <div className="panel" onClick={incrementarCantidad}>
+          <div className="cantidad">{deposito.cantidad}</div>
+          <div className="info">
+            <p className="nombre">{deposito.producto}</p>
+            <p className="codigoEAN">{deposito.codigoEan}</p>
+          </div>
+          <div className="botones">
+            <button className="botoneditar" onClick={(e) => { e.stopPropagation(); setEditando(true); }}>
+              <i className="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button className="botonbasura" onClick={(e) => { e.stopPropagation(); alBorrar(); }}>
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      );
+    }
 
-            useEffect(() => {
-                localStorage.setItem('productos', JSON.stringify(productos));
-            }, [productos]);
+    function Catalogo({ depositos, alAgregar, alEditar, alBorrar }) {
+      const depositosOrdenados = depositos.sort((a, b) => a.producto.localeCompare(b.producto));
+      const [agregando, setAgregando] = useState(false);
 
-            const guardar = (producto) => {
-                if (producto.id) {
-                    let copia = productos.map(t => t.id === producto.id ? producto : t);
-                    setProductos(copia);
-                    setEditando(false);
-                    return;
-                } else {
-                    let id = siguienteID(productos);
-                    let copia = [...productos, { ...producto, id }];
-                    setProductos(copia);
-                    setEditando(false);
-                }
-            };
+      return (
+        <>
+          <div className="header">
+            <h1>Control Deposito</h1>
+            <button className="botonagregar" onClick={() => setAgregando(true)}>
+              <i className="fa-solid fa-plus"></i>
+            </button>
+          </div>
+          {agregando && (
+            <Editar
+              productos={{ id: null, producto: '', codigoEan: '', cantidad: '' }}
+              alGuardar={(producto) => {
+                alAgregar(producto);
+                setAgregando(false);
+              }}
+              alCancelar={() => setAgregando(false)}
+            />
+          )}
+          {depositosOrdenados.map((deposito) => (
+            <Mostrar
+              key={deposito.id}
+              deposito={deposito}
+              alGuardar={(datosActualizados) => alEditar(deposito.id, datosActualizados)}
+              alBorrar={() => alBorrar(deposito.id)}
+            />
+          ))}
+        </>
+      );
+    }
+    
+    function App() {
+      const [depositos, setDepositos] = useState(() => {
+        const depositosGuardados = localStorage.getItem('depositos');
+        return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
+      });
 
-            const cancelar = () => {
-                setEditando(false);
-            };
+      useEffect(() => {
+        localStorage.setItem('depositos', JSON.stringify(depositos));
+      }, [depositos]);
 
-            const agregar = () => {
-                setProducto({ nombre: '' });
-                setEditando(true);
-            };
-
-            const borrar = (id) => {
-                let copia = productos.filter(producto => producto.id !== id);
-                setProductos(copia);
-            };
-
-            const editar = (id) => {
-                const producto = productos.find(t => t.id === id);
-                setProducto(producto);
-                setEditando(true);
-            };
-
-            const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-            return (
-                <div>
-                    <h1 className='titulo' style={{ display: 'inline-block' }}>Control Deposito</h1>
-                    {editando ? (
-                        <Editar producto={producto} alGuardar={guardar} alCancelar={cancelar} />
-                    ) : (
-                        <button className="btn-agregar" onClick={agregar}>
-                            <i className="fa-solid fa-circle-plus"></i>
-                        </button>
-                    )}
-                    {productosOrdenados.length > 0 ? (
-                        productosOrdenados.map((producto) => (
-                            <Producto
-                                key={producto.id}
-                                {...producto}
-                                alEditar={editar}
-                                alBorrar={borrar}
-                            />
-                        ))
-                    ) : (
-                        <p className="renovar-stock">Renovar Productos</p>
-                    )} 
-                </div>
-            );
+      const agregarProducto = (producto) => {
+        const productoExistente = depositos.find(deposito => deposito.producto === producto.producto);
+        if (productoExistente) {
+          const cantidadTotal = parseInt(productoExistente.cantidad, 10) + parseInt(producto.cantidad, 10);
+          if (cantidadTotal > 100) {
+            alert('No puede superar esta cantidad');
+            return;
+          }
+          editarProducto(productoExistente.id, { ...productoExistente, cantidad: cantidadTotal.toString() });
+        } else {
+          setDepositos([...depositos, { ...producto, id: Date.now() }]);
         }
+      };
 
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
+      const editarProducto = (id, productoActualizado) => {
+        setDepositos(
+          depositos.map((deposito) =>
+            deposito.id === id ? productoActualizado : deposito
+          )
+        );
+      };
 
+      const borrarProducto = (id) => {
+        setDepositos(depositos.filter((deposito) => deposito.id !== id));
+      };
+
+      return (
+        <>
+          <Catalogo
+            depositos={depositos}
+            alAgregar={agregarProducto}
+            alEditar={editarProducto}
+            alBorrar={borrarProducto}
+          />
+        </>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
 </body>
-
 </html>

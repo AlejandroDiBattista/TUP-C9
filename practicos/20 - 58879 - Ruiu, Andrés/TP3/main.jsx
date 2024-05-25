@@ -27,7 +27,7 @@ function Producto({ producto, alGuardar, alBorrar, incrementarCantidad }) {
     };
 
     return (
-        <div className="card">
+        <div className="card" onClick={() => incrementarCantidad(producto.id)} style={{ display: editando ? 'block' : 'flex' }}>
             {editando ? (
                 <Editar
                     producto={producto}
@@ -38,7 +38,7 @@ function Producto({ producto, alGuardar, alBorrar, incrementarCantidad }) {
                 <>
                     <div className="cantidad">
                         <div className="cantidad">
-                            <span onClick={() => incrementarCantidad(producto.id)}>{producto.cantidad}</span>
+                            <span>{producto.cantidad}</span>
                         </div>
                     </div>
                     <div className="datos">
@@ -46,8 +46,8 @@ function Producto({ producto, alGuardar, alBorrar, incrementarCantidad }) {
                         <span>{producto.codigo}</span>
                     </div>
                     <div className="iconos">
-                        <i onClick={iniciarEdicion} class="fa-regular fa-pen-to-square"></i>
-                        <i onClick={() => alBorrar(producto.id)} class="fa-solid fa-trash"></i>
+                        <i onClick={(e) => { e.stopPropagation(); iniciarEdicion(); }} class="fa-regular fa-pen-to-square"></i>
+                        <i onClick={(e) => { e.stopPropagation(); alBorrar(producto.id); }} class="fa-regular fa-trash-can"></i>
                     </div>
                 </>
             )}
@@ -59,22 +59,57 @@ function Editar({ alGuardar, alCancelar, producto }) {
     const [nombre, setNombre] = useState(producto.nombre);
     const [cantidad, setCantidad] = useState(producto.cantidad);
     const [codigo, setCodigo] = useState(producto.codigo);
+    const [errorCantidad, setErrorCantidad] = useState('');
+    const [errorCantidadRango, setErrorCantidadRango] = useState('');
+    const [errorCodigo, setErrorCodigo] = useState('');
+    const [errorNombre, setErrorNombre] = useState('');
 
-    const guardar = (e) => {
+    async function guardar(e) {
         e.preventDefault();
-        alGuardar({ nombre, cantidad, codigo });
-    };
+        let error = false;
+
+        if (nombre === '') {
+            setErrorNombre('El nombre no puede estar vacío');
+            error = true;
+        }
+
+        if (cantidad === '' || isNaN(cantidad)) {
+            setErrorCantidad('La cantidad no puede estar vacía');
+            error = true;
+        } else if (cantidad < 0 || cantidad > 100) {
+            setErrorCantidadRango('La cantidad debe ser un número entre 0 y 100');
+            error = true;
+        }
+
+        if (codigo === '') {
+            setErrorCodigo('El código no puede estar vacío');
+            error = true;
+        } else if (!/^\d{13}$/.test(codigo)) {
+            setErrorCodigo('El código debe ser un número de 13 dígitos');
+            error = true;
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        if (!error) {
+            alGuardar({ nombre, cantidad, codigo });
+        }
+    }
 
     return (
-        <form className="crear">
+        <form className="crear" onClick={(e) => e.stopPropagation()}>
             <div className="inputs">
-                <input type="text" value={nombre} placeholder="Nombre del producto" onChange={e => setNombre(e.target.value)} />
-                <input type="number" value={cantidad} placeholder="Cantidad del producto" onChange={e => setCantidad(parseInt(e.target.value, 10))} />
-                <input type="number" value={codigo} onChange={e => setCodigo(e.target.value)} />
+                <input type="text" value={nombre} placeholder="Nombre del producto" onChange={e => { setNombre(e.target.value); setErrorNombre(''); }} />
+                {errorNombre && <p className="error">{errorNombre}</p>}
+                <input type="number" value={cantidad} placeholder="Cantidad del producto" onChange={e => { setCantidad(parseInt(e.target.value, 10)); setErrorCantidad(''); setErrorCantidadRango(''); }} min="0" max="100" />
+                {errorCantidad && <p className="error">{errorCantidad}</p>}
+                {errorCantidadRango && <p className="error">{errorCantidadRango}</p>}
+                <input type="text" value={codigo} placeholder="Codigo EAN" onChange={e => { setCodigo(e.target.value); setErrorCodigo(''); }} pattern="\d{13}" />
+                {errorCodigo && <p className="error">{errorCodigo}</p>}
             </div>
             <div className="botones">
-                <button onClick={guardar}>Guardar</button>
-                <button onClick={alCancelar}>Cancelar</button>
+                <button onClick={(e) => { guardar(e); }}>Guardar</button>
+                <button onClick={(e) => { alCancelar(); }}>Cancelar</button>
             </div>
         </form>
     );
@@ -84,18 +119,25 @@ function App() {
     let [editando, setEditando] = useState(false);
     let [productos, setProductos] = useState(() => {
         const productosGuardados = localStorage.getItem('productos');
-        return productosGuardados ? JSON.parse(productosGuardados) : ProductosIniciales;
+        if (productosGuardados) {
+            return JSON.parse(productosGuardados).map(p => ({
+                ...p,
+                cantidad: parseInt(p.cantidad, 10)
+            }));
+        }
+        return ProductosIniciales;
     });
     let [producto, setProducto] = useState({ nombre: '', cantidad: 0, codigo: '' });
-
+    let [ultimoId, setUltimoId] = useState(productos.length);
     const guardar = (productoEditado) => {
         let nuevosProductos;
         if (productoEditado.id) {
             nuevosProductos = productos.map(p => p.id === productoEditado.id ? productoEditado : p);
         } else {
-            const id = productos.length + 1;
+            const id = ultimoId + 1;
             const nuevoProducto = { ...productoEditado, id };
             nuevosProductos = [...productos, nuevoProducto];
+            setUltimoId(id);
         }
         setProductos(nuevosProductos);
         localStorage.setItem('productos', JSON.stringify(nuevosProductos));
@@ -107,8 +149,7 @@ function App() {
     };
 
     const agregar = () => {
-        const siguienteCodigo = () => Math.floor(Math.random() * 10000000000000);
-        setProducto({ nombre: '', cantidad: 0, codigo: siguienteCodigo() });
+        setProducto({ nombre: '', cantidad: '', codigo: '' });
         setEditando(true);
     };
 
@@ -121,7 +162,9 @@ function App() {
     const incrementarCantidad = (id) => {
         const nuevosProductos = productos.map(producto => {
             if (producto.id === id) {
-                return { ...producto, cantidad: producto.cantidad + 1 };
+                if (producto.cantidad < 100) {
+                    return { ...producto, cantidad: producto.cantidad + 1 };
+                }
             }
             return producto;
         });
@@ -133,15 +176,17 @@ function App() {
 
     return (
         <div className="container">
-            <header>
-                <h1 style={{ display: editando ? 'none' : 'block' }}>Control Depósito</h1>
+            <header style={{ flexDirection: editando ? 'column' : 'row' }}>
+                <h1 >Control Depósito</h1>
                 {
                     editando ?
-                        <Editar
-                            alGuardar={guardar}
-                            alCancelar={cancelar}
-                            producto={producto}
-                        />
+                        <div style={{ marginBottom: editando ? '8px' : '0', width: "100%" }}>
+                            <Editar
+                                alGuardar={guardar}
+                                alCancelar={cancelar}
+                                producto={producto}
+                            />
+                        </div>
                         : <i onClick={agregar} class="fa-regular fa-square-plus"></i>
                 }
             </header>
@@ -156,7 +201,7 @@ function App() {
                             incrementarCantidad={incrementarCantidad}
                         />
                     ))
-                    : <h2>No hay productos en este momento</h2>
+                    : <h2 style={editando ? { display: "none" } : { display: "block" }} >No hay productos en este momento</h2>
             }
         </div>
     );

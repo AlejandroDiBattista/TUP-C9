@@ -4,15 +4,16 @@
     <meta
       name="viewport"
       charset="UTF-8"
-      content="width=device-width, initial-scale=1" />
-    <title>Control de Depósito</title>
+      content="width=device-width, initial-scale=1"
+    />
+    <title>TP3 - Lab</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="estilo.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <style>
@@ -26,7 +27,6 @@
       h1 {
         text-align: center;
         margin-bottom: 20px;
-        margin-left: -50px;
       }
 
       .icono-agregar-producto {
@@ -47,13 +47,14 @@
       .tarjeta-producto {
         border: 1px solid #ddd;
         border-radius: 10px;
-        padding: 20px;
-        margin: 10px;
+        padding: 40px;
+        margin: 30px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         background-color: #fff;
         width: 300px;
         display: flex;
-        align-items: center;
+        align-items: self-start;
+        cursor: pointer;
       }
 
       .cantidad-producto {
@@ -65,7 +66,7 @@
 
       .detalles-producto {
         flex-grow: 1;
-        margin-left: -105px;
+        margin-left: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -220,6 +221,16 @@
         background-color: gainsboro;
         border-color: transparent;
       }
+
+      .grupo-botones-horizontal {
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* Centramos los botones */
+      }
+
+      .grupo-botones-horizontal button {
+        flex-grow: 1; /* Hacemos que ambos botones ocupen el mismo espacio */
+      }
     </style>
     <div id="root"></div>
     <script type="text/babel">
@@ -233,7 +244,7 @@
         manejarCancelar,
       }) => {
         return (
-          <form onSubmit={manejarEnvio} onClick={(e) => e.stopPropagation()}>
+          <form onSubmit={manejarEnvio}>
             <div className="grupo-entrada">
               <input
                 type="text"
@@ -250,9 +261,6 @@
                 onChange={manejarCambio}
                 placeholder="Código del Producto"
                 required
-                Min="13"
-                pattern="\d{13}"
-                title="El código debe tener exactamente 13 dígitos"
               />
               <input
                 type="number"
@@ -260,22 +268,22 @@
                 value={producto.cantidad}
                 onChange={manejarCambio}
                 placeholder="Cantidad"
-                Min="0"
-                Max="100"
+                max="100"
+                min="0"
                 required
               />
             </div>
-            <div className="boton-agregar">
-              {!estaEditando && <button type="submit">Agregar</button>}
-            </div>
-            <div className="grupo-botones">
-              <div className="boton-actualizar">
-                {estaEditando && <button type="submit">Actualizar</button>}
-g              <div>
-                {estaEditando && (
-                  <button onClick={manejarCancelar}>Cancelar</button>
-                )}
-              </div>
+
+            <div className="grupo-botones-horizontal">
+              {!estaEditando && (
+                <button type="submit">Agregar</button>
+              )}
+              <button type="button" onClick={manejarCancelar}>
+                Cancelar
+              </button>
+              {estaEditando && (
+                <button type="submit">Actualizar</button>
+              )}
             </div>
           </form>
         );
@@ -301,49 +309,54 @@ g              <div>
         };
 
         const manejarCancelar = () => {
-          setProductoActual(producto);
           setEstaEditando(false);
         };
 
         const incrementarCantidad = () => {
-          const nuevaCantidad = parseInt(productoActual.cantidad) + 1;
-          if (nuevaCantidad <= 100) {
-            setProductoActual({ ...productoActual, cantidad: nuevaCantidad });
-            actualizarProducto(producto.codigo, {
-              ...producto,
-              cantidad: nuevaCantidad,
-            });
-          }
+          setProductoActual((prevProducto) => ({
+            ...prevProducto,
+            cantidad: parseInt(prevProducto.cantidad) + 1,
+          }));
+          actualizarProducto(producto.codigo, {
+            ...productoActual,
+            cantidad: parseInt(productoActual.cantidad) + 1,
+          });
+        };
+
+        let clicSimple;
+        const manejarClick = () => {
+          clearTimeout(clicSimple);
+          clicSimple = setTimeout(() => {
+            incrementarCantidad();
+          }, 200);
+        };
+
+        const manejarDobleClick = () => {
+          clearTimeout(clicSimple);
         };
 
         return (
           <div
             className="tarjeta-producto"
-            onClick={(e) => {
-              e.stopPropagation();
-              incrementarCantidad();
-            }}
+            onClick={manejarClick}
+            onDoubleClick={manejarDobleClick}
           >
             {estaEditando ? (
               <FormularioProducto
                 producto={productoActual}
                 manejarCambio={manejarCambio}
                 manejarEnvio={manejarEnvio}
-                estaEditando={estaEditando}
+                estaEditando={true}
                 manejarCancelar={manejarCancelar}
               />
             ) : (
               <>
-              <div>
-                <span>
-
-                  <div className="cantidad-producto">{producto.cantidad}</div>
-                  <div className="detalles-producto">
-                    <h2>{producto.nombre}</h2>
-                    <p>{producto.codigo}</p>
-                  </div>
-                </span>
-                <span className="acciones-producto">
+                <div className="cantidad-producto">{producto.cantidad}</div>
+                <div className="detalles-producto">
+                  <h2>{producto.nombre}</h2>
+                  <p>{producto.codigo}</p>
+                </div>
+                <div className="acciones-producto">
                   <div className="boton-arriba-derecha">
                     <button
                       onClick={(e) => {
@@ -364,9 +377,8 @@ g              <div>
                       <i className="fa-regular fa-trash-can"></i>
                     </button>
                   </div>
-                </span>
-              </div>
-                </>
+                </div>
+              </>
             )}
           </div>
         );
@@ -405,9 +417,9 @@ g              <div>
           setMostrarFormulario(false);
         };
 
-        const manejarCancelarNuevoProducto = () => {
-          setNuevoProducto({ nombre: "", codigo: "", cantidad: "" });
+        const manejarCancelar = () => {
           setMostrarFormulario(false);
+          setNuevoProducto({ nombre: "", codigo: "", cantidad: "" });
         };
 
         const actualizarProducto = (codigoViejo, productoActualizado) => {
@@ -444,14 +456,14 @@ g              <div>
 
         return (
           <div>
-            <h1>Control Depósito</h1>
+            <h1>Control de Depósito</h1>
             {mostrarFormulario ? (
               <FormularioProducto
                 producto={nuevoProducto}
                 manejarCambio={manejarCambioNuevoProducto}
                 manejarEnvio={manejarEnvioNuevoProducto}
-                manejarCancelar={manejarCancelarNuevoProducto}
                 estaEditando={false}
+                manejarCancelar={manejarCancelar}
               />
             ) : (
               <div
