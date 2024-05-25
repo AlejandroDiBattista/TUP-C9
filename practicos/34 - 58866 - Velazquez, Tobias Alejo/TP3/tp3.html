@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <title>ABM - Velazquez Tobias</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+        .panel{
+            background-color: #ffff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            margin: 20px;
+            width: 600px;
+            height: 150px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stock{
+            font-size: 60px;
+            margin: 50px;
+            color: blue;
+        }
+
+        .info{
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .nombre{
+            font-size: 30px;
+        }
+
+        .btnAgregar{
+            height: 60px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 10px 20px;
+
+        }
+        
+        .btnBorrar, .btnEditar{
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+            margin: 50px;
+            margin-left: 90%;
+        }
+
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .formEditar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .formEditar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 5px;
+        }
+
+        .formEditar, input{
+            padding: 10px 40px;
+            margin: 10px;
+            border-radius: 10px;
+            display: block;
+            font-size: 15px;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .btnAceptar, .btnCancelar{
+            padding: 6px 6px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 100px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-left: 100px;
+        }
+
+        .error{
+            color: red;
+            font-size: 15px;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const productosIniciales = [
+            { id: 1, nombre: "7up", ean: "7799876543210", stock: 0},
+            { id: 2, nombre: "Coca Cola", ean: "7791234567890", stock: 92 },
+            { id: 3, nombre: "Fanta", ean: "7793219876540", stock: 5 },
+            { id: 4, nombre: "Manaos", ean: "7794567891230", stock: 1 },
+            { id: 5, nombre: "Mirinda", ean: "7797894561230", stock: 6 },
+            { id: 6, nombre: "Pepsi Cola", ean: "7799876543210", stock: 3 },
+            { id: 7, nombre: "Sprite", ean: "7796543219870", stock: 4 },
+        ];
+
+        function Mostrar({ producto, alGuardar, alBorrar, alIncrementar }) {
+            const [editando, setEditando] = useState(producto.nombre === '' || producto.nombre === 'Manaos' || producto.nombre === 'Pepsi Cola' );
+            const [nombre, setNombre] = useState(producto.nombre);
+            const [ean, setEan] = useState(producto.ean);
+            const [stock, setStock] = useState(producto.stock);
+            const [error, setError] = useState(false);
+
+            const editar = (e) => {
+                e.stopPropagation();
+                setEditando(true);
+                setStock(producto.stock);
+            };
+
+            const cancelar = (e) => {
+                e.stopPropagation();
+                if (producto.nombre === '') {
+                    alBorrar(producto.id);
+                } else {
+                    setEditando(false);
+                    setNombre(producto.nombre);
+                    setEan(producto.ean);
+                    setStock(producto.stock);
+                    setError(false);
+                }
+            };
+
+            const guardar = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (nombre === '' || ean === '' || stock === '' || stock < 0 || stock > 100) {
+                    setError(true);
+                    return;
+                }
+                alGuardar({ ...producto, nombre, ean, stock });
+                setEditando(false);
+            };
+
+            const borrar = (e) => {
+                e.stopPropagation();
+                alBorrar(producto.id);
+            };
+
+            return (
+                <div className="panel" onClick={() => alIncrementar(producto.id)}>
+                    {editando ? (
+                        <form className="formEditar" onSubmit={guardar}>
+                                <div className="inputs">
+                                    <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre del producto" />
+                                    <input type="text" value={ean} onChange={e => setEan(e.target.value)} placeholder="Código EAN" />
+                                    <input type="text" value={stock} onChange={e => setStock(e.target.value)} placeholder="Cantidad" />
+                                    {error && <p className="error">Campos obligatorios o stock inválido</p>}
+                                </div>
+                                <div className="btnSetEditando">
+                                    <button className="btnAceptar">Aceptar</button>
+                                    <button type="button" className="btnCancelar" onClick={cancelar}>Cancelar</button>
+                                </div>
+                        </form>
+                    ) : (
+                        <>
+                            <div className="stock"> {producto.stock} </div>
+                            <div className="info">
+                                <p className="nombre"> {producto.nombre} </p>
+                                <p className="ean"> {producto.ean} </p>
+                            </div>
+                            <div className="botones">
+                                <button className="btnEditar" onClick={editar}><i className="fa-solid fa-edit"></i></button>
+                                <button className="btnBorrar" onClick={borrar}><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </>
+                    )}
+                </div>
+            );
+        }
+
+        function ListaProductos({ producto, alAgregar, alGuardar, alBorrar, alIncrementar }) {
+            const productoOrdenado = [...producto].sort((a, b) => a.nombre.localeCompare(b.nombre));
+            return (
+                <>
+                    <div className="header">
+                        <h1>Control Depósito<button className="btnAgregar" onClick={alAgregar}><i class="fa-solid fa-plus"></i></button></h1>
+                    </div>
+                    {productoOrdenado.map(p => (
+                        <Mostrar
+                            key={p.id}
+                            producto={p}
+                            alGuardar={alGuardar}
+                            alBorrar={alBorrar}
+                            alIncrementar={alIncrementar}
+                        />
+                    ))}
+                </>
+            );
+        }
+
+        function App() {
+            const [productos, setProductos] = useState(() => {
+                const storedProductos = localStorage.getItem('productos');
+                return storedProductos ? JSON.parse(storedProductos) : productosIniciales;
+            });
+
+            const saveLocalStorage = (productosActualizados) => {
+                localStorage.setItem('productos', JSON.stringify(productosActualizados));
+            };
+
+            const guardar = (productoEditado) => {
+                const nuevosProductos = productos.map(p => p.id === productoEditado.id ? productoEditado : p);
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
+
+            const agregar = () => {
+                const id = productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1;
+                const nuevoProducto = { id, nombre: '', ean: '', stock: '' };
+                const nuevosProductos = [nuevoProducto, ...productos];
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
+
+            const borrar = (id) => {
+                const nuevosProductos = productos.filter(p => p.id !== id);
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
+
+            const incrementarCantidad = (id) => {
+                const producto = productos.find(p => p.id === id);
+                if(producto.stock >=100){
+                    setError({...error, [id]: true});
+                    return;
+                }
+                const nuevosProductos = productos.map(p => {
+                    if (p.id === id) {
+                        return { ...p, stock: parseInt(p.stock) + 1 };
+                    }
+                    return p;
+                });
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
+
+            return (
+                <ListaProductos
+                    producto={productos}
+                    alAgregar={agregar}
+                    alGuardar={guardar}
+                    alBorrar={borrar}
+                    alIncrementar={incrementarCantidad}
+                />
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
