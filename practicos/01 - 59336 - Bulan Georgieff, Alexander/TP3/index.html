@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogo de productos electricos</title>
+  <script
+    src="https://unpkg.com/react@17/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    crossorigin
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      
+    }
+    .panel {
+      background-color: rgb(255, 250, 250);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      width: 300px;
+      cursor: pointer;
+      position: relative;
+    }
+    .cant {
+      font-size: 50px;
+      padding: 10px;
+      color: blue;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: inherit;
+      font-weight: 700;
+      margin-right: 20px;
+    }
+    .detalles {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .producto {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .ean {
+      font-size: 14px;
+      color: rgb(0, 0, 0);
+    }
+    .acciones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .acciones button,
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    .add-button {
+      background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+     position: absolute; /* Cambiamos a position: absolute */
+     top: 4%; /* Alineamos el botón desde la parte superior */
+     right: 37%;
+
+    }
+    .edit-panel {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+      font-size:x-small;
+       font-weight: lighter;
+    }
+    .edit-panel input {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: calc(100% - 16px);
+    }
+    .edit-panel label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .acciones {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-left: 5px;
+      flex-direction: row;
+      border-radius: 50%;
+    }
+    .acciones button {
+      border:none;
+      background-color: transparent;
+      
+    
+    }
+    .acciones button:nth-child(2) {
+    border: none;
+    background-color: transparent;
+    
+    }
+    .error {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const DepositoInicial = [
+    { id: 1, producto: "Cable eléctrico 1 metro", codigoEan: "123456789001", cantidad: '100' },
+    { id: 2, producto: "Bombilla LED 9W", codigoEan: "123456789002", cantidad: '200' },
+    { id: 3, producto: "Enchufe doble", codigoEan: "123456789003", cantidad: '150' },
+    { id: 4, producto: "Interruptor de luz", codigoEan: "123456789004", cantidad: '120' },
+    { id: 5, producto: "Regleta de enchufes 4 tomas", codigoEan: "123456789005", cantidad: '80' },
+    { id: 6, producto: "Toma de corriente exterior", codigoEan: "123456789006", cantidad: '90' },
+    { id: 7, producto: "Cable de extensión 5 metros", codigoEan: "123456789007", cantidad: '70' },
+    { id: 8, producto: "Adaptador de enchufe universal", codigoEan: "123456789008", cantidad: '110' },
+    { id: 9, producto: "Fusible de cerámica 10A", codigoEan: "123456789009", cantidad: '130' },
+    { id: 10, producto: "Protector de sobretensión", codigoEan: "123456789010", cantidad: '100' },
+    { id: 11, producto: "Termostato inteligente", codigoEan: "123456789011", cantidad: '50' },
+    { id: 12, producto: "Cable HDMI 2 metros", codigoEan: "123456789012", cantidad: '180' },
+    { id: 13, producto: "Pila alcalina AA", codigoEan: "123456789013", cantidad: '250' },
+    { id: 14, producto: "Transformador de corriente 12V", codigoEan: "123456789014", cantidad: '90' },
+    { id: 15, producto: "Cable de red Ethernet 3 metros", codigoEan: "123456789015", cantidad: '120' },
+    { id: 16, producto: "Multímetro digital", codigoEan: "123456789016", cantidad: '70' },
+    { id: 17, producto: "Destornillador eléctrico", codigoEan: "123456789017", cantidad: '100' },
+    { id: 18, producto: "Batería recargable AAA", codigoEan: "123456789018", cantidad: '200' },
+    { id: 19, producto: "Extractor de humo para cocina", codigoEan: "123456789019", cantidad: '80' },
+    { id: 20, producto: "Cargador USB de pared", codigoEan: "123456789020", cantidad: '150' },
+    { id: 21, producto: "Interruptor WiFi inteligente", codigoEan: "123456789021", cantidad: '60' },
+    { id: 22, producto: "Detector de movimiento", codigoEan: "123456789022", cantidad: '110' },
+    { id: 23, producto: "Alargador eléctrico 10 metros", codigoEan: "123456789023", cantidad: '100' },
+    { id: 24, producto: "Temporizador programable", codigoEan: "123456789024", cantidad: '90' },
+    { id: 25, producto: "Cable de antena coaxial 2 metros", codigoEan: "123456789025", cantidad: '140' },
+    { id: 26, producto: "Regulador de voltaje automático", codigoEan: "123456789026", cantidad: '75' },
+    { id: 27, producto: "Base múltiple con protección contra sobrecargas", codigoEan: "123456789027", cantidad: '80' },
+    { id: 28, producto: "Transformador de corriente continua", codigoEan: "123456789028", cantidad: '85' },
+
+    ];
+
+    function Editar({ productos, alGuardar, alCancelar }) {
+      let [producto, setProducto] = useState(productos.producto || '');
+      let [codigoEan, setCodigoEan] = useState(productos.codigoEan || '');
+      let [cantidad, setCantidad] = useState(productos.cantidad || '');
+      let [error, setError] = useState(false);
+
+      const cambiarProducto = (e) => {
+        setProducto(e.target.value);
+        setError(false);
+      };
+      const cambiarCodigoEan = (e) => {
+        setCodigoEan(e.target.value);
+        setError(false);
+      };
+      const cambiarCantidad = (e) => {
+        setCantidad(e.target.value);
+        setError(false);
+      };
+
+      const guardar = (e) => {
+        e.preventDefault();
+        if (
+          producto.trim() === '' ||
+          codigoEan.trim() === '' ||
+          cantidad.trim() === ''
+        ) {
+          setError(true);
+          return;
+        }
+        alGuardar({ ...productos, producto, codigoEan, cantidad });
+      };
+      const cancelar = (e) => {
+        e.preventDefault();
+        alCancelar();
+      };
+
+      return (
+        <form className="panel edit-panel">
+          <label>Producto</label>
+          <input type="text" value={producto} onChange={cambiarProducto} className="producto-input" />
+
+          <label>Codigo EAN</label>
+          <input type="text" value={codigoEan} onChange={cambiarCodigoEan} className="ean-input" />
+
+          <label>Cantidad</label>
+          <input type="text" value={cantidad} onChange={cambiarCantidad} className="cantidad-input" />
+
+          {error && <p className="error">Todos los campos son obligatorios</p>}
+          <div className="acciones">
+            <button onClick={guardar}>Guardar</button>
+            <button onClick={cancelar}>Cancelar</button>
+          </div>
+        </form>
+      );
+    }
+
+    function Mostrar({ deposito, alGuardar, alBorrar }) {
+      const [editando, setEditando] = useState(false);
+      const [nuevoProducto, setNuevoProducto] = useState(deposito.producto);
+      const [nuevoCodigoEan, setNuevoCodigoEan] = useState(deposito.codigoEan);
+      const [nuevaCantidad, setNuevaCantidad] = useState(deposito.cantidad);
+      const [error, setError] = useState(false);
+
+      const guardar = () => {
+        if (
+          nuevoProducto.trim() === '' ||
+          nuevoCodigoEan.trim() === '' ||
+          nuevaCantidad.trim() === ''
+        ) {
+          setError(true);
+          return;
+        }
+        alGuardar({ ...deposito, producto: nuevoProducto, codigoEan: nuevoCodigoEan, cantidad: nuevaCantidad });
+        setEditando(false);
+        setError(false);
+      };
+
+      const cancelar = () => {
+        setNuevoProducto(deposito.producto);
+        setNuevoCodigoEan(deposito.codigoEan);
+        setNuevaCantidad(deposito.cantidad);
+        setEditando(false);
+        setError(false);
+      };
+
+      const incrementarCantidad = () => {
+        const cantidadIncrementada = parseInt(deposito.cantidad) + 1;
+        alGuardar({ ...deposito, cantidad: cantidadIncrementada.toString() });
+      };
+
+      return editando ? (
+        <div className="panel edit-panel">
+          <label>Producto</label>
+          <input className="producto-input" type="text" value={nuevoProducto} onChange={(e) => { setNuevoProducto(e.target.value); setError(false); }} />
+          <label>Código EAN</label>
+          <input className="ean-input" type="text" value={nuevoCodigoEan} onChange={(e) => { setNuevoCodigoEan(e.target.value); setError(false); }} />
+          <label>Cantidad</label>
+          <input className="cantidad-input" type="text" value={nuevaCantidad} onChange={(e) => { setNuevaCantidad(e.target.value); setError(false); }} />
+          {error && <p className="error">Todos los campos son obligatorios</p>}
+          <div className="acciones">
+            <button onClick={guardar}>Guardar</button>
+            <button onClick={cancelar}>Cancelar</button>
+          </div>
+        </div>
+      ) : (
+        <div className="panel" onClick={incrementarCantidad}>
+          <div className="cant">{deposito.cantidad}</div>
+          <div className="detalles">
+            <p className="producto">{deposito.producto}</p>
+            <p className="ean">{deposito.codigoEan}</p>
+          </div>
+          <div className="acciones">
+            <button onClick={(e) => { e.stopPropagation(); setEditando(true); }}>
+              <i className="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); alBorrar(); }}>
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    function Catalogo({ depositos, alAgregar, alEditar, alBorrar }) {
+      const depositosOrdenados = depositos.sort((a, b) => a.producto.localeCompare(b.producto));
+
+      return (
+        <>
+          <h1>Control Depósito</h1>
+          <button className="add-button" onClick={alAgregar}>
+            <i className="fa-regular fa-square-plus"></i>
+          </button>
+          {depositosOrdenados.map((deposito) => (
+            <Mostrar
+              key={deposito.id}
+              deposito={deposito}
+              alGuardar={(datosActualizados) => alEditar(deposito.id, datosActualizados)}
+              alBorrar={() => alBorrar(deposito.id)}
+            />
+          ))}
+        </>
+      );
+    }
+   
+    function App() {
+      const [depositos, setDepositos] = useState(() => {
+        const depositosGuardados = localStorage.getItem('depositos');
+        return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
+      });
+      const [agregando, setAgregando] = useState(false);
+
+      useEffect(() => {
+        localStorage.setItem('depositos', JSON.stringify(depositos));
+      }, [depositos]);
+
+      const agregarProducto = (producto) => {
+        setDepositos([...depositos, { ...producto, id: Date.now() }]);
+        setAgregando(false);
+      };
+
+      const editarProducto = (id, productoActualizado) => {
+        setDepositos(
+          depositos.map((deposito) =>
+            deposito.id === id ? productoActualizado : deposito
+          )
+        );
+      };
+
+      const borrarProducto = (id) => {
+        setDepositos(depositos.filter((deposito) => deposito.id !== id));
+      };
+
+      const cancelarAgregado = () => {
+        setAgregando(false);
+      };
+
+      return (
+        <>
+          {agregando ? (
+            <Editar
+              productos={{ id: null, producto: '', codigoEan: '', cantidad: '' }}
+              alGuardar={agregarProducto}
+              alCancelar={cancelarAgregado}
+            />
+          ) : (
+            <Catalogo
+              depositos={depositos}
+              alAgregar={() => setAgregando(true)}
+              alEditar={editarProducto}
+              alBorrar={borrarProducto}
+            />
+          )}
+        </>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
