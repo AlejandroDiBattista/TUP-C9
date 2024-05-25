@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-        <title>Control Depósito</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <title>Control Depósito</title>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -57,13 +58,13 @@
         }
 
         .botonagregar {
-            height: 60px; 
+            height: 60px;
             border-radius: 5px;
             border: none;
             color: black;
-            font-size: 28px; 
+            font-size: 28px;
             cursor: pointer;
-            padding: 15px 25px; 
+            padding: 15px 25px;
             margin-left: 20px;
         }
 
@@ -114,33 +115,33 @@
         }
 
         .form-editar input {
-            padding: 12px; 
+            padding: 12px;
             border: 1px solid #ced4da;
             border-radius: 5px;
             width: 100%;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
         .boton-editar {
-            padding: 10px 15px; 
+            padding: 10px 15px;
             border: 1px solid #ced4da;
             border-radius: 5px;
             background-color: white;
             cursor: pointer;
-            width: 100px; 
+            width: 100px;
             text-align: center;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
         .botonaceptar,
         .botoncancelar {
-            padding: 10px 15px; 
+            padding: 10px 15px;
             border-radius: 5px;
             background-color: white;
             cursor: pointer;
-            width: 100px; 
+            width: 100px;
             text-align: center;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
         .boton-editar:hover,
@@ -161,12 +162,12 @@
             font-size: 18px;
         }
     </style>
-    </head>
+</head>
 
-    <body>
-        <div id="root"></div>
+<body>
+    <div id="root"></div>
 
-        <script type="text/babel">
+    <script type="text/babel">
         const { useState } = React;
 
         const DepositoInicial = [
@@ -279,7 +280,7 @@
         }
 
         function ListaDeposito({ deposito, alAgregar, alGuardar, alBorrar, alIncrementar }) {
-            const depositoOrdenado = [...deposito] 
+            const depositoOrdenado = [...deposito]
             return (
                 <>
                     <div className="header">
@@ -292,7 +293,7 @@
                 </>
             );
         }
-        
+
         function App() {
             const [depositos, setDepositos] = useState(() => {
                 const datosGuardados = localStorage.getItem('depositos');
@@ -345,9 +346,9 @@
             );
         }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-    root.render(<App />);
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<App />);
     </script>
-    </body>
+</body>
 
 </html>
