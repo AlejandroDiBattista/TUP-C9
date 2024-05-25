@@ -20,20 +20,21 @@
             margin-bottom: 20px;
         }
 
-        .add-product-icon {   
+        .add-product-icon {
             font-size: 2em;
             cursor: pointer;
-            color:#000;
+            color: #000;
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
-            margin-left: 355px;
+            margin-left: 340px;
             margin-top: -55px;
         }
+
         .product-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .product-card {
@@ -48,6 +49,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
         }
 
         .product-quantity {
@@ -86,6 +88,10 @@
             font-size: 1.5em;
             color: #000;
             margin: 5px 0;
+            display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap: 5px;
         }
 
         .product-actions button:hover {
@@ -102,9 +108,12 @@
             margin: 5px 0;
             padding: 10px;
             font-size: 1em;
-            width: calc(100% - 20px);
             border: 1px solid #ddd;
             border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            gap: 10px;
         }
 
         form button {
@@ -125,10 +134,17 @@
 
         .product-card form {
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+           
         }
 
         .product-card form button {
-            width: 45%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            width: calc(100% - 24px);
+            font-size: 18px;
         }
 
         .product-card form .form-actions {
@@ -163,146 +179,160 @@
                         required
                     />
                     <input
-                     type="number"
-                     name="cantidad"
-                     value={producto.cantidad}
-                     onChange={manejarCambio} 
-                     placeholder="Cantidad"
-                     required
-                   />
-                <div className="form-actions">
-                    <button type="submit">{estaEditando ? 'Actualizar' : 'Agregar'}</button>
-                    {estaEditando && <button type="button" onClick={manejarCancelar}>Cancelar</button>}
-                </div>
-            </form>
-        );
-    };
-
-    const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
-        const [estaEditando, setEstaEditando] = useState(false);
-        const [productoActual, setProductoActual] = useState(producto);
-
-        useEffect(() => {
-            setProductoActual(producto);
-        }, [producto]);
-
-        const manejarCambio = (e) => {
-            const { name, value } = e.target;
-            setProductoActual({ ...productoActual, [name]: value });
-        };
-
-        const manejarEnvio = (e) => {
-            e.preventDefault();
-            actualizarProducto(productoActual);
-            setEstaEditando(false);
-        };
-
-        const manejarCancelar = () => {
-            setEstaEditando(false);
-            setProductoActual(producto); 
-        };
-
-        return (
-            <div className="product-card">
-                {estaEditando ? (
-                    <FormularioProducto
-                        producto={productoActual}
-                        manejarCambio={manejarCambio}
-                        manejarEnvio={manejarEnvio}
-                        estaEditando={estaEditando}
-                        manejarCancelar={manejarCancelar}
+                        type="number"
+                        name="cantidad"
+                        value={producto.cantidad}
+                        onChange={manejarCambio}
+                        placeholder="Cantidad"
+                        required
+                        disabled={estaEditando}
                     />
-                ) : (
-                    <>
-                        <div className="product-quantity">
-                            {producto.cantidad}
-                        </div>
-                        <div className="product-details">
-                            <h2>{producto.nombre}</h2>
-                            <p>{producto.codigo}</p>
-                        </div>
-                        <div className="product-actions">
-                            <button onClick={() => setEstaEditando(true)}>
-                                <i className="fas fa-edit"></i>
-                            </button>
-                            <button onClick={() => eliminarProducto(producto.codigo)}>
-                                <i className="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                    </>
-                )}
-            </div>
-        );
-    };
-
-    const ListaProductos = () => {
-        const [productos, setProductos] = useState([]);
-        const [nuevoProducto, setNuevoProducto] = useState({ nombre: '', codigo: '', cantidad: 0 });
-        const [mostrarFormulario, setMostrarFormulario] = useState(false);
-
-        useEffect(() => {
-            const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
-            setProductos(productosGuardados);
-        }, []);
-
-        useEffect(() => {
-            localStorage.setItem('productos', JSON.stringify(productos));
-        }, [productos]);
-
-        const manejarCambioNuevoProducto = (e) => {
-            const { name, value } = e.target;
-            setNuevoProducto({ ...nuevoProducto, [name]: value });
-        };
-
-        const manejarEnvioNuevoProducto = (e) => {
-            e.preventDefault();
-            setProductos([...productos, nuevoProducto]);
-            setNuevoProducto({ nombre: '', codigo: '', cantidad: 0 });
-            setMostrarFormulario(false);
-        };
-
-        const actualizarProducto = (productoActualizado) => {
-            setProductos(productos.map(producto =>
-                producto.codigo === productoActualizado.codigo ? productoActualizado : producto
-            ));
-        };
-
-        const eliminarProducto = (codigo) => {
-            setProductos(productos.filter(producto => producto.codigo !== codigo));
-        };
-
-        const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-        return (
-            <div>
-                <h1>Control de Depósito</h1>
-                {mostrarFormulario ? (
-                    <FormularioProducto
-                        producto={nuevoProducto}
-                        manejarCambio={manejarCambioNuevoProducto}
-                        manejarEnvio={manejarEnvioNuevoProducto}
-                        estaEditando={false}
-                    />
-                ) : (
-                    <div className="add-product-icon" onClick={() => setMostrarFormulario(true)}>
-                        <i className="fas fa-plus-circle"></i>
+                    <div className="form-actions">
+                        <button type="submit">{estaEditando ? 'Actualizar' : 'Agregar'}</button>
+                        <button type="button" onClick={manejarCancelar}>Cancelar</button>
                     </div>
-                )}
-                <div className="product-container">
-                    {productosOrdenados.map(producto => (
-                        <Producto
-                            key={producto.codigo}
-                            producto={producto}
-                            actualizarProducto={actualizarProducto}
-                            eliminarProducto={eliminarProducto}
-                        />
-                    ))}
-                </div>
-            </div>
-        );
-    };
+                </form>
+            );
+        };
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<ListaProductos />);
-</script>
+        const Producto = ({ producto, actualizarProducto, eliminarProducto }) => {
+            const [estaEditando, setEstaEditando] = useState(false);
+            const [productoActual, setProductoActual] = useState(producto);
+
+            useEffect(() => {
+                setProductoActual(producto);
+            }, [producto]);
+
+            const manejarCambio = (e) => {
+                const { name, value } = e.target;
+                setProductoActual({ ...productoActual, [name]: value });
+            };
+
+            const manejarEnvio = (e) => {
+                e.preventDefault();
+                actualizarProducto(productoActual);
+                setEstaEditando(false);
+            };
+
+            const manejarCancelar = () => {
+                setEstaEditando(false);
+                setProductoActual(producto);
+            };
+
+            const incrementarCantidad = () => {
+                if (!estaEditando) {
+                    const productoActualizado = { ...producto, cantidad: parseInt(producto.cantidad) + 1 };
+                    actualizarProducto(productoActualizado);
+                }
+            };
+
+            return (
+                <div className="product-card" onClick={incrementarCantidad}>
+                    {estaEditando ? (
+                        <FormularioProducto
+                            producto={productoActual}
+                            manejarCambio={manejarCambio}
+                            manejarEnvio={manejarEnvio}
+                            estaEditando={estaEditando}
+                            manejarCancelar={manejarCancelar}
+                        />
+                    ) : (
+                        <>
+                            <div className="product-quantity">
+                                {producto.cantidad}
+                            </div>
+                            <div className="product-details">
+                                <h2>{producto.nombre}</h2>
+                                <p>{producto.codigo}</p>
+                            </div>
+                            <div className="product-actions" onClick={(e) => e.stopPropagation()}>
+                                <button onClick={() => setEstaEditando(true)}>
+                                    <i className="fas fa-edit btn-editar"></i>
+                                </button>
+                                <button onClick={() => eliminarProducto(producto.codigo)}>
+                                    <i className="fas fa-trash-alt btn-borrar"></i>
+                                </button>
+                            </div>
+                        </>
+                    )}
+                </div>
+            );
+        };
+
+        const ListaProductos = () => {
+            const [productos, setProductos] = useState([]);
+            const [nuevoProducto, setNuevoProducto] = useState({ nombre: '', codigo: '', cantidad: 0 });
+            const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+            useEffect(() => {
+                const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+                setProductos(productosGuardados);
+            }, []);
+
+            useEffect(() => {
+                localStorage.setItem('productos', JSON.stringify(productos));
+            }, [productos]);
+
+            const manejarCambioNuevoProducto = (e) => {
+                const { name, value } = e.target;
+                setNuevoProducto({ ...nuevoProducto, [name]: value });
+            };
+
+            const manejarEnvioNuevoProducto = (e) => {
+                e.preventDefault();
+                setProductos([...productos, nuevoProducto]);
+                setNuevoProducto({ nombre: '', codigo: '', cantidad: 0 });
+                setMostrarFormulario(false);
+            };
+
+            const manejarCancelarNuevoProducto = () => {
+                setNuevoProducto({ nombre: '', codigo: '', cantidad: 0 });
+                setMostrarFormulario(false);
+            };
+
+            const actualizarProducto = (productoActualizado) => {
+                setProductos(productos.map(producto =>
+                    producto.codigo === productoActualizado.codigo ? productoActualizado : producto
+                ));
+            };
+
+            const eliminarProducto = (codigo) => {
+                setProductos(productos.filter(producto => producto.codigo !== codigo));
+            };
+
+            const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+            return (
+                <div>
+                    <h1>Control de Depósito</h1>
+                    {mostrarFormulario ? (
+                        <FormularioProducto
+                            producto={nuevoProducto}
+                            manejarCambio={manejarCambioNuevoProducto}
+                            manejarEnvio={manejarEnvioNuevoProducto}
+                            estaEditando={false}
+                            manejarCancelar={manejarCancelarNuevoProducto}
+                        />
+                    ) : (
+                        <div className="add-product-icon" onClick={() => setMostrarFormulario(true)}>
+                            <i className="fa-regular fa-square-plus"></i>
+                        </div>
+                    )}
+                    <div className="product-container">
+                        {productosOrdenados.map(producto => (
+                            <Producto
+                                key={producto.codigo}
+                                producto={producto}
+                                actualizarProducto={actualizarProducto}
+                                eliminarProducto={eliminarProducto}
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<ListaProductos />);
+    </script>
 </body>
 </html>
