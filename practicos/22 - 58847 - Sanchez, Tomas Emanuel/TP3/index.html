@@ -49,8 +49,8 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 700;
+            cursor: pointer; /* Add cursor pointer to indicate clickability */
         }
-
 
         .product-quantity {
             font-size: 2.7em;
@@ -212,8 +212,13 @@
             setIsEditing(false);
         };
 
+        const handleIncrementQuantity = () => {
+            const updatedProduct = { ...currentProduct, quantity: Number(currentProduct.quantity) + 1 };
+            updateProduct(product.code, updatedProduct);
+        };
+
         return (
-            <div className="product-card">
+            <div className="product-card" onClick={handleIncrementQuantity}>
                 {isEditing ? (
                     <ProductForm
                         product={currentProduct}
@@ -231,7 +236,7 @@
                             <h2>{product.name}</h2>
                             <p>{product.code}</p>
                         </div>
-                        <div className="product-actions">
+                        <div className="product-actions" onClick={(e) => e.stopPropagation()}>
                             <button onClick={() => setIsEditing(true)}>
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </button>
@@ -265,18 +270,17 @@
         };
 
         const handleNewProductSubmit = (e) => {
-    e.preventDefault();
-    if (products.some(p => p.code === newProduct.code)) {
-        alert("El código del producto ya está en uso.");
-        return;
-    }
-    const updatedProducts = [...products, newProduct];
-    updatedProducts.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente por el nombre del producto
-    setProducts(updatedProducts);
-    setNewProduct({ name: '', code: '', quantity: 0 });
-    setShowForm(false);
-};
-
+            e.preventDefault();
+            if (products.some(p => p.code === newProduct.code)) {
+                alert("El código del producto ya está en uso.");
+                return;
+            }
+            const updatedProducts = [...products, newProduct];
+            updatedProducts.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente por el nombre del producto
+            setProducts(updatedProducts);
+            setNewProduct({ name: '', code: '', quantity: 0 });
+            setShowForm(false);
+        };
 
         const updateProduct = (originalCode, updatedProduct) => {
             setProducts(products.map(product =>
@@ -319,6 +323,6 @@
     };
 
     ReactDOM.createRoot(document.getElementById('root')).render(<ProductList />);
-</script>
+    </script>
 </body>
 </html>
