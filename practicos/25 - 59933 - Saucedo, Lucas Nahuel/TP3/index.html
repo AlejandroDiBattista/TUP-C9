@@ -3,263 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-</head>
+    <title>abm SaucedoLucas</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+        .panel{
+            background-color: #ffff;
+            border-radius: 10px;
+            padding: 30px 40px;
+            margin: 20px;
+            width: 600px;
+            height: 150px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-<style>
-    body {
-            font-family: Arial, sans-serif;
-            background-color: #262424;
-            margin: 10px;
-            padding: 0;
+        .stock{
+            font-size: 60px;
+            margin: 50px;
+            color: blue;
+        }
+
+        .info{
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .nombre{
+            font-size: 30px;
+        }
+
+        .btnAgregar{
+            height: 60px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 20px;
+            padding: 10px 20px;
+
+        }
+
+        .btnBorrar, .btnEditar{
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+            margin: 50px;
+            margin-left: 90%;
+        }
+
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .formEditar{
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 10px;
+            width: 100%;
         }
-        #root {
-            width: 90%;
-            max-width: 600px;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .panel {
-            background-color: #1bbb23;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .error {
-            color: rgb(122, 0, 0);
-            font-size: 0.875em;
-            margin-top: 5px;
-        }
-</style>
 
+        .formEditar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 5px;
+        }
+
+        .formEditar, input{
+            padding: 10px 40px;
+            margin: 10px;
+            border-radius: 10px;
+            display: block;
+            font-size: 15px;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .btnAceptar, .btnCancelar{
+            padding: 6px 6px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 100px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-left: 100px;
+        }
+
+        .error{
+            color: red;
+            font-size: 15px;
+        }
+
+
+
+    </style>
+</head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
         const { useState } = React;
 
-        const ProductosIniciales = [
-        {id:1, nombre: 'coca-cola', ean: 123456, stock: 0,},
-        {id:2, nombre: 'water', ean: 1123,stock: 12,},
-        {id:3, nombre: 'milk', ean: 7562356, stock: 1,},
-        {id:4, nombre: 'burger', ean: 5232356, stock: 25,},
-        {id:6, nombre: 'water', ean: 1332356, stock: 99,},
-        {id:7, nombre: 'coffe', ean: 96232356, stock: 18,},
-        {id:8, nombre: 'avocado', ean: 432356, stock: 27,},
-        {id:9, nombre: 'tomato', ean: 1232326, stock: 36,},
-        
+        const productosIniciales = [
+            { id: 1, nombre: "7up", ean: "7799876543210", stock: 0},
+            { id: 2, nombre: "Coca Cola", ean: "7791234567890", stock: 92 },
+            { id: 3, nombre: "Fanta", ean: "7793219876540", stock: 5 },
+            { id: 4, nombre: "Manaos", ean: "7794567891230", stock: 1 },
+            { id: 5, nombre: "Mirinda", ean: "7797894561230", stock: 6 },
+            { id: 6, nombre: "Pepsi Cola", ean: "7799876543210", stock: 3 },
+            { id: 7, nombre: "Sprite", ean: "7796543219870", stock: 4 },
+        ];
 
-        ]
+        function Mostrar({ producto, alGuardar, alBorrar, alIncrementar }) {
+            const [editando, setEditando] = useState(producto.nombre === '' || producto.nombre === 'Manaos' || producto.nombre === 'Pepsi Cola' );
+            const [nombre, setNombre] = useState(producto.nombre);
+            const [ean, setEan] = useState(producto.ean);
+            const [stock, setStock] = useState(producto.stock);
+            const [error, setError] = useState(false);
 
-        function Editar({producto, alGuardar, alCancelar}){
-            //mantenemos los estados
-            let [nombre, setNombre] = useState(producto.nombre)
-            let [ean, setEan] = useState(parseInt(producto.ean))
-            let [stock, setStock] = useState(parseInt(producto.stock))
-            let [error, setError] = useState(false)
-
-            //manejadores de eventos
-            const cambiarNombre = e => {
-                setNombre(e.target.value)
-                setError(false)
-            }
-            const cambiarEan = e => {
-                setEan(parseInt(e.target.value))
-                setError(false)
-            }
-            const cambiarStock = e=> {
-                setStock(parseInt(e.target.value))
-                setError(false)
-            }
-
-            const guardar = e => {
-                e.preventDefault()
-                if (nombre.trim() === '' || ean.toString().trim() === '' || stock.toString().trim() === ''){
-                    setError(true)
-                    return
-                }
-                alGuardar({...producto, nombre, ean,stock})
-
-            }
-            const cancelar = e =>{
-                e.preventDefault()
-                alCancelar()
-            }
-
-            return(
-                <form className="panel">
-                    <label>Nombre producto:</label>
-                    <input type="text" value={nombre} onChange={cambiarNombre}/>
-
-                    <label>EAN:</label>
-                    <input type="number" value={ean} onChange={cambiarEan}/>
-
-                    <label>stock:</label>
-                    <input type="number" value={stock} onChange={cambiarStock}/>
-                    {error && <p className="error">Debe completar todos los campos</p>}
-                    <div className="acciones">
-                        <button onClick={guardar}>Guardar</button>
-                        <button onClick={cancelar}>Cancelar</button>
-                    </div>
-                </form>
-            )
-        }
-
-        function Mostrar({producto, alEditar, alBorrar, incrementarStock}){
-            //const editar = (e) => alEditar()
-            const borrar = (e) => alBorrar()
-            const [editando, setEditando] =useState(false);
-            const [productoEditado, setProductoEditado] = useState({...producto})
-
-            const editar = () => {
+            const editar = (e) => {
+                e.stopPropagation();
                 setEditando(true);
+                setStock(producto.stock);
             };
 
-            const guardar = () => {
-                alEditar(productoEditado);
+            const cancelar = (e) => {
+                e.stopPropagation();
+                if (producto.nombre === '') {
+                    alBorrar(producto.id);
+                } else {
+                    setEditando(false);
+                    setNombre(producto.nombre);
+                    setEan(producto.ean);
+                    setStock(producto.stock);
+                    setError(false);
+                }
+            };
+
+            const guardar = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (nombre === '' || ean === '' || stock === '' || stock < 0 || stock > 100) {
+                    setError(true);
+                    return;
+                }
+                alGuardar({ ...producto, nombre, ean, stock });
                 setEditando(false);
             };
 
-            const cambiarValor = (campo, valor) => {
-                setEditedProducto({...productoEditado,[campo]: valor});
+            const borrar = (e) => {
+                e.stopPropagation();
+                alBorrar(producto.id);
             };
-            const clickAumentar = (e) =>{
-                if(!e.target.classList.contains('boton-borrar')){
-                    incrementarStock(producto.id)
-                }
 
-            }
-
-            return(
-                <div className="panel" onClick={clickAumentar}>
-                   <p>Nombre: {producto.nombre}</p> 
-                   <p>EAN: {producto.ean}</p> 
-                   <p>Stock: {producto.stock}</p>
-                   <div className="acciones">
-                        <button className="boton-borrar" onClick={editar}>Editar</button>
-                        <button className="boton-borrar" onClick={borrar}>Borrar</button>
-                    </div>
-                    {editando && (
-                    <form className='boton-borrar'>
-                        <label>Nombre producto:</label>
-                        <input className='boton-borrar' type="text" value={productoEditado.nombre} onChange={(e) => cambiarValor('nombre', e.target.value)} />
-
-                        <label>EAN:</label>
-                        <input className='boton-borrar' type="number" value={productoEditado.ean} onChange={(e) => cambiarValor('ean', parseInt(e.target.value))} />
-
-                        <label>stock:</label>
-                        <input  className='boton-borrar' type="number" value={productoEditado.stock} onChange={(e) => cambiarValor('stock', parseInt(e.target.value))} />
-                        <div className="acciones">
-                        <button  onClick={guardar}>Guardar</button>
-                    </div>
-                </form>
-            )}
+            return (
+                <div className="panel" onClick={() => alIncrementar(producto.id)}>
+                    {editando ? (
+                        <form className="formEditar" onSubmit={guardar}>
+                                <div className="inputs">
+                                    <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} placeholder="Nombre del producto" />
+                                    <input type="text" value={ean} onChange={e => setEan(e.target.value)} placeholder="Código EAN" />
+                                    <input type="text" value={stock} onChange={e => setStock(e.target.value)} placeholder="Cantidad" />
+                                    {error && <p className="error">Campos obligatorios o stock inválido</p>}
+                                </div>
+                                <div className="btnSetEditando">
+                                    <button className="btnAceptar">Aceptar</button>
+                                    <button type="button" className="btnCancelar" onClick={cancelar}>Cancelar</button>
+                                </div>
+                        </form>
+                        
+                    ) : (
+                        <>
+                            <div className="stock"> {producto.stock} </div>
+                            <div className="info">
+                                <p className="nombre"> {producto.nombre} </p>
+                                <p className="ean"> {producto.ean} </p>
+                            </div>
+                            <div className="botones">
+                                <button className="btnEditar" onClick={editar}><i className="fa-solid fa-edit"></i></button>
+                                <button className="btnBorrar" onClick={borrar}><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </>
+                    )}
                 </div>
-            )
+            );
         }
 
-        function ListaProductos({productos,alAgregar, alEditar, alBorrar, incrementarStock}){
-            if (productos.length === 0)
-                return (
-                    <div>
-                        <h1>Sin productos</h1>
-                        <button onClick={()=>alAgregar()}>Agregar productos</button>
+        function ListaProductos({ producto, alAgregar, alGuardar, alBorrar, alIncrementar }) {
+            const productoOrdenado = [...producto].sort((a, b) => a.nombre.localeCompare(b.nombre));
+            return (
+                <>
+                    <div className="header">
+                        <h1>Control Depósito<button className="btnAgregar" onClick={alAgregar}><i class="fa-solid fa-plus"></i></button></h1>
                     </div>
-
-                )
-            return(
-                <div>
-                    <h1>Lista de productos</h1>
-                    <button onClick={()=>alAgregar()}>Agregar productos</button>
-                    {productos.map(producto => 
-                        <Mostrar key={producto.id} 
-                                 producto ={producto}
-                                 alEditar={()=>alEditar(producto.id)}
-                                 alBorrar={()=>alBorrar(producto.id)}
-                                 incrementarStock={incrementarStock}/>                        
-                                )}
-                </div> 
-            )   
-
+                    {productoOrdenado.map(p => (
+                        <Mostrar
+                            key={p.id}
+                            producto={p}
+                            alGuardar={alGuardar}
+                            alBorrar={alBorrar}
+                            alIncrementar={alIncrementar}
+                        />
+                    ))}
+                </>
+            );
         }
 
-        function App(){
-            let [producto, setProducto] = useState({})
-            let [editando, setEditando] = useState(false)
-            let [productos, setProductos] = useState(ProductosIniciales)
+        function App() {
+            const [productos, setProductos] = useState(() => {
+                const storedProductos = localStorage.getItem('productos');
+                return storedProductos ? JSON.parse(storedProductos) : productosIniciales;
+            });
 
+            const saveLocalStorage = (productosActualizados) => {
+                localStorage.setItem('productos', JSON.stringify(productosActualizados));
+            };
 
-            const guardar = (producto) =>{
-                if(producto.id){
-                    //Modificacion
-                    let copia = productos.map (p => p.id === producto.id ? producto : p)
-                    setProductos(copia)
+            const guardar = (productoEditado) => {
+                const nuevosProductos = productos.map(p => p.id === productoEditado.id ? productoEditado : p);
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
 
-                } else {
-                    //ALTA
-                    let id = Math.max(...productos.map(p => p.id)) + 1;
-                    producto.id = id
-                    let copia = [...productos, producto]
-                    setProductos(copia)
-                }
-                setEditando(false)
-            }
-
-            const incrementarStock = (id) => {
-                setProductos(productos.map(p => {
-                    if (p.id === id) {
-                        const nuevoStock = p.stock + 1;
-                        if (nuevoStock >100)
-                        {
-                            alert ('El stock no puede superar a 100')
-                            return p
-                        }             
-                        return { ...p, stock: nuevoStock };
-                    } else {
-                        return p;
-                    }
-        }));
-    }
-
-
-            const cancelar = () => {
-                setProducto({})
-                console.log("Cancelar")
-                setEditando(false)
-            }
             const agregar = () => {
-                setProducto({})
-                setEditando(true)
-            }
-            const editar = (id) => {
-                let producto = productos.find(p => p.id === id)
-                setProducto(producto)
-                setEditando(true)
-            }
+                const id = productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1;
+                const nuevoProducto = { id, nombre: '', ean: '', stock: '' };
+                const nuevosProductos = [nuevoProducto, ...productos];
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
 
             const borrar = (id) => {
-                let copia = productos.filter(p => p.id!==id)
-                setProductos(copia)
-            }
+                const nuevosProductos = productos.filter(p => p.id !== id);
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
 
-            productos.sort((a, b) => a.nombre.localeCompare(b.nombre))
-            return(
-            editando
-                ? <Editar producto={producto} alGuardar={guardar} alCancelar={cancelar}/>
-                : <ListaProductos productos={productos} alEditar={editar} 
-                                                        alBorrar={borrar}
-                                                        alAgregar={agregar}
-                                                        incrementarStock={incrementarStock}/>
-            )
+            const incrementarCantidad = (id) => {
+                const producto = productos.find(p => p.id === id);
+                if(producto.stock >=100){
+                    setError({...error, [id]: true});
+                    return;
+                }
+                const nuevosProductos = productos.map(p => {
+                    if (p.id === id) {
+                        return { ...p, stock: parseInt(p.stock) + 1 };
+                    }
+                    return p;
+                });
+                setProductos(nuevosProductos);
+                saveLocalStorage(nuevosProductos);
+            };
+
+            return (
+                <ListaProductos
+                    producto={productos}
+                    alAgregar={agregar}
+                    alGuardar={guardar}
+                    alBorrar={borrar}
+                    alIncrementar={incrementarCantidad}
+                />
+            );
         }
 
         ReactDOM.render(<App />, document.getElementById('root'));
