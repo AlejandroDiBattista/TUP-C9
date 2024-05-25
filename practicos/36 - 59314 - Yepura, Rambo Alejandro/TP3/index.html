@@ -18,8 +18,12 @@
             flex-direction: column;
         }
 
+        .container{
+            width: 100%;
+        }
+
         #root {
-            width: 30%;
+            width: 40%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,24 +32,29 @@
         }
 
         header {
+            width: auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
 
             h1 {
-                font-size: 24px;
-                margin-right: 20px;
+                font-size: 32px;
             }
 
             i {
                 font-size: 24px;
+                cursor: pointer;
             }
+        }
+
+        h2{
+            text-align: center;
         }
 
 
         .panel {
             width: auto;
+            height: auto;
             display: flex;
             padding: 4px;
             border: 1px solid #ccc;
@@ -53,12 +62,14 @@
             border-radius: 10px;
             margin-bottom: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            user-select: none;
 
             .cantidad {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 20%;
+                padding: 0 10px 0 10px;
 
                 p {
                     font-size: 40px;
@@ -68,9 +79,6 @@
 
             .identidades-secretas {
                 width: 70%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
 
                 .nombre {
                     font-size: 28px;
@@ -79,27 +87,36 @@
 
             .acciones {
                 display: flex;
+                padding: 5px 0 5px 0;
                 flex-direction: column;
                 justify-content: space-between;
                 width: 10%;
 
                 i {
                     font-size: 20px;
+                    cursor: pointer;
                 }
             }
         }
 
         form {
-            padding: 8px;
-            border-radius: 8px;
+            width: auto;
+            padding: 8px 4px 8px 4px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            user-select: none;
             display: flex;
 
 
             .titulos {
-                width: 80%;
+                width: 70%;
+                display: flex;
+                flex-direction: column;
 
                 input {
-                    width: calc(100% - 8px);
                     border-radius: 4px;
                     margin-bottom: 4px;
                     border: 1px solid #ccc;
@@ -110,7 +127,7 @@
             }
 
             .acciones {
-                width: 20%;
+                width: 30%;
                 padding: 0px 16px 0 16px;
                 display: flex;
                 flex-direction: column;
@@ -184,14 +201,11 @@
             }
 
             return <>
-                <form className="panel">
+                <form>
                     <div className="titulos">
-                        <label>Nombre</label>
-                        <input type="text" value={nombre} onChange={cambiarNombre} />
-                        <label>Código</label>
-                        <input type="text" value={codigo} onChange={cambiarcodigo} />
-                        <label>Cantidad</label>
-                        <input type="text" value={cantidad} onChange={cambiarcantidad} />
+                        <input type="text" value={nombre} onChange={cambiarNombre} placeholder="Nombre del producto" />
+                        <input type="text" value={codigo} onChange={cambiarcodigo} placeholder="Cantidad del producto" />
+                        <input type="text" value={cantidad} onChange={cambiarcantidad} placeholder="Codigo EAN" />
                     </div>
 
                     {error && <p className="error">Todos los campos son obligatorios</p>}
@@ -204,26 +218,45 @@
             </>
         }
 
-        function Mostrar({ producto, alEditar, alBorrar }) {
-            const editar = () => alEditar();
-            const borrar = () => alBorrar();
+        function Mostrar({ producto, alGuardar, alBorrar, incrementarCantidad }) {
+            const [editando, setEditando] = useState(false);
 
-            return (
-                <div className="panel" onClick={() => { }}>
-                    <div className="cantidad">
-                        <p>{producto.cantidad}</p>
+            const guardar = (productoEditado) => {
+                alGuardar(productoEditado);
+                setEditando(false);
+            };
+
+            const cancelar = () => {
+                setEditando(false);
+            };
+
+            if (editando) {
+                return (
+                    <Editar
+                        producto={producto}
+                        alGuardar={guardar}
+                        alCancelar={cancelar}
+                    />
+                );
+            } else {
+                return (
+                    <div className="panel" onClick={() => { incrementarCantidad(producto.id) }}>
+                        <div className="cantidad">
+                            <p>{producto.cantidad}</p>
+                        </div>
+                        <div className="identidades-secretas">
+                            <p className="nombre"><strong>{producto.nombre}</strong></p>
+                            <p>{producto.codigo}</p>
+                        </div>
+                        <div className="acciones">
+                            <i className="fa-regular fa-edit" onClick={(e) => { e.stopPropagation(); setEditando(true); }}></i>
+                            <i className="fa-regular fa-trash-can" onClick={(e) => { e.stopPropagation(); alBorrar(producto.id); }}></i>
+                        </div>
                     </div>
-                    <div className="identidades-secretas">
-                        <p className="nombre"><strong>{producto.nombre}</strong></p>
-                        <p>{producto.codigo}</p>
-                    </div>
-                    <div className="acciones">
-                        <i className="fas fa-edit" onClick={editar}></i>
-                        <i className="fas fa-trash" onClick={borrar}></i>
-                    </div>
-                </div>
-            );
+                );
+            }
         }
+
 
         function App() {
             const [productos, setProductos] = useState(() => {
@@ -245,6 +278,7 @@
                 setProductoEdit(null);
             };
 
+
             const editarProducto = (producto) => {
                 setProductoEdit(producto);
             };
@@ -259,13 +293,26 @@
                 localStorage.setItem('productos', JSON.stringify(nuevosProductos));
             };
 
+            const incrementarCantidad = (id) => {
+                const nuevosProductos = productos.map(producto => {
+                    if (producto.id === id) {
+                        if (producto.cantidad < 100) {
+                            return { ...producto, cantidad: producto.cantidad + 1 };
+                        }
+                    }
+                    return producto;
+                });
+                setProductos(nuevosProductos);
+                localStorage.setItem('productos', JSON.stringify(nuevosProductos));
+            };
+
             const productosOrdenados = [...productos].sort((a, b) => a.nombre.localeCompare(b.nombre));
 
             return (
-                <div>
-                    <header>
-                        <h1>Control de Depósito</h1>
-                        <i className="fas fa-plus-square" onClick={() => setProductoEdit({})}></i>
+                <div className="container">
+                    <header style={productoEdit ? { justifyContent: 'center' } : { justifyContent: 'space-between' }}>
+                        <h1>Control Depósito</h1>
+                        <i className="fas fa-plus-square" style={productoEdit ? { display: "none" } : { display: "block" }} onClick={() => setProductoEdit({})}></i>
                     </header>
 
                     {productoEdit && (
@@ -276,14 +323,21 @@
                         />
                     )}
 
-                    {productosOrdenados.map((producto) => (
+                    {
+                        productosOrdenados.length > 0 ?
+                        productosOrdenados.map((producto) => (
                         <Mostrar
                             key={producto.id}
                             producto={producto}
                             alEditar={() => editarProducto(producto)}
                             alBorrar={() => eliminarProducto(producto.id)}
+                            incrementarCantidad={incrementarCantidad}
+                            alGuardar={guardarProducto}
                         />
-                    ))}
+                    ))
+                    :
+                    <h2 style={productoEdit ? {display:"none"} : {display:"block"}}>No hay productos</h2>
+                    }
                 </div>
             );
         }
