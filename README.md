@@ -19,8 +19,7 @@ Finalmente, considera que lo más práctico es que los productos se muestren ord
 
 Con las ideas claras, procede a realizar un diseño gráfico rápido, con la intención de que el resultado final sea lo más fiel posible al diseño propuesto.
 
-![Diseño](control-deposito.png)
-
+![Diseño](./practicos/00%20-%20Enunciados/control-deposito.png)
 Se trata de un ABM (Alta, Baja, Modificación) simple, ni siquiera va a tener que hacer un servidor ni conectarse a una base de datos, solo va guardar los datos en el armacenamiento local de navegador. 
 
 Tiene que salir perfecto!! al fin y al cabo es para lucirse asi que se va a tomar una semana para completar el trabajo.
