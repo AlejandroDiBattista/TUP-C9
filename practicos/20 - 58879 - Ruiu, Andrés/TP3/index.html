@@ -30,7 +30,7 @@
         }
 
         .container {
-            width: 30%;
+            width: 40%;
 
             h2{
                 text-align: center;
@@ -49,7 +49,7 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
 
@@ -61,6 +61,7 @@
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            user-select: none;
 
             .cantidad {
                 display: flex;
@@ -72,7 +73,6 @@
                     font-size: 40px;
                     color: blue;
                     font-weight: bold;
-                    cursor: pointer;
                 }
             }
 
@@ -147,19 +147,17 @@
         }
 
         .crear{
-            margin: 10px;
             padding: 10px;
             display: flex;
-            width: auto;
-            margin-bottom: 8px;
             border-radius: 8px;
             background-color: #ffffff;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 
+        }
 
-            .botones{
-                justify-content: center;
-            }
+        .error{
+            margin: 0;
+            padding: 4px 0 8px 0;
+            color: red;
         }
     </style>
 </head>
