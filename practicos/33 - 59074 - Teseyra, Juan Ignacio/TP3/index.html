@@ -146,7 +146,7 @@
             }
             const guardar = e => {
                 e.preventDefault();
-                if (nombre.trim() === '' || ean.toString().trim() === '' || stock.toString().trim() === '') {
+                if (nombre.trim() === '' || ean.toString().trim() === '' || stock.toString().trim() === '' || parseInt(stock) >=100 ||parseInt(stock) <0) {
                     setError(true);
                     return;
                 }
@@ -167,7 +167,7 @@
 
                     
                     <input type="text" value={stock} onChange={cambiarStock} />
-                    {error && <p className="error">Campos obligatorios</p>}
+                    {error && <p className="error">Verifique que todos los campos estén completos y que el stock esté entre 0 y 100</p>}
                     <div className="btnAcciones">
                         <button className="btnAceptar" onClick={guardar}>Aceptar</button>
                         <button className="btnCancelar" onClick={cancelar}>Cancelar</button>
