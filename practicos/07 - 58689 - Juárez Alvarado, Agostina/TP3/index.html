@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Depósito</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Para centrar pero arriba */
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .add-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .add-form input {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    .add-form button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      width: 100%;
+    }
+    .add-form button:hover {
+      background-color: #0056b3;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #f9f9f9;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .quantity {
+      font-size: 2em;
+      color: blue;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .details {
+      flex-grow: 1;
+    }
+    .name {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .ean {
+      color: gray;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .edit-button,
+    .delete-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin-top: 5px;
+    }
+    .edit-button:hover {
+      color: green;
+    }
+    .delete-button:hover {
+      color: red;
+    }
+    form.edit-form {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+    form.edit-form .inputs {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+    }
+    form.edit-form .inputs input {
+      margin: 5px;
+      padding: 10px;
+      width: 100%;
+    }
+    form.edit-form .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 40px;
+    }
+    form.edit-form .buttons button {
+      margin: 10px;
+      padding: 15px;
+      width: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" class="container"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function App() {
+      const [productos, setProductos] = useState([]);
+      const [nombre, setNombre] = useState('');
+      const [ean, setEan] = useState('');
+      const [idEditando, setIdEditando] = useState(null);
+      const [nombreEditando, setNombreEditando] = useState('');
+      const [eanEditando, setEanEditando] = useState('');
+      const [cantidadEditando, setCantidadEditando] = useState(1);
+
+      useEffect(() => {
+        const storedProductos = localStorage.getItem('productos');
+        if (storedProductos) {
+          setProductos(JSON.parse(storedProductos));
+        }
+      }, []);
+
+      useEffect(() => {
+        localStorage.setItem('productos', JSON.stringify(productos));
+      }, [productos]);
+
+      const agregarProducto = (e) => {
+        e.preventDefault();
+        const nuevoProducto = { id: Date.now(), nombre, ean, cantidad: 1 };
+        setProductos(prevProductos => [...prevProductos, nuevoProducto].sort((a, b) => a.nombre.localeCompare(b.nombre)));
+        setNombre('');
+        setEan('');
+        setMostrarFormulario(false); // Ocultar formulario después de agregar un producto
+      };
+
+      const toggleFormulario = () => {
+        setMostrarFormulario(!mostrarFormulario);
+      };
+
+
+      const actualizarProducto = (e) => {
+        e.preventDefault();
+        setProductos(prevProductos =>
+          prevProductos.map(producto =>
+            producto.id === idEditando ? { id: idEditando, nombre: nombreEditando, ean: eanEditando, cantidad: cantidadEditando } : producto
+          ).sort((a, b) => a.nombre.localeCompare(b.nombre))
+        );
+        setIdEditando(null);
+      };
+
+      const eliminarProducto = (id) => {
+        setProductos(prevProductos => prevProductos.filter(producto => producto.id !== id));
+      };
+
+      const incrementarCantidad = (id) => {
+        setProductos(prevProductos =>
+          prevProductos.map(producto =>
+            producto.id === id ? { ...producto, cantidad: producto.cantidad + 1 } : producto
+          )
+        );
+      };
+
+      const iniciarEdicion = (producto) => {
+        setIdEditando(producto.id);
+        setNombreEditando(producto.nombre);
+        setEanEditando(producto.ean);
+        setCantidadEditando(producto.cantidad);
+      };
+
+      return (
+        <div>
+          <div className="header">
+            <h1>Control Depósito</h1>
+            <form onSubmit={agregarProducto} className="add-form">
+              <button type="submit">+</button>
+            </form>
+          </div>
+          <div className="add-form">
+            <input
+              type="text"
+              placeholder="Nombre del Producto"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Código EAN"
+              value={ean}
+              onChange={(e) => setEan(e.target.value)}
+              required
+            />
+          </div>
+          <ul>
+            {productos.map(producto => (
+              <li key={producto.id}>
+                {idEditando === producto.id ? (
+                  <form onSubmit={actualizarProducto} className="edit-form">
+                    <div className="inputs">
+                      <input value={nombreEditando} onChange={(e) => setNombreEditando(e.target.value)} />
+                      <input value={eanEditando} onChange={(e) => setEanEditando(e.target.value)} />
+                      <input type="number" value={cantidadEditando} onChange={(e) => setCantidadEditando(parseInt(e.target.value))} />
+                    </div>
+                    <div className="buttons">
+                      <button type="submit">Aceptar</button>
+                      <button type="button" onClick={() => setIdEditando(null)}>Cancelar</button>
+                    </div>
+                  </form>
+                ) : (
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                    <span className="quantity" onClick={() => incrementarCantidad(producto.id)}>{producto.cantidad}</span>
+                    <div className="details">
+                      <div className="name">{producto.nombre}</div>
+                      <div className="ean">{producto.ean}</div>
+                    </div>
+                    <div className="actions">
+                      <button className="edit-button" onClick={() => iniciarEdicion(producto)}>✎</button>
+                      <button className="delete-button" onClick={() => eliminarProducto(producto.id)}>🗑️</button>
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
