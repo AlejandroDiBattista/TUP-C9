@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Control depósito qpx</title>
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control depósito qpx</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
@@ -165,11 +165,11 @@
       font-size: 16px; 
     }
   </style>
-</head>
+  </head>
 
-<body>
-  <div id="root"></div>
-  <script type="text/babel">
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
     const { useState, useEffect } = React;
 
     const DepositoInicial = [
@@ -331,10 +331,10 @@
     }
 
     function App() {
-  const [depositos, setDepositos] = useState(() => {
-    const depositosGuardados = localStorage.getItem('depositos');
-    return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
-  });
+      const [depositos, setDepositos] = useState(() => {
+      const depositosGuardados = localStorage.getItem('depositos');
+      return depositosGuardados ? JSON.parse(depositosGuardados) : DepositoInicial;
+    });
 
   const agregarProducto = (producto) => {
     const productoExistente = depositos.find((item) => item.codigoEan === producto.codigoEan);
@@ -380,6 +380,6 @@
 
     ReactDOM.render(<App />, document.getElementById('root'));
   </script>
-</body>
+  </body>
 
 </html>

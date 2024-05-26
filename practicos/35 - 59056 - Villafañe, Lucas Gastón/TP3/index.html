@@ -65,7 +65,7 @@
 
       .detalles-producto {
         flex-grow: 1;
-        margin-left: -105px;
+        margin-left: 105px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -271,10 +271,11 @@
             <div className="grupo-botones">
               <div className="boton-actualizar">
                 {estaEditando && <button type="submit">Actualizar</button>}
-g              <div>
+              <div>
                 {estaEditando && (
                   <button onClick={manejarCancelar}>Cancelar</button>
                 )}
+              </div>
               </div>
             </div>
           </form>
@@ -336,7 +337,6 @@ g              <div>
               <>
               <div>
                 <span>
-
                   <div className="cantidad-producto">{producto.cantidad}</div>
                   <div className="detalles-producto">
                     <h2>{producto.nombre}</h2>
