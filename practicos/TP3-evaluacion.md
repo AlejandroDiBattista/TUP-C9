@@ -16,20 +16,15 @@
 - Ubicacion de botones mal en editar
 
 ## 06 - 59053 - Guzmán, Esteban Leonel
-- Aprobado: 7
-- Cantidad como cadena
-- No guarda en editar en el lugar
+- Aprobado: 10
 
 ## 07 - 58689 - Juárez Alvarado, Agostina
 - Aprobado: 7
 - La funcion setMostrarFormulario no esta definida 
 
 ## 08 - 59058 - Monaco Torrente, Matias
-- Aprobado: 0 copia
-- No abre el formulario en la alta.
-- Es diseño no es correcto
-- Extraño uso de la tecla "backspace" para poner en 0 cuando no queda caracteres
-- Es copia exacta de: C3 - 03 - 58931 - Cabrera, Lucas Nahuel
+- Aprobado: 9
+- Diseño diferente
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
 - Aprobado: 10 perfecto!
