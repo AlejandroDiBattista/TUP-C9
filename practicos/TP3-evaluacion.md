@@ -1,4 +1,4 @@
-# Evaluacion TP3
+# Evaluación TP3
 
 ## 01 - 59336 - Bulan Georgieff, Alexander
 - Aprobado: 8
@@ -10,7 +10,6 @@
 - Aprobado: 6
 - No respeta el diseño
 - No implementa el incremento
-
 
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
 - Aprobado: 9
@@ -26,10 +25,11 @@
 - La funcion setMostrarFormulario no esta definida 
 
 ## 08 - 59058 - Monaco Torrente, Matias
-- Aprobado: 8
+- Aprobado: 0 copia
 - No abre el formulario en la alta.
 - Es diseño no es correcto
 - Extraño uso de la tecla "backspace" para poner en 0 cuando no queda caracteres
+- Es copia exacta de: C3 - 03 - 58931 - Cabrera, Lucas Nahuel
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
 - Aprobado: 10 perfecto!
@@ -133,4 +133,3 @@
 - Aprobado: 10
 - Diferencia mínima en diseño
 - Identico *29 - 59110 - Soria, Joaquin*
-
