@@ -80,9 +80,9 @@ function WeatherCard({ cityName, temp, minTemp, maxTemp, humidity, icon }) {
             <header className="city-name">{cityName}</header>
             <img className="weather-icon" src={`openweathermap/${icon}.svg`} alt="Weather icon" />
             <footer className="weather-details">
-                <h2>Temperature: {temp.toFixed(2)}°C</h2>
+                <h2>Temperatura: {temp.toFixed(2)}°C</h2>
                 <p>Min: {minTemp.toFixed(2)}°C / Max: {maxTemp.toFixed(2)}°C</p>
-                <p>Humidity: {humidity}%</p>
+                <p>Humedad: {humidity}%</p>
             </footer>
         </article>
     );
