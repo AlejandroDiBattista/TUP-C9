@@ -15,9 +15,7 @@ function App() {
             }
             const data = await response.json();
             setDatosClima(data);
-            setError(null);
         } catch (error) {
-            console.error('Error al obtener el clima:', error);
             setError('Ciudad no encontrada');
         }
     };
@@ -63,7 +61,7 @@ function App() {
                     <div className="search-container">
                         <input 
                             type="text" 
-                            placeholder="Buscar ciudad" 
+                            placeholder="Buscar ciudad..." 
                             value={consultaBusqueda} 
                             onChange={manejarCambioBusqueda} 
                             className="busqueda-input"
