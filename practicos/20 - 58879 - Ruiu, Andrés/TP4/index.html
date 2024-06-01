@@ -10,8 +10,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     <link rel="stylesheet" href="./estilo.css" />
+    <link rel="icon" href="openweathermap/01d.svg">
 
-    <script type="text/babel" src="componentes/Utlidades.jsx"></script>
+    <script type="text/babel" src="componentes/utilidades.jsx"></script>
     <script type="text/babel" src="componentes/CiudadCard.jsx"></script>
     <script type="text/babel" src="componentes/Nav.jsx"></script>
     <script type="text/babel" src="main.jsx"></script>
@@ -22,17 +23,20 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const { useState, useEffect, StrictMode, useCallback } = React;
         const root = ReactDOM.createRoot(document.getElementById('root'));
 
         function App() {
             return <Clima />;
         }
 
-        root.render(<App />); // Renderizar el componente principal
+        root.render(
+            <StrictMode>
+                <App />
+            </StrictMode>
+        );
     </script>
-
-
 </body>
+
 
 </html>

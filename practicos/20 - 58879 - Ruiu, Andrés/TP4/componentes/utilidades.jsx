@@ -1,15 +1,20 @@
-window.Utilidades = {
-    obtenerClima: async (ciudad, setCargando, setDatosClima, setCiudadNoEncontrada) => {
-        setCargando(true);
+window.utilidades = {
+    obtenerClima: async (ciudad, setCargando, setDatosClima, setUltimaCiudadBuscada, setCiudadNoEncontrada = null) => {
         try {
             const respuesta = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}&lang=es&units=metric`);
             if (respuesta.ok) {
-                const datosCiudad = await respuesta.json();
-                localStorage.setItem(ciudad, JSON.stringify(datosCiudad));
-                setDatosClima([datosCiudad]);
-                setCiudadNoEncontrada(false);
+                let datosCiudad = await respuesta.json();
+                datosCiudad = Array.isArray(datosCiudad) ? datosCiudad : [datosCiudad];
+                setDatosClima(datosCiudad);
+                setUltimaCiudadBuscada(datosCiudad);
+                if (setCiudadNoEncontrada) {
+                    setCiudadNoEncontrada(false);
+                }
             } else if (respuesta.status === 404) {
-                setCiudadNoEncontrada(true);
+                setDatosClima([]);
+                if (setCiudadNoEncontrada) {
+                    setCiudadNoEncontrada(true);
+                }
             } else {
                 console.error(`Error HTTP: ${respuesta.status}`);
             }
@@ -21,7 +26,7 @@ window.Utilidades = {
 
     debounce: (func, delay) => {
         let debounceTimer;
-        return function() {
+        const debouncedFunc = function () {
             const context = this;
             const args = arguments;
             clearTimeout(debounceTimer);
@@ -30,5 +35,10 @@ window.Utilidades = {
                 func.apply(context, args);
             }, delay);
         };
+        debouncedFunc.cancel = () => {
+            clearTimeout(debounceTimer);
+        };
+        return debouncedFunc;
     }
 };
+
