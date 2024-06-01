@@ -4,6 +4,7 @@ const { useState, useEffect } = React;
 function App() {
     const [ciudad, setCiudad] = useState("");
     const [datosClima, setDatosClima] = useState(null);
+    const [error, setError] = useState(null);
     const [consultaBusqueda, setConsultaBusqueda] = useState("");
 
     const obtenerDatosClima = async (ciudad) => {
@@ -15,7 +16,7 @@ function App() {
             const data = await response.json();
             setDatosClima(data);
         } catch (error) {
-            console.error('Error al obtener el clima:', error);
+            setError('Ciudad no encontrada');
         }
     };
 
@@ -67,11 +68,12 @@ function App() {
                         />
                     </div>
                 </form>
-                {datosClima && (
+                {error && <div className="error">{error}</div>}
+                {datosClima && !error && (
                     <div className="tarjeta-clima">
                         <article>
                             <header className="NombreCui"><strong>{datosClima.name}</strong></header>
-                            <img src={`http://openweathermap.org/img/wn/${datosClima.weather[0].icon}.png`} alt="Icono del clima" />
+                            <img src={`./openweathermap/${datosClima.weather[0].icon}.svg`} alt="Icono del clima" />
                             <footer>
                                 <p className="TempCiu"><strong>Temperatura: {datosClima.main.temp}°C</strong></p>
                                 <p>Temp. Mínima: {datosClima.main.temp_min}°C / Temp. Máxima: {datosClima.main.temp_max}°C</p>
