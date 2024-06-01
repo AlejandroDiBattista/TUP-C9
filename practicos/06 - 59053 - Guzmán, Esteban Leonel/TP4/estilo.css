@@ -1,9 +1,91 @@
 body {
-    background-color: #ccc;
-    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(219, 217, 217);
+}
+  
+  .container {
+  
+ 
+    max-width: 48%;
+ height: 300vh;
+    
+    
+  }
+  
+  .icon {
+    max-width: 100%;
+    padding: 5%;
+    border-top: 1px solid;
+    border-block: 1px solid;
+    
+
+}
+.nav{
+  
+max-width: 100%;
+  
+  
 }
 
-#root {
-    margin: 0 auto;
-    max-width: 500px;
+.nav ol:first-of-type, nav ul:first-of-type {
+  margin-left: calc(var(--pico-nav-element-spacing-horizontal) * -1);
+  font-size: 45px;
+  color: black;
+  opacity: 80%;
+  }
+  
+
+  
+.search{
+  display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+
+ 
+  
+}
+.input{
+  background-color: white;
+  color: black;
+font-weight: 20%;
+border: none;
+}
+  
+
+  
+  .card h2{
+    font-size: 45px;
+    color: black;
+    opacity: 80%;
+    padding: 5%;
+    
+  
+  }
+.card p {
+  color: black;
+    opacity: 80%;
+}
+.card h3{
+  color: black;
+  opacity: 80%;
+}
+  .card{
+    background-color: white;
+   border-radius: 2%; 
+  
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    background-color: skyblue;
+    border-style: none;
+    border-radius: 3%;
+}
+footer{
+  padding: 5%;
 }
