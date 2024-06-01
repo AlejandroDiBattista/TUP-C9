@@ -1,9 +1,14 @@
 body {
     background-color: #ccc;
-    height: 100vh;
+    height: 100%;
 }
 
 #root {
     margin: 0 auto;
     max-width: 500px;
 }
+
+article{
+    border-radius: 3px;
+}
+
