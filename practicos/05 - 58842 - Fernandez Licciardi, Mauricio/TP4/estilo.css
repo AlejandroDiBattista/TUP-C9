@@ -1,9 +1,81 @@
 body {
     background-color: #ccc;
-    height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
-#root {
+.container {
+    max-width: 400px;
     margin: 0 auto;
-    max-width: 500px;
+}
+
+.Arriba {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.ciudades-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.ciudades-links a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.ciudades-links a:hover {
+    color: #004b9c;
+}
+
+.busqueda-form {
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.busqueda-input {
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 100%;
+    outline: none;
+}
+
+.tarjeta-clima {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 16px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-clima img {
+    width: 100px;
+    height: 100px;
+    background-color: #bbdcff;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.tarjeta-clima p {
+    margin: 10px 0;
+}
+
+.NombreCui {
+    font-size: 28px;
+    margin: 5px;
+}
+
+.TempCiu {
+    font-size: 22px;
 }
