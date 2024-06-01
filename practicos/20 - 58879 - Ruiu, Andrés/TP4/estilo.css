@@ -1,9 +1,13 @@
 body {
     background-color: #ccc;
-    height: 100vh;
+    height: auto;
+    padding-bottom: 50px;
+    
 }
 
 #root {
     margin: 0 auto;
     max-width: 500px;
+    color: #f5f5dc;
 }
+
