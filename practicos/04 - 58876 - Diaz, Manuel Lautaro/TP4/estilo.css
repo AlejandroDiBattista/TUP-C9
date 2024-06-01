@@ -1,9 +1,70 @@
 body {
-    background-color: #ccc;
-    height: 100vh;
+    margin: 0;
+    background-color: #cccccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#root {
-    margin: 0 auto;
-    max-width: 500px;
+nav strong {
+    font-size: 35px;
+    color: #0c0101;
+}
+
+nav {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+}
+
+.pError p {
+    margin: 20px auto;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+a {
+    color: blue;
+}
+
+input {
+    background-color: white;
+    border-color: white;
+    color: #000;
+}
+
+input::placeholder {
+    color: #706f6f;
+}
+
+article {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+header {
+    color: rgb(0, 0, 0);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.marco {
+    background-color: #ADD9E6;
+    border-radius: 10px;
+}
+
+footer,
+p {
+    margin: 2px 0;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+
+.Temp {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
 }
