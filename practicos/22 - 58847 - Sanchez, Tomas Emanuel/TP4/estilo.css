@@ -1,9 +1,92 @@
-body {
-    background-color: #ccc;
-    height: 100vh;
+#root {
+    margin: 0;
+    padding: 0;
+}
+body{
+   
+    align-items: center;
+    justify-content: center;
+}
+html{
+    background-color: #bdbbbc;
+}
+.nav{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.search{
+    width: 95%;
+    margin-left: 40px;
+    margin-top: 20px;
 }
 
-#root {
-    margin: 0 auto;
-    max-width: 500px;
+
+h3{
+    color: rgb(31, 31, 30);
+}
+
+.search-input{
+    background-color: white;
+    border: none;
+    color: black;
+}
+.tiempo{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    height: 30%;
+    width: 30%;
+    justify-items: center;
+    margin-left: 35%;
+}
+.img
+{
+    
+    border-radius: 8px;
+    background-color: #ADD8E6;
+}
+
+
+.nom {
+    background-color: rgb(248, 246, 246);
+    color:  rgb(128, 47, 0);
+    font-weight: bold;
+    font-size: 26px;
+    border: none;
+    }
+
+
+.footer{
+    background-color: rgb(248, 246, 246);
+    border: none;
+
+}
+
+
+.ciudad {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h2{
+    color: rgb(0, 0, 0);
+    font-size: 23px;
+}
+
+p{
+    color: rgb(0, 0, 0);
+}
+strong{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+article{
+    display: flex;
+    flex-direction: column;
 }
