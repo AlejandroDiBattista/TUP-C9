@@ -1,9 +1,39 @@
 body {
     background-color: #ccc;
-    height: 100vh;
+    height: 120vh;
 }
 
 #root {
     margin: 0 auto;
     max-width: 500px;
+}
+
+.cabecera{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: -30px;
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+}
+
+.botones a {
+    margin-right: 10px; 
+    text-decoration: none; 
+}
+
+header{
+    width: 500px;
+    height: 125px;
+}
+
+.fondoImg{
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.tarjeta{
+    margin-bottom: 10px;
 }
