@@ -1,9 +1,139 @@
 body {
-    background-color: #ccc;
-    height: 100vh;
+    background-color: #dbd6d6;
+    height: 200vh;
 }
 
 #root {
     margin: 0 auto;
     max-width: 500px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav ol:first-of-type, nav ul:first-of-type {
+    margin-left: calc(var(--pico-nav-element-spacing-horizontal) * -1);
+    font-size: 40px;
+    color: black;
+    opacity: 80%;
+    }
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+ 
+
+nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 90%;
+}
+
+article{
+    background-color: white;
+    border-radius: 2%;
+}
+ 
+article img{
+    background-color: rgb(181, 222, 248);
+    border-radius: 2%;
+    margin-top: 20px;
+    margin-block: 20px;
+}
+
+
+input[type="search"] {
+    background-color: rgb(250, 246, 242);
+    color: black;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+   
+    outline: none;
+    border: none;
+}
+
+
+input[type="search"]:focus {
+    outline: none; 
+    border: none;  
+}
+
+
+
+article header h2{
+    color: black;
+    text-align: left;
+}
+
+article footer p{
+    color: black;
+    font-size: 16px;
+    font-weight: bold;   
+}
+
+article h3{
+    color: black;
+}
+
+
+.weather-card {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.weather-card header {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.weather-icon img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+
+@media (max-width: 600px) {
+    .search-box input {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
