@@ -13,34 +13,34 @@ app.use((req, res, next) => {
     console.log("Request received", req.method, req.url, req.body)
     console.log(res.header)
     next()
-    console.log("Response sent", 
-    res.statusCode, 
-    res.statusMessage, 
-    res.getHeaders())
+    console.log("Response sent",
+        res.statusCode,
+        res.statusMessage,
+        res.getHeaders())
 })
 
 let productos = [
-    {id: 1, precio: 200, nombre: "Coca Cola", cantidad: 10},
-    {id: 2, precio: 150, nombre: "Pepsi", cantidad: 10},
-    {id: 3, precio: 100, nombre: "Fanta", cantidad: 10},
+    { id: 1, precio: 200, nombre: "Coca Cola", cantidad: 10 },
+    { id: 2, precio: 150, nombre: "Pepsi", cantidad: 10 },
+    { id: 3, precio: 100, nombre: "Fanta", cantidad: 10 },
 ]
 // REST 
 // CRUD
 // CREATE
 app.get("/productos", (req, res) => {
     res.json(productos)
-}   )
+})
 
 app.post("/productos", (req, res) => {
     let producto = req.body
-productos = [...productos, producto];    
-res.json(producto)
+    productos = [...productos, producto];
+    res.json(producto)
 })
 
 app.delete("/productos/:id", (req, res) => {
     let id = req.params.id
     productos = productos.filter(producto => producto.id != id)
-    res.json({message: "Producto eliminado"})
+    res.json({ message: "Producto eliminado" })
 }
 )
 
