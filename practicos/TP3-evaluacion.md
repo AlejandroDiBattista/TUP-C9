@@ -23,8 +23,9 @@
 - La funcion setMostrarFormulario no esta definida 
 
 ## 08 - 59058 - Monaco Torrente, Matias
-- Aprobado: 9
+- Aprobado: 8
 - Diseño diferente
+- No incrementa contador
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
 - Aprobado: 10 perfecto!
