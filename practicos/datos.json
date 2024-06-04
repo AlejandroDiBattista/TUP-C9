@@ -13,8 +13,7 @@
     "TP3": true,
     "nota_tp3": 8,
     "comentario_tp3": "No valida la cantidad.\nLa alta la hace en página separa\nEditar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-02",
@@ -28,8 +27,7 @@
     "ubicacion": "./02 - 59429 - Caldez, María Valentina",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-03",
@@ -45,8 +43,7 @@
     "TP3": true,
     "nota_tp3": 6,
     "comentario_tp3": "No respeta el diseño\nNo implementa el incremento",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-04",
@@ -60,8 +57,7 @@
     "ubicacion": "./04 - 58876 - Diaz, Manuel Lautaro",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-05",
@@ -77,8 +73,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Ubicacion de botones mal en editar",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-06",
@@ -94,8 +89,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-07",
@@ -111,8 +105,7 @@
     "TP3": true,
     "nota_tp3": 7,
     "comentario_tp3": "La funcion setMostrarFormulario no esta definida ",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-08",
@@ -128,8 +121,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Diseño diferente",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-09",
@@ -143,8 +135,7 @@
     "ubicacion": "./09 - 55773 - Morhell, Amín Gabriel",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-10",
@@ -160,8 +151,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diseño y funcionamiento exacto.\nProblema con localStorage al usar el mismo nombre que otros usuarios.",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-12",
@@ -177,8 +167,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencias minimas en diseño\nmanejaCantidad es mas complicado de lo necesario.",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-13",
@@ -194,8 +183,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Difencia minimas en diseño",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-14",
@@ -211,8 +199,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diseño cambia con el ancho de la pantalla",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-15",
@@ -228,8 +215,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minimas en diseño\nUsa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-16",
@@ -243,8 +229,7 @@
     "ubicacion": "./16 - 58874 - Rigazio, Malena Soledad",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-17",
@@ -258,8 +243,7 @@
     "ubicacion": "./17 - 59389 - Rivas, Carlos Agustin",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-18",
@@ -275,8 +259,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "El diseño es diferente",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-19",
@@ -292,8 +275,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minima en diseño formulario",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-20",
@@ -309,8 +291,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diseño cambia con el ancho de navegador",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-21",
@@ -326,8 +307,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Validación muy extraña en *cancelar*",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-22",
@@ -343,8 +323,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Diseño cambia con ancho pantalla.\nBotones en ingles!!",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-23",
@@ -358,8 +337,7 @@
     "ubicacion": "./23 - 59082 - Santin, Lautaro",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-24",
@@ -375,8 +353,7 @@
     "TP3": true,
     "nota_tp3": 7,
     "comentario_tp3": "No realiza el conteo ni la edicion en el lugar",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-25",
@@ -392,8 +369,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en el diseño",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-26",
@@ -409,8 +385,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Los iconos se salen del Mostrar\nAgrega \"key\" fuera de la generacion de una lista",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-27",
@@ -426,8 +401,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño\nCuriosidad usa 27 \"text-overflow: ellipsis\"",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-28",
@@ -443,8 +417,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "No se puede cancelar \"Alta\"",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-29",
@@ -460,8 +433,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minima en diseño\nEl orden alfabetico es el mejor resuelto\nIdentico a *38 - 59169 - Zarlenga, Tobias*",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-30",
@@ -475,8 +447,7 @@
     "ubicacion": "./30 - 59309 - Soria, Nicole",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-31",
@@ -492,8 +463,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencias minimas en diseño",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-32",
@@ -509,8 +479,7 @@
     "TP3": true,
     "nota_tp3": 7,
     "comentario_tp3": "No realiza el conteo\nCuando se hace mas de 1 editar en el lugar falla y no se recupera",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-33",
@@ -526,8 +495,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Al realizar edicion en el lugar no oculta el mostrar ",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-34",
@@ -543,8 +511,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencias minimas en diseño",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-35",
@@ -560,8 +527,7 @@
     "TP3": true,
     "nota_tp3": 9,
     "comentario_tp3": "Usa regex para validar EAN\nFaltaba cerrar un div y habia un margin -105 que rompia el diseño",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-36",
@@ -577,8 +543,7 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Realiza copia de array antes de ordenar",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-37",
@@ -592,8 +557,7 @@
     "ubicacion": "./37 - 58730 - Yñigo Lopez, Lourdes Sofi",
     "TP2": false,
     "TP3": false,
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   },
   {
     "id": "C9-38",
@@ -609,7 +573,6 @@
     "TP3": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño\nIdentico *29 - 59110 - Soria, Joaquin*",
-    "TP4": true,
-    "TP5": true
+    "TP4": true
   }
 ]
