@@ -27,6 +27,13 @@
             align-items: center;
         }
 
+        h1 small {
+            font-size: 0.5em;
+            font-weight: normal;
+            color: #999;
+            vertical-align: middle;
+        }
+        
         h2 {
             font-size: 1.5rem;
             font-weight: normal;
@@ -135,723 +142,119 @@
         }
 
     </style>
-    <script>
-        const datos = [
-  {
-    "id": "C9-01",
-    "comision": "C9",
-    "orden": 1,
-    "legajo": 59336,
-    "nombre": "Bulan Georgieff, Alexander",
-    "inicial": "ABG",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./01 - 59336 - Bulan Georgieff, Alexander",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 8,
-    "comentario_tp3": "No valida la cantidad.\nLa alta la hace en página separa\nEditar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-03",
-    "comision": "C9",
-    "orden": 3,
-    "legajo": 58690,
-    "nombre": "Diaz, Facundo Gabriel",
-    "inicial": "FGD",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./03 - 58690 - Diaz, Facundo Gabriel",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 6,
-    "comentario_tp3": "No respeta el diseño\nNo implementa el incremento",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-04",
-    "comision": "C9",
-    "orden": 4,
-    "legajo": 58876,
-    "nombre": "Diaz, Manuel Lautaro",
-    "inicial": "MLD",
-    "TP1": false,
-    "cambio": false,
-    "ubicacion": "./04 - 58876 - Diaz, Manuel Lautaro",
-    "TP2": false,
-    "TP3": false,
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-05",
-    "comision": "C9",
-    "orden": 5,
-    "legajo": 58842,
-    "nombre": "Fernandez Licciardi, Mauricio",
-    "inicial": "MFL",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./05 - 58842 - Fernandez Licciardi, Mauricio",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Ubicacion de botones mal en editar",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-06",
-    "comision": "C9",
-    "orden": 6,
-    "legajo": 59053,
-    "nombre": "Guzmán, Esteban Leonel",
-    "inicial": "ELG",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./06 - 59053 - Guzmán, Esteban Leonel",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-07",
-    "comision": "C9",
-    "orden": 7,
-    "legajo": 58689,
-    "nombre": "Juarez Alvarado, Agostina",
-    "inicial": "AJA",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./07 - 58689 - Juarez Alvarado, Agostina",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 7,
-    "comentario_tp3": "La funcion setMostrarFormulario no esta definida ",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-10",
-    "comision": "C9",
-    "orden": 10,
-    "legajo": 59310,
-    "nombre": "Paz Berrondo, Nahuel Agus",
-    "inicial": "NAPB",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./10 - 59310 - Paz Berrondo, Nahuel Agus",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diseño y funcionamiento exacto.\nProblema con localStorage al usar el mismo nombre que otros usuarios.",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-12",
-    "comision": "C9",
-    "orden": 12,
-    "legajo": 58679,
-    "nombre": "Pereyra, Franco Sebastián",
-    "inicial": "FSP",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./12 - 58679 - Pereyra, Franco Sebastián",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencias minimas en diseño\nmanejaCantidad es mas complicado de lo necesario.",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-13",
-    "comision": "C9",
-    "orden": 13,
-    "legajo": 58869,
-    "nombre": "Perez, Enzo Matias",
-    "inicial": "EMP",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./13 - 58869 - Perez, Enzo Matias",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Difencia minimas en diseño",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-14",
-    "comision": "C9",
-    "orden": 14,
-    "legajo": 59313,
-    "nombre": "Pisentte, Juan Pablo",
-    "inicial": "JPP",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./14 - 59313 - Pisentte, Juan Pablo",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diseño cambia con el ancho de la pantalla",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-19",
-    "comision": "C9",
-    "orden": 19,
-    "legajo": 59057,
-    "nombre": "Rocha, Lourdes Gabriela",
-    "inicial": "LGRO",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./19 - 59057 - Rocha, Lourdes Gabriela",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia minima en diseño formulario",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-20",
-    "comision": "C9",
-    "orden": 20,
-    "legajo": 58879,
-    "nombre": "Ruiu, Andrés",
-    "inicial": "ARU",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./20 - 58879 - Ruiu, Andrés",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diseño cambia con el ancho de navegador",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-21",
-    "comision": "C9",
-    "orden": 21,
-    "legajo": 59073,
-    "nombre": "Ruiz, Tomas Federico",
-    "inicial": "TFR",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./21 - 59073 - Ruiz, Tomas Federico",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Validación muy extraña en *cancelar*",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-22",
-    "comision": "C9",
-    "orden": 22,
-    "legajo": 58847,
-    "nombre": "Sanchez, Tomas Emanuel",
-    "inicial": "TES",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./22 - 58847 - Sanchez, Tomas Emanuel",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Diseño cambia con ancho pantalla.\nBotones en ingles!!",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-25",
-    "comision": "C9",
-    "orden": 25,
-    "legajo": 59933,
-    "nombre": "Saucedo, Lucas Nahuel",
-    "inicial": "LNS",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./25 - 59933 - Saucedo, Lucas Nahuel",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en el diseño",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-26",
-    "comision": "C9",
-    "orden": 26,
-    "legajo": 59320,
-    "nombre": "Sbrocco, Micaela",
-    "inicial": "MSB",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./26 - 59320 - Sbrocco, Micaela",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Los iconos se salen del Mostrar\nAgrega \"key\" fuera de la generacion de una lista",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-27",
-    "comision": "C9",
-    "orden": 27,
-    "legajo": 59568,
-    "nombre": "Serrano, Lorenzo",
-    "inicial": "LSE",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./27 - 59568 - Serrano, Lorenzo",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en diseño\nCuriosidad usa 27 \"text-overflow: ellipsis\"",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-28",
-    "comision": "C9",
-    "orden": 28,
-    "legajo": 59059,
-    "nombre": "Soraire, Elias Nicolás",
-    "inicial": "ENS",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./28 - 59059 - Soraire, Elias Nicolás",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "No se puede cancelar \"Alta\"",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-29",
-    "comision": "C9",
-    "orden": 29,
-    "legajo": 59110,
-    "nombre": "Soria, Joaquin",
-    "inicial": "JSO",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./29 - 59110 - Soria, Joaquin",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia minima en diseño\nEl orden alfabetico es el mejor resuelto\nIdentico a *38 - 59169 - Zarlenga, Tobias*",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-31",
-    "comision": "C9",
-    "orden": 31,
-    "legajo": 58846,
-    "nombre": "Sosa, Franco Maximiliano",
-    "inicial": "FMS",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./31 - 58846 - Sosa, Franco Maximiliano",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencias minimas en diseño",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-34",
-    "comision": "C9",
-    "orden": 34,
-    "legajo": 58866,
-    "nombre": "Velazquez, Tobias Alejo",
-    "inicial": "TAV",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./34 - 58866 - Velazquez, Tobias Alejo",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencias minimas en diseño",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-35",
-    "comision": "C9",
-    "orden": 35,
-    "legajo": 59056,
-    "nombre": "Villafañe, Lucas Gastón",
-    "inicial": "LGV",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./35 - 59056 - Villafañe, Lucas Gastón",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Usa regex para validar EAN\nFaltaba cerrar un div y habia un margin -105 que rompia el diseño",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-36",
-    "comision": "C9",
-    "orden": 36,
-    "legajo": 59314,
-    "nombre": "Yepura, Rambo Alejandro",
-    "inicial": "RAY",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./36 - 59314 - Yepura, Rambo Alejandro",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Realiza copia de array antes de ordenar",
-    "TP4": true,
-    "nota_tp4": 0,
-    "comentario_tp4": ""
-  },
-  {
-    "id": "C9-02",
-    "comision": "C9",
-    "orden": 2,
-    "legajo": 59429,
-    "nombre": "Caldez, María Valentina",
-    "inicial": "MVC",
-    "TP1": true,
-    "cambio": false,
-    "ubicacion": "./02 - 59429 - Caldez, María Valentina",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-08",
-    "comision": "C9",
-    "orden": 8,
-    "legajo": 59058,
-    "nombre": "Monaco Torrente, Matias",
-    "inicial": "MMT",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./08 - 59058 - Monaco Torrente, Matias",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Diseño diferente",
-    "TP4": false
-  },
-  {
-    "id": "C9-09",
-    "comision": "C9",
-    "orden": 9,
-    "legajo": 55773,
-    "nombre": "Morhell, Amín Gabriel",
-    "inicial": "AGM",
-    "TP1": true,
-    "cambio": false,
-    "ubicacion": "./09 - 55773 - Morhell, Amín Gabriel",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-15",
-    "comision": "C9",
-    "orden": 15,
-    "legajo": 52142,
-    "nombre": "Reyes Gordillo, Rodrigo M",
-    "inicial": "RMRG",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./15 - 52142 - Reyes Gordillo, Rodrigo M",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia minimas en diseño\nUsa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
-    "TP4": false
-  },
-  {
-    "id": "C9-16",
-    "comision": "C9",
-    "orden": 16,
-    "legajo": 58874,
-    "nombre": "Rigazio, Malena Soledad",
-    "inicial": "MSR",
-    "TP1": false,
-    "cambio": false,
-    "ubicacion": "./16 - 58874 - Rigazio, Malena Soledad",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-17",
-    "comision": "C9",
-    "orden": 17,
-    "legajo": 59389,
-    "nombre": "Rivas, Carlos Agustin",
-    "inicial": "CAR",
-    "TP1": false,
-    "cambio": false,
-    "ubicacion": "./17 - 59389 - Rivas, Carlos Agustin",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-18",
-    "comision": "C9",
-    "orden": 18,
-    "legajo": 58222,
-    "nombre": "Rivero, Lucas Gabriel",
-    "inicial": "LGRI",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./18 - 58222 - Rivero, Lucas Gabriel",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "El diseño es diferente",
-    "TP4": false
-  },
-  {
-    "id": "C9-23",
-    "comision": "C9",
-    "orden": 23,
-    "legajo": 59082,
-    "nombre": "Santin, Lautaro",
-    "inicial": "LSA",
-    "TP1": true,
-    "cambio": false,
-    "ubicacion": "./23 - 59082 - Santin, Lautaro",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-24",
-    "comision": "C9",
-    "orden": 24,
-    "legajo": 59055,
-    "nombre": "Saravia, Franco Nicolas",
-    "inicial": "FNS",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./24 - 59055 - Saravia, Franco Nicolas",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 7,
-    "comentario_tp3": "No realiza el conteo ni la edicion en el lugar",
-    "TP4": false
-  },
-  {
-    "id": "C9-30",
-    "comision": "C9",
-    "orden": 30,
-    "legajo": 59309,
-    "nombre": "Soria, Nicole",
-    "inicial": "NSO",
-    "TP1": false,
-    "cambio": false,
-    "ubicacion": "./30 - 59309 - Soria, Nicole",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-32",
-    "comision": "C9",
-    "orden": 32,
-    "legajo": 59084,
-    "nombre": "Taboada, Jose Manuel",
-    "inicial": "JMT",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./32 - 59084 - Taboada, Jose Manuel",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 7,
-    "comentario_tp3": "No realiza el conteo\nCuando se hace mas de 1 editar en el lugar falla y no se recupera",
-    "TP4": false
-  },
-  {
-    "id": "C9-33",
-    "comision": "C9",
-    "orden": 33,
-    "legajo": 59074,
-    "nombre": "Teseyra, Juan Ignacio",
-    "inicial": "JIT",
-    "TP1": true,
-    "cambio": true,
-    "ubicacion": "./33 - 59074 - Teseyra, Juan Ignacio",
-    "TP2": true,
-    "TP3": true,
-    "nota_tp3": 9,
-    "comentario_tp3": "Al realizar edicion en el lugar no oculta el mostrar ",
-    "TP4": false
-  },
-  {
-    "id": "C9-37",
-    "comision": "C9",
-    "orden": 37,
-    "legajo": 58730,
-    "nombre": "Yñigo Lopez, Lourdes Sofi",
-    "inicial": "LSYL",
-    "TP1": false,
-    "cambio": false,
-    "ubicacion": "./37 - 58730 - Yñigo Lopez, Lourdes Sofi",
-    "TP2": false,
-    "TP3": false,
-    "TP4": false
-  },
-  {
-    "id": "C9-38",
-    "comision": "C9",
-    "orden": 38,
-    "legajo": 59169,
-    "nombre": "Zarlenga, Tobias",
-    "inicial": "TZA",
-    "TP1": false,
-    "cambio": true,
-    "ubicacion": "./38 - 59169 - Zarlenga, Tobias",
-    "TP2": false,
-    "TP3": true,
-    "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en diseño\nIdentico *29 - 59110 - Soria, Joaquin*",
-    "TP4": false
-  }
-]
-    </script>
 
     <script type="text/babel">
-        const { createRoot } = ReactDOM
-        const { useState } = React 
+      const { createRoot } = ReactDOM
+      const { useState, useEffect } = React 
 
-        const comision = datos[0].comision
-        const practicos = ['TP1', 'TP2', 'TP3', 'TP4']
+      function contarEntrega(datos, practico) {
+        const si = datos.filter(alumno => alumno[practico]).length
+        const no = datos.filter(alumno => !alumno[practico]).length
+        return { si, no }
+      }
 
-        function contarEntrega(practico) {
-            const si = datos.filter(alumno => alumno[practico]).length
-            const no = datos.filter(alumno => !alumno[practico]).length
+      function ubicar(origen, practico) {
+          return `${origen}/${practico}/index.html`
+      }
 
-            return { si, no }
-        }
+      const Ver = ({ alumno, entrega }) => {
+          const nota = alumno["nota_tp3"]
+          const comentario = alumno["comentario_tp3"]
 
-        function ubicar(origen, practico) {
-            return `${origen}/${practico}/index.html`
-        }
-
-        const Ver = ({ alumno, entrega }) => {
-            const nota = alumno["nota_tp3"]
-            const comentario = alumno["comentario_tp3"]
-
-            return (
-                <div className="ver">
-                    {
-                    alumno[entrega] 
-                        ? <a href={ubicar(alumno.ubicacion, entrega)}>{entrega} | Ver Trabajo {(entrega == "TP3") && nota && <b>(nota {nota})</b>}</a> 
-                        : <span className="falta">{entrega} ❌</span>
-                    }
-                </div>
-            )
-        }
-
-        const Alumno = ({ alumno }) => {
-            const [apellido, nombre] = alumno.nombre.split(', ')
-            return (
-                <div className="alumno">
-                    <h2><span>{alumno.orden}</span> <b>{apellido}</b>, <i>{nombre}</i></h2>
-                    {practicos.map(practico => <Ver alumno={alumno} entrega={practico} />)}
-                </div>
-            )
-        }
-
-        const Estadistica = () => {
-            return (
-                <div className="alumno">
-                    <table>
-                        <thead>
-                            <th>Prácticos</th>
-                            {practicos.map(practico => <th key={practico}>{practico}</th>)}
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Entregó</th>
-                                {practicos.map(practico => <td key={practico}>{contarEntrega(practico).si}</td>)}
-                            </tr>
-                            <tr>
-                                <th>Falta</th>
-                                {practicos.map(practico => <td key={practico}>{contarEntrega(practico).no}</td>)}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        }
-
-        function incluir(alumno, filtro){
-            const texto = `${alumno.ubicacion} ${alumno.comentario_tp3} ${alumno.nota_tp3}`.toLowerCase();
-            const palabras = filtro.trim().split(" ")
-            // console.log(palabras, palabras.every(palabra => texto.includes(palabra)), texto)
-            return palabras.every(palabra => texto.includes(palabra));
-        }
-
-        const App = () => {
-          let [filtro, setFiltro] = useState("")
-          function filtrar(e){
-            setFiltro(e.target.value.toLowerCase())
-          }
-          let mostrar = datos.filter(a => incluir(a, filtro) )          
           return (
-            <div id="main">
-                <h1>| {comision} | Listado de alumnos</h1>
-                <input type="search" onChange={filtrar} />
-                <Estadistica />
-                {mostrar.map(alumno => <Alumno key={alumno.id} alumno={alumno} />)}
-            </div>
-        )}
+              <div className="ver">
+                  {
+                  alumno[entrega] 
+                      ? <a href={ubicar(alumno.ubicacion, entrega)}>{entrega} | Ver Trabajo {(entrega == "TP3") && nota && <b>(nota {nota})</b>}</a> 
+                      : <span className="falta">{entrega} ❌</span>
+                  }
+              </div>
+          )
+      }
 
-        const root = createRoot(document.getElementById('root'))
-        root.render(<App />);
+      const Alumno = ({ alumno, practicos }) => {
+          const [apellido, nombre] = alumno.nombre.split(', ')
+          return (
+              <div className="alumno">
+                  <h2><span>{alumno.orden}</span> <b>{apellido}</b>, <i>{nombre}</i></h2>
+                  {practicos.map(practico => <Ver alumno={alumno} entrega={practico} />)}
+              </div>
+          )
+      }
+
+      const Estadistica = ({datos, practicos}) => {
+          return (
+              <div className="alumno">
+                  <table>
+                      <thead>
+                          <th>Prácticos</th>
+                          {practicos.map(practico => <th key={practico}>{practico}</th>)}
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th>Entregó</th>
+                              {practicos.map(practico => <td key={practico}>{contarEntrega(datos,practico).si}</td>)}
+                          </tr>
+                          <tr>
+                              <th>Falta</th>
+                              {practicos.map(practico => <td key={practico}>{contarEntrega(datos,practico).no}</td>)}
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          )
+      }
+
+      function normalizar(texto){
+        return texto.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      }
+
+      function incluir(alumno, filtro){
+        filtro = normalizar(filtro)
+        
+        let palabras = filtro.split(" ")
+        let negar    = filtro.startsWith("-")
+        let practico = filtro.toUpperCase().replace("-","")
+        
+        if (palabras.length == 1 && practico.startsWith("TP")){
+            return practico.length >= 3 ? negar != alumno[practico] : true
+        }
+        
+        let texto = normalizar(`${alumno.ubicacion} ${alumno.comentario_tp3} ${alumno.nota_tp3}`)
+        return palabras.every(palabra => texto.includes(palabra));
+      }
+
+      const App = () => {
+        let [datos, setDatos] = useState([])
+        let [filtro, setFiltro] = useState("")
+
+        useEffect(() => { traerDatos() }, [])
+
+        async function traerDatos() {
+          const res = await fetch('datos.json')
+          const json = await res.json()
+          setDatos(json)
+        }
+
+        function filtrar(e){
+          setFiltro(e.target.value.toLowerCase())
+        }
+
+        let mostrar = datos.filter(a => incluir(a, filtro) )          
+        const comision = datos.length > 0 ? datos[0].comision : ''
+        const practicos = datos.length > 0 ? Object.keys(datos[0]).filter(k => k.startsWith("TP")) : [] 
+
+        return (
+          <div id="main">
+              <h1>| {comision} | Listado de alumnos <small>({mostrar.length})</small></h1>
+              <input type="search" onChange={filtrar} />
+              <Estadistica datos={datos} practicos={practicos}/>
+              {mostrar.map(alumno => <Alumno key={alumno.id} alumno={alumno} practicos={practicos}/>)}
+          </div>
+      )}
+
+      const root = createRoot(document.getElementById('root'))
+      root.render(<App />);
     </script>
 </head>
 
