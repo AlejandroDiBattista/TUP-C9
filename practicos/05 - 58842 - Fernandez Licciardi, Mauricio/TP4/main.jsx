@@ -73,7 +73,7 @@ function App() {
                     <div className="tarjeta-clima">
                         <article>
                             <header className="NombreCui"><strong>{datosClima.name}</strong></header>
-                            <img src={`./openweathermap/${datosClima.weather[0].icon}.svg`} alt="Icono del clima" />
+                            <img src={`./iconos/${datosClima.weather[0].icon}.svg`} alt="Icono del clima" />
                             <footer>
                                 <p className="TempCiu"><strong>Temperatura: {datosClima.main.temp}°C</strong></p>
                                 <p>Temp. Mínima: {datosClima.main.temp_min}°C / Temp. Máxima: {datosClima.main.temp_max}°C</p>
