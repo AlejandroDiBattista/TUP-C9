@@ -41,6 +41,7 @@ Para correr las pruebas, deben instalarse las dependencias una única vez median
 
 *Los cambios no aparecerán en el repositorio principal hasta que se acepte el pull request el día del vencimiento del plazo para entregar el trabajo.*
 
-Fecha de entrega: 
-- Comisión 3 y comisión 9: **Sábado  8 hasta las 13hs**
-- Comisión 4 y comisión 5: **Domingo 9 hasta las 23hs**
+> [!IMPORTANT]
+> Fecha de entrega: 
+> - Comisión 3 y comisión 9: **Sábado  8 hasta las 13hs**
+> - Comisión 4 y comisión 5: **Domingo 9 hasta las 23hs**
