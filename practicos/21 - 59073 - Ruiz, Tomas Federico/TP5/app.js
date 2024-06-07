@@ -10,6 +10,9 @@ app.use(cors())
 let datos = [
     { id: 1, nombre: 'Ana', apellido: 'Garcia', edad: 25, borrado: false, actualizado: Date.now() },
     { id: 2, nombre: 'Juan', apellido: 'Lopez', edad: 30, borrado: false, actualizado: Date.now() },
+    { id: 3, nombre: 'Maria', apellido: 'Perez', edad: 35, borrado: false, actualizado: Date.now() },
+    { id: 4, nombre: 'Pedro', apellido: 'Gomez', edad: 40, borrado: false, actualizado: Date.now() },
+    { id: 5, nombre: 'Luis', apellido: 'Gonzalez', edad: 45, borrado: false, actualizado: Date.now() }
     
     
 ]
