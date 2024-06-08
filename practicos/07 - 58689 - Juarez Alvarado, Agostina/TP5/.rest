@@ -1,0 +1,19 @@
+GET http://localhost:3000/personas
+
+
+###
+
+
+
+PUT http://localhost:3000/personas
+Content-Type: application/json
+
+{
+    
+    "nombre": "juan",
+    "apellido": "Bustamante",
+    "edad": 20,
+    "borrado": false,
+    "actualizado": 1717835897030
+  
+}

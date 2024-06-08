@@ -1,0 +1,16 @@
+
+### Traer todas las personas
+
+GET http://localhost:3000/productos 
+
+### Crear una persona
+
+POST http://localhost:3000/productos
+Content-Type: application/json
+X-Input: "Esto es lo que estoy enviando"
+
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "edad": 30
+}

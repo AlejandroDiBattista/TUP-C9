@@ -34,6 +34,7 @@ app.get("/productos", (req, res) => {
 app.post("/productos", (req, res) => {
     let producto = req.body
     productos = [...productos, producto];
+    res.header("X-Ouput", `EL valor fue`)
     res.json(producto)
 })
 
@@ -55,7 +56,7 @@ app.use(noCincos)
 // app.put("/personas/:id", updatePersonas)
 // app.delete("/personas/:id", deletePersonas)
 
-app.use("/personas", router)
+// app.use("/personas", router)
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000")
