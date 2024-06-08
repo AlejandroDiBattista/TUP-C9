@@ -9,9 +9,12 @@ PUT http://localhost:3000/personas
 Content-Type: application/json
 
 {
-  "id": 19,
-  "borrado": false
+    
+    "nombre": "juan",
+    "apellido": "Bustamante",
+    "edad": 20,
+    "borrado": false,
+    "actualizado": 1717835897030
+  
 }
-
-
 

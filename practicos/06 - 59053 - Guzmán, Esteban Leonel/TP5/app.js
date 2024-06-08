@@ -29,16 +29,12 @@ app.put('/personas', (req, res) => {
             if (persona.borrado) {
                 datos[index].borrado = true;
                 datos[index].actualizado = Date.now();
-                res.status(201).json(datos[index]);
             } else {
                 datos[index] = { ...datos[index], ...persona, actualizado: Date.now() };
-                res.status(201).json(datos[index]);
             }
+            res.status(201).json(datos[index]);
         } else {
-            // Persona no encontrada, agregarla al array
-            persona.actualizado = Date.now();
-            datos.push(persona);
-            res.status(201).json(persona);
+            res.status(404).send({ error: 'Persona no encontrada' });
         }
     } else {
         // Crear nueva persona con un nuevo ID
