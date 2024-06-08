@@ -9,7 +9,7 @@ app.use(cors());
 let datos = [
     { id: 1, nombre: 'Agostina', apellido: 'Juarez', edad: 25, borrado: false, actualizado: Date.now() },
     { id: 2, nombre: 'Augusto', apellido: 'Gutierrez', edad: 30, borrado: false, actualizado: Date.now() },
-    { id: 3, nombre: 'Maria', apellido: 'Gonzalez', edad: 35, borrado: false, actualizado: Date.now() },
+    { id: 3, nombre: 'Micaela', apellido: 'Gonzalez', edad: 35, borrado: false, actualizado: Date.now() },
     { id: 4, nombre: 'Daiana', apellido: 'Bustamante', edad: 28, borrado: false, actualizado: Date.now() },
     { id: 5, nombre: 'Evelin', apellido: 'Pereyra', edad: 22, borrado: false, actualizado: Date.now() },
 ];
