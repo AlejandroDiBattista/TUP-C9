@@ -1,0 +1,14 @@
+
+GET http://localhost:3000/personas 
+
+### Crear una persona
+
+PUT http://localhost:3000/personas
+Content-Type: application/json
+X-Input: "Esto es lo que estoy enviando"
+
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "edad": 30
+}
