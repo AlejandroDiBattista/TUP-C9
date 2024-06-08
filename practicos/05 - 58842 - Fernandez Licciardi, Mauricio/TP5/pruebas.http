@@ -1,0 +1,13 @@
+### Traer todas las personas
+GET http://localhost:3000/personas 
+
+### Crear una persona
+
+PUT http://localhost:3000/personas
+Content-Type: application/json
+
+{
+    "nombre": "Mauricio",
+    "apellido": "Fer Licc",
+    "edad": 20
+}
