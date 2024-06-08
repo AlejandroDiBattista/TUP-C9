@@ -1,0 +1,17 @@
+GET http://localhost:3000/personas
+
+
+###
+
+
+
+PUT http://localhost:3000/personas
+Content-Type: application/json
+
+{
+  "id": 19,
+  "borrado": false
+}
+
+
+
