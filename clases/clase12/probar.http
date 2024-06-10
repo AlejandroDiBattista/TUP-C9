@@ -1,0 +1,18 @@
+@url = http://localhost:3000
+### Leer
+
+GET {{url}}/valor
+
+
+### Escribir
+
+PUT {{url}}/incrementar
+Content-Type: application/json
+
+{
+    "incremento": 100
+}
+
+### Traer archivo
+
+GET {{url}}/estilo.css
