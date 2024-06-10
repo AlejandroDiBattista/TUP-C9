@@ -1,0 +1,39 @@
+
+### Traer todos los usuarios
+GET http://localhost:3000/usuarios
+
+### Registrar ADMIN
+POST http://localhost:3000/registrar
+Content-Type: application/json
+
+{
+    "user": "admin",
+    "password": "1234"
+}
+
+### Registrar ADIBATTISTA
+POST http://localhost:3000/registrar
+Content-Type: application/json
+
+{
+    "user": "adibattista",
+    "password": "4444"
+}
+
+### Login con adibattista
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "user": "adibattista",
+    "password": "4444"
+}
+
+### Logout 
+POST http://localhost:3000/logout
+Authorization: 5325666271758505
+
+### Perdir info
+GET http://localhost:3000/info
+Authorization: 5325666271758505
