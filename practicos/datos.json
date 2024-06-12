@@ -12,10 +12,10 @@
     "comentario_tp3": "No valida la cantidad.\nLa alta la hace en página separa\nEditar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-02",
@@ -29,9 +29,9 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-03",
@@ -46,10 +46,10 @@
     "comentario_tp3": "No respeta el diseño\nNo implementa el incremento",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-04",
@@ -65,7 +65,7 @@
     "tp3": false,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-05",
@@ -80,10 +80,10 @@
     "comentario_tp3": "Ubicacion de botones mal en editar",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-06",
@@ -98,10 +98,10 @@
     "comentario_tp3": "",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-07",
@@ -116,10 +116,10 @@
     "comentario_tp3": "La funcion setMostrarFormulario no esta definida ",
     "tp1": true,
     "tp2": false,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-08",
@@ -134,10 +134,10 @@
     "comentario_tp3": "Diseño diferente\nNo incrementa contador",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-09",
@@ -151,9 +151,9 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-10",
@@ -168,10 +168,10 @@
     "comentario_tp3": "Diseño y funcionamiento exacto.\nProblema con localStorage al usar el mismo nombre que otros usuarios.",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-12",
@@ -186,10 +186,10 @@
     "comentario_tp3": "Diferencias minimas en diseño\nmanejaCantidad es mas complicado de lo necesario.",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-13",
@@ -204,10 +204,10 @@
     "comentario_tp3": "Difencia minimas en diseño",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-14",
@@ -222,10 +222,10 @@
     "comentario_tp3": "Diseño cambia con el ancho de la pantalla",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-15",
@@ -240,10 +240,10 @@
     "comentario_tp3": "Diferencia minimas en diseño\nUsa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-16",
@@ -257,9 +257,9 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
+    "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-17",
@@ -273,9 +273,9 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-18",
@@ -290,10 +290,10 @@
     "comentario_tp3": "El diseño es diferente",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-19",
@@ -308,10 +308,10 @@
     "comentario_tp3": "Diferencia minima en diseño formulario",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-20",
@@ -326,10 +326,10 @@
     "comentario_tp3": "Diseño cambia con el ancho de navegador",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-21",
@@ -344,10 +344,10 @@
     "comentario_tp3": "Validación muy extraña en *cancelar*",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-22",
@@ -362,10 +362,10 @@
     "comentario_tp3": "Diseño cambia con ancho pantalla.\nBotones en ingles!!",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-23",
@@ -379,9 +379,9 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-24",
@@ -396,10 +396,10 @@
     "comentario_tp3": "No realiza el conteo ni la edicion en el lugar",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-25",
@@ -414,10 +414,10 @@
     "comentario_tp3": "Diferencia mínima en el diseño",
     "tp1": true,
     "tp2": false,
-    "tp3": false,
-    "tp4": false,
+    "tp3": true,
+    "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-26",
@@ -432,10 +432,10 @@
     "comentario_tp3": "Los iconos se salen del Mostrar\nAgrega \"key\" fuera de la generacion de una lista",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-27",
@@ -450,10 +450,10 @@
     "comentario_tp3": "Diferencia mínima en diseño\nCuriosidad usa 27 \"text-overflow: ellipsis\"",
     "tp1": false,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-28",
@@ -468,10 +468,10 @@
     "comentario_tp3": "No se puede cancelar \"Alta\"",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-29",
@@ -486,10 +486,10 @@
     "comentario_tp3": "Diferencia minima en diseño\nEl orden alfabetico es el mejor resuelto\nIdentico a *38 - 59169 - Zarlenga, Tobias*",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
-    "tp4": false,
+    "tp3": true,
+    "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-30",
@@ -503,9 +503,9 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-31",
@@ -520,10 +520,10 @@
     "comentario_tp3": "Diferencias minimas en diseño",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-32",
@@ -538,10 +538,10 @@
     "comentario_tp3": "No realiza el conteo\nCuando se hace mas de 1 editar en el lugar falla y no se recupera",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-33",
@@ -556,10 +556,10 @@
     "comentario_tp3": "Al realizar edicion en el lugar no oculta el mostrar ",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-34",
@@ -574,10 +574,10 @@
     "comentario_tp3": "Diferencias minimas en diseño",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
-    "tp5": false,
-    "tp6": false
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-35",
@@ -592,10 +592,10 @@
     "comentario_tp3": "Usa regex para validar EAN\nFaltaba cerrar un div y habia un margin -105 que rompia el diseño",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
+    "tp3": true,
     "tp4": true,
-    "tp5": false,
-    "tp6": false
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-36",
@@ -610,10 +610,10 @@
     "comentario_tp3": "Realiza copia de array antes de ordenar",
     "tp1": true,
     "tp2": true,
-    "tp3": false,
-    "tp4": false,
+    "tp3": true,
+    "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-37",
@@ -627,9 +627,9 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-38",
@@ -644,9 +644,9 @@
     "comentario_tp3": "Diferencia mínima en diseño\nIdentico *29 - 59110 - Soria, Joaquin*",
     "tp1": false,
     "tp2": false,
-    "tp3": false,
-    "tp4": false,
-    "tp5": false,
-    "tp6": false
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": true
   }
 ]
