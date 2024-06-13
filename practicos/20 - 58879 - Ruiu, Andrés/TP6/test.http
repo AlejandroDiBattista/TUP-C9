@@ -1,0 +1,27 @@
+###Ver todos los usuarios
+GET http://localhost:3000/users HTTP/1.1
+
+### Registrar usuario
+POST http://localhost:3000/register HTTP/1.1
+content-type: application/json
+
+{
+  "username": "andresruiu",
+  "password": "testpassword"
+}
+
+### Iniciar sesión
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "andresruiu",
+  "password": "testpassword"
+}
+
+### Cerrar sesión
+GET http://localhost:3000/logout HTTP/1.1
+
+### Info solo para usuarios autenticados
+GET http://localhost:3000/info HTTP/1.1
+Cookie: token= 
