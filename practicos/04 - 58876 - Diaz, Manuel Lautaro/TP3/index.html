@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRUEBA</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const ContactoInicial = [
+            { id: 1, nombre: "Coca Cola", apellido: "10", telefono: "4869375849264" },
+            { id: 2, nombre: "Pepsi", apellido: "5", telefono: "0694527584928" },
+            { id: 3, nombre: "Fanta", apellido: "20", telefono: "2574839504955" },
+            { id: 4, nombre: "Sprite", apellido: "30", telefono: "3526678503948" },
+            { id: 5, nombre: "7up", apellido: "7", telefono: "275938593758392" },
+        ];
+
+        function Editar({ contacto, alGuardar, alCancelar }) {
+            let [nombre, setNombre] = useState(contacto.nombre || '');
+            let [apellido, setApellido] = useState(contacto.apellido || '');
+            let [telefono, setTelefono] = useState(contacto.telefono || '');
+
+            const cambiarNombre = (e) => setNombre(e.target.value);
+            const cambiarApellido = (e) => setApellido(e.target.value);
+            const cambiarTelefono = (e) => setTelefono(e.target.value);
+
+            const guardar = (e) => {
+                e.preventDefault();
+                alGuardar({ ...contacto, nombre, apellido, telefono });
+            };
+
+            const cancelar = (e) => {
+                e.preventDefault();
+                alCancelar();
+            };
+
+            return (
+                <form className="panel">
+                    <input type="text" value={nombre} onChange={cambiarNombre} placeholder="Descripción" />
+                    <input type="text" value={apellido} onChange={cambiarApellido} placeholder="Cantidad" />
+                    <input type="text" value={telefono} onChange={cambiarTelefono} placeholder="ID" />
+
+                    <div className="btnAcciones">
+                        <button onClick={guardar}>Guardar</button>
+                        <button onClick={cancelar}>Cancelar</button>
+                    </div>
+                </form>
+            );
+        }
+
+        function Mostrar({ contacto, alEditar, alBorrar }) {
+            return (
+                <div className="panel">
+                    <p><strong>Descripción:</strong> {contacto.nombre}</p>
+                    <p><strong>Cantidad:</strong> {contacto.apellido}</p>
+                    <p><strong>ID:</strong> {contacto.telefono}</p>
+                    <div className="btnAcciones">
+                        <button onClick={alEditar}>Editar</button>
+                        <button onClick={alBorrar}>Borrar</button>
+                    </div>
+                </div>
+            );
+        }
+        function Agenda({ contactos, alEditar, alBorrar, alAgregar }) {
+            return (
+                <>
+                  
+                    <button className="btnAgregar" onClick={alAgregar}>Agregar producto</button>
+
+
+                    <br />
+                    {contactos.length === 0
+                        ? <h2>No hay productos</h2>
+                        : contactos.map(contacto =>
+                            <Mostrar
+                                key={contacto.id}
+                                contacto={contacto}
+                                alEditar={() => alEditar(contacto.id)}
+                                alBorrar={() => alBorrar(contacto.id)}
+                            />
+                        )
+                    }
+                </>
+            );
+        }
+
+
+        function App() {
+            let [contacto, setContacto] = useState({});
+            let [editando, setEditando] = useState(false);
+            let [contactos, setContactos] = useState(ContactoInicial);
+
+            const guardar = (contacto) => {
+                if (contacto.id) {
+                    let copia = contactos.map(c => c.id === contacto.id ? contacto : c);
+                    setContactos(copia);
+                } else {
+                    let id = contactos.length ? Math.max(...contactos.map(c => c.id)) + 1 : 1;
+                    contacto.id = id;
+                    setContactos([...contactos, contacto]);
+                }
+                setEditando(false);
+            };
+
+            const cancelar = () => {
+                setContacto({});
+                setEditando(false);
+            };
+
+            const editar = (id) => {
+                let contacto = contactos.find(c => c.id === id);
+                setContacto(contacto);
+                setEditando(true);
+            };
+
+            const borrar = (id) => {
+                let copia = contactos.filter(c => c.id !== id);
+                setContactos(copia);
+            };
+
+            const agregar = () => {
+                setContacto({});
+                setEditando(true);
+            };
+
+            return (
+                <>
+                    <div className="header">
+                        <h1>Lista de productos</h1>
+                    </div>
+                    {editando
+                        ? <Editar contacto={contacto} alGuardar={guardar} alCancelar={cancelar} />
+                        : <Agenda contactos={contactos} alEditar={editar} alBorrar={borrar} alAgregar={agregar} />
+                    }
+                </>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
