@@ -1,9 +1,97 @@
 body {
+    margin: 0;
     background-color: #ccc;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 125vh;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#root {
-    margin: 0 auto;
-    max-width: 500px;
+nav strong {
+    font-size: 35px;
+    color: rgb(43, 43, 43);
+}
+
+nav {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+}
+
+.pError p {
+    margin: 20px auto;
+    font-size: 30px;
+    text-align: center;
+}
+
+a {
+    color: rgb(23, 125, 166);
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(97, 151, 173)
+}
+
+input {
+    background-color: white;
+    border-color: white;
+    color: rgb(43, 43, 43);
+}
+
+input::placeholder {
+    color: #706f6f;
+}
+
+input[type="search"]{
+    height: 45px;
+    color: rgb(43,43,43);
+    background-color: white;
+}
+    
+input[type="search"]{
+    outline: none;
+}
+        
+input[type="search"]:hover {
+    border-color:white;
+    border: 1px solid #ccc;
+}
+
+article {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+header {
+    color: rgb(43, 43, 43);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.marco {
+    background-color: #ADD9E6;
+    border-radius: 10px;
+}
+
+footer, p {
+    margin: 2px 0;
+    color: rgb(43, 43, 43);
+    font-size: 17px;
+}
+
+footer, h6{
+    color: black;
+}
+
+.Temp {
+    font-size: 20px;
+    color: rgb(43,43,43);
+}
+
+.errorCiudad{
+    color: red;
 }
