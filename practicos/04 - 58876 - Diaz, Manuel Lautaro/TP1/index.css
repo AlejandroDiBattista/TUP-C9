@@ -1,7 +1,51 @@
 body {
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#root {
+    width: 50%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;  /* Centrar el texto del h1 */
+    border-radius: 10px;  /* Añadir esquinas redondeadas al contenedor */
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar los elementos en la línea principal */
+    gap: 20px;
+}
+
+.contact-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Ajusta el valor según el radio de las esquinas que desees */
+    padding: 15px;
+    width: calc(50% - 20px); /* Ajustar el ancho de las tarjetas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left; /* Asegurar que el texto dentro de la tarjeta esté alineado a la izquierda */
+}
+
+
+.contact-card h2 {
+    margin-top: 0;
+}
+
+.contact-card p {
+    margin: 5px 0;
 }
