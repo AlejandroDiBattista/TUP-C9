@@ -89,7 +89,6 @@ let datos = [
   },
 ];
 
-// Función para obtener una persona por ID
 const obtenerPersonaPorId = (idPersona) => {
   return datos.find((persona) => persona.id === idPersona && !persona.borrado);
 };
@@ -109,7 +108,6 @@ aplicacion.get("/personas/:id", (req, res) => {
   }
 });
 
-// Función para actualizar datos de una persona
 const actualizarPersona = (idPersona, nuevosDatos) => {
   const indice = datos.findIndex((persona) => persona.id === idPersona);
   if (indice !== -1) {
@@ -117,7 +115,7 @@ const actualizarPersona = (idPersona, nuevosDatos) => {
     datos[indice].actualizado++;
     return datos[indice];
   } else {
-    return null; // Persona no encontrada
+    return null;
   }
 };
 
