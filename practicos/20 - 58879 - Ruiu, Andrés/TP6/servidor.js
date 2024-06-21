@@ -12,12 +12,14 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('public'));
 
+
+app.listen(3000, () => {
+  console.log(`El servidor está corriendo en el puerto http://localhost:3000`);
+});
+
+const JWT_SECRET='clave_megasecreta'
 let users = [];
 
-app.get('/users', (req, res) => {
-  const usernames = users.map(user => (user));
-  res.status(200).json(usernames);
-});
 
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
@@ -35,6 +37,7 @@ app.post('/register', (req, res) => {
   res.status(201).json({ message: 'Usuario creado exitosamente' });
 });
 
+
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -47,12 +50,13 @@ app.post('/login', (req, res) => {
     return res.status(401).json({ message: 'Credenciales inválidas' });
   }
 
-  const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '1h' });
   res.cookie('token', token, { httpOnly: true, secure: true });
-  res.status(200).json({ message: 'Inicio de sesión exitoso' });
+  res.status(200).json({ message: 'Inicio de sesión exitoso', token });
 });
 
-app.get('/logout', (req, res) => {
+
+app.get('/logout',authenticateUser, (req, res) => {
   res.clearCookie('token');
   res.status(200).json({ message: 'Sesión cerrada exitosamente' });
 });
@@ -62,14 +66,20 @@ app.get('/info', authenticateUser, (req, res) => {
   res.status(200).json({ message: `Bienvenido a la página de información, ${username}` });
 });
 
+
 function authenticateUser(req, res, next) {
-  const token = req.cookies.token;
+  let token = req.cookies.token;
+
+  if (!token && req.headers.authorization) {
+    token = req.headers.authorization;
+  }
+
   if (!token) {
     return res.status(401).json({ message: 'No autorizado' });
   }
 
   try {
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const decodedToken = jwt.verify(token, JWT_SECRET);
     req.user = decodedToken;
     next();
   } catch (error) {
@@ -77,7 +87,3 @@ function authenticateUser(req, res, next) {
   }
 }
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`El servidor está corriendo en el puerto ${PORT}`);
-});
