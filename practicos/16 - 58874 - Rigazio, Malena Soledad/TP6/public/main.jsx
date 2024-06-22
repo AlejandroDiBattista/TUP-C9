@@ -137,8 +137,9 @@ function App() {
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </form>
             )}
+            
             {loggedIn && (
-                // dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
                 <div className="card">
                     <h2>Información Protegida</h2>
                     {infVis && (
