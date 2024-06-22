@@ -14,10 +14,18 @@ html {
     margin: 0 auto;
     padding: 10px;
 }
-
-h1,h2,h3,h4,h5,h6 {
+h1 { 
+    color: #333;
+    margin: 10px 2px;
+}
+h2 {
+    color: darkblue;
+    margin: 8px 0;
+}
+h3,h4,h5,h6 {
     color: #333;
     margin: 8px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 button {
