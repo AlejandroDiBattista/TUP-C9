@@ -65,7 +65,9 @@
     "tp3": false,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-05",
@@ -83,7 +85,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-06",
@@ -101,7 +105,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-07",
@@ -119,7 +125,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-08",
@@ -137,7 +145,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-09",
@@ -171,7 +181,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-12",
@@ -189,7 +201,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-13",
@@ -207,7 +221,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-14",
@@ -225,7 +241,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-15",
@@ -259,7 +277,9 @@
     "tp3": false,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-17",
@@ -311,7 +331,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-20",
@@ -329,7 +351,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-21",
@@ -347,7 +371,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-22",
@@ -365,7 +391,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-23",
@@ -399,7 +427,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-25",
@@ -435,7 +465,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-27",
@@ -489,7 +521,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-30",
@@ -523,7 +557,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-32",
@@ -559,7 +595,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-34",
@@ -577,7 +615,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-35",
@@ -595,7 +635,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": true
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-36",
@@ -613,7 +655,9 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "nota_tp6": 0,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-37",
