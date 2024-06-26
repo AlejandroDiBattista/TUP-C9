@@ -1,25 +1,13 @@
-/* src/ContactCard.css */
-.contact-card {
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
+/* src/App.css */
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 
-.contact-header {
+.contact-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  outline: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
