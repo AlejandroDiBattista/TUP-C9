@@ -503,7 +503,7 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true
   },
   {
     "id": "C9-29",
@@ -572,12 +572,12 @@
     "ubicacion": "./32 - 59084 - Taboada, Jose Manuel",
     "nota_tp3": 7,
     "comentario_tp3": "No realiza el conteo\nCuando se hace mas de 1 editar en el lugar falla y no se recupera",
-    "tp1": false,
-    "tp2": false,
+    "tp1": true,
+    "tp2": true,
     "tp3": true,
-    "tp4": true,
-    "tp5": false,
-    "tp6": false
+    "tp4": false,
+    "tp5": true,
+    "tp6": true
   },
   {
     "id": "C9-33",
@@ -668,8 +668,8 @@
     "inicial": "LSYL",
     "cambio": false,
     "ubicacion": "./37 - 58730 - Yñigo Lopez, Lourdes Sofi",
-    "tp1": false,
-    "tp2": false,
+    "tp1": true,
+    "tp2": true,
     "tp3": false,
     "tp4": true,
     "tp5": false,
