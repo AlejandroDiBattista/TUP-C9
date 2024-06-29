@@ -1,59 +1,90 @@
+import React, { useState, useEffect } from 'react';
 
-import React, { useState } from 'react';
-import axios from 'axios';
-import WeatherCard from './WeatherCard';
-import './App.css';
-
-const API_KEY = '213b37f874cbb0f31df20a643eaa8e80';
+const API_KEY = 'e548fd24659d5b0e72c9ca1371bee9f5';
 
 function App() {
-  const [city, setCity] = useState('');
-  const [weatherData, setWeatherData] = useState(null);
+    const [climaData, setClimaData] = useState(null);
+    const [consulta, setConsulta] = useState('');
+    const [ciudadNoEncontrada, setCiudadNoEncontrada] = useState(false);
 
-  const fetchWeather = async (cityName) => {
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}&lang=es`
-      );
-      setWeatherData(response.data);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-      setWeatherData(null);
-    }
-  };
+    useEffect(() => {
+        obtenerClima('Tucuman'); 
+    }, []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (city) {
-      fetchWeather(city);
-    }
-  };
+    const obtenerClima = async (ciudad) => {
+        try {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}&lang=es&units=metric`);
+            const data = await response.json();
+            if (response.ok) {
+                setClimaData(data);
+                setCiudadNoEncontrada(false);
+                setConsulta(''); 
+            } else {
+                setCiudadNoEncontrada(true);
+            }
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+        }
+    };
 
-  const handleCityClick = (cityName) => {
-    setCity(cityName);
-    fetchWeather(cityName);
-  };
+    const manejarClickCiudad = (ciudad) => {
+        obtenerClima(ciudad);
+    };
 
-  return (
-    <div className="App">
-      <h1>Clima Actual</h1>
-      <div className="city-links">
-        <button onClick={() => handleCityClick('Tucuman')}>Tucumán</button>
-        <button onClick={() => handleCityClick('Salta')}>Salta</button>
-        <button onClick={() => handleCityClick('Buenos Aires')}>Buenos Aires</button>
-      </div>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Buscar ciudad"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button type="submit">Buscar</button>
-      </form>
-      {weatherData && <WeatherCard weatherData={weatherData} />}
-    </div>
-  );
+    const manejarCambioConsulta = (event) => {
+        setConsulta(event.target.value);
+    };
+
+    const manejarSubmitConsulta = (event) => {
+        event.preventDefault();
+        obtenerClima(consulta);
+    };
+
+    const manejarKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            obtenerClima(consulta);
+        }
+    };
+
+    return (
+        <>
+            <h1>App Clima</h1>
+            <nav>
+                <ul>
+                    <li><strong>Clima</strong></li>
+                </ul>
+                <ul>
+                    <li><a href="#" onClick={() => { manejarClickCiudad('Tucuman'); setConsulta(''); }}>Tucumán</a></li>
+                    <li><a href="#" onClick={() => { manejarClickCiudad('Salta'); setConsulta(''); }}>Salta</a></li>
+                    <li><a href="#" onClick={() => { manejarClickCiudad('Buenos Aires'); setConsulta(''); }}>Buenos Aires</a></li>
+                </ul>
+            </nav>
+
+            <form onSubmit={manejarSubmitConsulta}>
+                <input
+                    type="search" name="search" value={consulta} onChange={manejarCambioConsulta} onKeyPress={manejarKeyPress} placeholder="Buscar ciudad" aria-label="Buscar ciudad"
+                />
+            </form>
+
+            {ciudadNoEncontrada && <p>Ciudad no encontrada</p>}
+
+            {climaData && !ciudadNoEncontrada && (
+                <article>
+                    <header style={{ backgroundColor: 'White' }}>{climaData.name}</header>
+
+                    <div className="marco">
+                        <img src={`iconos/${climaData.weather[0].icon}.svg`} alt={climaData.weather[0].description} height="48" />
+                    </div>
+
+                    <footer style={{ backgroundColor: 'White' }}>
+                        <p className="Temp">Temperatura: {climaData.main.temp}°C</p>
+                        <p>Máxima: {climaData.main.temp_max}°C / Mínima: {climaData.main.temp_min}°C</p>
+                        <p>Humedad: {climaData.main.humidity}%</p>
+                    </footer>
+                </article>
+            )}
+        </>
+    );
 }
 
 export default App;
