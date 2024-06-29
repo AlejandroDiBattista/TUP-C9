@@ -29,7 +29,7 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -161,7 +161,7 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -259,7 +259,7 @@
     "tp1": true,
     "tp2": true,
     "tp3": true,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -293,7 +293,7 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -407,7 +407,7 @@
     "tp1": true,
     "tp2": false,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -445,7 +445,7 @@
     "tp1": true,
     "tp2": false,
     "tp3": true,
-    "tp4": true,
+    "tp4": false,
     "tp5": true,
     "tp6": false
   },
@@ -537,7 +537,7 @@
     "tp1": false,
     "tp2": false,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -575,7 +575,7 @@
     "tp1": true,
     "tp2": true,
     "tp3": true,
-    "tp4": false,
+    "tp4": true,
     "tp5": true,
     "tp6": true
   },
@@ -671,7 +671,7 @@
     "tp1": true,
     "tp2": true,
     "tp3": false,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   },
@@ -689,7 +689,7 @@
     "tp1": false,
     "tp2": false,
     "tp3": true,
-    "tp4": true,
+    "tp4": false,
     "tp5": false,
     "tp6": false
   }
