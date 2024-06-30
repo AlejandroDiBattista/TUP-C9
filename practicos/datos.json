@@ -9,13 +9,14 @@
     "cambio": true,
     "ubicacion": "./01 - 59336 - Bulan Georgieff, Alexander",
     "nota_tp3": 8,
-    "comentario_tp3": "No valida la cantidad.\nLa alta la hace en página separa\nEditar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
+    "comentario_tp3": "No valida la cantidad.;La alta la hace en página separa;Editar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
     "tp1": true,
     "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": true,
+    "TP3": true
   },
   {
     "id": "C9-02",
@@ -31,7 +32,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-03",
@@ -43,13 +45,14 @@
     "cambio": true,
     "ubicacion": "./03 - 58690 - Diaz, Facundo Gabriel",
     "nota_tp3": 6,
-    "comentario_tp3": "No respeta el diseño\nNo implementa el incremento",
+    "comentario_tp3": "No respeta el diseño;No implementa el incremento",
     "tp1": true,
     "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   },
   {
     "id": "C9-04",
@@ -67,7 +70,10 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true,
+    "nota_tp3": 6,
+    "comentario_tp3": "No incrementa el contador;No realiza al edicion en el lugar.;La edicion y la alta la realiza en otra pagina"
   },
   {
     "id": "C9-05",
@@ -87,7 +93,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-06",
@@ -107,7 +114,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-07",
@@ -127,7 +135,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-08",
@@ -139,7 +148,7 @@
     "cambio": true,
     "ubicacion": "./08 - 59058 - Monaco Torrente, Matias",
     "nota_tp3": 8,
-    "comentario_tp3": "Diseño diferente\nNo incrementa contador",
+    "comentario_tp3": "Diseño diferente;No incrementa contador",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -147,7 +156,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-09",
@@ -163,7 +173,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-10",
@@ -175,7 +186,7 @@
     "cambio": true,
     "ubicacion": "./10 - 59310 - Paz Berrondo, Nahuel Agus",
     "nota_tp3": 10,
-    "comentario_tp3": "Diseño y funcionamiento exacto.\nProblema con localStorage al usar el mismo nombre que otros usuarios.",
+    "comentario_tp3": "Diseño y funcionamiento exacto.;Problema con localStorage al usar el mismo nombre que otros usuarios.",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -183,7 +194,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-12",
@@ -195,7 +207,7 @@
     "cambio": true,
     "ubicacion": "./12 - 58679 - Pereyra, Franco Sebastián",
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencias minimas en diseño\nmanejaCantidad es mas complicado de lo necesario.",
+    "comentario_tp3": "Diferencias minimas en diseño;manejaCantidad es mas complicado de lo necesario.",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -203,7 +215,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-13",
@@ -223,7 +236,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-14",
@@ -243,7 +257,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-15",
@@ -255,13 +270,14 @@
     "cambio": true,
     "ubicacion": "./15 - 52142 - Reyes Gordillo, Rodrigo M",
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencia minimas en diseño\nUsa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
+    "comentario_tp3": "Diferencia minimas en diseño;Usa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
     "tp1": true,
     "tp2": true,
     "tp3": true,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   },
   {
     "id": "C9-16",
@@ -279,7 +295,10 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true,
+    "nota_tp3": 6,
+    "comentario_tp3": "No incrementa el producto;No realiza la edición en el lugar;Los formulario se muestra en otra pagina;El diseño no se respeta"
   },
   {
     "id": "C9-17",
@@ -295,7 +314,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-18",
@@ -313,7 +333,8 @@
     "tp3": true,
     "tp4": true,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   },
   {
     "id": "C9-19",
@@ -333,7 +354,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-20",
@@ -353,7 +375,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-21",
@@ -373,7 +396,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-22",
@@ -385,7 +409,7 @@
     "cambio": true,
     "ubicacion": "./22 - 58847 - Sanchez, Tomas Emanuel",
     "nota_tp3": 9,
-    "comentario_tp3": "Diseño cambia con ancho pantalla.\nBotones en ingles!!",
+    "comentario_tp3": "Diseño cambia con ancho pantalla.;Botones en ingles!!",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -393,7 +417,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-23",
@@ -409,7 +434,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-24",
@@ -429,7 +455,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-25",
@@ -447,7 +474,8 @@
     "tp3": true,
     "tp4": false,
     "tp5": true,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   },
   {
     "id": "C9-26",
@@ -459,7 +487,7 @@
     "cambio": true,
     "ubicacion": "./26 - 59320 - Sbrocco, Micaela",
     "nota_tp3": 9,
-    "comentario_tp3": "Los iconos se salen del Mostrar\nAgrega \"key\" fuera de la generacion de una lista",
+    "comentario_tp3": "Los iconos se salen del Mostrar;Agrega \"key\" fuera de la generacion de una lista",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -467,7 +495,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-27",
@@ -479,13 +508,14 @@
     "cambio": true,
     "ubicacion": "./27 - 59568 - Serrano, Lorenzo",
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en diseño\nCuriosidad usa 27 \"text-overflow: ellipsis\"",
+    "comentario_tp3": "Diferencia mínima en diseño;Curiosidad usa 27 \"text-overflow: ellipsis\"",
     "tp1": false,
     "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   },
   {
     "id": "C9-28",
@@ -503,7 +533,8 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": true
+    "tp6": true,
+    "TP3": true
   },
   {
     "id": "C9-29",
@@ -515,7 +546,7 @@
     "cambio": true,
     "ubicacion": "./29 - 59110 - Soria, Joaquin",
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencia minima en diseño\nEl orden alfabetico es el mejor resuelto\nIdentico a *38 - 59169 - Zarlenga, Tobias*",
+    "comentario_tp3": "Diferencia minima en diseño;El orden alfabetico es el mejor resuelto;Identico a *38 - 59169 - Zarlenga, Tobias*",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -523,7 +554,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-30",
@@ -539,7 +571,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-31",
@@ -559,7 +592,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-32",
@@ -571,13 +605,14 @@
     "cambio": true,
     "ubicacion": "./32 - 59084 - Taboada, Jose Manuel",
     "nota_tp3": 7,
-    "comentario_tp3": "No realiza el conteo\nCuando se hace mas de 1 editar en el lugar falla y no se recupera",
+    "comentario_tp3": "No realiza el conteo;Cuando se hace mas de 1 editar en el lugar falla y no se recupera",
     "tp1": true,
     "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": true
+    "tp6": true,
+    "TP3": true
   },
   {
     "id": "C9-33",
@@ -597,7 +632,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-34",
@@ -617,7 +653,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-35",
@@ -629,7 +666,7 @@
     "cambio": true,
     "ubicacion": "./35 - 59056 - Villafañe, Lucas Gastón",
     "nota_tp3": 9,
-    "comentario_tp3": "Usa regex para validar EAN\nFaltaba cerrar un div y habia un margin -105 que rompia el diseño",
+    "comentario_tp3": "Usa regex para validar EAN;Faltaba cerrar un div y habia un margin -105 que rompia el diseño",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -637,7 +674,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-36",
@@ -657,7 +695,8 @@
     "tp5": true,
     "tp6": true,
     "nota_tp6": 0,
-    "comentario_tp6": ""
+    "comentario_tp6": "",
+    "TP3": true
   },
   {
     "id": "C9-37",
@@ -673,7 +712,8 @@
     "tp3": false,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": false
   },
   {
     "id": "C9-38",
@@ -685,12 +725,13 @@
     "cambio": true,
     "ubicacion": "./38 - 59169 - Zarlenga, Tobias",
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en diseño\nIdentico *29 - 59110 - Soria, Joaquin*",
+    "comentario_tp3": "Diferencia mínima en diseño;Identico *29 - 59110 - Soria, Joaquin*",
     "tp1": false,
     "tp2": false,
     "tp3": true,
     "tp4": false,
     "tp5": false,
-    "tp6": false
+    "tp6": false,
+    "TP3": true
   }
 ]

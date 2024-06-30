@@ -11,6 +11,12 @@
 - No respeta el diseño
 - No implementa el incremento
 
+## 04 - 58876 - Diaz, Manuel Lautaro
+- Nota: 6
+- No incrementa el contador
+- No realiza al edicion en el lugar.
+- La edicion y la alta la realiza en otra pagina
+
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
 - Nota: 9
 - Ubicacion de botones mal en editar
@@ -49,6 +55,13 @@
 - Nota: 10
 - Diferencia minimas en diseño
 - Usa formulario "no controlado" en donde *manejaCambio* se usa fuera del formulario
+
+## 16 - 58874 - Rigazio, Malena Soledad
+- Nota: 6
+- No incrementa el producto
+- No realiza la edición en el lugar
+- Los formulario se muestra en otra pagina
+- El diseño no se respeta
 
 ## 18 - 58222 - Rivero, Lucas Gabriel
 - Nota: 9
