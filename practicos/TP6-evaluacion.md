@@ -1,68 +1,76 @@
-# Evaluación tp6 - C9
+# Evaluación TP6 en C9
+
+## 01 - 59336 - Bulan Georgieff, Alexander
+- Nota: 0
 
 ## 04 - 58876 - Diaz, Manuel Lautaro
-- Nota: 
+- Nota: 0
 
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
-- Nota: 
+- Nota: 0
 
 ## 06 - 59053 - Guzmán, Esteban Leonel
-- Nota: 
+- Nota: 0
 
 ## 07 - 58689 - Juarez Alvarado, Agostina
-- Nota: 
+- Nota: 0
 
 ## 08 - 59058 - Monaco Torrente, Matias
-- Nota: 
+- Nota: 0
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
-- Nota: 
+- Nota: 0
 
 ## 12 - 58679 - Pereyra, Franco Sebastián
-- Nota: 
+- Nota: 0
 
 ## 13 - 58869 - Perez, Enzo Matias
-- Nota: 
+- Nota: 0
 
 ## 14 - 59313 - Pisentte, Juan Pablo
-- Nota: 
+- Nota: 0
 
 ## 16 - 58874 - Rigazio, Malena Soledad
-- Nota: 
+- Nota: 0
 
 ## 19 - 59057 - Rocha, Lourdes Gabriela
-- Nota: 
+- Nota: 0
 
 ## 20 - 58879 - Ruiu, Andrés
-- Nota: 
+- Nota: 0
 
 ## 21 - 59073 - Ruiz, Tomas Federico
-- Nota: 
+- Nota: 0
 
 ## 22 - 58847 - Sanchez, Tomas Emanuel
-- Nota: 
+- Nota: 0
 
 ## 24 - 59055 - Saravia, Franco Nicolas
-- Nota: 
+- Nota: 0
 
 ## 26 - 59320 - Sbrocco, Micaela
-- Nota: 
+- Nota: 0
+
+## 28 - 59059 - Soraire, Elias Nicolás
+- Nota: 0
 
 ## 29 - 59110 - Soria, Joaquin
-- Nota: 
+- Nota: 0
 
 ## 31 - 58846 - Sosa, Franco Maximiliano
-- Nota: 
+- Nota: 0
+
+## 32 - 59084 - Taboada, Jose Manuel
+- Nota: 0
 
 ## 33 - 59074 - Teseyra, Juan Ignacio
-- Nota: 
+- Nota: 0
 
 ## 34 - 58866 - Velazquez, Tobias Alejo
-- Nota: 
+- Nota: 0
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
-- Nota: 
+- Nota: 0
 
 ## 36 - 59314 - Yepura, Rambo Alejandro
-- Nota: 
-- 
+- Nota: 0
