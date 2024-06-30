@@ -1,4 +1,4 @@
-# Evaluación TP3
+# Evaluación TP3 en C9
 
 ## 01 - 59336 - Bulan Georgieff, Alexander
 - Nota: 8
@@ -18,7 +18,7 @@
 ## 06 - 59053 - Guzmán, Esteban Leonel
 - Nota: 10
 
-## 07 - 58689 - Juárez Alvarado, Agostina
+## 07 - 58689 - Juarez Alvarado, Agostina
 - Nota: 7
 - La funcion setMostrarFormulario no esta definida 
 
@@ -28,7 +28,7 @@
 - No incrementa contador
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
-- Nota: 10 perfecto!
+- Nota: 10
 - Diseño y funcionamiento exacto.
 - Problema con localStorage al usar el mismo nombre que otros usuarios.
 
@@ -121,7 +121,7 @@
 - Usa regex para validar EAN
 - Faltaba cerrar un div y habia un margin -105 que rompia el diseño
 
-## 36 - 59314 - Yapura, Ramon Alejandro
+## 36 - 59314 - Yepura, Rambo Alejandro
 - Nota: 10
 - Realiza copia de array antes de ordenar
 
