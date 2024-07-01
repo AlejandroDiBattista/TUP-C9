@@ -1,0 +1,19 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contacto {
+border: 1px solid O#ccc; border-radius: 5px;
+margin: 10px; padding: 20px; width: 300px;
+}
+
+#main {
+display: flex;
+justify-content: center; 
+align-items: center;
+height: 100vh;
+}
