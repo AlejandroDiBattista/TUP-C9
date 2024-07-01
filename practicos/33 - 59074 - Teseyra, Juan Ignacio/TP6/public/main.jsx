@@ -1,5 +1,4 @@
 function App() {
-
     const [iniciadoSesion, setIniciadoSesion] = useState(false);
     const [mostrarRegistro, setMostrarRegistro] = useState(false);
     const [mostrarInicioSesion, setMostrarInicioSesion] = useState(false);
@@ -12,27 +11,36 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <h1>TP6 - Sesiones</h1>
-            <div>
-            {!iniciadoSesion && (
-                    <>
-                        <button onClick={() => { setMostrarRegistro(true); setMostrarInicioSesion(false); }}>
-                            Registro
-                        </button>
-                        <button onClick={() => { setMostrarInicioSesion(true); setMostrarRegistro(false); }}>
-                            Inicio de Sesión
-                        </button>
-                    </>
-                )}
-            </div>
-            {mostrarRegistro && <Registro />}
-            {mostrarInicioSesion && <InicioSesion setIniciadoSesion={manejarInicioSesion} />}
-            {iniciadoSesion && <Info />}
-            {iniciadoSesion && <CerrarSesion setIniciadoSesion={setIniciadoSesion} />}
-        </div>
-        
-    )
+		<div className='container'>
+			<h1>TP6 - Sesiones</h1>
+			<div>
+				{!iniciadoSesion && (
+                <>
+                    <button
+                        onClick={() => {
+                            setMostrarRegistro(true);
+                            setMostrarInicioSesion(false);
+                        }}
+                    >
+                        Registro
+                    </button>
+                    <button
+                        onClick={() => {
+                            setMostrarInicioSesion(true);
+                            setMostrarRegistro(false);
+                        }}
+                    >
+                        Inicio de Sesión
+                    </button>
+                </>
+				)}
+			</div>
+			{mostrarRegistro && <Registro /> /* Verficar */}
+			{mostrarInicioSesion && <InicioSesion setIniciadoSesion={manejarInicioSesion} />}
+			{iniciadoSesion && <Info />}
+			{iniciadoSesion && <CerrarSesion setIniciadoSesion={setIniciadoSesion} />}
+		</div>
+	);
 }
 
 function Registro(){

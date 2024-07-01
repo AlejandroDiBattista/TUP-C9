@@ -11,22 +11,32 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <h1>TP6 - Sesiones</h1>
+		<div className='container'>
+			<h1>TP6 - Sesiones</h1>
             <div>
-                <button onClick={() => { setMostrarRegistro(true); setMostrarInicioSesion(false); }}>
+                <button
+                    onClick={() => {
+                        setMostrarRegistro(true);
+                        setMostrarInicioSesion(false);
+                    }}
+                >
                     Registro
                 </button>
-                <button onClick={() => { setMostrarInicioSesion(true); setMostrarRegistro(false); }}>
+                <button
+                    onClick={() => {
+                        setMostrarInicioSesion(true);
+                        setMostrarRegistro(false);
+                    }}
+                >
                     Inicio de Sesión
                 </button>
             </div>
-            {mostrarRegistro && <Registro />}
-            {mostrarInicioSesion && <InicioSesion setIniciadoSesion={manejarInicioSesion} />}
-            {iniciadoSesion && <Info />}
-            {iniciadoSesion && <CerrarSesion setIniciadoSesion={setIniciadoSesion} />}
-        </div>
-    );
+			{mostrarRegistro && <Registro /> /* Verficar */}
+			{mostrarInicioSesion && <InicioSesion setIniciadoSesion={manejarInicioSesion} />}
+			{iniciadoSesion && <Info />}
+			{iniciadoSesion && <CerrarSesion setIniciadoSesion={setIniciadoSesion} />}
+		</div>
+	);
 }
 
 function Registro() {

@@ -5,7 +5,7 @@ function App() {
     const toggleForm = () => {
         setShowRegister(!showRegister);
     };
-
+    // Verificar 
     return (
         <div>
             <h1>TP6 Tomas Ruiz</h1>

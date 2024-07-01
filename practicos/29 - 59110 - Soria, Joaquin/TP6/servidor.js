@@ -48,7 +48,6 @@ app.post('/login', (req, res) => {
     if (usuario) {
         let token = Math.random().toString().substring(2);
         usuario.token = token;
-        // Establecer la cookie con el token
         res.cookie('token', token, { httpOnly: true });
         res.send('Bienvenido: ' + usuario.user);
     } else {

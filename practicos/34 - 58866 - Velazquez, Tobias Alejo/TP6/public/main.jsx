@@ -5,33 +5,33 @@ function App() {
     const toggleForm = () => {
         setShowRegister(!showRegister);
     }
-
+    // Verficar
     return (
-        <div>
-            <h1>TP6 - Sesiones</h1>
-            {!loggedIn && (
-                <div className="form-container">
-                    {showRegister ? (
-                        <div className="form-wrapper">
+		<div>
+			<h1>TP6 - Sesiones</h1>
+			{!loggedIn && (
+				<div className="form-container">
+					{showRegister ? (
+                        <div className='form-wrapper'>
                             <Register />
                             <button onClick={toggleForm}>Ya tienes una cuenta? Iniciar Sesión </button>
                         </div>
                     ) : (
-                        <div className="form-wrapper">
+                        <div className='form-wrapper'>
                             <Login setLoggedIn={setLoggedIn} />
                             <button onClick={toggleForm}>No tienes una cuenta? Crear Ahora</button>
                         </div>
                     )}
-                </div>
-            )}
-            {loggedIn && (
-                <>
-                    <Logout setLoggedIn={setLoggedIn} />
-                    <Info />
-                </>
-            )}
-        </div>
-    );
+				</div>
+			)}
+			{loggedIn && (
+				<>
+					<Logout setLoggedIn={setLoggedIn} />
+					<Info />
+				</>
+			)}
+		</div>
+	);
 }
 
 function Register(){

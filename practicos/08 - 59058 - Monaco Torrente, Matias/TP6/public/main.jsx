@@ -4,8 +4,7 @@ function App() {
     const [registroContrasena, setRegistroContrasena] = useState('');
 
     // Estados para el formulario de login
-    const [loginUsuario, setLoginUsuario] = useState('');
-    const [loginContrasena, setLoginContrasena] = useState('');
+     const [loginContrasena, setLoginContrasena] = useState('');
 
     // Estados generales
     const [mensaje, setMensaje] = useState('');

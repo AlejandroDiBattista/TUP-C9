@@ -9,7 +9,6 @@ function App() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleRegister = async () => {
-        // Validar que los campos no estén vacíos
         if (!username || !password) {
             setErrorMessage('Por favor completa todos los campos');
             return;
@@ -18,9 +17,7 @@ function App() {
         try {
             const response = await fetch('/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json',},
                 body: JSON.stringify({ username, password }),
             });
             const data = await response.json();

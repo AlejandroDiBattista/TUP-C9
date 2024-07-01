@@ -9,7 +9,6 @@ function App() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleRegister = async () => {
-
         if (!username || !password) {
             setErrorMessage('Completar todos los campos.');
             return;
@@ -21,9 +20,7 @@ function App() {
                 headers: { 'Content-Type': 'application/json', },
                 body: JSON.stringify({ username, password }),
             });
-
             const data = await response.json();
-
             if (data.success) {
                 setErrorMessage('');
                 setUsername('');

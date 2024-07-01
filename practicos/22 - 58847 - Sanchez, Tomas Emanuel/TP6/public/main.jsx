@@ -3,7 +3,7 @@ function App() {
     const [isRegistered, setIsRegistered] = React.useState(false);
     const [info, setInfo] = React.useState('');
 
-    const handleLogin = async (username, password) => {
+    const handleLogin = async (username, password) => { // Verificar        
         const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {

@@ -1,5 +1,5 @@
-import React, { useState } from 'https://cdn.skypack.dev/react';
-import ReactDOM from 'https://cdn.skypack.dev/react-dom';
+// import React, { useState } from 'https://cdn.skypack.dev/react';
+// import ReactDOM from 'https://cdn.skypack.dev/react-dom';
 
 function App() {
   const [username, setUsername] = useState('');

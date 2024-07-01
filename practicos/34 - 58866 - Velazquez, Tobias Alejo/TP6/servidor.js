@@ -21,7 +21,8 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    if (users[username] && users[username] === password) {
+
+    if (users[username] && users[username] === password) { // Verificar
         res.cookie('user', username, { httpOnly: true });
         return res.status(200).json({ message: 'Inicio exitoso' });
     }
@@ -29,6 +30,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/logout', (req, res) => {
+
     res.clearCookie('user');
     res.status(200).json({ message: 'Sesión cerrada.' });
 });

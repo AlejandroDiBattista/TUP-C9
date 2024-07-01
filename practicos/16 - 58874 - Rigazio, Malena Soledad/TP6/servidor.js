@@ -9,9 +9,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('public'));
 
-
 let usuarios = [];
-
 
 app.post('/register', (req, res) => {
     const { username, password } = req.body;
@@ -23,9 +21,9 @@ app.post('/register', (req, res) => {
     }
 
     const existingUser = usuarios.find(user => user.username === username);
-    if (existingUser) { res.status(400).json({ success: false, message: 'Usuario existente.' });
-    } 
-    else {
+    if (existingUser) {
+        res.status(400).json({ success: false, message: 'Usuario existente.' });
+    } else {
         usuarios.push({ username, password });
         res.json({ success: true, message: 'Usuario registrado correctamente.' });
     }

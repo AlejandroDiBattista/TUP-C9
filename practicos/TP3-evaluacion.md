@@ -1,20 +1,19 @@
 # Evaluación TP3 en C9
 
 ## 01 - 59336 - Bulan Georgieff, Alexander
-- Nota: 8
+- Nota: 9
 - No valida la cantidad.
 - La alta la hace en página separa
-- Editar y Mostrar lo hace en un unico componente que mantiene el estado "editando"
 
 ## 03 - 58690 - Diaz, Facundo Gabriel
-- Nota: 6
+- Nota: 7
 - No respeta el diseño
 - No implementa el incremento
 
 ## 04 - 58876 - Diaz, Manuel Lautaro
-- Nota: 6
+- Nota: 7
 - No incrementa el contador
-- No realiza al edicion en el lugar.
+- No realiza al edicion en el lugar
 - La edicion y la alta la realiza en otra pagina
 
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
@@ -25,13 +24,17 @@
 - Nota: 10
 
 ## 07 - 58689 - Juarez Alvarado, Agostina
-- Nota: 7
+- Nota: 6
 - La funcion setMostrarFormulario no esta definida 
+- No edita en el lugar
+- La alta agrega productos vacios
+- No incrementa producto
 
 ## 08 - 59058 - Monaco Torrente, Matias
 - Nota: 8
 - Diseño diferente
 - No incrementa contador
+- No edita en el lugar
 
 ## 10 - 59310 - Paz Berrondo, Nahuel Agus
 - Nota: 10

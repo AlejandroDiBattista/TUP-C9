@@ -23,11 +23,10 @@ app.post('/register', (req, res) => {
     res.status(201).json({ message: 'User registered successfully' });
 });
 
-
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     console.log('Login request:', username, password);  
-    if (users[username] && users[username] === password) {
+    if (users[username] && users[username] === password) { // Verificar
         res.cookie('user', username, { httpOnly: true });
         return res.status(200).json({ message: 'Login successful' });
     }

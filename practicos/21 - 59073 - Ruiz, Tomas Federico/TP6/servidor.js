@@ -10,7 +10,6 @@ app.use(cookieParser());
 app.use(express.json());    
 app.use(express.static('public'));  
 
-
 app.post('/register', (req, res) => {
     const { username, password } = req.body;
     if (users[username]) {
@@ -20,18 +19,18 @@ app.post('/register', (req, res) => {
     res.status(201).json({ message: 'Usuario registrado exitosamente' });
 });
 
-
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    if (users[username] && users[username] === password) {
+
+    if (users[username] && users[username] === password) { // Verificar
         res.cookie('user', username, { httpOnly: true });
         return res.status(200).json({ message: 'Inicio de sesión exitoso' });
     }
     res.status(400).json({ message: 'Usuario o contraseña inválido' });
 });
 
-
 app.post('/logout', (req, res) => {
+
     res.clearCookie('user');
     res.status(200).json({ message: 'Cierre de sesión exitoso' });
 });
