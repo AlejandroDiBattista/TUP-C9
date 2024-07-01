@@ -104,6 +104,6 @@
 - Falta libreria express-session
 - Son iguales #28, #35 (Express, React)
 
-## 36 - 59314 - Yepura, Rambo Alejandro
+## 36 - 59314 - Yepura, Ramón Alejandro
 - Nota: 9
 - Pone todos los formularios en una misma pagina
