@@ -39,7 +39,7 @@
 - Son iguales #12, #13, #21, #33, #34 (Express)
 
 ## 14 - 59313 - Pisentte, Juan Pablo
-- Nota: 7
+- Nota: 9
 - Son iguales #14, #33
 
 ## 16 - 58874 - Rigazio, Malena Soledad
