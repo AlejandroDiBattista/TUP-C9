@@ -72,6 +72,9 @@
 ## 26 - 59320 - Sbrocco, Micaela
 - Nota: 10
 
+## 27 - 59568 - Serrano, Lorenzo
+- Nota: 0
+
 ## 28 - 59059 - Soraire, Elias Nicolás
 - Nota: 7
 - Falta libreria express-session

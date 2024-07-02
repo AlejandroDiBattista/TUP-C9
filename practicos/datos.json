@@ -463,7 +463,7 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false,
+    "tp6": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño;Curiosidad usa 27 \"text-overflow: ellipsis\""
   },
