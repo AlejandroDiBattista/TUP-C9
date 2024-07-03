@@ -1,42 +1,7 @@
 body {
-    background-color: #ffcf99;
+    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1 {
-    color: #3b14eb;
-    font-family: 'Arial Narrow Bold', sans-serif;
-    padding: 14px;
-    border: 8px solid;
-    border-color: #fffc99;
-    text-align: left; 
-    transform: translateX(10%);
-    border-radius: 20px; 
-    background-color: #ffffff;
-    margin: auto;
-    font-style: italic;
-}
-
-.contactos {
-    margin: 40px;
-    font-family: Tahoma, sans-serif;
-    padding: 14px;
-    border: 4px solid;
-    border-color: #fcfc83;
-    line-height: 1.5;
-    display: inline-block;
-    border-radius: 20px; 
-    background-color: #ffffff;
-    font-style: italic;
-}
-
-h2 {
-    color: #0b9fcc;
-}
-
-p {
-    color: #1b2af0;
 }

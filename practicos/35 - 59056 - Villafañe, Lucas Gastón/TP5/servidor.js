@@ -1,5 +1,6 @@
-import Aplicacion from './app.js';
+import App from '/app.js';
 
-Aplicacion.listen(3000, () => {
-  console.log('El servidor está ejecutándose en http://localhost:3000');
+App.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
 });
+

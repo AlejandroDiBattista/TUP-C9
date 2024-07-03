@@ -8,7 +8,7 @@ const App = () => {
     { nombre: 'Noelia', apellido: 'Pompa', telefono: '8765-4321', email: 'noeliapompa@gmail.com', direccion: 'Avenida Laco 567, Buenos Aires' },
     { nombre: 'Fito', apellido: 'Paez', telefono: '1234-5678', email: 'fitopaez@gmail.com', direccion: 'Boulevard Rosario 321, Rosario' },
     { nombre: 'Patricia', apellido: 'Sosa', telefono: '2468-1357', email: 'patriciasosa@gmail.com', direccion: 'Calle Melodía 432, La Plata' },
-    { nombre: 'Ramón', apellido: 'Yepura', telefono: '3815763886', email: 'ramonyepura@gmail.com', direccion: 'Calle Caminito 123, Buenos Aires' },
+    { nombre: 'Rambo', apellido: 'Yepura', telefono: '3815763886', email: 'ramboyepura@gmail.com', direccion: 'Calle Caminito 123, Buenos Aires' },
     { nombre: 'Tini', apellido: 'Stoessel', telefono: '1357-2468', email: 'tinitinitini@gmail.com', direccion: 'Calle Muah 890, Buenos Aires' }
   ];
 

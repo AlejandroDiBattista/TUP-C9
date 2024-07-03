@@ -1,158 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
     <link rel="stylesheet" href="estilo.css">
-    <title>Gestión de Sesiones</title>
+    <script type="text/babel" src="main.jsx"></script>
+    <title></title>
 </head>
+
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        const { useState } = React;
-
-        // Componente para Registro de Usuario
-        const Registro = ({ registrarUsuario, cambiarVista }) => {
-            const [username, setUsername] = useState('');
-            const [password, setPassword] = useState('');
-
-            const handleSubmit = (e) => {
-                e.preventDefault();
-                registrarUsuario(username, password);
-                cambiarVista('login');
-            };
-
-            return (
-                <form onSubmit={handleSubmit}>
-                    <h2>Registrar</h2>
-                    <label>
-                        Usuario:
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Contraseña:
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button type="submit">Registrar</button>
-                    <button type="button" onClick={() => cambiarVista('login')}>Ya tengo una cuenta</button>
-                </form>
-            );
-        };
-
-        // Componente para Login de Usuario
-        const Login = ({ usuarios, iniciarSesion, cambiarVista }) => {
-            const [username, setUsername] = useState('');
-            const [password, setPassword] = useState('');
-
-            const handleSubmit = (e) => {
-                e.preventDefault();
-                iniciarSesion(username, password);
-            };
-
-            return (
-                <form onSubmit={handleSubmit}>
-                    <h2>Iniciar Sesión</h2>
-                    <label>
-                        Usuario:
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Contraseña:
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button type="submit">Iniciar Sesión</button>
-                    <button type="button" onClick={() => cambiarVista('registro')}>No tengo una cuenta</button>
-                </form>
-            );
-        };
-
-        // Componente para mostrar información protegida
-        const Info = () => (
-            <div>
-                <h2>Información Protegida</h2>
-                <p>Esta es una página que solo puedes ver si estás logueado.</p>
-            </div>
-        );
-
-        // Componente principal de la aplicación
-        const App = () => {
-            const [usuarios, setUsuarios] = useState([]);
-            const [usuarioActual, setUsuarioActual] = useState(null);
-            const [vistaActual, setVistaActual] = useState('login');
-
-            const registrarUsuario = (username, password) => {
-                setUsuarios([...usuarios, { username, password }]);
-            };
-
-            const iniciarSesion = (username, password) => {
-                const usuario = usuarios.find(
-                    (user) => user.username === username && user.password === password
-                );
-                if (usuario) {
-                    setUsuarioActual(usuario);
-                } else {
-                    alert('Usuario o contraseña incorrectos');
-                }
-            };
-
-            const cerrarSesion = () => {
-                setUsuarioActual(null);
-            };
-
-            const cambiarVista = (vista) => {
-                setVistaActual(vista);
-            };
-
-            return (
-                <div>
-                    <h1>Gestión de Sesiones</h1>
-                    {usuarioActual ? (
-                        <div>
-                            <p>Bienvenido, {usuarioActual.username}</p>
-                            <button onClick={cerrarSesion}>Cerrar Sesión</button>
-                            <Info />
-                        </div>
-                    ) : (
-                        vistaActual === 'login' ? (
-                            <Login 
-                            usuarios={usuarios} 
-                            iniciarSesion={iniciarSesion} 
-                            cambiarVista={cambiarVista} />
-                        ) : (
-                            <Registro 
-                                registrarUsuario={registrarUsuario} 
-                                cambiarVista={cambiarVista} />
-                        )
-                    )}
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
+        const { useState, useEffect } = React
+        const root = ReactDOM.createRoot(document.getElementById('root'))
         root.render(<App />);
     </script>
 </body>
-</html>
 
+</html>
