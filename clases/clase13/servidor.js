@@ -1,65 +1,26 @@
-import express from 'express'
-import morgan from 'morgan'
+import { MongoDbCliente } from './mongoDbCliente.js';
 
-const app = express()
+const cliente = new MongoDbCliente();
+cliente.conectar('mongodb://localhost:27017', 'clase13');
 
-app.use(morgan('dev'))
-app.use(express.json())
+db = cliente.getDatabase('contacto')
 
-let usuarios = []
+let resultado = await db.contactos.insertOne({
+    nombre: 'Juan',
+    apellido: 'Perez',
+    telefono: '12345678'
+});
 
-function verificarUsuario(req, res, next) {
-    let token = req.get('Authorization')
-    let usuario = usuarios.find(u => u.token === token)
-    if (usuario) {
-        req.usuario = usuario
-        next()
-    } else {
-        res.status(401)
-        res.send('Operacion no autorizada')
-    }
+console.log(resultado)
+
+
+let cs = db.contactos.find({ edad: 30})
+
+let r = []
+for await (let c of cs) {
+    r.push(c)
 }
 
-
-app.get('/usuarios', (req, res) => {
-    // NO SE HACE NUNCA (solo para la clase)
-    res.json(usuarios)
-})
-
-app.post('/registrar', (req, res) => {
-    let { user, password } = req.body   // Extraido datos
-    usuarios.push({ user, password })   // Guardar datos
-    res.send('Registro exitoso')        // Respuesta
-}) 
-
-app.post('/login', (req, res) => {
-    let { user, password } = req.body   // Extraido datos
-    let usuario = usuarios.find(u => u.user === user
-                                && u.password === password)
-    if (usuario) {
-        let token = Math.random().toString().substring(2)
-        console.log("TOKEN: " + token)
-        usuario.token = token
-        res.set('Authorization', token)
-        res.send('Bienvenido: ' + usuario.user)
-    } else {
-        res.status(401) // Unauthorized
-        res.send('Usuario o contraseña incorrectos')
-    }
-})
-
-app.post('/logout', verificarUsuario, (req, res) => {
-    let usuario = req.usuario
-    usuario.token = ""
-    res.send('Sesión cerrada')
-})
-    
-app.get('/info', verificarUsuario, (req, res) => {
-    let usuario = req.usuario
-    res.send('😯 Información secreta: ' + usuario.user)
-})
-
-app.listen(3000, () => {
-    console.log('Servidor en http://localhost:3000')
-})
+let cs1 = await db.contactos
+            .find({ edad: 30 }).toArray()
 

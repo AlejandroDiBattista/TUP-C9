@@ -9,104 +9,13 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
+    <link rel="stylesheet" href="estilo.css">
     <title>Demo 1</title>
-    <style>
-        /* reset */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        #root {
-            max-width: 1280px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 20px;
-        }
-
-        .card {
-            padding: 16px;
-            margin: 4px;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .agenda {
-            margin-top: 16px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: start;
-
-            >div {
-                text-align: center;
-                width: 240px;
-                height: 96px;
-                position: relative;
-
-                span {
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                }
-
-                div {
-                    margin-top: 25px;
-                    font-size: 20px;
-                }
-
-                div:last-child {
-                    text-align: right;
-                    font-size: 14px;
-                }
-            }
-        }
-
-        form {
-            width: 240px;
-            padding: 16px;
-            margin: 8px;
-            border-radius: 8px;
-
-            label {
-                display: block;
-                font-size: 12px;
-                color: #aaa;
-            }
-
-            input {
-                width: calc(100% - 8px);
-                border-radius: 4px;
-                margin: 4px 0;
-                border: 1px solid #ccc;
-                padding: 4px;
-                font-size: 16px;
-            }
-
-            div {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 16px;
-
-                button {
-                    padding: 8px 16px;
-                    border: none;
-                    border-radius: 4px;
-                    font-size: 14px;
-                    cursor: pointer;
-                }
-            }
-        }
-    </style>
 </head>
 
 <body>
     <div id="root"></div>
-    <script>
+    <script type="text/babel">
         const datos = [
             { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
             { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
@@ -128,31 +37,83 @@
             { id: 18, nombre: 'Matias', apellido: 'Luna', telefono: '(381) 123-4567', favorito: false },
             { id: 19, nombre: 'Cecilia', apellido: 'Carrizo', telefono: '(381) 123-4567', favorito: true },
             { id: 20, nombre: 'Facundo', apellido: 'Paez', telefono: '(381) 123-4567', favorito: false }
-        ]
-    </script>
+        ];
 
-    <script type="text/babel">
-        const { createRoot } = ReactDOM
+        // Función para ordenar alfabéticamente por apellido y nombre
+        const ordenarContactos = (contactos) =>
+            contactos.sort((a, b) => {
+                if (a.favorito !== b.favorito) {
+                    return b.favorito - a.favorito; // Coloca los favoritos primero
+                }
+                return a.apellido.localeCompare(b.apellido) || a.nombre.localeCompare(b.nombre); // Orden alfabético
+            });
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
-            <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
-                <div>{telefono}</div>
-            </div>
+        // Función para alternar el estado de favorito
+        const toggleFavorito = (id) => {
+            const indice = datos.findIndex(contacto => contacto.id === id);
+            if (indice !== -1) {
+                datos[indice].favorito = !datos[indice].favorito;
+                renderApp(); // Renderizar de nuevo la aplicación después de cambiar el estado
+            }
+        };
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+        const { createRoot } = ReactDOM;
 
-        const App = () =>
+        // Componente de contacto
+        const Contacto = ({ id, nombre, apellido, telefono, favorito }) => {
+            const handleToggleFavorito = () => {
+                toggleFavorito(id);
+            };
+
+            return (
+                <div className={`card ${favorito ? 'favorito' : ''}`}>
+                    <div>{nombre} <b>{apellido}</b></div>
+                    <div>{telefono}</div>
+                    <span className="favorito-icon" onClick={handleToggleFavorito}>
+                        {favorito ? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}
+                    </span>
+                </div>
+            );
+        };
+
+        // Componente principal de la agenda
+        const Agenda = ({ datos }) => {
+            // Separar contactos favoritos y no favoritos
+            const favoritos = datos.filter(contacto => contacto.favorito);
+            const noFavoritos = datos.filter(contacto => !contacto.favorito);
+
+            // Ordenar alfabéticamente y por favoritos
+            const contactosOrdenados = ordenarContactos([...favoritos, ...noFavoritos]);
+
+            return (
+                <div>
+                    <div className="grupo-favoritos agenda">
+                        <h2>Favoritos</h2>
+                        {favoritos.map(contacto => (
+                            <Contacto key={contacto.id} {...contacto} />
+                        ))}
+                    </div>
+                    <div className="grupo-no-favoritos agenda">
+                        <h2>No Favoritos</h2>
+                        {noFavoritos.map(contacto => (
+                            <Contacto key={contacto.id} {...contacto} />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        // Componente principal de la aplicación
+        const App = () => (
             <div>
                 <h1>Agenda</h1>
                 <Agenda datos={datos} />
             </div>
+        );
 
-        const root = createRoot(document.getElementById('root'))
-        root.render(<App />);
+        const root = createRoot(document.getElementById('root'));
+        const renderApp = () => root.render(<App />);
+        renderApp();
     </script>
 </body>
 

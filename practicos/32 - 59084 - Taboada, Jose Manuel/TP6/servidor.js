@@ -1,7 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import morgan
- from 'morgan';
+import morgan from 'morgan';
 const app = express();
 
 app.use(morgan('dev'));     // Loggea cada request en consola

@@ -1,0 +1,111 @@
+:root {
+  --color-fondo: #e0e0e0;
+  --color-primario: #333;
+  --color-secundario: #007bff;
+  --color-error: #ff0000;
+  --color-placeholder: #706f6f;
+  --color-temperatura: #ff5722;
+  --color-encabezado: #000000;
+  --color-marco: #B2EBF2;
+  --color-articulo: #ffffff;
+  --fuente-primaria: 'Arial', sans-serif;
+  --fuente-secundaria: 'Verdana', Geneva, Tahoma, sans-serif;
+  --fuente-encabezado: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  --fuente-temp: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--color-fondo);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fuente-primaria);
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+nav strong {
+  font-size: 30px;
+  color: var(--color-primario);
+}
+
+nav {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+.pError p {
+  margin: 20px auto;
+  font-size: 24px;
+  font-family: var(--fuente-secundaria);
+  text-align: center;
+  color: var(--color-error);
+}
+
+a {
+  color: var(--color-secundario);
+  text-decoration: none;
+}
+
+input {
+  background-color: white;
+  border: 1px solid white;
+  color: var(--color-primario);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: var(--color-placeholder);
+}
+
+article {
+  background-color: var(--color-articulo);
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  color: var(--color-encabezado);
+  font-family: var(--fuente-encabezado);
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.marco {
+  background-color: var(--color-marco);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer,
+p {
+  margin: 2px 0;
+  color: var(--color-primario);
+  font-family: var(--fuente-secundaria);
+  font-size: 18px;
+}
+
+.Temp {
+  font-family: var(--fuente-temp);
+  font-size: 26px;
+  color: var(--color-temperatura);
+  text-align: center;
+}
+
+  
+

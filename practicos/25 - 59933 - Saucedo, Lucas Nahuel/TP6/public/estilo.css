@@ -17,6 +17,7 @@ body {
 
 h1, h2 {
     color: #32cd32;
+
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -40,6 +41,10 @@ button {
 button:hover {
     background-color: #28a428;
     transform: scale(1.05);
+}
+
+button:hover {
+    background-color: #ddd;
 }
 
 form {

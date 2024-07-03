@@ -1,0 +1,10 @@
+GET http://localhost:3001/personas
+
+PUT http://localhost:3001/personas
+Content-Type: application/json
+X-Input: "PUT"
+{
+    "nombre": "Jose"
+    "apellido": "Elias",
+    "edad": 20
+}
