@@ -422,8 +422,17 @@
     "TP1": false,
     "cambio": true,
     "ubicacion": "./27 - 59568 - Serrano, Lorenzo",
+<<<<<<< HEAD
     "TP2": true,
     "TP3": true,
+=======
+    "tp1": false,
+    "tp2": true,
+    "tp3": true,
+    "tp4": true,
+    "tp5": true,
+    "tp6": false,
+>>>>>>> parent of f72d940 (Publicamos los cambios)
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño\nCuriosidad usa 27 \"text-overflow: ellipsis\"",
     "TP4": true,
