@@ -55,11 +55,6 @@
 - Nota: 9
 - Falta libreria JSonWebToken
 
-## 21 - 59073 - Ruiz, Tomas Federico
-- Nota: 7
-- Son iguales #12, #13, #21, #33, #34 (Express)
-- Son iguales #21, #34 (React)
-
 ## 22 - 58847 - Sanchez, Tomas Emanuel
 - Nota: 7
 - Son iguales #19, #22 (Express, React)
@@ -70,7 +65,7 @@
 - vienvenido ¿?
 
 ## 25 - 59933 - Saucedo, Lucas Nahuel
-- Nota: 0
+- Nota: 10
 
 ## 26 - 59320 - Sbrocco, Micaela
 - Nota: 10
@@ -97,10 +92,6 @@
 - Nota: 7
 - Son iguales #12, #13, #21, #33, #34 (Express)
 - Son iguales #14, #33 (React)
-
-## 34 - 58866 - Velazquez, Tobias Alejo
-- Nota: 7
-- Son iguales #21, #34 (React)
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
 - Nota: 7

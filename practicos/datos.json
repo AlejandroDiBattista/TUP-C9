@@ -429,7 +429,9 @@
     "tp5": true,
     "tp6": true,
     "nota_tp3": 10,
-    "comentario_tp3": "Diferencia mínima en el diseño"
+    "comentario_tp3": "Diferencia mínima en el diseño",
+    "nota_tp6": 10,
+    "comentario_tp6": ""
   },
   {
     "id": "C9-26",
