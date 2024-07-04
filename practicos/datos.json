@@ -68,7 +68,7 @@
     "tp5": true,
     "tp6": false,
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #04, #07, #16",
+    "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 7,
     "comentario_tp3": "No incrementa el contador;No realiza al edicion en el lugar;La edicion y la alta la realiza en otra pagina",
     "estado": "libre"
@@ -130,7 +130,7 @@
     "nota_tp3": 7,
     "comentario_tp3": "La funcion setMostrarFormulario no esta definida ",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #04, #07, #16;No funciona porque usar import dentro de main.jsx",
+    "comentario_tp6": "Son iguales: #04, #07, #16;No funciona porque usar import dentro de main.jsx",
     "estado": "regular"
   },
   {
@@ -206,7 +206,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencias minimas en diseño;manejaCantidad es mas complicado de lo necesario.",
     "nota_tp6": 7,
-    "comentario_tp6": "Perfecto;Solo falta que al registrar vuelva a la pantalla principal;Son iguales #12, #13, #21, #33, #34 (Express)",
+    "comentario_tp6": "Perfecto;Solo falta que al registrar vuelva a la pantalla principal;Son iguales: #12, #13, #21, #33, #34 (Express)",
     "estado": "regular"
   },
   {
@@ -226,7 +226,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Difencia minimas en diseño",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #12, #13, #21, #33, #34 (Express)",
+    "comentario_tp6": "Son iguales: #12, #13, #21, #33, #34 (Express)",
     "estado": "regular"
   },
   {
@@ -246,7 +246,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diseño cambia con el ancho de la pantalla",
     "nota_tp6": 9,
-    "comentario_tp6": "Son iguales #14, #33",
+    "comentario_tp6": "Son iguales: #14, #33",
     "estado": "regular"
   },
   {
@@ -282,7 +282,7 @@
     "tp5": true,
     "tp6": false,
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #04, #07, #16",
+    "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 6,
     "comentario_tp3": "No incrementa el producto;No realiza la edición en el lugar;Los formulario se muestra en otra pagina;El diseño no se respeta",
     "estado": "libre"
@@ -338,7 +338,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minima en diseño formulario",
     "nota_tp6": 7,
-    "comentario_tp6": "No tiene instalada express-sesion;Son iguales #19, #22 (Express, React)",
+    "comentario_tp6": "No tiene instalada express-sesion;Son iguales: #19, #22 (Express, React)",
     "estado": "regular"
   },
   {
@@ -378,7 +378,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Validación muy extraña en *cancelar*",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #12, #13, #21, #33, #34 (Express);Son iguales #21, #34 (React)",
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular"
   },
   {
@@ -398,7 +398,7 @@
     "nota_tp3": 9,
     "comentario_tp3": "Diseño cambia con ancho pantalla.;Botones en ingles!!",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #19, #22 (Express, React)",
+    "comentario_tp6": "Son iguales: #19, #22 (Express, React)",
     "estado": "regular"
   },
   {
@@ -454,7 +454,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en el diseño",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #25, #31",
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular"
   },
   {
@@ -473,8 +473,8 @@
     "tp6": false,
     "nota_tp3": 9,
     "comentario_tp3": "Los iconos se salen del Mostrar;Agrega \"key\" fuera de la generacion de una lista",
-    "nota_tp6": 10,
-    "comentario_tp6": "",
+    "nota_tp6": 7,
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular"
   },
   {
@@ -490,7 +490,7 @@
     "tp3": true,
     "tp4": true,
     "tp5": true,
-    "tp6": false,
+    "tp6": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño;Curiosidad usa 27 \"text-overflow: ellipsis\"",
     "estado": "regular"
@@ -512,7 +512,7 @@
     "nota_tp3": 9,
     "comentario_tp3": "No se puede cancelar \"Alta\"",
     "nota_tp6": 7,
-    "comentario_tp6": "Falta libreria express-session;Son iguales #28, #35 (Express, React)",
+    "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
     "estado": "regular"
   },
   {
@@ -568,7 +568,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencias minimas en diseño",
     "nota_tp6": 10,
-    "comentario_tp6": "Son iguales: #25, #31 ",
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "promocionado"
   },
   {
@@ -608,7 +608,7 @@
     "nota_tp3": 9,
     "comentario_tp3": "Al realizar edicion en el lugar no oculta el mostrar ",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales #12, #13, #21, #33, #34 (Express);Son iguales #14, #33 (React)",
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34;Son iguales: #12, #13, #21, #33, #34 (Express);Son iguales: #14, #33 (React)",
     "estado": "regular"
   },
   {
@@ -648,7 +648,7 @@
     "nota_tp3": 9,
     "comentario_tp3": "Usa regex para validar EAN;Faltaba cerrar un div y habia un margin -105 que rompia el diseño",
     "nota_tp6": 7,
-    "comentario_tp6": "Falta libreria express-session;Son iguales #28, #35 (Express, React)",
+    "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
     "estado": "regular"
   },
   {

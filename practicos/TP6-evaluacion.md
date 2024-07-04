@@ -73,11 +73,11 @@
 - Son iguales: #21, #25, #27, #31, #34
 
 ## 26 - 59320 - Sbrocco, Micaela
-- Nota: 10
-
-## 27 - 
 - Nota: 7
 - Son iguales: #21, #25, #27, #31, #34
+
+## 27 - 59568 - Serrano, Lorenzo
+- Nota: 0
 
 ## 28 - 59059 - Soraire, Elias Nicolás
 - Nota: 7
@@ -89,7 +89,7 @@
 - ¿agaunte river?
 
 ## 31 - 58846 - Sosa, Franco Maximiliano
-- Nota: 10 ?
+- Nota: 10
 - Son iguales: #21, #25, #27, #31, #34
 
 ## 32 - 59084 - Taboada, Jose Manuel
@@ -103,8 +103,7 @@
 - Son iguales: #14, #33 (React)
 
 ## 34 - 58866 - Velazquez, Tobias Alejo
-- Nota: ?
-- Son iguales: #21, #25, #27, #31, #34
+- Nota: 0
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
 - Nota: 7
