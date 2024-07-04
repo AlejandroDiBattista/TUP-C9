@@ -17,7 +17,8 @@
     "comentario_tp3": "No valida la cantidad.;La alta la hace en página separa;Editar y Mostrar lo hace en un unico componente que mantiene el estado \"editando\"",
     "nota_tp6": 8,
     "comentario_tp6": "Muestra formulario Registrar/Login simultaneos y se editan juntos!",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "30-Jun 01:38"
   },
   {
     "id": "C9-02",
@@ -33,7 +34,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-03",
@@ -51,7 +53,8 @@
     "tp6": false,
     "nota_tp3": 6,
     "comentario_tp3": "No respeta el diseño;No implementa el incremento",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "No subido"
   },
   {
     "id": "C9-04",
@@ -71,7 +74,8 @@
     "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 7,
     "comentario_tp3": "No incrementa el contador;No realiza al edicion en el lugar;La edicion y la alta la realiza en otra pagina",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "20-Jun 14:41"
   },
   {
     "id": "C9-05",
@@ -91,7 +95,8 @@
     "comentario_tp3": "Ubicacion de botones mal en editar",
     "nota_tp6": 10,
     "comentario_tp6": "Perfecto, estetica cuidada, navegacion correcta",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 01:26"
   },
   {
     "id": "C9-06",
@@ -111,7 +116,8 @@
     "comentario_tp3": "",
     "nota_tp6": 10,
     "comentario_tp6": "",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 18:01"
   },
   {
     "id": "C9-07",
@@ -131,7 +137,8 @@
     "comentario_tp3": "La funcion setMostrarFormulario no esta definida ",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #04, #07, #16;No funciona porque usar import dentro de main.jsx",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 12:13"
   },
   {
     "id": "C9-08",
@@ -151,7 +158,8 @@
     "comentario_tp3": "Diseño diferente;No incrementa contador",
     "nota_tp6": 9,
     "comentario_tp6": "Muestra simultaneamente Registrar y Login",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 13:31"
   },
   {
     "id": "C9-09",
@@ -167,7 +175,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-10",
@@ -187,7 +196,8 @@
     "comentario_tp3": "Diseño y funcionamiento exacto.;Problema con localStorage al usar el mismo nombre que otros usuarios.",
     "nota_tp6": 9,
     "comentario_tp6": "No cierra el formulario de registrar al aceptar",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 00:45"
   },
   {
     "id": "C9-12",
@@ -207,7 +217,8 @@
     "comentario_tp3": "Diferencias minimas en diseño;manejaCantidad es mas complicado de lo necesario.",
     "nota_tp6": 7,
     "comentario_tp6": "Perfecto;Solo falta que al registrar vuelva a la pantalla principal;Son iguales: #12, #13, #21, #33, #34 (Express)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 16:38"
   },
   {
     "id": "C9-13",
@@ -227,7 +238,8 @@
     "comentario_tp3": "Difencia minimas en diseño",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #12, #13, #21, #33, #34 (Express)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 16:31"
   },
   {
     "id": "C9-14",
@@ -247,7 +259,8 @@
     "comentario_tp3": "Diseño cambia con el ancho de la pantalla",
     "nota_tp6": 9,
     "comentario_tp6": "Son iguales: #14, #33",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 11:54"
   },
   {
     "id": "C9-15",
@@ -265,7 +278,8 @@
     "tp6": false,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minimas en diseño;Usa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "No subido"
   },
   {
     "id": "C9-16",
@@ -285,7 +299,8 @@
     "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 6,
     "comentario_tp3": "No incrementa el producto;No realiza la edición en el lugar;Los formulario se muestra en otra pagina;El diseño no se respeta",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "21-Jun 22:50"
   },
   {
     "id": "C9-17",
@@ -301,7 +316,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-18",
@@ -319,7 +335,8 @@
     "tp6": false,
     "nota_tp3": 9,
     "comentario_tp3": "El diseño es diferente",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-19",
@@ -339,7 +356,8 @@
     "comentario_tp3": "Diferencia minima en diseño formulario",
     "nota_tp6": 7,
     "comentario_tp6": "No tiene instalada express-sesion;Son iguales: #19, #22 (Express, React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 15:52"
   },
   {
     "id": "C9-20",
@@ -359,7 +377,8 @@
     "comentario_tp3": "Diseño cambia con el ancho de navegador",
     "nota_tp6": 9,
     "comentario_tp6": "Falta libreria JSonWebToken",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "13-Jun 00:33"
   },
   {
     "id": "C9-21",
@@ -379,7 +398,8 @@
     "comentario_tp3": "Validación muy extraña en *cancelar*",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 00:39"
   },
   {
     "id": "C9-22",
@@ -399,7 +419,8 @@
     "comentario_tp3": "Diseño cambia con ancho pantalla.;Botones en ingles!!",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #19, #22 (Express, React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "20-Jun 15:26"
   },
   {
     "id": "C9-23",
@@ -415,7 +436,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-24",
@@ -435,7 +457,8 @@
     "comentario_tp3": "No realiza el conteo ni la edicion en el lugar",
     "nota_tp6": 9,
     "comentario_tp6": "Con errores de ortografía que producen fallas (ususario);vienvenido ¿?",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "21-Jun 12:35"
   },
   {
     "id": "C9-25",
@@ -455,7 +478,8 @@
     "comentario_tp3": "Diferencia mínima en el diseño",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "30-Jun 20:51"
   },
   {
     "id": "C9-26",
@@ -475,7 +499,8 @@
     "comentario_tp3": "Los iconos se salen del Mostrar;Agrega \"key\" fuera de la generacion de una lista",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 19:07"
   },
   {
     "id": "C9-27",
@@ -493,7 +518,8 @@
     "tp6": true,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño;Curiosidad usa 27 \"text-overflow: ellipsis\"",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "01-Jul 23:11"
   },
   {
     "id": "C9-28",
@@ -513,7 +539,8 @@
     "comentario_tp3": "No se puede cancelar \"Alta\"",
     "nota_tp6": 7,
     "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "26-Jun 23:29"
   },
   {
     "id": "C9-29",
@@ -533,7 +560,8 @@
     "comentario_tp3": "Diferencia minima en diseño;El orden alfabetico es el mejor resuelto;Identico a *38 - 59169 - Zarlenga, Tobias*",
     "nota_tp6": 10,
     "comentario_tp6": "¿agaunte river?",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 18:50"
   },
   {
     "id": "C9-30",
@@ -549,7 +577,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-31",
@@ -569,7 +598,8 @@
     "comentario_tp3": "Diferencias minimas en diseño",
     "nota_tp6": 10,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
-    "estado": "promocionado"
+    "estado": "promocionado",
+    "subio": "21-Jun 12:24"
   },
   {
     "id": "C9-32",
@@ -589,7 +619,8 @@
     "comentario_tp3": "No realiza el conteo;Cuando se hace mas de 1 editar en el lugar falla y no se recupera",
     "nota_tp6": 5,
     "comentario_tp6": "No entendio la consiga, solo hizo react",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "01-Jul 03:30"
   },
   {
     "id": "C9-33",
@@ -609,7 +640,8 @@
     "comentario_tp3": "Al realizar edicion en el lugar no oculta el mostrar ",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34;Son iguales: #12, #13, #21, #33, #34 (Express);Son iguales: #14, #33 (React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 20:22"
   },
   {
     "id": "C9-34",
@@ -629,7 +661,8 @@
     "comentario_tp3": "Diferencias minimas en diseño",
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales #21, #34 (React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "21-Jun 19:36"
   },
   {
     "id": "C9-35",
@@ -649,7 +682,8 @@
     "comentario_tp3": "Usa regex para validar EAN;Faltaba cerrar un div y habia un margin -105 que rompia el diseño",
     "nota_tp6": 7,
     "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "20-Jun 12:42"
   },
   {
     "id": "C9-36",
@@ -669,7 +703,8 @@
     "comentario_tp3": "Realiza copia de array antes de ordenar",
     "nota_tp6": 9,
     "comentario_tp6": "Pone todos los formularios en una misma pagina",
-    "estado": "regular"
+    "estado": "regular",
+    "subio": "03-Jul 00:49"
   },
   {
     "id": "C9-37",
@@ -685,7 +720,8 @@
     "tp4": false,
     "tp5": false,
     "tp6": false,
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   },
   {
     "id": "C9-38",
@@ -703,6 +739,7 @@
     "tp6": false,
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño;Identico *29 - 59110 - Soria, Joaquin*",
-    "estado": "libre"
+    "estado": "libre",
+    "subio": "No subido"
   }
 ]
