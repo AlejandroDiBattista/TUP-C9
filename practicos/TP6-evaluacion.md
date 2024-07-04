@@ -6,7 +6,7 @@
 
 ## 04 - 58876 - Diaz, Manuel Lautaro
 - Nota: 7
-- Son iguales #04, #07, #16
+- Son iguales: #04, #07, #16
 
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
 - Nota: 10
@@ -17,7 +17,7 @@
 
 ## 07 - 58689 - Juarez Alvarado, Agostina
 - Nota: 7
-- Son iguales #04, #07, #16
+- Son iguales: #04, #07, #16
 - No funciona porque usar import dentro de main.jsx
 
 ## 08 - 59058 - Monaco Torrente, Matias
@@ -32,32 +32,36 @@
 - Nota: 7
 - Perfecto
 - Solo falta que al registrar vuelva a la pantalla principal
-- Son iguales #12, #13, #21, #33, #34 (Express)
+- Son iguales: #12, #13, #21, #33, #34 (Express)
 
 ## 13 - 58869 - Perez, Enzo Matias
 - Nota: 7
-- Son iguales #12, #13, #21, #33, #34 (Express)
+- Son iguales: #12, #13, #21, #33, #34 (Express)
 
 ## 14 - 59313 - Pisentte, Juan Pablo
 - Nota: 9
-- Son iguales #14, #33
+- Son iguales: #14, #33
 
 ## 16 - 58874 - Rigazio, Malena Soledad
 - Nota: 7
-- Son iguales #04, #07, #16
+- Son iguales: #04, #07, #16
 
 ## 19 - 59057 - Rocha, Lourdes Gabriela
 - Nota: 7
 - No tiene instalada express-sesion
-- Son iguales #19, #22 (Express, React)
+- Son iguales: #19, #22 (Express, React)
 
 ## 20 - 58879 - Ruiu, Andrés
 - Nota: 9
 - Falta libreria JSonWebToken
 
+## 21 - 59073 - Ruiz, Tomas Federico
+- Nota: 7
+- Son iguales: #21, #25, #27, #31, #34
+
 ## 22 - 58847 - Sanchez, Tomas Emanuel
 - Nota: 7
-- Son iguales #19, #22 (Express, React)
+- Son iguales: #19, #22 (Express, React)
 
 ## 24 - 59055 - Saravia, Franco Nicolas
 - Nota: 9
@@ -65,24 +69,28 @@
 - vienvenido ¿?
 
 ## 25 - 59933 - Saucedo, Lucas Nahuel
-- Nota: 10
+- Nota: 7
+- Son iguales: #21, #25, #27, #31, #34
 
 ## 26 - 59320 - Sbrocco, Micaela
 - Nota: 10
 
+## 27 - 
+- Nota: 7
+- Son iguales: #21, #25, #27, #31, #34
+
 ## 28 - 59059 - Soraire, Elias Nicolás
 - Nota: 7
 - Falta libreria express-session
-- Son iguales #28, #35 (Express, React)
+- Son iguales: #28, #35 (Express, React)
 
 ## 29 - 59110 - Soria, Joaquin
 - Nota: 10
 - ¿agaunte river?
 
 ## 31 - 58846 - Sosa, Franco Maximiliano
-- Nota: 1
-- No funciona
-- Ver porque JSX en Express
+- Nota: 10 ?
+- Son iguales: #21, #25, #27, #31, #34
 
 ## 32 - 59084 - Taboada, Jose Manuel
 - Nota: 5
@@ -90,13 +98,18 @@
 
 ## 33 - 59074 - Teseyra, Juan Ignacio
 - Nota: 7
-- Son iguales #12, #13, #21, #33, #34 (Express)
-- Son iguales #14, #33 (React)
+- Son iguales: #21, #25, #27, #31, #34
+- Son iguales: #12, #13, #21, #33, #34 (Express)
+- Son iguales: #14, #33 (React)
+
+## 34 - 58866 - Velazquez, Tobias Alejo
+- Nota: ?
+- Son iguales: #21, #25, #27, #31, #34
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
 - Nota: 7
 - Falta libreria express-session
-- Son iguales #28, #35 (Express, React)
+- Son iguales: #28, #35 (Express, React)
 
 ## 36 - 59314 - Yepura, Ramón Alejandro
 - Nota: 9
