@@ -1,40 +1,83 @@
-# Trabajo Práctico 6
+# Resultado Final
 
 
-Este trabajo se considera como el *segundo parcial*.
 
-> Les recuerdo que para regularizar la materia deben tener un 75% de asistencias y los parciales aprobados.
-> El control de la asistencia se realiza con la presentación de los trabajos prácticos.
+#### Promocionados
+1. 58842 - **Fernandez Licciardi**, Mauricio       
+1. 59310 - **Paz Berrondo**, Nahuel Agus           
+1. 59313 - **Pisentte**, Juan Pablo                
+1. 58879 - **Ruiu**, Andrés                        
+1. 59110 - **Soria**, Joaquin                      
+1. 58846 - **Sosa**, Franco Maximiliano            
+1. 59314 - **Yepura**, Ramón Alejandro             
 
-> Aquellos que no han presentado alguno de los prácticos anteriores pueden hacerlo como última oportunidad hasta el **viernes 21 de junio**. Luego de esa fecha, no podrán recuperar las inasistencias.
+#### Regulares
+1. 59336 - **Bulan Georgieff**, Alexander          
+1. 59053 - **Guzmán**, Esteban Leonel              
+1. 58689 - **Juarez Alvarado**, Agostina           
+1. 58679 - **Pereyra**, Franco Sebastián           
+1. 58869 - **Perez**, Enzo Matias                  
+1. 59057 - **Rocha**, Lourdes Gabriela             
+1. 59073 - **Ruiz**, Tomas Federico                
+1. 58847 - **Sanchez**, Tomas Emanuel              
+1. 59933 - **Saucedo**, Lucas Nahuel               
+1. 59320 - **Sbrocco**, Micaela                    
+1. 59568 - **Serrano**, Lorenzo                    
+1. 59059 - **Soraire**, Elias Nicolás              
+1. 58866 - **Velazquez**, Tobias Alejo             
+1. 59056 - **Villafañe**, Lucas Gastón             
 
-## Gestión de sesiones
+#### Libres
+1. 59429 - **Caldez**, María Valentina             
+1. 58690 - **Diaz**, Facundo Gabriel               
+1. 58876 - **Diaz**, Manuel Lautaro                
+1. 59058 - **Monaco Torrente**, Matias             
+1. 55773 - **Morhell**, Amín Gabriel               
+1. 52142 - **Reyes Gordillo**, Rodrigo M           
+1. 58874 - **Rigazio**, Malena Soledad             
+1. 59389 - **Rivas**, Carlos Agustin               
+1. 58222 - **Rivero**, Lucas Gabriel               
+1. 59082 - **Santin**, Lautaro                     
+1. 59055 - **Saravia**, Franco Nicolas             
+1. 59309 - **Soria**, Nicole                       
+1. 59084 - **Taboada**, Jose Manuel                
+1. 59074 - **Teseyra**, Juan Ignacio               
+1. 58730 - **Yñigo Lopez**, Lourdes Sofi           
+1. 59169 - **Zarlenga**, Tobias                    
+---
+## ¿Cómo se rinde el examen final?
 
-El objetivo de este trabajo es realizar la gestión básica de una sesión.
+Para rendir, debes desarrollar y defender una aplicación que:
 
-Debe hacer:
-- **Registrar**: Un formulario que permita registrar un usuario y contraseña.
-- **Login**: Un formulario que permita ingresar usuario y contraseña y verifique que es un usuario válido. En cuyo caso, debe quedar logueado.
-- **Logout**: Un botón que permita cerrar la sesión.
-- **Info**: Una página que solo permita ver la información si está logueado.
+> **Implemente una agenda de contactos multiusuario**
 
-> [!TIP]
->
-> **Instrucciones para la presentación del trabajo**
-> 
-> 1. Cambiar a la rama principal (main).
-> 2. Descargar la última versión del repositorio del curso (fetch).
-> 3. Crear una nueva rama para tus cambios (new branch) (TP6-{alumno}).
-> 4. Abrir la carpeta correspondiente a tu nombre de usuario (practicos/{alumno}/TP6).
-> 5. *Debe implementar las pantallas en public/main.jsx*
-> 6. *Debe implementar el API en servidor.js*
-> 7. Confirmar los cambios (commit).
-> 8. Realizar una solicitud de publicación (pull request).
-> 9. Revisar que el pull request esté subido (solapa pull request en GitHub).
+La misma debe ser desarrollada en *React*, implementando la funcionalidad usando *Express* y persistiendo los datos con *MongoDB*.
 
-*Los cambios no aparecerán en el repositorio principal hasta que se acepte el pull request el día del vencimiento del plazo para entregar el trabajo.*
+La defensa consistirá en ejecutar la aplicación para mostrar la funcionalidad y, si está correctamente implementada, deberás mostrar el código fuente y explicar cómo funcionan las partes que se te indiquen.
 
-> [!NOTE]
-> Fecha de entrega: 
-> - *Viernes 21 de JUNIO hasta las 23:00hs*
+### Funcionalidad requerida
+1. En la esquina superior izquierda debe ir el nombre del sitio.
+2. En la esquina superior derecha deben haber dos botones: "Registrar" e "Ingresar", cuando no haya ningún usuario identificado.
+3. Cuando el usuario haya ingresado, en la esquina izquierda debe estar el nombre del usuario y un botón "Salir".
+4. Al pulsar en el nombre del usuario se debera poder editar los datos del mismo.
+5. El sitio debe mostrar inicialmente una lista de contactos públicos ordenados por apellido y nombre.
+6. El usuario que se registre podrá agregar nuevos contactos.
+7. Los usuarios, al identificarse, podrán ver sus propios contactos y los contactos públicos que estén visibles.
+8. Los usuarios son propietarios de los contactos que crean, siempre podrán visualizar sus contactos, editarlos o borrarlos. 
+9. Los usuarios podrán hacer público o poner privado sus contactos mediante un botón asociado a los mismos.
+10. Las altas y la edición, así como la registración y el ingreso, se deben hacer en una página separada y, al completar la misma, debe regresar a la página principal.
+11. Debe existir un usuario administrador que pueda visualizar todos los contactos, ya sean públicos o privados, estén visibles o no.
+12. El usuario administrador puede ocultar o mostrar los contactos públicos mediante un botón que aparece en cada contacto.
+13. Los usuarios se deben guardar como contactos privados con una contraseña asociada. 
+14. Los usuarios no deberan aparecer en el listado de contactos.
 
+Los contactos deben tener:
+- Nombre y Apellido (obligatorio)
+- Empresa     
+- Domicilio   
+- Teléfonos 
+- Email       (obligatorio)
+- Propietario (usuario que lo creó)
+- Es Público  (definido por el usuario propietario)
+- Es Visible  (definido por el administrador)
+- Contraseña  (en caso de ser un usuario)
