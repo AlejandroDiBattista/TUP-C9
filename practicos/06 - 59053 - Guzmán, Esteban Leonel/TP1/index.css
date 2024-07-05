@@ -1,7 +1,47 @@
-body {
-    background-color: #f0f0f0;
+
+.presentation {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+  }
+
+  .agenda {
     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 600px;
+  }
+
+  .agenda h1 {
+    color: #333;
+  }
+  
+  .agenda h1 {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+
+  .contacto {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .contacto h2 {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  }
+  
+  .contacto h3 {
+    margin: 5px 0;
+    color: #888;
+  }
+  .header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  

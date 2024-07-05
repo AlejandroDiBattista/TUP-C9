@@ -77,7 +77,8 @@
 - Son iguales: #21, #25, #27, #31, #34
 
 ## 27 - 59568 - Serrano, Lorenzo
-- Nota: 0
+- Nota: 7
+- Son iguales: #21, #25, #27, #31, #34
 
 ## 28 - 59059 - Soraire, Elias Nicolás
 - Nota: 7
@@ -103,7 +104,8 @@
 - Son iguales: #14, #33 (React)
 
 ## 34 - 58866 - Velazquez, Tobias Alejo
-- Nota: 0
+- Nota: 7
+- Son iguales: #21, #25, #27, #31, #34
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
 - Nota: 7
