@@ -16,33 +16,33 @@ let usuarios = [];
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/api/registro', (req, res) => { 
+app.post('/api/registro', (req, res) => {
     const { nombreUsuario, contrasena } = req.body;
     if (usuarios.find(usuario => usuario.nombreUsuario === nombreUsuario)) {
-        return res.status(400).json({mensaje: 'El usuario ya existe'});
+        return res.status(400).json({ mensaje: 'El usuario ya existe' });
     }
-    usuarios.push({nombreUsuario, contrasena});
-    return res.status(200).json({mensaje: 'Usuario registrado exitosamente'});
+    usuarios.push({ nombreUsuario, contrasena });
+    return res.status(200).json({ mensaje: 'Usuario registrado exitosamente' });
 });
 
-app.post('/api/inicio-sesion', (req, res) => {  
+app.post('/api/inicio-sesion', (req, res) => {
     const { nombreUsuario, contrasena } = req.body;
     const usuario = usuarios.find(usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena === contrasena);
     if (!usuario) {
-        return res.status(401).json({mensaje: 'Credenciales incorrectas'});
+        return res.status(401).json({ mensaje: 'Credenciales incorrectas' });
     }
     req.session.usuario = usuario;
-    res.json({mensaje: 'Inicio de sesión exitoso', usuario});
+    res.json({ mensaje: 'Inicio de sesión exitoso', usuario });
 });
 
-app.post('/api/cierre-sesion', (req, res) => {  
+app.post('/api/cierre-sesion', (req, res) => {
     req.session.destroy();
-    res.json({mensaje: 'Cierre de sesión exitoso'});
+    res.json({ mensaje: 'Cierre de sesión exitoso' });
 });
 
 app.get('/api/info', (req, res) => {
     if (!req.session.usuario) {
-        return res.status(401).json({mensaje: 'No autorizado'});
+        return res.status(401).json({ mensaje: 'No autorizado' });
     }
     res.json({ usuario: req.session.usuario });
 });
