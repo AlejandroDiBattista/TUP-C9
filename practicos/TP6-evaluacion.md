@@ -73,8 +73,7 @@
 - Son iguales: #21, #25, #27, #31, #34
 
 ## 26 - 59320 - Sbrocco, Micaela
-- Nota: 7
-- Son iguales: #21, #25, #27, #31, #34
+- Nota: 10
 
 ## 27 - 59568 - Serrano, Lorenzo
 - Nota: 7
@@ -83,7 +82,7 @@
 ## 28 - 59059 - Soraire, Elias Nicolás
 - Nota: 7
 - Falta libreria express-session
-- Son iguales: #28, #35 (Express, React)
+- Se baso en #35
 
 ## 29 - 59110 - Soria, Joaquin
 - Nota: 10
@@ -108,9 +107,8 @@
 - Son iguales: #21, #25, #27, #31, #34
 
 ## 35 - 59056 - Villafañe, Lucas Gastón
-- Nota: 7
+- Nota: 9
 - Falta libreria express-session
-- Son iguales: #28, #35 (Express, React)
 
 ## 36 - 59314 - Yepura, Ramón Alejandro
 - Nota: 9

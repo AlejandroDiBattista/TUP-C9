@@ -7,8 +7,10 @@
 1. 59310 - **Paz Berrondo**, Nahuel Agus           
 1. 59313 - **Pisentte**, Juan Pablo                
 1. 58879 - **Ruiu**, Andrés                        
+1. 59320 - **Sbrocco**, Micaela                    
 1. 59110 - **Soria**, Joaquin                      
 1. 58846 - **Sosa**, Franco Maximiliano            
+1. 59056 - **Villafañe**, Lucas Gastón             
 1. 59314 - **Yepura**, Ramón Alejandro             
 
 #### Regulares
@@ -21,11 +23,9 @@
 1. 59073 - **Ruiz**, Tomas Federico                
 1. 58847 - **Sanchez**, Tomas Emanuel              
 1. 59933 - **Saucedo**, Lucas Nahuel               
-1. 59320 - **Sbrocco**, Micaela                    
 1. 59568 - **Serrano**, Lorenzo                    
 1. 59059 - **Soraire**, Elias Nicolás              
 1. 58866 - **Velazquez**, Tobias Alejo             
-1. 59056 - **Villafañe**, Lucas Gastón             
 
 #### Libres
 1. 59429 - **Caldez**, María Valentina             

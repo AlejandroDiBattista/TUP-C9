@@ -4,15 +4,14 @@ import morgan from 'morgan';
 
 const app = express();
 
+
+
+
 app.use(morgan('dev')); // Loggea cada request en consola
 app.use(cookieParser()); // Para leer cookies
 app.use(express.json()); // Para leer JSONs
 app.use(express.static('public')); // Para servir archivos estáticos
 
-// Implementar las rutas necesarias
-app.listen(3000, () => {
-    console.log('Servidor iniciado en http://localhost:3000');
-});
 
 let usuarios = [];
 
@@ -29,6 +28,11 @@ function verificarUsuario(req, res, next) {
     req.usuario = usuario;
     next();
 }
+
+app.get('/info', verificarUsuario, (req, res) => {
+    let usuario = req.usuario;
+    res.send(`Información: agaunte river`);
+});
 
 app.post('/registrar', (req, res) => {
     let { user, password } = req.body; // Extraído datos
@@ -62,7 +66,8 @@ app.post('/logout', verificarUsuario, (req, res) => {
     res.send('Sesión cerrada con éxito.');
 });
 
-app.get('/info', verificarUsuario, (req, res) => {
-    let usuario = req.usuario;
-    res.send(`Información: agaunte river`);
+
+// Implementar las rutas necesarias
+app.listen(3000, () => {
+    console.log('Servidor iniciado en http://localhost:3000');
 });

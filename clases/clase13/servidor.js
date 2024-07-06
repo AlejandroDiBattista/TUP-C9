@@ -6,6 +6,17 @@ const app = express()
 app.use(morgan('dev'))
 app.use(express.json())
 
+
+
+
+
+
+
+
+
+
+
+
 let usuarios = []
 
 function verificarUsuario(req, res, next) {
@@ -19,7 +30,6 @@ function verificarUsuario(req, res, next) {
         res.send('Operacion no autorizada')
     }
 }
-
 
 app.get('/usuarios', (req, res) => {
     // NO SE HACE NUNCA (solo para la clase)

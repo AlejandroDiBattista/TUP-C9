@@ -497,8 +497,8 @@
     "tp6": true,
     "nota_tp3": 9,
     "comentario_tp3": "Los iconos se salen del Mostrar;Agrega \"key\" fuera de la generacion de una lista",
-    "nota_tp6": 7,
-    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
+    "nota_tp6": 10,
+    "comentario_tp6": "",
     "estado": "regular",
     "subio": "21-Jun 19:07"
   },
@@ -540,7 +540,7 @@
     "nota_tp3": 9,
     "comentario_tp3": "No se puede cancelar \"Alta\"",
     "nota_tp6": 7,
-    "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
+    "comentario_tp6": "Falta libreria express-session;Se baso en #35",
     "estado": "regular",
     "subio": "26-Jun 23:29"
   },
@@ -682,9 +682,9 @@
     "tp6": true,
     "nota_tp3": 9,
     "comentario_tp3": "Usa regex para validar EAN;Faltaba cerrar un div y habia un margin -105 que rompia el diseño",
-    "nota_tp6": 7,
-    "comentario_tp6": "Falta libreria express-session;Son iguales: #28, #35 (Express, React)",
-    "estado": "regular",
+    "nota_tp6": 9,
+    "comentario_tp6": "Falta libreria express-session",
+    "estado": "promocionado",
     "subio": "20-Jun 12:42"
   },
   {
