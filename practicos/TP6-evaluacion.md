@@ -90,7 +90,6 @@
 
 ## 31 - 58846 - Sosa, Franco Maximiliano
 - Nota: 10
-- Son iguales: #21, #25, #27, #31, #34
 
 ## 32 - 59084 - Taboada, Jose Manuel
 - Nota: 5
