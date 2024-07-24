@@ -1,14 +1,6 @@
 # Resultado Final - Comisión 9
 (Estamos revisando el material, puede haber cambios)
 
-## RECUPERACIÓN
-> [!NOTE]
-> Estos alumnos tienen hasta el *miercoles 10* para presentar las correcciones
->
-59053 - **Guzmán**, Esteban Leonel                <img src="./material/verde.png" width="4" height="4"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6">
-> **Presentar: TP2**
->
-
 
 #### Promocionados
 1. 58842 - **Fernandez Licciardi**, Mauricio         <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6">
@@ -25,6 +17,7 @@
 1. 59336 - **Bulan Georgieff**, Alexander            <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6">
 1. 58690 - **Diaz**, Facundo Gabriel                 <img src="./material/rojo.png" width="4" height="4"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/rojo.png" width="6" height="6">
 1. 58689 - **Juarez Alvarado**, Agostina             <img src="./material/verde.png" width="4" height="4"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6">
+1. 59053 - **Guzmán**, Esteban Leonel                <img src="./material/verde.png" width="4" height="4"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6">
 1. 59058 - **Monaco Torrente**, Matias               <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/rojo.png" width="4" height="4"> <img src="./material/rojo.png" width="6" height="6">
 1. 58679 - **Pereyra**, Franco Sebastián             <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6">
 1. 58869 - **Perez**, Enzo Matias                    <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="6" height="6"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/verde.png" width="4" height="4"> <img src="./material/amarillo.png" width="6" height="6">
