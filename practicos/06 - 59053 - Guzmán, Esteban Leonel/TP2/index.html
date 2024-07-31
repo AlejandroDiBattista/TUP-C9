@@ -10,9 +10,9 @@
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <title>Demo 1</title>
+    <title>59053</title>
     <style>
-        /* reset */
+      
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -42,7 +42,7 @@
             flex-wrap: wrap;
             justify-content: start;
 
-            >div {
+            > div {
                 text-align: center;
                 width: 240px;
                 height: 96px;
@@ -52,6 +52,9 @@
                     position: absolute;
                     top: 8px;
                     right: 8px;
+                    font-size: 20px;
+                    color: gold;
+                    cursor: pointer;
                 }
 
                 div {
@@ -107,7 +110,7 @@
 <body>
     <div id="root"></div>
     <script>
-        const datos = [
+        const initialData = [
             { id: 1, nombre: 'Juan', apellido: 'Perez', telefono: '(381) 123-4567', favorito: true },
             { id: 2, nombre: 'Maria', apellido: 'Gomez', telefono: '(381) 123-4567', favorito: false },
             { id: 3, nombre: 'Pedro', apellido: 'Gonzalez', telefono: '(381) 123-4567', favorito: true },
@@ -127,31 +130,75 @@
             { id: 17, nombre: 'Agustina', apellido: 'Ortiz', telefono: '(381) 123-4567', favorito: true },
             { id: 18, nombre: 'Matias', apellido: 'Luna', telefono: '(381) 123-4567', favorito: false },
             { id: 19, nombre: 'Cecilia', apellido: 'Carrizo', telefono: '(381) 123-4567', favorito: true },
-            { id: 20, nombre: 'Facundo', apellido: 'Paez', telefono: '(381) 123-4567', favorito: false }
-        ]
+            { id: 20, nombre: 'Facundo', apellido: 'Paez', telefono: '(381) 123-4567', favorito: false },
+        ];
     </script>
 
     <script type="text/babel">
-        const { createRoot } = ReactDOM
+        const { useState } = React;
 
-        const Contacto = ({ nombre, apellido, telefono }) =>
+        const Contacto = ({ id, nombre, apellido, telefono, favorito, toggleFavorito }) => (
             <div className="card">
-                <div>{nombre} <b>{apellido}</b></div>
+                <div>
+                    {nombre} <b>{apellido}</b>
+                    <span onClick={() => toggleFavorito(id)}>
+                        {favorito ? <i className="fa-solid fa-star"></i> : <i className="fa-regular fa-star"></i>}
+                    </span>
+                </div>
                 <div>{telefono}</div>
             </div>
+        );
 
-        const Agenda = ({ datos }) =>
-            <div className="agenda">
-                {datos.map(contacto => <Contacto key={contacto.id} {...contacto} />)}
-            </div>
+        const Agenda = ({ datos, toggleFavorito }) => {
+            const sortAlphabetically = (a, b) => {
+                const apellidoComparison = a.apellido.localeCompare(b.apellido);
+                if (apellidoComparison !== 0) return apellidoComparison;
+                return a.nombre.localeCompare(b.nombre);
+            };
 
-        const App = () =>
-            <div>
-                <h1>Agenda</h1>
-                <Agenda datos={datos} />
-            </div>
+      
+            const favoritos = datos.filter(contacto => contacto.favorito);
+            const noFavoritos = datos.filter(contacto => !contacto.favorito);
 
-        const root = createRoot(document.getElementById('root'))
+            const sortedFavoritos = favoritos.sort(sortAlphabetically);
+            const sortedNoFavoritos = noFavoritos.sort(sortAlphabetically);
+
+
+            const sortedDatos = sortedFavoritos.concat(sortedNoFavoritos);
+
+            return (
+                <div className="agenda">
+                    {sortedDatos.map(contacto => (
+                        <Contacto 
+                            key={contacto.id} 
+                            {...contacto} 
+                            toggleFavorito={toggleFavorito}
+                        />
+                    ))}
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [datos, setDatos] = useState(initialData);
+
+            const toggleFavorito = (id) => {
+                setDatos(prevDatos => prevDatos.map(contacto => 
+                    contacto.id === id
+                        ? { ...contacto, favorito: !contacto.favorito }
+                        : contacto
+                ));
+            };
+
+            return (
+                <div>
+                    <h1>Agenda</h1>
+                    <Agenda datos={datos} toggleFavorito={toggleFavorito} />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
 </body>
