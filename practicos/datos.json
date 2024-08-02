@@ -18,7 +18,8 @@
     "nota_tp6": 8,
     "comentario_tp6": "Muestra formulario Registrar/Login simultaneos y se editan juntos!",
     "estado": "regular",
-    "subio": "30-Jun 01:38"
+    "subio": "30-Jun 01:38",
+    "nota": 8
   },
   {
     "id": "C9-02",
@@ -35,7 +36,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-03",
@@ -54,7 +56,8 @@
     "nota_tp3": 6,
     "comentario_tp3": "No respeta el diseño;No implementa el incremento",
     "estado": "regular",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 5
   },
   {
     "id": "C9-04",
@@ -75,7 +78,8 @@
     "nota_tp3": 7,
     "comentario_tp3": "No incrementa el contador;No realiza al edicion en el lugar;La edicion y la alta la realiza en otra pagina",
     "estado": "libre",
-    "subio": "20-Jun 14:41"
+    "subio": "20-Jun 14:41",
+    "nota": 1
   },
   {
     "id": "C9-05",
@@ -96,7 +100,8 @@
     "nota_tp6": 10,
     "comentario_tp6": "Perfecto, estetica cuidada, navegacion correcta",
     "estado": "promocionado",
-    "subio": "21-Jun 01:26"
+    "subio": "21-Jun 01:26",
+    "nota": 10
   },
   {
     "id": "C9-06",
@@ -107,7 +112,7 @@
     "inicial": "ELG",
     "ubicacion": "./06 - 59053 - Guzmán, Esteban Leonel",
     "tp1": true,
-    "tp2": false,
+    "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": true,
@@ -117,7 +122,8 @@
     "nota_tp6": 10,
     "comentario_tp6": "",
     "estado": "recuperar",
-    "subio": "21-Jun 18:01"
+    "subio": "21-Jun 18:01",
+    "nota": 8
   },
   {
     "id": "C9-07",
@@ -138,7 +144,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #04, #07, #16;No funciona porque usar import dentro de main.jsx",
     "estado": "regular",
-    "subio": "21-Jun 12:13"
+    "subio": "21-Jun 12:13",
+    "nota": 7
   },
   {
     "id": "C9-08",
@@ -159,7 +166,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "Muestra simultaneamente Registrar y Login",
     "estado": "regular",
-    "subio": "21-Jun 13:31"
+    "subio": "21-Jun 13:31",
+    "nota": 8
   },
   {
     "id": "C9-09",
@@ -176,7 +184,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-10",
@@ -197,7 +206,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "No cierra el formulario de registrar al aceptar",
     "estado": "promocionado",
-    "subio": "21-Jun 00:45"
+    "subio": "21-Jun 00:45",
+    "nota": 10
   },
   {
     "id": "C9-12",
@@ -218,7 +228,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Perfecto;Solo falta que al registrar vuelva a la pantalla principal;Son iguales: #12, #13, #21, #33, #34 (Express)",
     "estado": "regular",
-    "subio": "21-Jun 16:38"
+    "subio": "21-Jun 16:38",
+    "nota": 8
   },
   {
     "id": "C9-13",
@@ -239,7 +250,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #12, #13, #21, #33, #34 (Express)",
     "estado": "regular",
-    "subio": "21-Jun 16:31"
+    "subio": "21-Jun 16:31",
+    "nota": 8
   },
   {
     "id": "C9-14",
@@ -260,7 +272,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "Son iguales: #14, #33",
     "estado": "promocionado",
-    "subio": "21-Jun 11:54"
+    "subio": "21-Jun 11:54",
+    "nota": 10
   },
   {
     "id": "C9-15",
@@ -279,7 +292,8 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia minimas en diseño;Usa formulario \"no controlado\" en donde *manejaCambio* se usa fuera del formulario",
     "estado": "regular",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 8
   },
   {
     "id": "C9-16",
@@ -300,7 +314,8 @@
     "nota_tp3": 6,
     "comentario_tp3": "No incrementa el producto;No realiza la edición en el lugar;Los formulario se muestra en otra pagina;El diseño no se respeta",
     "estado": "libre",
-    "subio": "21-Jun 22:50"
+    "subio": "21-Jun 22:50",
+    "nota": 1
   },
   {
     "id": "C9-17",
@@ -317,7 +332,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-18",
@@ -336,7 +352,8 @@
     "nota_tp3": 9,
     "comentario_tp3": "El diseño es diferente",
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-19",
@@ -357,7 +374,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "No tiene instalada express-sesion;Son iguales: #19, #22 (Express, React)",
     "estado": "regular",
-    "subio": "21-Jun 15:52"
+    "subio": "21-Jun 15:52",
+    "nota": 8
   },
   {
     "id": "C9-20",
@@ -378,7 +396,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "Falta libreria JSonWebToken",
     "estado": "promocionado",
-    "subio": "13-Jun 00:33"
+    "subio": "13-Jun 00:33",
+    "nota": 10
   },
   {
     "id": "C9-21",
@@ -399,7 +418,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular",
-    "subio": "21-Jun 00:39"
+    "subio": "21-Jun 00:39",
+    "nota": 8
   },
   {
     "id": "C9-22",
@@ -420,7 +440,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #19, #22 (Express, React)",
     "estado": "regular",
-    "subio": "20-Jun 15:26"
+    "subio": "20-Jun 15:26",
+    "nota": 8
   },
   {
     "id": "C9-23",
@@ -437,7 +458,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-24",
@@ -458,7 +480,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "Con errores de ortografía que producen fallas (ususario);vienvenido ¿?",
     "estado": "libre",
-    "subio": "21-Jun 12:35"
+    "subio": "21-Jun 12:35",
+    "nota": 1
   },
   {
     "id": "C9-25",
@@ -479,7 +502,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular",
-    "subio": "30-Jun 20:51"
+    "subio": "30-Jun 20:51",
+    "nota": 8
   },
   {
     "id": "C9-26",
@@ -500,7 +524,8 @@
     "nota_tp6": 10,
     "comentario_tp6": "",
     "estado": "promocionado",
-    "subio": "21-Jun 19:07"
+    "subio": "21-Jun 19:07",
+    "nota": 10
   },
   {
     "id": "C9-27",
@@ -521,7 +546,8 @@
     "estado": "regular",
     "subio": "01-Jul 23:11",
     "nota_tp6": 7,
-    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34"
+    "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
+    "nota": 8
   },
   {
     "id": "C9-28",
@@ -542,7 +568,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Falta libreria express-session;Se baso en #35",
     "estado": "regular",
-    "subio": "26-Jun 23:29"
+    "subio": "26-Jun 23:29",
+    "nota": 8
   },
   {
     "id": "C9-29",
@@ -563,7 +590,8 @@
     "nota_tp6": 10,
     "comentario_tp6": "¿agaunte river?",
     "estado": "promocionado",
-    "subio": "21-Jun 18:50"
+    "subio": "21-Jun 18:50",
+    "nota": 10
   },
   {
     "id": "C9-30",
@@ -580,7 +608,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-31",
@@ -601,7 +630,8 @@
     "nota_tp6": 10,
     "comentario_tp6": "",
     "estado": "promocionado",
-    "subio": "21-Jun 12:24"
+    "subio": "21-Jun 12:24",
+    "nota": 10
   },
   {
     "id": "C9-32",
@@ -622,7 +652,8 @@
     "nota_tp6": 5,
     "comentario_tp6": "No entendio la consiga, solo hizo react",
     "estado": "libre",
-    "subio": "01-Jul 03:30"
+    "subio": "01-Jul 03:30",
+    "nota": 1
   },
   {
     "id": "C9-33",
@@ -643,7 +674,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34;Son iguales: #12, #13, #21, #33, #34 (Express);Son iguales: #14, #33 (React)",
     "estado": "regular",
-    "subio": "21-Jun 20:22"
+    "subio": "21-Jun 20:22",
+    "nota": 7
   },
   {
     "id": "C9-34",
@@ -664,7 +696,8 @@
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #21, #25, #27, #31, #34",
     "estado": "regular",
-    "subio": "21-Jun 19:36"
+    "subio": "21-Jun 19:36",
+    "nota": 8
   },
   {
     "id": "C9-35",
@@ -685,16 +718,17 @@
     "nota_tp6": 9,
     "comentario_tp6": "Falta libreria express-session",
     "estado": "promocionado",
-    "subio": "20-Jun 12:42"
+    "subio": "20-Jun 12:42",
+    "nota": 9
   },
   {
     "id": "C9-36",
     "comision": "C9",
     "orden": 36,
     "legajo": 59314,
-    "nombre": "Yepura, Ramón Alejandro",
+    "nombre": "Yapura, Ramón Alejandro",
     "inicial": "RAY",
-    "ubicacion": "./36 - 59314 - Yepura, Ramón Alejandro",
+    "ubicacion": "./36 - 59314 - Yapura, Ramón Alejandro",
     "tp1": true,
     "tp2": true,
     "tp3": true,
@@ -706,7 +740,8 @@
     "nota_tp6": 9,
     "comentario_tp6": "Pone todos los formularios en una misma pagina",
     "estado": "promocionado",
-    "subio": "03-Jul 00:49"
+    "subio": "03-Jul 00:49",
+    "nota": 10
   },
   {
     "id": "C9-37",
@@ -723,7 +758,8 @@
     "tp5": false,
     "tp6": false,
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   },
   {
     "id": "C9-38",
@@ -742,6 +778,7 @@
     "nota_tp3": 10,
     "comentario_tp3": "Diferencia mínima en diseño;Identico *29 - 59110 - Soria, Joaquin*",
     "estado": "libre",
-    "subio": "No subido"
+    "subio": "No subido",
+    "nota": 1
   }
 ]

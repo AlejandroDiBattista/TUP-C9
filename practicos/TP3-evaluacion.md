@@ -121,7 +121,7 @@
 - Usa regex para validar EAN
 - Faltaba cerrar un div y habia un margin -105 que rompia el diseño
 
-## 36 - 59314 - Yepura, Ramón Alejandro
+## 36 - 59314 - Yapura, Ramón Alejandro
 - Nota: 10
 - Realiza copia de array antes de ordenar
 
