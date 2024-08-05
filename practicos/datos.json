@@ -121,9 +121,9 @@
     "comentario_tp3": "",
     "nota_tp6": 10,
     "comentario_tp6": "",
-    "estado": "recuperar",
+    "estado": "promocionado",
     "subio": "21-Jun 18:01",
-    "nota": 8
+    "nota": 10
   },
   {
     "id": "C9-07",
@@ -303,11 +303,11 @@
     "nombre": "Rigazio, Malena Soledad",
     "inicial": "MSR",
     "ubicacion": "./16 - 58874 - Rigazio, Malena Soledad",
-    "tp1": false,
-    "tp2": false,
-    "tp3": false,
-    "tp4": false,
-    "tp5": true,
+    "tp1": true,
+    "tp2": true,
+    "tp3": true,
+    "tp4": true,
+    "tp5": false,
     "tp6": false,
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #04, #07, #16",
