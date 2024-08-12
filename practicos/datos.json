@@ -307,15 +307,15 @@
     "tp2": true,
     "tp3": true,
     "tp4": true,
-    "tp5": false,
-    "tp6": false,
+    "tp5": true,
+    "tp6": true,
     "nota_tp6": 7,
     "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 6,
     "comentario_tp3": "No incrementa el producto;No realiza la edición en el lugar;Los formulario se muestra en otra pagina;El diseño no se respeta",
-    "estado": "libre",
+    "estado": "regular",
     "subio": "21-Jun 22:50",
-    "nota": 1
+    "nota": 7
   },
   {
     "id": "C9-17",
@@ -644,7 +644,7 @@
     "tp1": false,
     "tp2": false,
     "tp3": true,
-    "tp4": false,
+    "tp4": true,
     "tp5": false,
     "tp6": false,
     "nota_tp3": 7,

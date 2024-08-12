@@ -50,6 +50,9 @@
 - Diferencia minimas en diseño
 - Usa formulario "no controlado" en donde *manejaCambio* se usa fuera del formulario
 
+## 16 - 58874 - Rigazio, Malena Soledad
+- Nota: 0
+
 ## 18 - 58222 - Rivero, Lucas Gabriel
 - Nota: 9
 - El diseño es diferente
