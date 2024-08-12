@@ -642,7 +642,7 @@
     "inicial": "JMT",
     "ubicacion": "./32 - 59084 - Taboada, Jose Manuel",
     "tp1": true,
-    "tp2": false,
+    "tp2": true,
     "tp3": true,
     "tp4": true,
     "tp5": false,
@@ -651,9 +651,9 @@
     "comentario_tp3": "No realiza el conteo;Cuando se hace mas de 1 editar en el lugar falla y no se recupera",
     "nota_tp6": 5,
     "comentario_tp6": "No entendio la consiga, solo hizo react",
-    "estado": "libre",
+    "estado": "regular",
     "subio": "01-Jul 03:30",
-    "nota": 1
+    "nota": 5
   },
   {
     "id": "C9-33",
