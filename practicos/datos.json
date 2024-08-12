@@ -645,7 +645,7 @@
     "tp2": true,
     "tp3": true,
     "tp4": true,
-    "tp5": false,
+    "tp5": true,
     "tp6": false,
     "nota_tp3": 7,
     "comentario_tp3": "No realiza el conteo;Cuando se hace mas de 1 editar en el lugar falla y no se recupera",
