@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.lista-contactos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.tarjeta {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+}
+
+.tarjeta p {
+  margin: 0;
+}

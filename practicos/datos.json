@@ -641,7 +641,7 @@
     "nombre": "Taboada, Jose Manuel",
     "inicial": "JMT",
     "ubicacion": "./32 - 59084 - Taboada, Jose Manuel",
-    "tp1": false,
+    "tp1": true,
     "tp2": false,
     "tp3": true,
     "tp4": true,
