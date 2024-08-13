@@ -77,9 +77,9 @@
     "comentario_tp6": "Son iguales: #04, #07, #16",
     "nota_tp3": 7,
     "comentario_tp3": "No incrementa el contador;No realiza al edicion en el lugar;La edicion y la alta la realiza en otra pagina",
-    "estado": "libre",
+    "estado": "regular",
     "subio": "20-Jun 14:41",
-    "nota": 1
+    "nota": 7
   },
   {
     "id": "C9-05",
@@ -346,7 +346,7 @@
     "tp1": false,
     "tp2": false,
     "tp3": true,
-    "tp4": false,
+    "tp4": true,
     "tp5": false,
     "tp6": false,
     "nota_tp3": 9,
@@ -473,7 +473,7 @@
     "tp2": false,
     "tp3": true,
     "tp4": false,
-    "tp5": false,
+    "tp5": true,
     "tp6": false,
     "nota_tp3": 7,
     "comentario_tp3": "No realiza el conteo ni la edicion en el lugar",

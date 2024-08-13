@@ -11,6 +11,9 @@
 - No respeta el diseño
 - No implementa el incremento
 
+## 04 - 58876 - Diaz, Manuel Lautaro
+- Nota: 0
+
 ## 05 - 58842 - Fernandez Licciardi, Mauricio
 - Nota: 9
 - Ubicacion de botones mal en editar
